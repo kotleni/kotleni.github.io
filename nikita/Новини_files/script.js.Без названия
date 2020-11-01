@@ -1,0 +1,305 @@
+(function($) {
+
+$(document).ready(function() {
+	
+	"use strict";
+	
+	/* ========== Sticky on scroll ========== */
+	function stickyNav() {
+
+		var scrollTop = $(window).scrollTop(),
+			noSticky = $('.no-sticky'),
+			viewportSm = $('.viewport-sm'),
+			viewportLg = $('.viewport-lg'),
+			viewportLgBody = viewportLg.parent('body'),
+			viewportLgNosticky = $('.viewport-lg.no-sticky'),
+			viewportLgNostickyBody = viewportLgNosticky.parent('body'),
+			viewportLgLogo = viewportLg.find('.logo img'),
+			viewportLgNostickyLogo = viewportLgNosticky.find('.logo img'),
+			headerTransparentLg = $('.viewport-lg.header-transparent'),
+			headerTransparentLgNosticky = $('.viewport-lg.header-transparent.no-sticky'),
+			headerTransparentLgBody = headerTransparentLg.parent('body'),
+			headerOpacityLg = $('.viewport-lg.header-opacity'),
+			headerOpacityLgNosticky = $('.viewport-lg.header-opacity.no-sticky'),
+			headerOpacityLgBody = headerOpacityLg.parent('body');
+
+		if (scrollTop > navikHeaderHeight) {
+			navikHeader.addClass('sticky');
+			viewportLgLogo.attr('src', stickyLogoSrc);
+			viewportLgNostickyLogo.attr('src', logoSrc);
+			headerTransparentLg.removeClass('header-transparent-on');
+			headerOpacityLg.removeClass('header-opacity-on');
+			headerTransparentLgNosticky.addClass('header-transparent-on');
+			headerOpacityLgNosticky.addClass('header-opacity-on');
+			viewportLgBody.css("margin-top", navikHeaderHeight+topHeaderBannerHeight+78);
+			viewportLg.css("margin-top", -navikHeaderHeight-topHeaderBannerHeight-78);
+			topHeaderBanner.addClass('hidden');
+			
+		} else {
+			navikHeader.removeClass('sticky');
+			viewportLgLogo.attr('src', logoSrc);
+			headerTransparentLg.addClass('header-transparent-on');
+			headerOpacityLg.addClass('header-opacity-on');
+			viewportLgBody.add(viewportLg).css("margin-top", "0");
+			topHeaderBanner.removeClass('hidden');
+		}
+
+		noSticky.removeClass('sticky');
+		viewportSm.removeClass('sticky');
+		
+		headerTransparentLg.add(headerTransparentLgBody).add(headerOpacityLg).add(headerOpacityLgBody).add(viewportLgNostickyBody).add(viewportLgNosticky).css("margin-top", "0");
+
+		var logoCenterWidth = $('.logoCenter .logo img').width(),
+			menuCenterOneWidth = $('.center-menu-1 .navik-menu').width(),
+			menuCenterOneListMenu = $('.center-menu-1 .navik-menu > ul'),
+			menuCenterOneListWidth = menuCenterOneWidth - logoCenterWidth;
+
+		if ($(window).width() < 1200) {
+			menuCenterOneListMenu.outerWidth( menuCenterOneWidth );
+		} else {
+			menuCenterOneListMenu.outerWidth( menuCenterOneListWidth / 2 );
+		}
+
+		$('.logoCenter').width(logoCenterWidth);
+		
+	}
+
+	/* ========== Menu overlay transition ========== */
+	function overlayMenuTransition() {
+		var overlayMenuFirst = $('.navik-menu-overlay > ul > li:first-child'),
+			overlayMenuList = $('.navik-menu-overlay > ul > li');
+
+		overlayMenuFirst.attr('data-delay', '0');
+
+		overlayMenuList.each(function(){
+			var $this = $(this),
+				overlayMenuNext = $this.next('li'),
+				menuDataDelay = $this.attr('data-delay'),
+				menuDataDelayNext = parseInt(menuDataDelay) + parseInt('100');
+
+			overlayMenuNext.attr('data-delay', menuDataDelayNext);
+
+			$this.delay(menuDataDelay).queue(function(next) {
+				$(this).addClass("menuSlideIn");
+				next();
+			});
+		});
+	}
+
+	/* ========== Horizontal navigation menu ========== */
+	if ($('.navik-header').length) {
+
+		var navikHeader = $('.navik-header'),
+			topHeaderBanner = $('.top-header-banner'),
+			navikHeaderHeight = navikHeader.height(),
+			topHeaderBannerHeight = topHeaderBanner.height(),
+			logo = navikHeader.find('.logo'),
+			logoImg = logo.find('img'),
+			logoSrc = logoImg.attr('src'),
+			logoClone = logo.clone(),
+			mobileLogoSrc = logo.data('mobile-logo'),
+			stickyLogoSrc = logo.data('sticky-logo'),
+			burgerMenu = navikHeader.find('.burger-menu'),
+			navikMenuListWrapper = $('.navik-menu > ul'),
+			navikMenuListDropdown = $('.navik-menu ul li:has(ul)'),
+			headerShadow = $('.navik-header.header-shadow'),
+			headerTransparent = $('.navik-header.header-transparent'),
+			headerOpacity = $('.navik-header.header-opacity'),
+			megaMenuFullwidthContainer = $('.mega-menu-fullwidth .mega-menu-container');
+
+		/* ========== Center menu 1 ========== */
+		$('.center-menu-1 .navik-menu > ul:first-child').after('<div class="logoCenter"></div>');
+		$('.logoCenter').html(logoClone);
+
+		/* ========== Mega menu fullwidth wrap container ========== */
+		megaMenuFullwidthContainer.each(function(){
+			$(this).children().wrapAll('<div class="mega-menu-fullwidth-container"></div>');
+		});
+
+		/* ========== Window resize ========== */
+		$(window).on("resize", function() {
+
+			var megaMenuContainer = $('.mega-menu-fullwidth-container');
+
+			if ($(window).width() < 1200) {
+
+				logoImg.attr('src', mobileLogoSrc);
+				navikHeader.removeClass('viewport-lg');
+				navikHeader.addClass('viewport-sm');
+				headerTransparent.removeClass('header-transparent-on');
+				headerOpacity.removeClass('header-opacity-on');
+				megaMenuContainer.removeClass('container');
+
+			} else {
+
+				logoImg.attr('src', logoSrc);
+				navikHeader.removeClass('viewport-sm');
+				navikHeader.addClass('viewport-lg');
+				headerTransparent.addClass('header-transparent-on');
+				headerOpacity.addClass('header-opacity-on');
+				megaMenuContainer.addClass('container');
+
+			}
+
+			stickyNav();
+
+		}).resize();
+
+		/* ========== Dropdown Menu Toggle ========== */
+		burgerMenu.on("click", function(){
+			$(this).toggleClass('menu-open');
+			navikMenuListWrapper.slideToggle(300);
+		});
+		
+		navikMenuListDropdown.each(function(){
+			$(this).append( '<span class="dropdown-plus"></span>' );
+			$(this).addClass('dropdown_menu');
+		});
+		
+		$('.dropdown-plus').on("click", function(){
+			$(this).prev('ul').slideToggle(300);
+			$(this).toggleClass('dropdown-open');
+		});
+		
+		$('.dropdown_menu a').append('<span></span>');
+
+		/* ========== Added header shadow ========== */
+		headerShadow.append('<div class="header-shadow-wrapper"></div>');
+
+		/* ========== Sticky on scroll ========== */
+		$(window).on("scroll", function() {
+			stickyNav();
+		}).scroll();
+
+		/* ========== Menu hover transition ========== */
+		var listMenuHover4 = $('.navik-menu.menu-hover-4 > ul > li > a');
+		listMenuHover4.append('<div class="hover-transition"></div>');
+
+	}
+
+
+
+	/* ========== Menu icon color ========== */
+	$('.navik-menu-icon').css('color', function () {
+		var iconColorAttr = $(this).data('fa-color');
+		return iconColorAttr;
+	});
+	
+	
+		$('.home-slider').slick({
+			dots: true,
+			infinite: true,
+			speed: 300,
+			  autoplay: true,
+			  autoplaySpeed: 4000,			
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			appendArrows: $('.slider-nav'),
+			appendDots: $('.slider-nav'),
+ 			prevArrow: '<button class="slider__button slider__button--previous" role="button" tabindex="0"><span class="icon-angle-left"></span><span class="sr-only">Previous Slide</span></button>',
+			nextArrow: '<button class="slider__button slider__button--next" role="button" tabindex="0"><span class="sr-only">Next Slide</span><span class="icon-angle-right"></span></button>',
+			fade: true,
+
+		});
+		
+		
+ 		$('.f-slider').slick({
+			dots: false,
+			infinite: true,
+			speed: 300,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			appendArrows: $('.f-slider-nav'),
+ 			prevArrow: '<button class="slider__button slider_button--previous" role="button" tabindex="0"><span class="icon-angle-left"></span><span class="sr-only">Previous Slide</span></button>',
+			nextArrow: '<button class="slider__button slider_button--next" role="button" tabindex="0"><span class="sr-only">Next Slide</span><span class="icon-angle-right"></span></button>',
+			fade: true,
+
+		});
+
+		
+		$('.news_carousel').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: true,
+			mobileFirst: true,
+			dots: true,
+			appendArrows: $('.news_desktop_controls'),
+			appendDots: $('.news_desktop_dots'),			
+ 			prevArrow: '<button class="slider__button fslider_button--previous" role="button" tabindex="0"><span class="icon-angle-left"></span><span class="sr-only">Previous Slide</span></button>',
+			nextArrow: '<button class="slider__button fslider_button--next" role="button" tabindex="0"><span class="sr-only">Next Slide</span><span class="icon-angle-right"></span></button>',
+			responsive: [
+				{
+				  breakpoint: 1024,
+				  settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+				  }
+				},
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				  }
+				},
+				{
+				  breakpoint: 480,
+				  settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				  }
+				}
+			]		
+			
+		});
+		
+	$('.fbanners').slick({ slidesToShow: 1, slidesToScroll: 1, infinite: true, mobileFirst: true, dots: false, arrows: false, autoplay: true, autoplaySpeed: 4000, responsive: [ { breakpoint: 1024, settings: { slidesToShow: 5, slidesToScroll: 1 } }, { breakpoint: 768, settings: { slidesToShow: 4, slidesToScroll: 2 } }, { breakpoint: 480, settings: { slidesToShow: 2, slidesToScroll: 2 } } ] }); 	
+		
+		
+	/* 		$('.top-lang-drop').click(function () {
+			$('.top-lang-list').not($(this).children("ul")).hide();
+			$(this).children("ul").slideToggle('slow');
+		}); */ 
+		
+	$('.top-lang-drop').click(function(){
+		$(this).next().slideToggle(); 
+	});	
+	
+	
+	"use strict";
+
+	$(window).on("resize", function() {
+			
+			if ($(window).width() >= 1200) {
+				$('.scroll-to a').addClass("scroll-click");
+			} else {
+				$('.scroll-to a').removeClass("scroll-click");
+			}
+		
+	}).resize();
+	
+	$(".scroll-to a").on("click", function(e) {
+		e.preventDefault();
+
+		var scrollAttrTop = $( $(this).attr('href') ).offset().top,
+			fullscreenTop = $(".hero-banner").offset().top;
+				
+        if ($(this).hasClass("scroll-click")){
+			$("body, html").animate({
+				scrollTop: scrollAttrTop - fullscreenTop
+			}, 500);
+		} else {
+			$("body, html").animate({
+				scrollTop: scrollAttrTop
+			}, 500);
+		}
+	});	
+	
+	
+	
+});
+
+})(jQuery);
+	
+
+document.addEventListener("touchstart", function(){}, true);
