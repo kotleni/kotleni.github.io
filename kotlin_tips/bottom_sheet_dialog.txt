@@ -1,0 +1,9 @@
+implementation 'com.google.android.material:material:1.0.0'
+
+val dialog = BottomSheetDialog(this)
+val bottomSheet = layoutInflater.inflate(R.layout.bottom_sheet, null)
+
+bottomSheet.buttonSubmit.setOnClickListener { dialog.dismiss() }
+
+dialog.setContentView(bottomSheet)
+dialog.show()

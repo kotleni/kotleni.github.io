@@ -1,0 +1,4 @@
+@Override
+public boolean onKeyUp(int keyCode, KeyEvent event) {
+    yourCustomView.handleKeyEvent(keyCode, event);
+}

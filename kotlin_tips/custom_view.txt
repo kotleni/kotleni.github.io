@@ -1,0 +1,14 @@
+class MyView(_context: Context, _attrs: AttributeSet) : View(_context, _attrs) {
+
+}
+
+@Override
+   public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
+       // конфигурация параметров клавиатуры
+       outAttrs.inputType = InputType.TYPE_CLASS_TEXT;
+       outAttrs.imeOptions = EditorInfo.IME_ACTION_DONE;
+       outAttrs.initialSelEnd = outAttrs.initialSelStart = 0;
+       
+       // создание своего коннектора для клавиатуры
+       return new BaseInputConnection(this, true);
+   }

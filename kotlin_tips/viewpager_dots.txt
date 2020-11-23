@@ -1,0 +1,9 @@
+compile 'com.matthew-tamlin:sliding-intro-screen:3.2.0'
+
+  <com.matthewtamlin.sliding_intro_screen_library.indicators.DotIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:numberOfDots=YOUR_INT_HERE
+            app:selectedDotIndex=YOUR_INT_HERE/>
+
+Methods exist to modify the properties, similar to the attributes. To update the indicator to show a different page as selected, just call method indicator.setSelectedItem(int, true) from inside ViewPager.OnPageChangeListener.onPageSelected(int)
