@@ -4,8 +4,9 @@ var selected = -1
 onload = function() {
   onmousemove = function(p) {
     if(selected > -1) {
-      blocks[selected][0] = p.clientX;
-      blocks[selected][1] = p.clientY;
+      var offset = [blocks[selected][2] / 2, blocks[selected][3] / 2];
+      blocks[selected][0] = p.clientX - offset[0];
+      blocks[selected][1] = p.clientY - offset[1];
 
       console.log(selected);
     }
