@@ -2,9 +2,9 @@ import socket
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-f = open("D:\docs\hosts.txt", "r")
+#f = open("D:\docs\hosts.txt", "r")
 
-sock.bind(('', 8081))
+sock.bind(('', 8080))
 sock.listen(5)
 
 while True:
@@ -12,6 +12,6 @@ while True:
 	data = conn.recv(1024)
 	print(data)
 	
-	# conn.send("HTTP/1.1 200 OK \n\nHello".encode())
-	conn.send("""HTTP/1.1 401 Access Denied\n\nWWW-Authenticate: Basic realm="My Server"\n\nContent-Length: 0""".encode())
+	conn.send("HTTP/1.1 200 OK \n\nHello".encode())
+	# conn.send("""HTTP/1.1 401 Access Denied\n\nWWW-Authenticate: Basic realm="My Server"\n\nContent-Length: 0""".encode())
 	conn.close()
