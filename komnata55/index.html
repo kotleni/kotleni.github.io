@@ -1,4 +1,9 @@
 <title>Komnata55</title>
+<style>
+    * {
+        font-size: large;
+    }
+</style>
 <body></body>
 <script>
 
@@ -34,9 +39,11 @@ onload = function() {
         console.log(q); 
         document.body.innerHTML += q + "<br>";
 
+
+        if(i >= daysInMonth(month + 1, year)) break;  
+
         c++;
-        if(c > list.length - 1) c = 0;   
-        if(i >= daysInMonth(month + 1, year)) break;         
+        if(c > list.length - 1) c = 0;          
     }
 }
 
