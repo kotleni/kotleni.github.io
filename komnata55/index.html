@@ -1,0 +1,45 @@
+<title></title>
+<body></body>
+<script>
+
+function daysInMonth(m, y){
+  return m===2?y&3||!(y%25)&&y&15?28:29:30+(m+(m>>3)&1);
+}
+
+onload = function() {
+    var d = new Date();
+
+    var day = d.getDate();
+    var month = d.getMonth();
+    var year = d.getFullYear();
+    var list = ['Никита', 'Витя', 'Паша'];
+    
+    var c = 0;
+    for(var i = 0; i < list.length * 4; i++) {
+        var q = (day + i).toString() + "." + month.toString() + "." + year + " : " + list[c];
+        console.log(q); 
+        document.body.innerHTML += q + "<br>";
+
+        c++;
+        if(c > list.length - 1) c = 0;   
+        if(day + i >= daysInMonth(month, year)) break;         
+    }
+
+    if(month > 11) return;
+    document.body.innerHTML += "<br>---------------------------<br><br>";
+
+    var c = 0;
+    for(var i = 0; i < list.length * 2; i++) {
+        var q = (i).toString() + "." + (month + 1).toString() + "." + year + " : " + list[c];
+        console.log(q); 
+        document.body.innerHTML += q + "<br>";
+
+        c++;
+        if(c > list.length - 1) c = 0;   
+        if(i >= daysInMonth(month + 1, year)) break;         
+    }
+}
+
+
+
+</script>
