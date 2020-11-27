@@ -11,23 +11,47 @@ function daysInMonth(m, y){
   return m===2?y&3||!(y%25)&&y&15?28:29:30+(m+(m>>3)&1);
 }
 
-onload = function() {
-    var d = new Date();
+var list = ['Никита', 'Витя', 'Паша'];
 
-    var day = d.getDate();
-    var month = d.getMonth();
-    var year = d.getFullYear();
+onload = function() {
+    var dd = new Date();
+
+    var day = dd.getDate();
+    var month = dd.getMonth();
+    var year = dd.getFullYear();
+
+    console.log(dd);
+
     var list = ['Никита', 'Витя', 'Паша'];
+
+    var cur = 0;
+    var d = day;
+
+    for(var i = 0; i < list.length * 3; i += 1) {
+        var out = d.toString() + "." + month.toString() + " : " + list[cur];
+        console.log(out);
+        document.body.innerHTML += out + "<br>";
+        
+        cur++;
+        if(cur > list.length - 1) cur = 0;
+
+        d += 2;
+        if(d > daysInMonth(day, month)) {
+            d = 1;
+            month += 1;        
+        }
+    }
     
+    return;
     var c = 0;
     for(var i = 0; i < list.length * 4; i += 2) {
-        var q = (day + i).toString() + "." + month.toString() + "." + year + " : " + list[c];
+        var q = (day + i + 1).toString() + "." + month.toString() + "." + year + " : " + list[c];
         console.log(q); 
         document.body.innerHTML += q + "<br>";
 
         c++;
         if(c > list.length - 1) c = 0;   
-        if(day + i >= daysInMonth(month, year)) break;         
+        if(day + i - 1> daysInMonth(month, year)) break;         
     }
 
     if(month > 11) return;
@@ -40,7 +64,7 @@ onload = function() {
         document.body.innerHTML += q + "<br>";
 
 
-        if(i >= daysInMonth(month + 1, year)) break;  
+        if(i > daysInMonth(month + 1, year)) break;  
 
         c++;
         if(c > list.length - 1) c = 0;          
