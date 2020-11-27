@@ -38,7 +38,9 @@ onload = function() {
         d += 2;
         if(d > daysInMonth(day, month)) {
             d = 1;
-            month += 1;        
+            month += 1;
+
+            document.body.innerHTML += "<br>--------------<br><br>";       
         }
     }
     
