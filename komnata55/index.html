@@ -1,76 +1,88 @@
-<title>Komnata55</title>
+<title>Комната 55</title>
+
 <style>
-    * {
-        font-size: large;
+    .zebra {
+      list-style: none;
+      border-left: 10px solid #FC7574;
+      padding: 0;
+      font-family: "Lucida Sans";
     }
+    .zebra li {padding: 10px;}
+    .zebra li:nth-child(odd) {background: #E1F1FF;}
+    .zebra li:nth-child(even) {background: white;}
+
+
+        .title {
+            color: white;
+          list-style: none;
+          border-left: 10px solid #FC7574;
+          padding: 0;
+          font-family: "Lucida Sans";
+        }
+        .title {padding: 10px;}
+        .title:nth-child(odd) {background: #FC7574;}
+        .title:nth-child(even) {background: #FC7574;}
+
 </style>
 <body></body>
 <script>
 
-function daysInMonth(m, y){
-  return m===2?y&3||!(y%25)&&y&15?28:29:30+(m+(m>>3)&1);
+    var month_list = [
+       'Январь',
+       'Февраль',
+       'Март',
+       'Апрель',
+       'Май',
+       'Июнь',
+       'Июль',
+       'Август',
+       'Сентябрь',
+       'Ноябрь',
+       'Декабрь',
+    ];
+
+function write(msg) {
+    document.body.innerHTML += msg;
 }
 
-var list = ['Никита', 'Витя', 'Паша'];
+function daysInMonth(m, y) {
+    return m === 2 ? y & 3 || ! (y % 25) && y & 15 ? 28:29:30 + (m + (m >> 3) & 1);
+}
 
-onload = function() {
-    var dd = new Date();
+function proceessList(list, start_day, month) {
+    var gen = "";
 
-    var day = dd.getDate();
-    var month = dd.getMonth();
-    var year = dd.getFullYear();
-
-    console.log(dd);
-
-    var list = ['Никита', 'Витя', 'Паша'];
-
+    gen += "<div class='title'>" + month_list[month - 1] + "</div><ol class='zebra'>";
     var cur = 0;
-    var d = day;
+    for(var i = 1; i < daysInMonth(month, year); i += 2) {
+        if(i >= start_day) {
+            var out = "";
+            if(i.toString().length < 2) out += "0";
+            out += i.toString();
+            out += " : " + list[cur];
 
-    for(var i = 0; i < list.length * 3; i += 1) {
-        var out = d.toString() + "." + month.toString() + " : " + list[cur];
-        console.log(out);
-        document.body.innerHTML += out + "<br>";
-        
+            gen += "<li>" + out + "</li>";
+        }
+
         cur++;
         if(cur > list.length - 1) cur = 0;
-
-        d += 2;
-        if(d > daysInMonth(day, month)) {
-            d = 1;
-            month += 1;
-
-            document.body.innerHTML += "<br>--------------<br><br>";       
-        }
-    }
-    
-    return;
-    var c = 0;
-    for(var i = 0; i < list.length * 4; i += 2) {
-        var q = (day + i + 1).toString() + "." + month.toString() + "." + year + " : " + list[c];
-        console.log(q); 
-        document.body.innerHTML += q + "<br>";
-
-        c++;
-        if(c > list.length - 1) c = 0;   
-        if(day + i - 1> daysInMonth(month, year)) break;         
     }
 
-    if(month > 11) return;
-    document.body.innerHTML += "<br>---------------------------<br><br>";
+    gen += "</ol>";
+    write(gen);
+}
 
-    var c = 0;
-    for(var i = 0; i < list.length * 2; i += 2) {
-        var q = (i).toString() + "." + (month + 1).toString() + "." + year + " : " + list[c];
-        console.log(q); 
-        document.body.innerHTML += q + "<br>";
+var list = ['Никита', 'Паша', 'Витя'];
 
+var dd = new Date();
 
-        if(i > daysInMonth(month + 1, year)) break;  
+var day = dd.getDate();
+var month = dd.getMonth();
+var year = dd.getFullYear();
 
-        c++;
-        if(c > list.length - 1) c = 0;          
-    }
+onload = function() {
+    proceessList(list, day, month);
+    if(month < 12) proceessList(list, 0, month + 1);
 }
 
 
