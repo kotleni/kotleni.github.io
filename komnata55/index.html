@@ -15,7 +15,7 @@ onload = function() {
     var list = ['Никита', 'Витя', 'Паша'];
     
     var c = 0;
-    for(var i = 0; i < list.length * 4; i++) {
+    for(var i = 0; i < list.length * 4; i += 2) {
         var q = (day + i).toString() + "." + month.toString() + "." + year + " : " + list[c];
         console.log(q); 
         document.body.innerHTML += q + "<br>";
@@ -29,7 +29,7 @@ onload = function() {
     document.body.innerHTML += "<br>---------------------------<br><br>";
 
     var c = 0;
-    for(var i = 0; i < list.length * 2; i++) {
+    for(var i = 0; i < list.length * 2; i += 2) {
         var q = (i).toString() + "." + (month + 1).toString() + "." + year + " : " + list[c];
         console.log(q); 
         document.body.innerHTML += q + "<br>";
