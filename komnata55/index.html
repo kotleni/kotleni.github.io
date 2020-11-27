@@ -2,44 +2,33 @@
 
 <style>
     .zebra {
-      list-style: none;
-      border-left: 10px solid #FC7574;
-      padding: 0;
-      font-family: "Lucida Sans";
+        list-style: none;
+        border-left: 10px solid #FC7574;
+        padding: 0;
+        font-family: "Lucida Sans";
     }
     .zebra li {padding: 10px;}
     .zebra li:nth-child(odd) {background: #E1F1FF;}
     .zebra li:nth-child(even) {background: white;}
 
-
-        .title {
-            color: white;
-          list-style: none;
-          border-left: 10px solid #FC7574;
-          padding: 0;
-          font-family: "Lucida Sans";
-        }
-        .title {padding: 10px;}
-        .title:nth-child(odd) {background: #FC7574;}
-        .title:nth-child(even) {background: #FC7574;}
-
+    .title {
+        color: white;
+        list-style: none;
+        border-left: 10px solid #FC7574;
+        padding: 0;
+        font-family: "Lucida Sans";
+    }
+    .title { padding: 10px; background: #FC7574; }
 </style>
-<body></body>
-<script>
 
-    var month_list = [
-       'Январь',
-       'Февраль',
-       'Март',
-       'Апрель',
-       'Май',
-       'Июнь',
-       'Июль',
-       'Август',
-       'Сентябрь',
-       'Ноябрь',
-       'Декабрь',
-    ];
+<body></body>
+
+<script>
+var month_list = [
+        'Январь', 'Февраль', 'Март', 'Апрель',
+        'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
+        'Ноябрь', 'Декабрь'
+        ];
 
 function write(msg) {
     document.body.innerHTML += msg;
