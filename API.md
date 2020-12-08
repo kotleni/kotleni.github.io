@@ -1,6 +1,6 @@
 ## Мои общедоступные API методы
 
-### http://hjee.xyz//api
+### http://hjee.xyz/api
 | request | desc |
 |-----|-----|
 | /http.php?url=[url]    | Сделать запрос по ссылке |
