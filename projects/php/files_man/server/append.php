@@ -13,7 +13,7 @@ $file = "./files/" . $username . '/' . $filename;
 $base = base64_decode($data);
 
 if(file_exists($file)) {
-    $f = fopen($file, 'w');
+    $f = fopen($file, 'a');
     fwrite($f, $base);
     fclose($f);
     
