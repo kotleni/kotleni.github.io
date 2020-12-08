@@ -1,6 +1,6 @@
 ## Мои общедоступные API методы
 
-### https://devunicon.000webhostapp.com/api
+### http://hjee.xyz//api
 | request | desc |
 |-----|-----|
 | /http.php?url=[url]    | Сделать запрос по ссылке |
