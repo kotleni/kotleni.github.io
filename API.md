@@ -7,3 +7,4 @@
 | /pentagame_search.php?query=[query]    | Поиск игроков по базе PentaGames |
 | /proxy.php?count=[count]&ssl_only=[0/1] | Получить список прокси |
 | /degradator.php?vulgar=[0/1] | Получить список заданий для Degradator |
+| /locateip.php?ip=[ip] | Получить местоположение относительно IP |
