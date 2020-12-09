@@ -9,3 +9,4 @@
 | /degradator.php?vulgar=[0/1] | Получить список заданий для Degradator |
 | /locateip.php?ip=[ip] | Получить местоположение относительно IP |
 | /files/search.php?q=[query] | Поиск среди моего хранилища файлов |
+| /tlauncher/servers.php | Получить список рекламных серверов с TLauncher |
