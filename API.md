@@ -8,4 +8,4 @@
 | /proxy.php?count=[count]&ssl_only=[0/1] | Получить список прокси |
 | /degradator.php?vulgar=[0/1] | Получить список заданий для Degradator |
 | /locateip.php?ip=[ip] | Получить местоположение относительно IP |
-/ /files/search.php?q=[query] | Поиск среди моего хранилища файлов |
+| /files/search.php?q=[query] | Поиск среди моего хранилища файлов |
