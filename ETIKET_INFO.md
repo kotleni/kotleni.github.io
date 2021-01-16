@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/kotleni/kotleni.github.io/main/assets/etiket_f.png" width=400></img></p>
+<p align="center"><img src="https://raw.githubusercontent.com/kotleni/kotleni.github.io/master/assets/etiket_f.png" width=400></img></p>
 
 ### Что в нутри?
 Метка стандарта ISO14443A (UID размером в 7 байт),<br>
