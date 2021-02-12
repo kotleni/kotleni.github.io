@@ -9,3 +9,4 @@
 | /locateip.php?ip=[ip] | Получить местоположение относительно IP |
 | /files/search.php?q=[query] | Поиск среди моего хранилища файлов |
 | /tlauncher/servers.php | Получить список рекламных серверов с TLauncher |
+| /nes/pages_count.php | Получить количество страниц в хранилище ромов |
