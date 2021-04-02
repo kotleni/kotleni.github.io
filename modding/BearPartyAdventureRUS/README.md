@@ -1,4 +1,4 @@
-# Bear Party Adventure
+# Bear Party Adventure RUS
 
 **Описание:** Первод игры на Русский.<br>
 **Версия:** 0.1<br>
