@@ -1,6 +1,6 @@
 $(function() {
   $(".typed").typed({
-      strings: ['Хороший день для кодинга.', "Добро пожаловать!", "лол)"],
+      strings: ['Good day!', "Welcome!", "lol)"],
       typeSpeed: 100,
       loop: true,
       cursorChar: "",
