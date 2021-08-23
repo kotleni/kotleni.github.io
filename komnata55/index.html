@@ -43,7 +43,7 @@ function proceessList(list, start_day, month) {
 
     gen += "<div class='title'>" + month_list[month - 1] + "</div><ol class='zebra'>";
     var cur = 0;
-    for(var i = 1; i < daysInMonth(month, year); i += 2) {
+    for(var i = 1; i < daysInMonth(month, year); i += 4) {
         if(i >= start_day) {
             var out = "";
             if(i.toString().length < 2) out += "0";
@@ -61,7 +61,7 @@ function proceessList(list, start_day, month) {
     write(gen);
 }
 
-var list = ['Паша', 'Витя'];
+var list = ['Паша', 'Витя', 'Кто-то'];
 
 var dd = new Date();
 
