@@ -1,6 +1,6 @@
 {
-  "name": "Flyinghead",
-  "identifier": "com.flyinghead.source",
+  "name": "kotleni",
+  "identifier": "kotleni.source",
   "apps": [
     {
       "name": "Flycast",
