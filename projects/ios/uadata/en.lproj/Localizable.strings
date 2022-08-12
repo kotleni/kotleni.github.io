@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  UkraineData
+
+  Created by Victor Varenik on 16.06.2022.
+  
+*/
+
+// types
+"type_ground" = "Ground";
+"type_air" = "Air";
+"type_water" = "Water";
+
+// items
+"item_people" = "Personnel";
+"item_bbm" = "BBM";
+"item_tanks" = "Tanks";
+"item_artilery" = "Artillery Systems";
+"item_rszv" = "RSZV";
+"item_ppo" = "PPO";
+"item_auto" = "Vehicle";
+"item_planes" = "Planes";
+"item_helicopters" = "Helicopters";
+"item_bpla" = "UAV";
+"item_ships" = "Ships";
+
+// context menu
+"btn_ref" = "Reference";
+"btn_uadata" = "Open on uadata.net";
+
+// tabs
+"tab_stat" = "Statistics";
+"tab_map" = "Map";
+"tab_about" = "About";
+
+// title
+"title_stat" = "Statistics";
+"title_map" = "Map";
+"title_about" = "About";
+
+// header
+"header_links" = "Links";
+"header_desc" = "Description";
+
+// link
+"link_github" = "Github";
+"link_uadata" = "API";
+"link_wiki" = "Wikipedia";
+
+// desc
+"about_version" = "App version: 1.0";
+"about_developer" = "Developer: Victor Varenik";
