@@ -3,6 +3,6 @@ Pages link: <a href="https://kotleni.github.io">https://kotleni.github.io</a>
 This repo contains archived projects, lists and other files.
 <br>
 
-### Contains
+### Content
 * <a href="https://github.com/kotleni/kotleni.github.io/tree/master/lists">Lists</a>
 * <a href="https://github.com/kotleni/kotleni.github.io/tree/master/projects">Projects</a>
