@@ -1,0 +1,22 @@
+body, html {
+    margin: 0;
+}
+#export, #reset {
+    background-color: #d91647;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px;
+    cursor: pointer;
+}
+
+#line {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px;
+    cursor: pointer;
+}
