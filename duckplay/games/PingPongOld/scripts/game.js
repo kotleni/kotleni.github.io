@@ -64,21 +64,25 @@ onload = function() {
 
         clickX = x
         clickY = y
+        event.preventDefault()
     })
 
     canvas.addEventListener('touchend', function(event) {
         clickX = -1
         clickY = -1
+        event.preventDefault()
     })
 
     canvas.addEventListener('mousedown', function(event) {
         clickX = event.clientX
         clickY = event.clientY
+        event.preventDefault()
     })
 
     canvas.addEventListener('mouseup', function(event) {
         clickX = -1
         clickY = -1
+        event.preventDefault()
     })
 }
 
