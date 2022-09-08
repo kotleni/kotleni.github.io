@@ -1,0 +1,14 @@
+[
+    {
+        "name" : "PingPong",
+        "about" : "Just a ping pong game!",
+        "url" : "https://kotleni.github.io/duckplay/games/PingPong/",
+        "fullscreen" : true
+    },
+    {
+        "name" : "PingPong Old",
+        "about" : "Just a ping pong game, but old.",
+        "url" : "https://kotleni.github.io/duckplay/games/PingPongOld/",
+        "fullscreen" : false
+    }
+]
