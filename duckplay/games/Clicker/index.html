@@ -1,12 +1,18 @@
 <html>
     <head>
         <script>
+            let lang = DuckPlay.getLanguage()
             var score = 0
             onload = function() {
                 var add = document.getElementById("add")
                 var scorebox = document.getElementById("scorebox")
 
-                add.value = DuckPlay.getLanguage()
+                if(lang == "ru")
+                    add.value = "Добавить"
+                else if(lang == "uk") 
+                    add.value = "Додати"
+                else
+                    add.value = "Add"
 
                 add.onclick = function() {
                     score += 1
