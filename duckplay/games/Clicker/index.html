@@ -6,6 +6,11 @@
             }
         </style>
         <script>
+            if(navigator.userAgent.toString().search("Macintosh") != -1) {
+                var DuckPlay = {}
+                DuckPlay.getLanguage = function() { return "en" }
+            }
+
             let lang = DuckPlay.getLanguage()
             var score = 0
             onload = function() {

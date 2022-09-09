@@ -13,19 +13,6 @@
         }
     },
     {
-        "id" : "SimplePingPong",
-        "name" :{
-            "en" : "Ping-Pong",
-            "ru" : "Пинг-Понг",
-            "ua" : "Пiнг-Понг"
-        },
-        "about" : {
-            "en" : "Just a ping-pong game",
-            "ru" : "Простая пинг-понг игра",
-            "ua" : "Звичайний пiнгпонг"
-        }
-    },
-    {
         "id" : "Clicker",
         "name" :{
             "en" : "Number Clicker",

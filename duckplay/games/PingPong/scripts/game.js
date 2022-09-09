@@ -41,6 +41,11 @@ onload = function() {
     canvas = document.getElementById("canvas")
     context = canvas.getContext("2d")
 
+    if(navigator.userAgent.toString().search("Macintosh") != -1) {
+        var DuckPlay = {}
+        DuckPlay.getLanguage = function() { return "en" }
+    }
+
     let lang = DuckPlay.getLanguage()
 
     if(lang == "ru") {
