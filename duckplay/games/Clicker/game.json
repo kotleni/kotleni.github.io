@@ -1,5 +1,5 @@
 {
-    "isFullScreen" : true,
+    "isFullScreen" : false,
     "files" : [
         "index.html"
     ]
