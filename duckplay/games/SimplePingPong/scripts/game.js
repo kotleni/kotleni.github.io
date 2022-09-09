@@ -109,12 +109,6 @@ function updateRender() {
         context.fillStyle = "rgba(" + ball.color + ", " + alpha.toString() + ")"
         context.fillRect(ball.x - (BALL_SIZE / 2), ball.y - (BALL_SIZE/ 2), BALL_SIZE, BALL_SIZE)
     }
-
-    // score player
-    context.fillStyle = "white"
-    context.font = "22px monospace";
-    context.fillText("Bot : " + scoreBot.toString(), 30, 30);
-    context.fillText("You : " + scorePlayer.toString(), 30, 50);
 }
 
 function updateGame() {
