@@ -1,14 +1,41 @@
 [
     {
-        "name" : "PingPong",
-        "about" : "Just a ping pong game!",
-        "url" : "https://kotleni.github.io/duckplay/games/PingPong/",
-        "fullscreen" : true
+        "id" : "PingPong",
+        "name" : {
+            "en" : "Colored Ping-Pong",
+            "ru" : "Цветной Пинг-Понг",
+            "ua" : "Кольровий Пiнг-Понг"
+        },
+        "about" : {
+            "en" : "Colored ping pong against a bot",
+            "ru" : "Цветной пинг-понг против бота",
+            "ua" : "Кольровий пiнг-понг против бота"
+        }
     },
     {
-        "name" : "PingPong Old",
-        "about" : "Just a ping pong game, but old.",
-        "url" : "https://kotleni.github.io/duckplay/games/PingPongOld/",
-        "fullscreen" : false
+        "id" : "SimplePingPong",
+        "name" :{
+            "en" : "Ping-Pong",
+            "ru" : "Пинг-Понг",
+            "ua" : "Пiнг-Понг"
+        },
+        "about" : {
+            "en" : "Just a ping-pong game",
+            "ru" : "Простая пинг-понг игра",
+            "ua" : "Звичайний пiнгпонг"
+        }
+    },
+    {
+        "id" : "Clicker",
+        "name" :{
+            "en" : "Number Clicker",
+            "ru" : "Числовой кликер",
+            "ua" : "Числовий клiкер"
+        },
+        "about" : {
+            "en" : "Simple number clicker",
+            "ru" : "Простой числовой кликер",
+            "ua" : "Звичайний числовий клiкер"
+        }
     }
 ]

@@ -1,0 +1,8 @@
+{
+    "isFullScreen" : true,
+    "files" : [
+        "scripts/game.js",
+        "index.html",
+        "index.css"
+    ]
+}

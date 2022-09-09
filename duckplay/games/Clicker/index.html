@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script>
+            var score = 0
+            onload = function() {
+                var add = document.getElementById("add")
+                var scorebox = document.getElementById("scorebox")
+
+                add.onclick = function() {
+                    score += 1
+                    scorebox.innerText = score.toString()
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <span id="scorebox">0</span>
+        <input type="button" id="add" value="Click"/>
+    </body>
+    </html>
