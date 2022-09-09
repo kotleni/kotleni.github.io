@@ -57,19 +57,19 @@ onload = function() {
     canvas.width = document.body.clientWidth
     canvas.height = document.body.clientHeight
 
-    if(canvas.height > canvas.width) {
-        canvas.height = canvas.width
-        canvas.style.marginTop = ((canvas.height - canvas.width) / 2).toString() + "px"
-    }
+    // if(canvas.height > canvas.width) {
+    //     canvas.height = canvas.width
+    //     canvas.style.marginTop = ((canvas.height - canvas.width) / 2).toString() + "px"
+    // }
 
     onresize = function() {
         canvas.width = document.body.clientWidth
         canvas.height = document.body.clientHeight
 
-        if(canvas.height > canvas.width) {
-            canvas.height = canvas.width
-            canvas.style.marginTop = ((canvas.height - canvas.width) / 2).toString() + "px"
-        }
+        // if(canvas.height > canvas.width) {
+        //     canvas.height = canvas.width
+        //     canvas.style.marginTop = ((canvas.height - canvas.width) / 2).toString() + "px"
+        // }
 
         playerY = (canvas.height / 2) - (PLATFORM_HEIGHT / 2)
         botY = (canvas.height / 2) - (PLATFORM_HEIGHT / 2)
