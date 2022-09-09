@@ -3,6 +3,7 @@ var wheelAhead;
 var car1;
 var terrain;
 var gravity = 0.15;
+var _canvas;
 function startGame() {
     wheelBehind = new wheel(601, 100,0, 25, "wheel.png",  "image");
     wheelAhead = new wheel(599, 100,0, 25, "wheel.png",  "image");
@@ -14,6 +15,7 @@ var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
       //make the canvas and stuff.
+        _canvas = this.canvas
         this.canvas.width = document.body.clientWidth;
         this.canvas.height = 800;
         this.context = this.canvas.getContext("2d");
@@ -29,7 +31,7 @@ var myGameArea = {
           let x = touches[0].clientX
           let y = touches[0].clientY
 
-          if(x > canvas.width/2) {
+          if(x > _canvas.width/2) {
             myGameArea.keys[39] = true;
           } else {
             myGameArea.keys[37] = true;
