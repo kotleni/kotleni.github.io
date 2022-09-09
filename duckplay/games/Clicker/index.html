@@ -6,6 +6,8 @@
                 var add = document.getElementById("add")
                 var scorebox = document.getElementById("scorebox")
 
+                add.value = DuckPlay.getLanguage()
+
                 add.onclick = function() {
                     score += 1
                     scorebox.innerText = score.toString()
