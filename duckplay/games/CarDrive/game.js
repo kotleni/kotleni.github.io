@@ -22,9 +22,9 @@ var myGameArea = {
         // 39 - right
         // 37 - left
 
-        window.addEventListener('touchdown', function (e) {
+        window.addEventListener('touchstart', function (e) {
           myGameArea.keys = (myGameArea.keys || []);
-          
+
           let touches = event.changedTouches
           let x = touches[0].clientX
           let y = touches[0].clientY
@@ -38,7 +38,7 @@ var myGameArea = {
           e.preventDefault()
         })
 
-        window.addEventListener('touchup', function (e) {
+        window.addEventListener('touchend', function (e) {
           myGameArea.keys[39] = false;
           myGameArea.keys[37] = false;
           e.preventDefault()
