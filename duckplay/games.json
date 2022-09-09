@@ -2,14 +2,14 @@
     {
         "id" : "PingPong",
         "name" : {
-            "en" : "Colored Ping-Pong",
-            "ru" : "Цветной Пинг-Понг",
-            "ua" : "Кольоровий Пiнг-Понг"
+            "en" : "Ping-Pong",
+            "ru" : "Пинг-Понг",
+            "ua" : "Пiнг-Понг"
         },
         "about" : {
-            "en" : "Colored ping pong against a bot",
-            "ru" : "Цветной пинг-понг против бота",
-            "ua" : "Кольоровий пiнг-понг проти бота"
+            "en" : "Ping pong against a bot",
+            "ru" : "Пинг-понг против бота",
+            "ua" : "Пiнг-понг проти бота"
         }
     },
     {
