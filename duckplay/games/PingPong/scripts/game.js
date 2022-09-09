@@ -34,9 +34,24 @@ var lastBalls = []
 var colorIndex = 0
 var ballColor = "255, 0, 0"
 
+var stringYou = "You"
+var stringBot = "Bot"
+
 onload = function() {
     canvas = document.getElementById("canvas")
     context = canvas.getContext("2d")
+
+    let lang = DuckPlay.getLanguage()
+
+    if(lang == "ru") {
+        stringYou = "Вы"
+        stringBot = "Бот"
+    }
+
+    if(lang == "uk") {
+        stringYou = "Ви"
+        stringBot = "Бот"
+    }
 
     // resize canvas
     canvas.width = document.body.clientWidth
@@ -139,8 +154,8 @@ function updateRender() {
     // score player
     context.fillStyle = "white"
     context.font = "22px monospace";
-    context.fillText("Bot : " + scoreBot.toString(), 30, 30);
-    context.fillText("You : " + scorePlayer.toString(), 30, 50);
+    context.fillText(stringBot + " : " + scoreBot.toString(), 30, 30);
+    context.fillText(stringYou + " : " + scorePlayer.toString(), 30, 50);
 }
 
 function updateGame() {
