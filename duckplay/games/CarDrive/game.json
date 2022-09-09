@@ -1,0 +1,9 @@
+{
+    "isFullScreen" : true,
+    "files" : [
+        "wheel.png",
+        "body.png",
+        "index.html",
+        "game.js"
+    ]
+}
