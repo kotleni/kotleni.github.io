@@ -41,10 +41,10 @@ onload = function() {
     canvas = document.getElementById("canvas")
     context = canvas.getContext("2d")
 
-    if(navigator.userAgent.toString().search("Macintosh") != -1) {
-        var DuckPlay = {}
-        DuckPlay.getLanguage = function() { return "en" }
-    }
+    // hack for testing in browser
+    // var DuckPlay = {}
+    // DuckPlay.getLanguage = function() { return "en" }
+    // DuckPlay.isNightTheme = function() { return false }
 
     let lang = DuckPlay.getLanguage()
 
