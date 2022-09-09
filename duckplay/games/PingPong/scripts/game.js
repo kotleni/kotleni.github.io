@@ -125,7 +125,7 @@ onload = function() {
 
 function updateRender() {
     // bg
-    var grd = ctx.createLinearGradient(0, 0, 200, 0)
+    var grd = context.createLinearGradient(0, 0, 200, 0)
     grd.addColorStop(0, "#AD3C72")
     grd.addColorStop(1, "#336094")
     context.fillStyle = grd
