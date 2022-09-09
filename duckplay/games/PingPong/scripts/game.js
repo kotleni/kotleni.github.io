@@ -211,7 +211,7 @@ function updateGame() {
     // bot
     let botYCenter = botY + (PLATFORM_HEIGHT / 2)
 
-    if(true) {
+    if(ballX < canvas.width/2) {
         if(botYCenter > ballY)
             botY -= PLATFORM_SPEED
         if(botYCenter < ballY)
