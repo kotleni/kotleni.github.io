@@ -23,6 +23,8 @@ var myGameArea = {
         // 37 - left
 
         window.addEventListener('touchdown', function (e) {
+          myGameArea.keys = (myGameArea.keys || []);
+          
           let touches = event.changedTouches
           let x = touches[0].clientX
           let y = touches[0].clientY
