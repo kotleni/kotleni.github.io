@@ -125,11 +125,7 @@ onload = function() {
 
 function updateRender() {
     // bg
-    var grd = context.createLinearGradient(0, 0, 200, 0)
-    grd.addColorStop(0, "#AD3C72")
-    grd.addColorStop(1, "#336094")
-    context.fillStyle = grd
-    //context.fillStyle = "black"
+    context.fillStyle = "black"
     context.fillRect(0, 0, canvas.width, canvas.height)
 
     // player
