@@ -1,6 +1,7 @@
 {
     "isFullScreen" : true,
     "files" : [
+        "icon.png",
         "game.js",
         "index.html",
         "index.css"

@@ -1,6 +1,7 @@
 {
     "isFullScreen" : true,
     "files" : [
+        "icon.png",
         "wheel.png",
         "body.png",
         "index.html",
