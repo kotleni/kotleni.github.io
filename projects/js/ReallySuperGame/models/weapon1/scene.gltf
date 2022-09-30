@@ -1,0 +1,456 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3929,
+      "max": [
+        0.28365999460220337,
+        4.284480094909668,
+        0.5782700181007385
+      ],
+      "min": [
+        -0.22224000096321106,
+        -4.685579776763916,
+        -2.041949987411499
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 47148,
+      "componentType": 5126,
+      "count": 3929,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3929,
+      "max": [
+        0.9789599776268005,
+        0.9700800180435181
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 8787,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 94296,
+      "componentType": 5126,
+      "count": 90,
+      "max": [
+        2.464750051498413,
+        0.19990000128746033,
+        2.13073992729187
+      ],
+      "min": [
+        -2.464750051498413,
+        -0.19990000128746033,
+        -2.13073992729187
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 95376,
+      "componentType": 5126,
+      "count": 90,
+      "max": [
+        1.0,
+        0.9996046423912048,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0000012480304576e-05,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 31432,
+      "componentType": 5126,
+      "count": 90,
+      "max": [
+        0.21921999752521515,
+        0.47940999269485474
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 35148,
+      "componentType": 5125,
+      "count": 264,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 96456,
+      "componentType": 5126,
+      "count": 1117,
+      "max": [
+        2.748199939727783,
+        6.9062700271606445,
+        4.360040187835693
+      ],
+      "min": [
+        -2.748199939727783,
+        -6.9062700271606445,
+        -4.360040187835693
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 109860,
+      "componentType": 5126,
+      "count": 1117,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 32152,
+      "componentType": 5126,
+      "count": 1117,
+      "max": [
+        0.7266700267791748,
+        0.9707300066947937
+      ],
+      "min": [
+        0.06629999727010727,
+        0.15735000371932983
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 36204,
+      "componentType": 5125,
+      "count": 2586,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Hadi (https://sketchfab.com/hadi.einy)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/ak-47-299f02df397e46c5abd8146472e04d57",
+      "title": "Ak-47"
+    },
+    "generator": "Sketchfab-12.67.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 46548,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 41088,
+      "byteOffset": 46548,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 123264,
+      "byteOffset": 87636,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 210900,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Ak-47_Texture_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Ak-47_Texture",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "name": "Holo_Sight_Glass",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          0.16702986745666432
+        ],
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Ak-47_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Holo Sight.002_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Holo Sight_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.09799639880657196,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.175957165708108e-17,
+        -0.09799639880657196,
+        0.0,
+        0.0,
+        0.09799639880657196,
+        2.175957165708108e-17,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        1.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.19992000000000004,
+        0.6360900000000002,
+        1.0
+      ],
+      "name": "Ak-47"
+    },
+    {
+      "mesh": 0,
+      "name": "Ak-47_0"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        0.6580100000000001,
+        0.0,
+        -0.7530100000000001,
+        0.0,
+        -0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.7530100000000001,
+        0.0,
+        0.6580100000000001,
+        0.0,
+        1.6943700000000002,
+        -1.4397699999999998,
+        3.1367,
+        1.0
+      ],
+      "name": "Sun"
+    },
+    {
+      "name": "Sun"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        0.06530000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.06530000000000001,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.06530000000000001,
+        0.0,
+        -0.020620000000000003,
+        -0.20259000000000002,
+        1.50215,
+        1.0
+      ],
+      "name": "Holo Sight.002"
+    },
+    {
+      "mesh": 1,
+      "name": "Holo Sight.002_0"
+    },
+    {
+      "children": [
+        9
+      ],
+      "matrix": [
+        0.06530000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.06530000000000001,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.06530000000000001,
+        0.0,
+        -0.020620000000000003,
+        -0.55755,
+        1.375,
+        1.0
+      ],
+      "name": "Holo Sight"
+    },
+    {
+      "mesh": 2,
+      "name": "Holo Sight_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}
