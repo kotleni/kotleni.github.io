@@ -1,4 +1,5 @@
-This document contains some information about my gaming experience.
+<b>This document contains some information about my gaming experience.</b>
+<br><i>🔻 - The label means that I didn't like the game.</i>
 
 ## Planned
 - Kena: Bridge of Spirits
@@ -6,15 +7,15 @@ This document contains some information about my gaming experience.
 - Cyberpunk
 
 ## Stopped
-- The Witcher 3: Wild Hunt (not completely)
-- The Legend of Zelda: Breath of the Wild (not completely)
-- The Elder Scrolls V: Skyrim (not completely)
-- Cuphead (not completely)
-- Metroid™ Dread (didn't like)
-- Mindustry (not completely)
-- Grand Theft Auto: San Andreas (not completely)
-- Grand Theft Auto: Vice City (not completely)
-- Grand Theft Auto IV (didn't like)
+- The Witcher 3: Wild Hunt 
+- The Legend of Zelda: Breath of the Wild
+- The Elder Scrolls V: Skyrim
+- Cuphead 
+- Metroid™ Dread 🔻
+- Mindustry
+- Grand Theft Auto: San Andreas 
+- Grand Theft Auto: Vice City 
+- Grand Theft Auto IV 🔻
 
 ## Done
 - Half Life
