@@ -1,10 +1,12 @@
-<b>This document contains some information about my gaming experience.</b>
+<b>This document contains some information about my gaming experience. It'w not full list.</b>
 <br><i>🔻 - The label means that I didn't like the game.</i>
 
 ## Planned
 - Kena: Bridge of Spirits
 - Grand Theft Auto IV
 - Cyberpunk
+- Portal Stories: Mel
+- Half Life: Alyx
 
 ## Stopped
 - The Witcher 3: Wild Hunt 
@@ -16,6 +18,25 @@
 - Grand Theft Auto: San Andreas 
 - Grand Theft Auto: Vice City 
 - Grand Theft Auto IV 🔻
+- Disco Elysium
+- Don't Starve 🔻
+- Don't Starve Together 🔻
+- Celeste
+- Hacknet 🔻
+- Bridge Constructor Portal
+- LIMBO 🔻
+- INSIDE 🔻
+- Half-Life: Blue Shift 🔻
+- Half-Life: Opposing Force 🔻
+- Need for Speed: Most Wanted (2005)
+- Need for Speed: Most Wanted (2012)
+- Far Cry 🔻
+- Far Cry 2
+- Doom (2016)
+- Doom Ethernal
+- Wolfenstein II: The New Colossus
+- Saints Row IV®: Re-Elected
+- Sky: Children of the Light 🔻
 
 ## Done
 - Half Life
@@ -31,3 +52,8 @@
 - The Legend of Zelda: Link's Awakening
 - Super Mario Odyssey
 - Untitled Goose Game
+- Martial Law
+- Doom (1993)
+- Far Cry 3
+- Titanfall
+- Titanfall 2
