@@ -5,7 +5,7 @@ import ParallaxBackground from './Components/ParallaxBackground';
 function AppHeader() {
   return (
     <header class="header">
-      <h1 class="header_title">Viktor Varenik</h1>
+      <h1 class="header_title" onClick={()=> window.open('/rick', '_blank')}>Viktor Varenik</h1>
       <h2 class="header_subtitle">Android and iOS developer</h2>
     </header>
   );
