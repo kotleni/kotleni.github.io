@@ -69,3 +69,12 @@ b {
     white-space: pre-wrap; /* Preserve line breaks */
     word-wrap: break-word; /* Wrap long words */
 }
+
+ /* Add CSS styles for the version text */
+ #version {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #999;
+}
