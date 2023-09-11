@@ -3,9 +3,7 @@
 
 ## Planned
 - Kena: Bridge of Spirits
-- Grand Theft Auto IV
 - Cyberpunk
-- Portal Stories: Mel
 - Half Life: Alyx
 
 ## Stopped
@@ -18,6 +16,7 @@
 - Grand Theft Auto: San Andreas 
 - Grand Theft Auto: Vice City 
 - Grand Theft Auto IV 🔻
+- Grand Theft Auto V 🔻
 - Disco Elysium
 - Don't Starve 🔻
 - Don't Starve Together 🔻
@@ -37,6 +36,7 @@
 - Wolfenstein II: The New Colossus
 - Saints Row IV®: Re-Elected
 - Sky: Children of the Light 🔻
+- Portal Stories: Mel 🔻
 
 ## Done
 - Half Life
