@@ -1,0 +1,60 @@
+/* Reset default margin and padding */
+body, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains Mono', monospace; /* Use JetBrains Mono font for code */
+}
+
+/* Set background color and text color */
+body {
+    background-color: #272c33; /* Dark background color */
+    color: #abb2bf; /* Text color */
+}
+
+/* Center the content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Style the content box */
+.content {
+    background-color: #323842; /* Darker background */
+    padding: 20px;
+    border-radius: 8px; /* Slightly rounded corners */
+    text-align: left; /* JetBrains IDE typically uses left-aligned text for code */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style headings */
+h1 {
+    font-size: 24px; /* Slightly smaller heading size */
+    margin-bottom: 16px; /* Increased margin */
+}
+
+h2 {
+    font-size: 20px; /* Smaller heading size */
+    margin-bottom: 12px; /* Increased margin */
+}
+
+/* Style lists */
+ul {
+    list-style-type: square; /* Use square bullets */
+    padding-left: 20px; /* Indent the list items */
+}
+
+li {
+    margin-bottom: 8px; /* Decreased margin */
+}
+
+/* Style links */
+a {
+    color: #4fc1e9; /* JetBrains IDE link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
