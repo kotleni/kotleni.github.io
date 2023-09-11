@@ -1,0 +1,71 @@
+/* Reset some default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Container for the form */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px; /* Added padding for all sides */
+    box-sizing: border-box; /* Include padding in the element's total width/height */
+    max-width: 800px; /* Set maximum width for larger screens */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Title styling */
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+#generate {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#generate:hover {
+    background-color: #0056b3;
+}
+
+/* Tip and Command styling */
+b {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/* Code block styling for #command */
+#command {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: monospace; /* Use a monospaced font */
+    padding: 10px;
+    background-color: #f4f4f4; /* Light gray background color */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    white-space: pre-wrap; /* Preserve line breaks */
+    word-wrap: break-word; /* Wrap long words */
+}
