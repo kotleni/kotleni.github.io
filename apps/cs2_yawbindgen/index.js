@@ -1,4 +1,4 @@
-const SENS_BOOST = 799;
+const MAGIC_NUMBER = 8182;
 
 var keyInput, sensInput;
 var genBtn, commandText, tipText;
@@ -6,7 +6,7 @@ var genBtn, commandText, tipText;
 var onGeneratePressed = function() {
     var key = keyInput.value;
     var sens = sensInput.value;
-    var rotValue = SENS_BOOST * sens;
+    var rotValue = MAGIC_NUMBER / sens;
 
     commandText.innerText = "bind " + key + " \"yaw " + rotValue + " 1 1\"";
     commandText.style.display = "block";
