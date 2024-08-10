@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css'; // Import your CSS file
+import editor_image from './editor.png'
 
 class ParallaxBackground extends Component {
   sensitivity = 1.4;
@@ -46,7 +47,7 @@ class ParallaxBackground extends Component {
           transform: `translate(${x}%, ${y}%)`,
         }}
       >
-        <div class="parallax"><img class="parallax_image" src="editor.png" alt="Code Editor"></img><span class="parallax_overlay"></span></div>
+        <div class="parallax"><img class="parallax_image" src={editor_image} alt="Code Editor"></img><span class="parallax_overlay"></span></div>
       </div>
     );
   }
