@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import '../App.css'; // Import your CSS file
+import { Component } from 'react';
+import '../App.scss';
 import editor_image from './editor.png'
 
-class ParallaxBackground extends Component {
+class ParallaxBackground extends Component<object, {position: { x: number; y: number; }}> {
   sensitivity = 1.4;
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super({});
     this.state = {
       position: { x: 0, y: 0 },
     };
@@ -21,7 +21,7 @@ class ParallaxBackground extends Component {
     window.removeEventListener('mousemove', this.handleMouseMove);
   }
 
-  handleMouseMove(e) {
+  handleMouseMove(e: MouseEvent) {
     // Get the mouse coordinates
     const mouseX = e.pageX;
     const mouseY = e.pageY;
@@ -47,7 +47,7 @@ class ParallaxBackground extends Component {
           transform: `translate(${x}%, ${y}%)`,
         }}
       >
-        <div class="parallax"><img class="parallax_image" src={editor_image} alt="Code Editor"></img><span class="parallax_overlay"></span></div>
+        <div className="parallax"><img className="parallax_image" src={editor_image} alt="Code Editor"></img><span className="parallax_overlay"></span></div>
       </div>
     );
   }
