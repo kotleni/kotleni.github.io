@@ -5,7 +5,7 @@ function AppHeader() {
     return (
         <header className="header">
             <Link className="header-title" to="/rick">Viktor Varenik</Link>
-            <h2 className="header_subtitle">Android and iOS developer</h2>
+            <h2 className="header-subtitle">Android and iOS developer</h2>
         </header>
     );
 }
@@ -19,9 +19,9 @@ function SocialItem(props: { link: string, title: string }) {
 function AppBody() {
     return (
         <footer className="footer">
-            <p className="footer_desc">I'm a developer based in Kharkiv, Ukraine. Specialized in developing react frontend and mobile applications using native technologies.</p>
+            <p className="footer-desc">I'm a developer based in Kharkiv, Ukraine. Specialized in developing react frontend and mobile applications using native technologies.</p>
             <ul className="social">
-                <h3 className="social_title">Contacts:</h3>
+                <h3 className="social-title">Contacts:</h3>
                 <SocialItem title="email" link="mailto:yavarenikya@gmail.com"/>
                 <SocialItem title="telegram" link="https://t.me/kotleni"/>
                 <SocialItem title="github" link="https://github.com/kotleni"/>

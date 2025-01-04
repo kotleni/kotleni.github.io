@@ -246,7 +246,7 @@ svg:not([fill]) {
   height: 100%;
 }
 
-.footer_desc {
+.footer-desc {
   font-size: 2rem;
   margin: 20px 0 120px;
   max-width: 650px
@@ -267,7 +267,7 @@ svg:not([fill]) {
   }
 }
 
-.header_subtitle {
+.header-subtitle {
   font-size: 1.4rem;
   font-weight: 400
 }
@@ -280,11 +280,6 @@ svg:not([fill]) {
   transition: opacity 1.4s;
   width: 100%;
   z-index: 1;
-}
-
-.parallax_image_position,
-.parallax_image {
-
 }
 
 .parallax-container {
@@ -306,7 +301,7 @@ svg:not([fill]) {
   }
 }
 
-.parallax_image {
+.parallax-image {
   height: auto;
   width: 100%;
 }
@@ -316,14 +311,13 @@ svg:not([fill]) {
     opacity: .4;
   }
 
-  .parallax_image_position,
-  .parallax_image {
+  .parallax-image {
     left: 10%;
     position: absolute;
     top: 10%
   }
 
-  .parallax_image {
+  .parallax-image {
     width: 400%
   }
 }
@@ -332,7 +326,7 @@ svg:not([fill]) {
   list-style: none
 }
 
-.social_title {
+.social-title {
   margin-bottom: 10px
 }
 
