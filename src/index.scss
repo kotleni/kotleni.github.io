@@ -1,0 +1,268 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  tab-size: 4;
+  word-break: normal
+}
+
+*,
+:after,
+:before {
+  background-repeat: no-repeat;
+  box-sizing: inherit
+}
+
+:after,
+:before {
+  text-decoration: inherit;
+  vertical-align: inherit
+}
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+hr {
+  height: 0;
+  overflow: visible
+}
+
+details,
+main {
+  display: block
+}
+
+summary {
+  display: list-item
+}
+
+small {
+  font-size: 80%
+}
+
+[hidden] {
+  display: none
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted
+}
+
+a {
+  background-color: initial
+}
+
+a:active,
+a:hover {
+  outline-width: 0
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace
+}
+
+pre {
+  font-size: 1em
+}
+
+b,
+strong {
+  font-weight: bolder
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: initial
+}
+
+sub {
+  bottom: -.25em
+}
+
+sup {
+  top: -.5em
+}
+
+input {
+  border-radius: 0
+}
+
+[disabled] {
+  cursor: default
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px
+}
+
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit
+}
+
+optgroup {
+  font-weight: 700
+}
+
+button {
+  overflow: visible
+}
+
+button,
+select {
+  text-transform: none
+}
+
+[role=button],
+[type=button],
+[type=reset],
+[type=submit],
+button {
+  color: inherit;
+  cursor: pointer
+}
+
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0
+}
+
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner,
+button:-moz-focusring {
+  outline: 1px dotted ButtonText
+}
+
+[type=reset],
+[type=submit],
+button,
+html [type=button] {
+  -webkit-appearance: button
+}
+
+button,
+input,
+select,
+textarea {
+  background-color: initial;
+  border-style: none
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none
+}
+
+select::-ms-expand {
+  display: none
+}
+
+select::-ms-value {
+  color: currentColor
+}
+
+legend {
+  border: 0;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  white-space: normal
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  color: inherit;
+  font: inherit
+}
+
+img {
+  border-style: none
+}
+
+progress {
+  vertical-align: initial
+}
+
+svg:not([fill]) {
+  fill: currentColor
+}
+
+@media screen {
+  [hidden~=screen] {
+    display: inherit
+  }
+
+  [hidden~=screen]:not(:active):not(:focus):not(:target) {
+    clip: rect(0 0 0 0) !important;
+    position: absolute !important
+  }
+}
+
+[aria-busy=true] {
+  cursor: progress
+}
+
+[aria-controls] {
+  cursor: pointer
+}
+
+[aria-disabled] {
+  cursor: default
+}
+
+@media screen and (max-width:768px) {
+  .App {
+    padding: 40px
+  }
+}
+
+/* latin */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.com/s/inconsolata/v32/QlddNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLyya15IDhunA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.com/s/inconsolata/v32/QlddNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLyya15IDhunA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

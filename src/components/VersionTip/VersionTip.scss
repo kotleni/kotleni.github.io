@@ -1,0 +1,15 @@
+.version-tip {
+  color: #4c4c4c;
+  font-weight: bold;
+  font-size: 14px;
+  position: fixed;
+  right: 8px;
+  top: 8px;
+
+  transition: transform .2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+    transform-origin: right top;
+  }
+}
