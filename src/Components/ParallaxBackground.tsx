@@ -47,7 +47,7 @@ class ParallaxBackground extends Component<object, {position: { x: number; y: nu
           transform: `translate(${x}%, ${y}%)`,
         }}
       >
-        <div className="parallax"><img className="parallax_image" src={editor_image} alt="Code Editor"></img><span className="parallax_overlay"></span></div>
+        <div className="parallax-container"><img className="parallax_image" src={editor_image} alt="Code Editor"></img></div>
       </div>
     );
   }
