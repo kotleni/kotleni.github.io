@@ -1,0 +1,42 @@
+.header-subtitle {
+  font-size: 1.4rem;
+  font-weight: 400
+}
+
+.parallax {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 1.4s;
+  width: 100%;
+  pointer-events: none;
+
+  @media screen and (max-width:768px) {
+    display: none;
+  }
+}
+
+.parallax-container {
+  opacity: 0.3;
+  left: 40%;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: '';
+    display: block;
+    box-shadow: 0px 0px 100px 100px black inset;
+  }
+}
+
+.parallax-image {
+  height: auto;
+  width: 100%;
+}

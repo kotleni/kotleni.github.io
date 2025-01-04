@@ -1,4 +1,6 @@
-import {VERSION_NAME} from "../constants.ts";
+import {VERSION_NAME} from "../../constants.ts";
+
+import './VersionTip.scss';
 
 function VersionTip() {
     return (
