@@ -338,6 +338,15 @@ svg:not([fill]) {
   }
 }
 
+.version-tip {
+  color: #4c4c4c;
+  font-weight: bold;
+  font-size: 14px;
+  position: fixed;
+  right: 8px;
+  top: 8px;
+}
+
 .social-link {
   //color: #fff;
   margin-right: 20px;

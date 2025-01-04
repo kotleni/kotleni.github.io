@@ -1,5 +1,6 @@
 import ParallaxBackground from './Components/ParallaxBackground';
 import {Link} from "react-router";
+import VersionTip from "./Components/VersionTip.tsx";
 
 function AppHeader() {
     return (
@@ -39,6 +40,7 @@ function App() {
                 <AppBody/>
             </div>
             <ParallaxBackground/>
+            <VersionTip/>
         </div>
     );
 }
