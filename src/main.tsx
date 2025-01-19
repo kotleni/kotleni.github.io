@@ -10,6 +10,10 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
             <Route path="/" element={<App />} />
             <Route path="/rick" element={<Rick />} />
+
+            {/* MARK: Custom routes special for gh-pages */}
+            <Route path="/me-react" element={<App />} />
+            <Route path="/me-react/rick" element={<Rick />} />
         </Routes>
     </BrowserRouter>
 )
