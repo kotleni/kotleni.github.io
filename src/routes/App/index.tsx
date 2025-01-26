@@ -1,10 +1,16 @@
 import './App.scss';
 import { MdArrowOutward } from "react-icons/md";
 // import { MdLightMode } from "react-icons/md";
+
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+
 import CoolBackgroundCanvas from "../../components/DottedBackground";
 import PizzaIcon from "../../assets/pizza.svg?react";
 
-type BadgeInfo = { title: string, link: string };
+type BadgeInfo = { title: string, link: string, icon?:  JSX.Element };
 
 const FULL_NAME = "Viktor Varenik";
 
@@ -24,10 +30,10 @@ export default function App() {
         { title: "TimeMates", link: "https://github.com/timemates" },
     ];
     const findMeOn: BadgeInfo[] = [
-        { title: "GitHub", link: "https://github.com/kotleni" },
-        { title: "LinkedIn", link: "https://www.linkedin.com/in/kotleni/" },
-        { title: "Twitter", link: "https://x.com/kotleni_" },
-        { title: "Telegram", link: "https://t.me/kotleni" },
+        { title: "GitHub", link: "https://github.com/kotleni", icon: <FaGithub /> },
+        { title: "LinkedIn", link: "https://www.linkedin.com/in/kotleni/", icon: <FaLinkedin /> },
+        { title: "Twitter", link: "https://x.com/kotleni_", icon: <FaTwitter /> },
+        { title: "Telegram", link: "https://t.me/kotleni", icon: <FaTelegram /> },
     ];
 
     return (
@@ -73,7 +79,7 @@ export default function App() {
                     <p className="text-description">
                         Find me on<br/>
                         {findMeOn.map((contribution) => {
-                            return <a href={contribution.link} className="badge">{contribution.title}</a>;
+                            return <a href={contribution.link} className="badge">{contribution.icon} {contribution.title}</a>;
                         })}
                         <br/>
                         Or mail me at <span className="email">yavarenikya@gmail.com</span>
