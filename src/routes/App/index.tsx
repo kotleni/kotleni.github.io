@@ -78,8 +78,8 @@ export default function App() {
 
                     <p className="text-description">
                         Find me on<br/>
-                        {findMeOn.map((contribution) => {
-                            return <a href={contribution.link} className="badge">{contribution.icon} {contribution.title}</a>;
+                        {findMeOn.map((it) => {
+                            return <a href={it.link} className="badge">{it.icon} {it.title}</a>;
                         })}
                         <br/>
                         Or mail me at <span className="email">yavarenikya@gmail.com</span>
