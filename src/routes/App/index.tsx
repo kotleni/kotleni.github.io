@@ -61,7 +61,7 @@ export default function App() {
                             return <Badge badge={creatorOfIt}/>;
                         })}
                         <br/>
-                        Core team of&nbsp;
+                        In teams&nbsp;
                         {inTeams.map((it) => {
                             return <Badge badge={it}/>;
                         })}
