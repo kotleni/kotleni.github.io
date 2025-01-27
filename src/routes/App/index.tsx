@@ -149,10 +149,6 @@ export default function App() {
                     </footer>
                 </div>
             </div>
-
-            {/*<div className="background">*/}
-            {/*    <CoolBackgroundCanvas/>*/}
-            {/*</div>*/}
         </>
     );
 }
