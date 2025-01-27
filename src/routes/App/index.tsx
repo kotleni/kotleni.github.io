@@ -19,7 +19,7 @@ function Badge(props: { badge: BadgeInfo }) {
 }
 
 export default function App() {
-    const workingAt: BadgeInfo = { title: "Nowhere", link: "#" };
+    // const workingAt: BadgeInfo = { title: "Nowhere", link: "#" };
     const creatorOf: BadgeInfo[] = [
         { title: "Ukraine Metro App", link: "https://github.com/UniconTeam/UkraineMetro-android" },
         { title: "iPhoneVR", link: "https://github.com/kotleni/iPhoneVR" },
@@ -54,8 +54,8 @@ export default function App() {
                     <p className="text-description">Hey, I am {FULL_NAME}, a fanatical open sourceror.</p>
 
                     <p className="text-description">
-                        <span className="text-overline">Working at&nbsp; <Badge badge={workingAt} /></span>
-                        <br/>
+                        {/*<span className="text-overline">Working at&nbsp; <Badge badge={workingAt} /></span>*/}
+                        {/*<br/>*/}
                         Creator of&nbsp;
                         {creatorOf.map((creatorOfIt) => {
                             return <Badge badge={creatorOfIt}/>;
