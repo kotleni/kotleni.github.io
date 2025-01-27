@@ -54,7 +54,7 @@ export default function App() {
                             </section>
                             <section className="sidebar-section">
                                 <h2>Example of local ad</h2>
-                                <p>Get an update when I write something new!</p>
+                                <p>TODO: Fill text here!</p>
                                 <p>
                                     <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
                                 </p>
