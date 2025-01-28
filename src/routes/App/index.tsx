@@ -1,6 +1,7 @@
 import './App.scss';
 import { FaGithub } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 
 export default function App() {
     return (
@@ -19,6 +20,9 @@ export default function App() {
                     </div>
                     <div className="navbar-wrapper">
                         <div className="navbar-container">
+                            <button className="navbar-button nav-menu-button">
+                                <MdMenu />
+                            </button>
                             <section className="navbar-section">
                                 <nav className="navbar-menu nav-items">
                                     <a href="/notes">Notes</a>
