@@ -5,7 +5,7 @@ export default function App() {
     return (
         <>
             <div className="layout">
-                <div className="navbar">
+                <header  className="navbar">
                     <div className="navbar-title">
                         <div className="navbar-title-content">
                             <a aria-current="page" className="navbar-title-link" href="/">
@@ -18,7 +18,7 @@ export default function App() {
                     </div>
                     <div className="navbar-wrapper">
                         <div className="navbar-container">
-                            <div className="navbar-section">
+                            <section className="navbar-section">
                                 <nav className="navbar-menu nav-items">
                                     <a href="/notes">Notes</a>
                                     <a href="/blog">Articles</a>
@@ -33,10 +33,10 @@ export default function App() {
                                             <FaGithub />
                                         </span></a>
                                 </nav>
-                            </div>
+                            </section>
                         </div>
                     </div>
-                </div>
+                </header>
                 <aside className="sidebar">
                     <div className="sidebar-wrapper">
                         <div className="sidebar-title">
