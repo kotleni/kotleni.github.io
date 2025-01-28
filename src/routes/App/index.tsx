@@ -44,12 +44,14 @@ export default function App() {
                                     fanatical open sourceror. This is my digital garden.</p></div>
                             </section>
                             <section className="sidebar-section">
-                                <h2>Example of local ad</h2>
-                                <p>TODO: Fill text here!</p>
+                                <h2>Good conversations is missing!</h2>
+                                    <p>If you are interested in communicating with me in English, write to me!</p>
                                 <p>
-                                    <a href="#" target="_blank" rel="noopener noreferrer">Twitter</a>
+                                    <a href="mailto:yavarenikya@gmail.com" target="_blank" rel="noopener noreferrer">yavarenikya@gmail.com</a>
                                 </p>
-                                <a href="https://tdsadad" target="_blank" rel="noopener noreferrer" className="button">Follow</a>
+                                <a href="https://discord.com/users/420149869601357824" target="_blank" rel="noopener noreferrer" className="button">Discord</a>
+                                &nbsp;
+                                <a href="https://t.me/kotleni" target="_blank" rel="noopener noreferrer" className="button">Telegram</a>
                             </section>
                             <section className="sidebar-section">
                                 <h2>Some of my favorite posts</h2>
