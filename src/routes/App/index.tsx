@@ -2,6 +2,7 @@ import './App.scss';
 import { FaGithub } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
 import {NavbarMenu, NavLink, NavSocialLink} from "../../components/NavbarMenu";
+import {CardItemProps, ProjectsCards} from "../../components/ProjectsCards";
 
 export default function App() {
     const navLinks: NavLink[] = [
@@ -12,6 +13,72 @@ export default function App() {
     ];
     const socialLinks: NavSocialLink[] = [
         { title: "Github", icon: FaGithub, url: "https://github.com/kotleni" },
+    ];
+    const projectsCards: CardItemProps[] = [
+        {
+            title: "vrchat-osc-motd",
+            description: "Customizable MOTD (in chatbox) system with plugins support for VRChat. ",
+            year: "2025",
+            url: "https://github.com/kotleni/vrchat-osc-motd",
+            buttons: [
+                { title: "Github", url: "https://github.com/kotleni/vrchat-osc-motd", target: "_blank" },
+            ]
+        },
+        {
+            title: "iPhoneVR",
+            description: "Native iOS ALVR client with full support for head position and rotation tracking using ARKit.",
+            year: "2024",
+            url: "https://github.com/kotleni/iPhoneVR",
+            buttons: [
+                { title: "Github", url: "https://github.com/kotleni/iPhoneVR", target: "_blank" },
+            ]
+        },
+        {
+            title: "VirtHID-macOS",
+            description: "MacOS kext for creating virtual HID devices.",
+            year: "2024",
+            url: "https://github.com/kotleni/VirtHID-macOS",
+            buttons: [
+                { title: "Github", url: "https://github.com/kotleni/VirtHID-macOS", target: "_blank" },
+            ]
+        },
+        {
+            title: "SyncRezka-Firefox",
+            description: "Firefox extension for syncronized watching HDRezka. Just a demo.",
+            year: "2024",
+            url: "https://github.com/kotleni/SyncRezka-Firefox",
+            buttons: [
+                { title: "Github", url: "https://github.com/kotleni/SyncRezka-Firefox", target: "_blank" },
+            ]
+        },
+        {
+            title: "MeowTG",
+            description: "A typescript user-bot software for telegram with dynamic plugins system.",
+            year: "2023",
+            url: "https://github.com/kotleni/meowtg",
+            buttons: [
+                { title: "Github", url: "https://github.com/kotleni/meowtg", target: "_blank" },
+            ]
+        },
+        {
+            title: "GLEngine",
+            description: "Experimental C++ 3d OpenGL game engine. Just a demo.",
+            year: "2023",
+            url: "https://github.com/kotleni/glengine",
+            buttons: [
+                { title: "Github", url: "https://github.com/kotleni/glengine", target: "_blank" },
+            ]
+        },
+        {
+            title: "UkraineMetro",
+            description: "Open source application for viewing maps of all subways of Ukraine.",
+            year: "2023",
+            url: "https://github.com/UniconTeam/UkraineMetro-android",
+            buttons: [
+                { title: "Github", url: "https://github.com/UniconTeam/UkraineMetro-android", target: "_blank" },
+                { title: "Google Play", url: "https://play.google.com/store/apps/details?id=unicon.metro.kharkiv", target: "_blank" },
+            ]
+        },
     ];
 
     return (
@@ -113,26 +180,7 @@ export default function App() {
                                         </div>
                                     </div>
                                     <a className="button" href="/projects">All Projects</a></header>
-                                <div className="cards">
-                                    <div className="card">
-                                        <time>2022-actual</time>
-                                        <a href="https://github.com/dsad/dsad" target="_blank"
-                                           rel="noreferrer">iPhoneVR</a><p>Emulate VR headset using your Google Cardboard and your iPhone.</p>
-                                        <div className="card-links">
-                                            <a className="button small" href="/dsadadsadsad">Article</a>
-                                            <a className="button small" href="https://dsa.com/dsadsa" target="_blank" rel="noreferrer">Github</a>
-                                        </div>
-                                    </div>
-                                    <div className="card">
-                                        <time>2018-actual</time>
-                                        <a href="https://github.com/dsadsadsa/dsadsadad" target="_blank"
-                                           rel="noreferrer">Ukraine Metro</a><p>A free, open source universal Ukraine subways map.</p>
-                                        <div className="card-links">
-                                            <a className="button small" href="/building-dsada">Article</a>
-                                            <a className="button small" href="https://dsa.dsa" target="_blank" rel="noreferrer">Github</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ProjectsCards cards={projectsCards}/>
                             </section>
                         </main>
                     </div>
