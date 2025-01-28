@@ -1,13 +1,23 @@
 import './App.scss';
 import { FaGithub } from "react-icons/fa";
-import { MdLightMode } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
+import {NavbarMenu, NavLink, NavSocialLink} from "../../components/NavbarMenu";
 
 export default function App() {
+    const navLinks: NavLink[] = [
+        {title: "Articles", url: "#"},
+        {title: "Projects", url: "#"},
+        {title: "Demos", url: "#"},
+        {title: "About me", url: "#" },
+    ];
+    const socialLinks: NavSocialLink[] = [
+        { title: "Github", icon: FaGithub, url: "https://github.com/kotleni" },
+    ];
+
     return (
         <>
             <div className="layout">
-                <header  className="navbar">
+                <header className="navbar">
                     <div className="navbar-title">
                         <div className="navbar-title-content">
                             <a aria-current="page" className="navbar-title-link" href="/">
@@ -21,34 +31,9 @@ export default function App() {
                     <div className="navbar-wrapper">
                         <div className="navbar-container">
                             <button className="navbar-button nav-menu-button">
-                                <MdMenu />
+                                <MdMenu/>
                             </button>
-                            <section className="navbar-section">
-                                <nav className="navbar-menu nav-items">
-                                    <a href="/notes">Notes</a>
-                                    <a href="/blog">Articles</a>
-                                    <a href="/projects">Projects</a>
-                                    <a href="/illustration">Illustration</a>
-                                    <a href="/me">About me</a>
-                                </nav>
-                                <nav className="navbar-menu social">
-                                    <button
-                                       className="social-icon navbar-icon"
-                                       aria-label="github">
-                                        <span className="social-container">
-                                            <MdLightMode/>
-                                        </span>
-                                    </button>
-                                    <a href="https://github.com/kotleni"
-                                       className="social-icon navbar-icon"
-                                       target="_blank"
-                                       aria-label="github">
-                                        <span className="social-container">
-                                            <FaGithub/>
-                                        </span>
-                                    </a>
-                                </nav>
-                            </section>
+                            <NavbarMenu links={navLinks} socialLinks={socialLinks} />
                         </div>
                     </div>
                 </header>
