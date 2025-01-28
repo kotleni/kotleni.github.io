@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router";
 import Rick from './routes/Rick';
 import App from './routes/App'
 
-import './index.scss'
+import './assets/styles/index.scss'
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Perlin from "../../perlin";
-import "./DottedBackground.scss";
+import "./DottedBackground.module.scss";
 
 const SCALE = 200;
 const LENGTH = 10;
