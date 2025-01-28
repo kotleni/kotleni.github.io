@@ -1,5 +1,6 @@
 import './App.scss';
 import { FaGithub } from "react-icons/fa";
+import { MdLightMode } from "react-icons/md";
 
 export default function App() {
     return (
@@ -27,11 +28,21 @@ export default function App() {
                                     <a href="/me">About me</a>
                                 </nav>
                                 <nav className="navbar-menu social">
-                                    <a href="https://github.com/kotleni" className="social-icon navbar-icon" target="_blank"
+                                    <button
+                                       className="social-icon navbar-icon"
                                        aria-label="github">
                                         <span className="social-container">
-                                            <FaGithub />
-                                        </span></a>
+                                            <MdLightMode/>
+                                        </span>
+                                    </button>
+                                    <a href="https://github.com/kotleni"
+                                       className="social-icon navbar-icon"
+                                       target="_blank"
+                                       aria-label="github">
+                                        <span className="social-container">
+                                            <FaGithub/>
+                                        </span>
+                                    </a>
                                 </nav>
                             </section>
                         </div>

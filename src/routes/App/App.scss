@@ -396,11 +396,12 @@ a.navbar-title-link {
   align-items: center;
   gap: 2px;
 
-  a {
+  a, button {
     transition: all 0.2s ease-in-out;
     white-space: nowrap;
     padding: 0.75rem;
     color: var(--color-text-navbar-link);
+    border: none;
     border-radius: var(--border-radius);
     text-decoration: none;
 
@@ -411,6 +412,14 @@ a.navbar-title-link {
 
     &.active {
       color: var(--color-text-link);
+    }
+  }
+
+  button {
+    height: 40px !important;
+    width: 40px !important;
+    svg {
+      padding: 8px;
     }
   }
 
@@ -1333,4 +1342,10 @@ a.footer-link {
   left: 0;
   width: 100%;
   height: 100%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+  }
 }
