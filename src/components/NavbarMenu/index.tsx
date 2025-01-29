@@ -1,5 +1,6 @@
 import {IconType} from "react-icons";
 import {MdLightMode} from "react-icons/md";
+import {IS_HIDE_SOCIAL_LINKS_FROM_NAV} from "../../config.ts";
 
 type NavLink = { title: string, url: string };
 type NavSocialLink = { title: string, icon: IconType, url: string };
@@ -14,23 +15,25 @@ const NavbarMenu: React.FC<Props> = (props) => {
                 ))}
             </nav>
             <nav className="navbar-menu social">
-                <button
-                    className="social-icon navbar-icon"
-                    aria-label="github">
-                        <span className="social-container">
-                            <MdLightMode/>
-                        </span>
-                </button>
-                {props.socialLinks.map((link: NavSocialLink) => (
-                    <a href={link.url}
-                       className="social-icon navbar-icon"
-                       target="_blank"
-                       aria-label={link.title}>
+                {/*<button*/}
+                {/*    className="social-icon navbar-icon"*/}
+                {/*    aria-label="github">*/}
+                {/*        <span className="social-container">*/}
+                {/*            <MdLightMode/>*/}
+                {/*        </span>*/}
+                {/*</button>*/}
+                <div hidden={IS_HIDE_SOCIAL_LINKS_FROM_NAV}>
+                    {props.socialLinks.map((link: NavSocialLink) => (
+                        <a href={link.url}
+                           className="social-icon navbar-icon"
+                           target="_blank"
+                           aria-label={link.title}>
                     <span className="social-container">
                         {link.icon({})}
                     </span>
-                    </a>
-                ))}
+                        </a>
+                    ))}
+                </div>
             </nav>
         </section>
     );

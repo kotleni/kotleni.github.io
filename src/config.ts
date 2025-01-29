@@ -1,5 +1,5 @@
 import {NavLink, NavSocialLink} from "./components/NavbarMenu";
-import {FaGithub} from "react-icons/fa";
+import {FaGithub, FaTwitter, FaTelegram, FaCoffee} from "react-icons/fa";
 import {CardItemProps} from "./components/ProjectsCards";
 
 const NAV_LINKS: NavLink[] = [
@@ -8,9 +8,14 @@ const NAV_LINKS: NavLink[] = [
     {title: "Demos", url: "#"},
     {title: "About me", url: "#" },
 ];
-const NAV_SOCIAL_LINKS: NavSocialLink[] = [
+const SOCIAL_LINKS: NavSocialLink[] = [
     { title: "Github", icon: FaGithub, url: "https://github.com/kotleni" },
+    { title: "Twitter", icon: FaTwitter, url: "https://x.com/kotleni_" },
+    { title: "Telegram", icon: FaTelegram, url: "https://t.me/kotleni" },
+    { title: "Buy Me A Coffee", icon: FaCoffee, url: "https://ko-fi.com/kotleni" }
 ];
+const IS_HIDE_SOCIAL_LINKS_FROM_NAV = true;
+
 const PROJECTS_CARDS: CardItemProps[] = [
     {
         title: "vrchat-osc-motd",
@@ -78,4 +83,4 @@ const PROJECTS_CARDS: CardItemProps[] = [
     },
 ];
 
-export {NAV_LINKS, NAV_SOCIAL_LINKS, PROJECTS_CARDS};
+export {NAV_LINKS, SOCIAL_LINKS, PROJECTS_CARDS, IS_HIDE_SOCIAL_LINKS_FROM_NAV};
