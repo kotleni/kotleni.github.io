@@ -1,3 +1,5 @@
+import Photo1 from "../../../assets/photo1.jpeg";
+
 const AboutPage: React.FC = () => {
     return (
         <main className="main-content page">
@@ -10,7 +12,7 @@ const AboutPage: React.FC = () => {
                 blah blah. My motivation is blah blah blah blah. BLah blah!</p>
             <p>You can also follow me on Twitter or Github, blah blah. Also if you're interested in communication or
                 blah blah you can blah blah blah <a href="#">blah</a> blah.</p>
-            <p>CAN I PUT IMAGE HERE?</p>
+            <img src={Photo1} alt="Photo taken from bridge" />
 
             <h2>Contact</h2>
             <p>Send me an email to say hi, or connect via the socials.</p>
