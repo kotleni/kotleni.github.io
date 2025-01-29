@@ -1266,67 +1266,6 @@ img.image-float {
   scroll-margin-top: var(--navbar-height);
 }
 
-/* Footer */
-
-.footer {
-  border-top: 1px solid var(--color-border);
-  padding: 1.5rem 0;
-  font-size: 13px;
-}
-
-a.footer-link {
-  white-space: nowrap;
-  color: var(--color-text-muted);
-
-  &:hover {
-    color: var(--color-text-link-hover);
-  }
-}
-
-.floppy-logo {
-  display: inline-block;
-  height: 18px;
-  width: 18px;
-}
-
-.footer-made-by {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.footer-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  gap: 1.5rem;
-  max-width: var(--page-content-width);
-  margin: 0 auto;
-}
-
-.footer-menu {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.footer-menu-buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 0.75rem;
-}
-
-@media screen and (min-width: 900px) {
-  .footer {
-    font-size: 14px;
-  }
-
-  .footer-menu {
-    display: flex;
-  }
-}
-
 .social-icon {
   display: inline-block;
   width: 50px;
