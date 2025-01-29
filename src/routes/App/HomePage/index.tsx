@@ -1,6 +1,3 @@
-import {ProjectsCards} from "../../../components/ProjectsCards";
-import {PROJECTS_CARDS} from "../../../config.ts";
-
 const MainHeader: React.FC = () => {
     return (
         <section>
@@ -16,7 +13,7 @@ const MainHeader: React.FC = () => {
                             spending time with friends.</p>
                         <p className="hero-description">On
                             this site, you can check out all the <a href="/demos">web demos</a> I've
-                            coded, read some of my <a href="/notes">notes</a>, or learn more
+                            coded, read some of my <a href="/articles">articles</a>, or learn more
                             <a href="/me"> about me 💾</a>.
                             {/*<img*/}
                             {/*    src="/static/abc1.png"*/}
@@ -29,44 +26,29 @@ const MainHeader: React.FC = () => {
     );
 };
 
-const ProjectsSection: React.FC = () => {
-    return (
-        <section>
-            <header className="heading">
-                <div><h2>Projects</h2>
-                    <div className="description">Open-source projects I've worked on over the
-                        years.
-                    </div>
-                </div>
-                <a className="button" href="/projects">All Projects</a></header>
-            <ProjectsCards cards={PROJECTS_CARDS}/>
-        </section>
-    );
-};
-
-const ArticlesSection: React.FC = () => {
-    return (
-        <section className="section-index">
-            <header className="heading">
-                <div><h2>Articles</h2>
-                    <div className="description">Guides, references, and personal notes.</div>
-                </div>
-            </header>
-            <div className="posts newspaper">
-                <a className="post" href="/testing-articles/"><p>Testing articles page</p>
-                    <time className="new-post">January 2025</time>
-                </a>
-            </div>
-        </section>
-    );
-};
+// const ArticlesSection: React.FC = () => {
+//     return (
+//         <section className="section-index">
+//             <header className="heading">
+//                 <div><h2>Articles</h2>
+//                     <div className="description">Guides, references, and personal notes.</div>
+//                 </div>
+//             </header>
+//             <div className="posts newspaper">
+//                 <a className="post" href="/testing-articles/"><p>Testing articles page</p>
+//                     <time className="new-post">January 2025</time>
+//                 </a>
+//             </div>
+//         </section>
+//     );
+// };
 
 const HomePage: React.FC = () => {
     return (
         <main className="main-content page">
             <MainHeader/>
-            <ArticlesSection/>
-            <ProjectsSection/>
+            {/*<ArticlesSection/>*/}
+            {/*<ProjectsSection/>*/}
         </main>
     );
 };

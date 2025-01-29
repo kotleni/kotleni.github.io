@@ -67,7 +67,7 @@
 
   /* Layout */
   --navbar-height: 60px;
-  --footer-height: 60px;
+  --footer-height: 70px;
   --layout-width: 1440px;
   --content-width: 700px;
   --page-content-width: 900px;
@@ -749,11 +749,18 @@ a.sidebar-title-link {
   display: block;
 }
 
+@media screen and (min-width: 900px) {
+  .main-container {
+    min-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
+  }
+}
+
 @media screen and (min-width: 1320px) {
   .main-container {
     display: flex;
     gap: 2rem;
     max-width: calc(100vw - calc(var(--sidebar-width) + 1rem));
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
   }
 }
 

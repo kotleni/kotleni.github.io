@@ -15,7 +15,7 @@ const Footer: React.FC<Props> = (props) => {
                         </a>
                     ))}
                 </nav>
-                <div className={styles.madeBy}>Made with ❤️ by Viktor Varenik</div>
+                <div className={styles.madeby}>Made with ❤️ by Viktor Varenik</div>
             </section>
         </footer>
     );

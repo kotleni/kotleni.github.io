@@ -3,9 +3,9 @@ import {FaGithub, FaTwitter, FaTelegram, FaCoffee} from "react-icons/fa";
 import {CardItemProps} from "./components/ProjectsCards";
 
 const NAV_LINKS: NavLink[] = [
-    {title: "Articles", url: "#"},
-    {title: "Projects", url: "#"},
-    {title: "Demos", url: "#"},
+    {title: "Articles", url: "/articles"},
+    {title: "Projects", url: "/projects"},
+    {title: "Demos", url: "/demos"},
     {title: "About me", url: "/me" },
 ];
 const SOCIAL_LINKS: NavSocialLink[] = [
