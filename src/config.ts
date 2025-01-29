@@ -6,7 +6,7 @@ const NAV_LINKS: NavLink[] = [
     {title: "Articles", url: "#"},
     {title: "Projects", url: "#"},
     {title: "Demos", url: "#"},
-    {title: "About me", url: "#" },
+    {title: "About me", url: "/me" },
 ];
 const SOCIAL_LINKS: NavSocialLink[] = [
     { title: "Github", icon: FaGithub, url: "https://github.com/kotleni" },
