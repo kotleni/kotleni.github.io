@@ -9,10 +9,8 @@ const Footer: React.FC<Props> = (props) => {
             <section className={styles.section}>
                 <nav className={styles.menu}>
                     {props.socialLinks.map((link) => (
-                        <a href={link.url} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
-                            <div>
-                                {link.icon({})}
-                            </div>
+                        <a href={link.url} target="_blank" rel="noopener noreferrer" className={styles.link} key={link.url}>
+                            {link.icon({})}
                             {link.title}
                         </a>
                     ))}

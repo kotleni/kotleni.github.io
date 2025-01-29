@@ -4,19 +4,16 @@
   font-size: 13px;
 }
 
-a.link {
+.link {
   white-space: nowrap;
   color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 
-  &:hover {
+  :hover {
     color: var(--color-text-link-hover);
   }
-}
-
-.logo {
-  display: inline-block;
-  height: 18px;
-  width: 18px;
 }
 
 .made-by {
