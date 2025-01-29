@@ -1,5 +1,4 @@
 import {IconType} from "react-icons";
-import {MdLightMode} from "react-icons/md";
 import {IS_HIDE_SOCIAL_LINKS_FROM_NAV} from "../../config.ts";
 
 type NavLink = { title: string, url: string };
