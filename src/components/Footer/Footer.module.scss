@@ -36,6 +36,7 @@
 
 .menu {
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
 }
 
@@ -45,6 +46,6 @@
   }
 
   .menu {
-    display: flex;
+    flex-direction: row;
   }
 }
