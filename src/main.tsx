@@ -7,6 +7,7 @@ import {App} from "./routes/App";
 import {AboutPage} from "./routes/App/AboutPage";
 import {ProjectsPage} from "./routes/App/ProjectsPage";
 import {DemosPage} from "./routes/App/DemosPage";
+import {ArticlesPage} from "./routes/App/ArticlesPage";
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
@@ -14,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/" element={<App><HomePage/></App>} />
             <Route path="/projects" element={<App><ProjectsPage/></App>} />
             <Route path="/me" element={<App><AboutPage/></App>} />
-            <Route path="/articles" element={<App>Nothing here yet.</App>} />
+            <Route path="/articles" element={<App><ArticlesPage /></App>} />
             <Route path="/demos" element={<App><DemosPage /></App>} />
             <Route path="/rick" element={<Rick />} />
         </Routes>

@@ -1,6 +1,9 @@
-import {NavLink, NavSocialLink} from "./components/NavbarMenu";
 import {FaGithub, FaTwitter, FaTelegram, FaCoffee} from "react-icons/fa";
 import {CardItemProps} from "./components/ProjectsCards";
+import {IconType} from "react-icons";
+
+type NavLink = { title: string, url: string };
+type NavSocialLink = { title: string, icon: IconType, url: string };
 
 const NAV_LINKS: NavLink[] = [
     {title: "Articles", url: "/articles"},
