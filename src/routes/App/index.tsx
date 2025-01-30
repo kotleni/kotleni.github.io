@@ -4,19 +4,23 @@ import {NavBar} from "../../components/NavBar";
 import {SideBar} from "../../components/SideBar";
 import {Footer} from "../../components/Footer";
 import {FullScreenMenu} from "../../components/FullScreenMenu";
-
+import {useState} from "react";
 
 type Props = { children: React.ReactNode };
 
-let isFullScreenMenuOpen: boolean = true;
-
 const App: React.FC<Props> = (props) => {
+    const [isFullScreenMenuOpen, setIsFullScreenMenuOpen] = useState(false);
+
+    const onMenuClick = () => {
+        setIsFullScreenMenuOpen(!isFullScreenMenuOpen);
+    };
+
     return (
         <>
             <div className="layout">
-                <FullScreenMenu isOpen={isFullScreenMenuOpen} />
+                <FullScreenMenu isOpen={isFullScreenMenuOpen}/>
 
-                <NavBar/>
+                <NavBar onMenuClick={onMenuClick} />
                 <SideBar/>
                 <div className="main-wrapper">
                     <div className="main-container">
