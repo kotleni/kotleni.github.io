@@ -2,7 +2,7 @@ import Photo1 from "../../../assets/photo1.jpeg";
 
 const AboutPage: React.FC = () => {
     return (
-        <main className="main-content page">
+        <>
             <header className="hero hero-page"><h1>About Me</h1></header>
             <p>Hey, I'm Viktor! I XXXX, and fill me please. This text is useless, i just need to write it later. It's
                 just a stub, and you are so kind if you're reading this.</p>
@@ -12,7 +12,7 @@ const AboutPage: React.FC = () => {
                 blah blah. My motivation is blah blah blah blah. BLah blah!</p>
             <p>You can also follow me on Twitter or Github, blah blah. Also if you're interested in communication or
                 blah blah you can blah blah blah <a href="#">blah</a> blah.</p>
-            <img src={Photo1} alt="Photo taken from bridge" />
+            <img src={Photo1} alt="Photo taken from bridge"/>
 
             <h2>Contact</h2>
             <p>Send me an email to say hi, or connect via the socials.</p>
@@ -68,7 +68,7 @@ const AboutPage: React.FC = () => {
                 <li><a href="#">Resume</a></li>
                 <li><a href="#">Blah</a></li>
             </ul>
-        </main>
+        </>
     );
 };
 

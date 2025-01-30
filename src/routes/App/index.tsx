@@ -24,7 +24,9 @@ const App: React.FC<Props> = (props) => {
                 <SideBar/>
                 <div className="main-wrapper">
                     <div className="main-container">
-                        {props.children}
+                        <main className="main-content page">
+                            {props.children}
+                        </main>
                     </div>
                     <Footer socialLinks={SOCIAL_LINKS}/>
                 </div>

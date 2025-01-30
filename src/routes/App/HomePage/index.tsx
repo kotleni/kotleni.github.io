@@ -18,7 +18,8 @@ const MainHeader: React.FC = () => {
                             {/*<img*/}
                             {/*    src="/static/abc1.png"*/}
                             {/*    className="logo" alt="Big logo"/>*/}
-                        </p></div>
+                        </p>
+                    </div>
                     {/*<img src="/ram.png" className="hero-image" alt="RAM Ram"/>*/}
                 </div>
             </header>
@@ -45,11 +46,11 @@ const MainHeader: React.FC = () => {
 
 const HomePage: React.FC = () => {
     return (
-        <main className="main-content page">
+        <>
             <MainHeader/>
             {/*<ArticlesSection/>*/}
             {/*<ProjectsSection/>*/}
-        </main>
+        </>
     );
 };
 

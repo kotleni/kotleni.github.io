@@ -19,9 +19,7 @@ const ProjectsSection: React.FC = () => {
 
 const ProjectsPage: React.FC = () => {
     return (
-        <main className="main-content page">
-            <ProjectsSection/>
-        </main>
+        <ProjectsSection />
     );
 };
 
