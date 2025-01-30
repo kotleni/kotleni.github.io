@@ -1,0 +1,244 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: var(--navbar-height);
+
+  /* mobile */
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 2rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  height: var(--navbar-height);
+  z-index: 3;
+}
+
+a.titleLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-navbar-link);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: var(--navbar-height);
+  width: 100%;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.sectionSearch {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  a, button {
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    padding: 0.75rem;
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--color-background-navbar-link-hover);
+      color: var(--color-text-navbar-link-hover);
+    }
+
+    &.active {
+      color: var(--color-text-link);
+    }
+  }
+
+  button {
+    height: 40px !important;
+    width: 40px !important;
+    svg {
+      padding: 8px;
+    }
+  }
+
+  &.naItems {
+    display: none;
+  }
+}
+
+button.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  height: 40px;
+  width: 40px;
+  color: var(--color-text-navbar-link);
+
+  img {
+    margin: 0;
+  }
+
+  svg {
+    color: var(--color-text-muted);
+  }
+
+  &:hover {
+    border: none;
+    background: var(--color-background-navbar-link-hover);
+    color: var(--color-text-navbar-link-hover);
+
+    svg {
+      color: var(--color-text-navbar-link-hover);
+    }
+  }
+}
+
+@media screen and (max-width: 899px) {
+  .menu {
+    &.navItems {
+      height: calc(100vh - var(--navbar-height));
+      justify-content: center;
+
+      a {
+        font-size: 1.2rem;
+      }
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        margin-top: var(--navbar-height);
+        background: var(--color-background-sidebar);
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  button.menuButton {
+    display: none;
+  }
+
+  .section {
+    gap: 1.5rem;
+  }
+
+  .menu {
+    &.navItems {
+      display: flex !important;
+    }
+
+    a {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .navbar {
+    display: block;
+    background: light-dark(rgba(255, 255, 255, 0.6), rgba(31, 31, 31, 0.6));
+    backdrop-filter: blur(10px);
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .container {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: var(--navbar-height);
+    z-index: 3;
+  }
+
+  a.titleLink {
+    margin-left: 0.5rem;
+  }
+
+  .titleContent {
+    padding: 0 1rem;
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+  }
+
+  .sectionSearch {
+    display: block;
+  }
+
+  .wrapper {
+    margin-left: var(--sidebar-width);
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .wrapper {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    margin-left: calc((100% - var(--layout-width)) / 2);
+  }
+
+  .wrapper {
+    margin-right: calc((100vw - var(--layout-width)) / 2);
+    margin-left: calc(
+            ((100vw - var(--layout-width)) / 2) + var(--sidebar-width)
+    );
+  }
+}
+
+a.icon {
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.menuButton {
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.inactiveLink {
+  color: var(--color-text-navbar-link);
+}
+
+.activeLink {
+  color: var(--color-text-navbar-link-active);
+}
