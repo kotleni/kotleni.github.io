@@ -7,8 +7,10 @@ interface Props {
 }
 
 const FullScreenMenu: React.FC<Props> = (props) => {
+    if(!props.isOpen) return null;
+
     return (
-        <div className={styles.container} hidden={!props.isOpen}>
+        <div className={styles.container}>
             <nav className={styles.items}>
                 {NAV_LINKS.map((link: NavLink) => (
                     <a key={link.url} href={link.url} className={styles.item}>{link.title}</a>

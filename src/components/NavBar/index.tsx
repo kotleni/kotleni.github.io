@@ -2,7 +2,11 @@ import {MdMenu} from "react-icons/md";
 import {NavbarMenu} from "../NavbarMenu";
 import {NAV_LINKS, SOCIAL_LINKS} from "../../config.ts";
 
-const NavBar: React.FC = () => {
+interface Props {
+    onMenuClick: () => void;
+}
+
+const NavBar: React.FC<Props> = (props) => {
     return (
         <header className="navbar">
             <div className="navbar-title">
@@ -17,7 +21,7 @@ const NavBar: React.FC = () => {
             </div>
             <div className="navbar-wrapper">
                 <div className="navbar-container">
-                    <button className="navbar-button nav-menu-button">
+                    <button className="navbar-button nav-menu-button" onClick={props.onMenuClick}>
                         <MdMenu/>
                     </button>
                     <NavbarMenu links={NAV_LINKS} socialLinks={SOCIAL_LINKS}/>
