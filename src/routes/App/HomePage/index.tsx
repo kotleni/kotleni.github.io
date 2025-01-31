@@ -12,8 +12,7 @@ const MainHeader: React.FC = () => {
                             languages, learning something new and useful, playing retro video games, and
                             spending time with friends.</p>
                         <p className="hero-description">On
-                            this site, you can check out all the <a href="/demos">web demos</a> I've
-                            coded, read some of my <a href="/articles">articles</a>, or learn more
+                            this site, you can read some of my <a href="/articles">articles</a>, or learn more
                             <a href="/me"> about me 💾</a>.
                             {/*<img*/}
                             {/*    src="/static/abc1.png"*/}

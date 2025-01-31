@@ -33,7 +33,14 @@
 
   &:hover {
     background: var(--color-background-navbar-link-hover);
-    color: var(--color-text-navbar-link-hover);
     text-decoration: none;
   }
+}
+
+.inactiveLink {
+  color: var(--color-text-navbar-link);
+}
+
+.activeLink {
+  color: var(--color-text-navbar-link-active);
 }

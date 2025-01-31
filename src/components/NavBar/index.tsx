@@ -25,7 +25,7 @@ const NavBar: React.FC<Props> = (props) => {
                         <MdMenu/>
                     </button>
                     <section className={styles.section}>
-                        <nav className={styles.menu}>
+                        <nav className={`${styles.menu} ${styles.navItems}`}>
                             {NAV_LINKS.map((link) => (
                                 <a key={link.url} href={link.url}
                                    className={location.pathname === link.url ? styles.activeLink : styles.inactiveLink}>{link.title}</a>

@@ -65,7 +65,6 @@ a.titleLink {
 
     &:hover {
       background: var(--color-background-navbar-link-hover);
-      color: var(--color-text-navbar-link-hover);
     }
 
     &.active {
@@ -81,7 +80,7 @@ a.titleLink {
     }
   }
 
-  &.naItems {
+  &.navItems {
     display: none;
   }
 }
@@ -108,7 +107,6 @@ button.button {
   &:hover {
     border: none;
     background: var(--color-background-navbar-link-hover);
-    color: var(--color-text-navbar-link-hover);
 
     svg {
       color: var(--color-text-navbar-link-hover);

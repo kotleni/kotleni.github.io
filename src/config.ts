@@ -8,7 +8,6 @@ type NavSocialLink = { title: string, icon: IconType, url: string };
 const NAV_LINKS: NavLink[] = [
     {title: "Articles", url: "/articles"},
     {title: "Projects", url: "/projects"},
-    {title: "Demos", url: "/demos"},
     {title: "About me", url: "/me" },
 ];
 const SOCIAL_LINKS: NavSocialLink[] = [

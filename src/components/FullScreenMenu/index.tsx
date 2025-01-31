@@ -13,7 +13,12 @@ const FullScreenMenu: React.FC<Props> = (props) => {
         <div className={styles.container}>
             <nav className={styles.items}>
                 {NAV_LINKS.map((link: NavLink) => (
-                    <a key={link.url} href={link.url} className={styles.item}>{link.title}</a>
+                    <a
+                        key={link.url}
+                        href={link.url}
+                        className={`${styles.item} ${location.pathname === link.url ? styles.activeLink : styles.inactiveLink}`}>
+                        {link.title}
+                    </a>
                 ))}
             </nav>
         </div>
