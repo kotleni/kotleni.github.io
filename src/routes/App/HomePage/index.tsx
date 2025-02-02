@@ -29,29 +29,10 @@ const MainHeader: React.FC = () => {
     );
 };
 
-// const ArticlesSection: React.FC = () => {
-//     return (
-//         <section className="section-index">
-//             <header className="heading">
-//                 <div><h2>Articles</h2>
-//                     <div className="description">Guides, references, and personal notes.</div>
-//                 </div>
-//             </header>
-//             <div className="posts newspaper">
-//                 <a className="post" href="/testing-articles/"><p>Testing articles page</p>
-//                     <time className="new-post">January 2025</time>
-//                 </a>
-//             </div>
-//         </section>
-//     );
-// };
-
 const HomePage: React.FC = () => {
     return (
         <>
             <MainHeader/>
-            {/*<ArticlesSection/>*/}
-            {/*<ProjectsSection/>*/}
         </>
     );
 };
