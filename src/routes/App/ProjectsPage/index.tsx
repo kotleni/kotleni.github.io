@@ -10,7 +10,7 @@ const ProjectsSection: React.FC = () => {
                         years.
                     </div>
                 </div>
-                {/*<a className="button" href="/projects">All Projects</a>*/}
+                {/*<Link className="button" href="/projects">All Projects</Link>*/}
             </header>
             <ProjectsCards cards={PROJECTS_CARDS}/>
         </section>

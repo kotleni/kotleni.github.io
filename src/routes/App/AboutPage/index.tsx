@@ -1,5 +1,6 @@
 import Photo1 from "../../../assets/photo1.jpeg";
 import {SOCIAL_LINKS} from "../../../config.ts";
+import { Link } from "react-router-dom";
 
 const AboutPage: React.FC = () => {
     return (
@@ -21,18 +22,18 @@ const AboutPage: React.FC = () => {
             <p>My site has <strong>no ads, no tracking or analytics, no sponsored posts, and no paywall</strong>.
                 It's a place for genuine content, driven by passion rather than profit.</p>
             <p>You can also follow me on Twitter or Github, blah blah. Also if you're interested in communication or
-                blah blah you can blah blah blah <a href="#">blah</a> blah.</p>
+                blah blah you can blah blah blah <Link to="#">blah</Link> blah.</p>
             <img src={Photo1} alt="Photo taken from bridge"/>
 
             <h2>Contact</h2>
             <p>Send me an email to say hi, or connect via the socials.</p>
             <ul>
                 <li>
-                    <a href="mailto:yavarenikya@gmail.com" target="_blank"
-                       rel="noopener noreferrer">yavarenikya@gmail.com</a>
+                    <Link to="mailto:yavarenikya@gmail.com" target="_blank"
+                       rel="noopener noreferrer">yavarenikya@gmail.com</Link>
                 </li>
                 {SOCIAL_LINKS.map((social) => (
-                    <li><a href={social.url} target="_blank">{social.title}</a></li>
+                    <li><Link to={social.url} target="_blank">{social.title}</Link></li>
                 ))}
             </ul>
 
@@ -42,9 +43,9 @@ const AboutPage: React.FC = () => {
             <ul>
                 <li><strong>OS: </strong>
                     <ul>
-                        <li>Desktop: <a href="https://archlinux.org/">Arch Linux x86_64</a> with <a href="https://kde.org/plasma-desktop/">Plasma Desktop</a></li>
-                        <li>Laptop: <a href="https://asahilinux.org/fedora/">Asahi Fedora Remix</a> with <a href="https://kde.org/plasma-desktop/">Plasma Desktop</a></li>
-                        <li>Mobile: <a href="https://lineageos.org/">LineageOS 21</a></li>
+                        <li>Desktop: <Link to="https://archlinux.org/">Arch Linux x86_64</Link> with <Link to="https://kde.org/plasma-desktop/">Plasma Desktop</Link></li>
+                        <li>Laptop: <Link to="https://asahilinux.org/fedora/">Asahi Fedora Remix</Link> with <Link to="https://kde.org/plasma-desktop/">Plasma Desktop</Link></li>
+                        <li>Mobile: <Link to="https://lineageos.org/">LineageOS 21</Link></li>
                     </ul>
                 </li>
                 <li><strong>Coding: </strong>VSCode, WebStorm, IDEA, vim</li>
@@ -72,8 +73,8 @@ const AboutPage: React.FC = () => {
 
             {/*<h2>Miscellaneous</h2>*/}
             {/*<ul>*/}
-            {/*    <li><a href="#">Resume</a></li>*/}
-            {/*    <li><a href="#">Blah</a></li>*/}
+            {/*    <li><Link to="#">Resume</Link></li>*/}
+            {/*    <li><Link to="#">Blah</Link></li>*/}
             {/*</ul>*/}
         </>
     );

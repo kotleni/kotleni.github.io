@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const MainHeader: React.FC = () => {
     return (
         <section>
@@ -18,9 +20,9 @@ const MainHeader: React.FC = () => {
                             open-source projects or experimenting with new tech.
                         </p>
                         <p className="hero-description">On
-                            this site, you can read some of my <a href="/articles">articles</a>,
-                            check my open source <a href="/projects">projects</a> or learn more
-                            <a href="/me"> about me 💾</a>.
+                            this site, you can read some of my <Link to="/articles">articles</Link>,
+                            check my open source <Link to="/projects">projects</Link> or learn more
+                            <Link to="/me"> about me 💾</Link>.
                         </p>
                     </div>
                 </div>
