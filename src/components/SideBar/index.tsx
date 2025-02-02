@@ -32,7 +32,7 @@ const SideBar: React.FC = () => {
                         <h2>Some of my favorite posts</h2>
                         <nav className="sidebar-menu">
                             {/*<a href="/me">Link to random thing</a>*/}
-                            <a href="/ar">All topics</a></nav>
+                            <a href="/articles">All topics</a></nav>
                     </section>
                 </div>
             </div>
