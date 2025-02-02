@@ -1,32 +1,38 @@
-import {Link} from "react-router";
-import VersionTip from "../../components/VersionTip";
-import SocialItem from "../../components/SocialItem";
-import ParallaxBackground from "../../components/ParallaxBackground";
-
 import './App.scss';
+import {SOCIAL_LINKS} from "../../config.ts";
+import {NavBar} from "../../components/NavBar";
+import {SideBar} from "../../components/SideBar";
+import {Footer} from "../../components/Footer";
+import {FullScreenMenu} from "../../components/FullScreenMenu";
+import {useState} from "react";
 
-export default function App() {
+type Props = { children: React.ReactNode };
+
+const App: React.FC<Props> = (props) => {
+    const [isFullScreenMenuOpen, setIsFullScreenMenuOpen] = useState(false);
+
+    const onMenuClick = () => {
+        setIsFullScreenMenuOpen(!isFullScreenMenuOpen);
+    };
+
     return (
         <>
-            <ParallaxBackground/>
+            <div className="layout">
+                <FullScreenMenu isOpen={isFullScreenMenuOpen}/>
 
-            <header className="header">
-                <Link className="header-title" to="/rick">Viktor Varenik</Link>
-                <h2 className="header-subtitle">Fullstack Web & Mobile developer</h2>
-            </header>
-
-            <footer className="footer">
-                <p className="footer-desc">I'm a developer based in Kharkiv, Ukraine. Specialized in developing fullstack and mobile applications using different technologies.</p>
-                <ul className="social">
-                    <h3 className="social-title">Contacts:</h3>
-                    <SocialItem title="email" link="mailto:yavarenikya@gmail.com"/>
-                    <SocialItem title="telegram" link="https://t.me/kotleni"/>
-                    <SocialItem title="github" link="https://github.com/kotleni"/>
-                    <SocialItem title="linkedin" link="https://www.linkedin.com/in/kotleni"/>
-                </ul>
-            </footer>
-
-            <VersionTip/>
+                <NavBar onMenuClick={onMenuClick} />
+                <SideBar/>
+                <div className="main-wrapper">
+                    <div className="main-container">
+                        <main className="main-content page">
+                            {props.children}
+                        </main>
+                    </div>
+                    <Footer socialLinks={SOCIAL_LINKS}/>
+                </div>
+            </div>
         </>
     );
 }
+
+export { App };
