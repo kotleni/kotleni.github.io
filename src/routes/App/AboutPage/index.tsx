@@ -34,7 +34,7 @@ const AboutPage: React.FC = () => {
 
             <h2>Tools</h2>
             <h3>Software</h3>
-            <p>This website is hosted on X and uses X.</p>
+            {/*<p>This website is hosted on X and uses X.</p>*/}
             <ul>
                 <li><strong>OS: </strong>
                     <ul>
