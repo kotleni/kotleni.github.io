@@ -4,22 +4,25 @@ const MainHeader: React.FC = () => {
             <header className="hero hero-index"><h1>Hey, I'm Viktor!</h1>
                 <div className="hero-wrapper">
                     <div>
-                        <p className="hero-description">I'm a software engineer, fanatical open
-                            sourceror,
-                            and engineer. I've been making websites since 2024 and writing
-                            on this blog for the past decade.</p>
-                        <p className="hero-description">I enjoy
-                            languages, learning something new and useful, playing retro video games, and
-                            spending time with friends.</p>
+                        <p className="hero-description">
+                            I'm a software engineer, open-source enthusiast, and retro tech lover.
+                            <strong> I started my career as an Android developer</strong>, spending
+                            three years crafting mobile experiences <strong>before shifting my focus to web
+                            development in 2024</strong>. I've been started writing on this blog for the past
+                            decade, sharing insights on coding, open-source projects, and my passion for all
+                            things retro. Also, by the way — <i>I use Arch</i>, btw.
+                        </p>
+                        <p className="hero-description">
+                            Also i enjoy languages, learning new things, coding, and making cool stuff for Linux.
+                            When I'm not playing retro games or tweaking my Linux setup, I'm contributing to
+                            open-source projects or experimenting with new tech.
+                        </p>
                         <p className="hero-description">On
-                            this site, you can read some of my <a href="/articles">articles</a>, or learn more
+                            this site, you can read some of my <a href="/articles">articles</a>,
+                            check my open source <a href="/projects">projects</a> or learn more
                             <a href="/me"> about me 💾</a>.
-                            {/*<img*/}
-                            {/*    src="/static/abc1.png"*/}
-                            {/*    className="logo" alt="Big logo"/>*/}
                         </p>
                     </div>
-                    {/*<img src="/ram.png" className="hero-image" alt="RAM Ram"/>*/}
                 </div>
             </header>
         </section>
