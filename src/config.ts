@@ -14,7 +14,7 @@ const SOCIAL_LINKS: NavSocialLink[] = [
     { title: "Github", icon: FaGithub, url: "https://github.com/kotleni" },
     { title: "Twitter", icon: FaTwitter, url: "https://x.com/kotleni_" },
     { title: "Telegram", icon: FaTelegram, url: "https://t.me/kotleni" },
-    { title: "Buy Me A Coffee", icon: FaCoffee, url: "https://ko-fi.com/kotleni" }
+    // { title: "Buy Me A Coffee", icon: FaCoffee, url: "https://ko-fi.com/kotleni" }
 ];
 const IS_HIDE_SOCIAL_LINKS_FROM_NAV = true;
 
