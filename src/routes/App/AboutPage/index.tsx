@@ -27,6 +27,8 @@ const AboutPage: React.FC = () => {
             <h2>Contact</h2>
             <p>Send me an email to say hi, or connect via the socials.</p>
             <ul>
+                <a href="mailto:yavarenikya@gmail.com" target="_blank"
+                   rel="noopener noreferrer">yavarenikya@gmail.com</a>
                 {SOCIAL_LINKS.map((social) => (
                     <li><a href={social.url}>{social.title}</a></li>
                 ))}
