@@ -1,4 +1,4 @@
-import {FaGithub, FaTwitter, FaTelegram, FaCoffee} from "react-icons/fa";
+import {FaGithub, FaTwitter, FaTelegram} from "react-icons/fa";
 import {CardItemProps} from "./components/ProjectsCards";
 import {IconType} from "react-icons";
 
