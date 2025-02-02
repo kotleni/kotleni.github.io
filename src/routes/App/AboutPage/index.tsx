@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
                 <a href="mailto:yavarenikya@gmail.com" target="_blank"
                    rel="noopener noreferrer">yavarenikya@gmail.com</a>
                 {SOCIAL_LINKS.map((social) => (
-                    <li><a href={social.url}>{social.title}</a></li>
+                    <li><a href={social.url} target="_blank">{social.title}</a></li>
                 ))}
             </ul>
 
