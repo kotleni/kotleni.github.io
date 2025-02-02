@@ -2,6 +2,8 @@ import {FaGithub, FaTwitter, FaTelegram, FaCoffee} from "react-icons/fa";
 import {CardItemProps} from "./components/ProjectsCards";
 import {IconType} from "react-icons";
 
+// TODO: Rewrite all data to repository or service?
+
 type NavLink = { title: string, url: string };
 type NavSocialLink = { title: string, icon: IconType, url: string };
 
