@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
-import {BrowserRouter, Route, Routes} from "react-router";
+import {HashRouter, Route, Routes} from "react-router";
 import Rick from './routes/Rick';
 import './assets/styles/index.scss'
 import {HomePage} from "./routes/App/HomePage";
@@ -9,7 +9,7 @@ import {ProjectsPage} from "./routes/App/ProjectsPage";
 import {ArticlesPage} from "./routes/App/ArticlesPage";
 
 createRoot(document.getElementById('root')!).render(
-    <BrowserRouter>
+    <HashRouter>
         <App>
             <Routes>
                 <Route index element={<HomePage/>} />
@@ -19,5 +19,5 @@ createRoot(document.getElementById('root')!).render(
                 <Route path="rick"  element={<Rick />} />
             </Routes>
         </App>
-    </BrowserRouter>
+    </HashRouter>
 )
