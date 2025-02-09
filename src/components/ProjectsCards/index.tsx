@@ -12,7 +12,7 @@ const CardItem: React.FC<CardItemProps> = (props) => {
                rel="noreferrer">{props.title}</Link><p>{props.description}</p>
             <div className="card-links">
                 {props.buttons.map((button) => (
-                    <Link className="button small" href={button.url} target={button.target}>{button.title}</Link>
+                    <Link className="button small" to={button.url} target={button.target}>{button.title}</Link>
                 ))}
             </div>
         </div>
