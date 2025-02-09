@@ -15,10 +15,14 @@ const App: React.FC<Props> = (props) => {
         setIsFullScreenMenuOpen(!isFullScreenMenuOpen);
     };
 
+    const onMenuItemClick = () => {
+        setIsFullScreenMenuOpen(false);
+    };
+
     return (
         <>
             <div className="layout">
-                <FullScreenMenu isOpen={isFullScreenMenuOpen}/>
+                <FullScreenMenu isOpen={isFullScreenMenuOpen} onMenuItemClick={onMenuItemClick}/>
 
                 <NavBar onMenuClick={onMenuClick} />
                 <SideBar/>

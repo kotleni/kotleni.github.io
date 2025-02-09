@@ -87,4 +87,5 @@ const PROJECTS_CARDS: CardItemProps[] = [
     },
 ];
 
+export type {NavLink, NavSocialLink};
 export {NAV_LINKS, SOCIAL_LINKS, PROJECTS_CARDS, IS_HIDE_SOCIAL_LINKS_FROM_NAV};

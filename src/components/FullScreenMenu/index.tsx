@@ -1,9 +1,10 @@
 import styles from "./FullScreenMenu.module.scss";
-import {NavLink} from "../NavbarMenu";
-import {NAV_LINKS} from "../../config.ts";
+import {NAV_LINKS, NavLink} from "../../config.ts";
+import {Link} from "react-router-dom";
 
 interface Props {
     isOpen: boolean;
+    onMenuItemClick: (navLink: NavLink) => void;
 }
 
 const FullScreenMenu: React.FC<Props> = (props) => {
@@ -15,7 +16,8 @@ const FullScreenMenu: React.FC<Props> = (props) => {
                 {NAV_LINKS.map((link: NavLink) => (
                     <Link
                         key={link.url}
-                        href={link.url}
+                        to={link.url}
+                        onClick={() => props.onMenuItemClick(link)}
                         className={`${styles.item} ${location.pathname === link.url ? styles.activeLink : styles.inactiveLink}`}>
                         {link.title}
                     </Link>
