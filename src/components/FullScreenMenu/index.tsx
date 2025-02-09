@@ -8,6 +8,9 @@ interface Props {
 }
 
 const FullScreenMenu: React.FC<Props> = (props) => {
+    // Prevent body scrolling when menu opened
+    document.body.style.overflow = props.isOpen ? 'hidden' : 'scroll';
+
     if(!props.isOpen) return null;
 
     return (
