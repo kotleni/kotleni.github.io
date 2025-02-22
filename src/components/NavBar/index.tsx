@@ -12,7 +12,7 @@ const NavBar: React.FC<Props> = (props) => {
         <header className={styles.navbar}>
             <div className={styles.title}>
                 <div className={styles.titleContent}>
-                    <Link aria-current="page" className={styles.titleLink} href="/">
+                    <Link aria-current="page" className={styles.titleLink} to="/">
                         <span>
                             {/*<img src="" className="sidebar-logo" alt="Viktor Varenik" title="💾"/>*/}
                         </span>
