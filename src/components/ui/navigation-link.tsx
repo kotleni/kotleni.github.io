@@ -7,7 +7,7 @@ export interface NavigationLinkProps {
 
 export const NavigationLink = (props: NavigationLinkProps) => {
   return (
-    <Link className="hover:text-primary" href={props.href}>
+    <Link className="text-xl text-gray-200 hover:text-white" href={props.href}>
       {props.title}
     </Link>
   );
