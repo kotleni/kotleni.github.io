@@ -8,14 +8,10 @@ export const metadata: Metadata = {
   description: 'My own private web site.',
 };
 
-const EventInfoBar = () => {
+const LeftSideBar = () => {
   return (
-    <div className="w-full h-8 flex items-center justify-center bg-neutral-800 text-neutral-100 gap-1 p-4">
-      I have published my first article on my blog! Check it out
-      <Link className="text-blue-500" href="/">
-        here
-      </Link>
-      .
+    <div className="w-/10 h-full bg-neutral-400">
+      I have published my first article on my blog! Check it out thre dsa
     </div>
   );
 };
@@ -51,7 +47,10 @@ export default function RootLayout({
       <body>
         {/*<EventInfoBar />*/}
         <NavigationBar />
-        <div className="w-full h-full overflow-x-clip">{children}</div>
+        <div className="w-full h-full flex flex-row grow-rows-1">
+          {/*<LeftSideBar />*/}
+          <div>{children}</div>
+        </div>
       </body>
     </html>
   );
