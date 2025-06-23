@@ -49,9 +49,9 @@ export default function RootLayout({
             <body>
                 {/*<EventInfoBar />*/}
                 <NavigationBar />
-                <div className="w-full h-full flex flex-row grow-rows-1">
+                <div className="w-full h-full flex flex-row justify-center grow-rows-1">
                     {/*<LeftSideBar />*/}
-                    <div>{children}</div>
+                    <div className="container xl:max-w-300">{children}</div>
                 </div>
             </body>
         </html>
