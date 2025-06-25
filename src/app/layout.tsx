@@ -17,7 +17,7 @@ interface ConversationTarget {
 
 const LeftSideBar = () => {
     return (
-        <div className="w-70 h-full p-4 border-r-2 flex flex-col gap-2">
+        <div className="w-70 h-full p-4 border-r-1 flex flex-col gap-2">
             <p>Good conversations is missing!</p>
             <p>
                 If you are interested in communicating with me in English, write
