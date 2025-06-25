@@ -3,6 +3,7 @@ import './globals.css';
 import {NavigationLink} from '@/components/ui/navigation-link';
 import Link from 'next/link';
 import {Button} from '@/components/ui/button';
+import {ThemeProvider} from '@/components/theme-provider';
 
 export const metadata: Metadata = {
     title: 'kotleni`s private web site',
@@ -78,11 +79,18 @@ export default function RootLayout({
                 <title>kotleni's web</title>
             </head>
             <body>
-                <NavigationBar />
-                <div className="w-full h-full flex flex-row justify-center grow-rows-1">
-                    <LeftSideBar />
-                    <div className="container xl:max-w-300">{children}</div>
-                </div>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <NavigationBar />
+                    <div className="w-full h-full flex flex-row justify-center grow-rows-1">
+                        <LeftSideBar />
+                        <div className="container xl:max-w-300">{children}</div>
+                    </div>
+                </ThemeProvider>
             </body>
         </html>
     );
