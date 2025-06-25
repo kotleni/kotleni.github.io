@@ -1,19 +1,50 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import {NavigationLink} from '@/components/ui/navigation-link';
+import Link from 'next/link';
+import {Button} from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'kotleni`s private web site',
     description: 'My own private web site.',
 };
 
-// const LeftSideBar = () => {
-//     return (
-//         <div className="w-/10 h-full bg-neutral-400">
-//             I have published my first article on my blog! Check it out thre dsa
-//         </div>
-//     );
-// };
+interface ConversationTarget {
+    name: string;
+    url: string;
+}
+
+const LeftSideBar = () => {
+    return (
+        <div className="w-70 h-full p-4 border-r-2 flex flex-col gap-2">
+            <p>Good conversations is missing!</p>
+            <p>
+                If you are interested in communicating with me in English, write
+                to me!
+            </p>
+            <Link
+                href="mailto:yavarenikya@gmail.com"
+                className="text-violet-400 hover:text-violet-500"
+            >
+                yavarenikya@gmail.com
+            </Link>
+            {[
+                {name: 'Telegram', url: 'https://t.me/kotleni'},
+                {name: 'Discord', url: 'https://discord.gg/kotleni'},
+                {name: 'Email', url: 'mailto:yavarenikya@gmail.com'},
+            ].map(target => (
+                <Button variant="secondary" asChild key={target.name}>
+                    <Link
+                        href={target.url}
+                        className="text-violet-400 hover:text-violet-500"
+                    >
+                        {target.name}
+                    </Link>
+                </Button>
+            ))}
+        </div>
+    );
+};
 
 const NavigationBar = () => {
     return (
@@ -49,7 +80,7 @@ export default function RootLayout({
             <body>
                 <NavigationBar />
                 <div className="w-full h-full flex flex-row justify-center grow-rows-1">
-                    {/*<LeftSideBar />*/}
+                    <LeftSideBar />
                     <div className="container xl:max-w-300">{children}</div>
                 </div>
             </body>
