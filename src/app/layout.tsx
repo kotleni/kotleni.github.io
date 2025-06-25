@@ -47,7 +47,6 @@ export default function RootLayout({
                 <title>kotleni's web</title>
             </head>
             <body>
-                {/*<EventInfoBar />*/}
                 <NavigationBar />
                 <div className="w-full h-full flex flex-row justify-center grow-rows-1">
                     {/*<LeftSideBar />*/}
