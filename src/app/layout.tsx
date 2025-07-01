@@ -10,11 +10,6 @@ export const metadata: Metadata = {
     description: 'My own private web site.',
 };
 
-interface ConversationTarget {
-    name: string;
-    url: string;
-}
-
 const LeftSideBar = () => {
     return (
         <div className="w-70 h-full p-4 border-r-1 flex flex-col gap-2">
