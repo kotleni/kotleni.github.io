@@ -1,5 +1,6 @@
 import {ThemeProvider} from '@/components/theme-provider';
 import {Metadata} from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
     title: 'kotleni`s private web site',
@@ -20,7 +21,7 @@ export default function RootLayout({
                 />
                 <title>kotleni's web</title>
             </head>
-            <body>
+            <body className="bg-slate-900 font-sans">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
