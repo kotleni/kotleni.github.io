@@ -3,7 +3,7 @@ import {FileText} from 'lucide-react';
 
 function LeftSide() {
     return (
-        <div className="w-full md:h-full pt-4 md:pt-24">
+        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:box-border">
             <Link
                 href="/"
                 className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -217,7 +217,7 @@ function RightSide() {
 
 export default function Home() {
     return (
-        <div className="w-screen md:h-screen flex justify-center text-slate-400 p-8">
+        <div className="w-screen flex justify-center text-slate-400">
             <div className="md:container xl:max-w-300 md:flex md:flex-row">
                 <LeftSide />
                 <RightSide />
