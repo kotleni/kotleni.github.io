@@ -2,11 +2,14 @@ import Link from 'next/link';
 
 function LeftSide() {
     return (
-        <div className="w-full h-full pt-24">
-            <Link href="/" className="text-5xl font-bold text-slate-200">
+        <div className="w-full md:h-full pt-4 md:pt-24">
+            <Link
+                href="/"
+                className="text-4xl md:text-5xl font-bold text-slate-200"
+            >
                 Viktor Varenik
             </Link>
-            <h2 className="text-2xl font-medium mt-2 text-slate-200">
+            <h2 className="text-lg md:text-2xl font-medium mt-2 text-slate-200">
                 Full-stack Web Developer
             </h2>
             <p className="mt-3 leading-normal">
@@ -18,7 +21,7 @@ function LeftSide() {
 
 function RightSide() {
     return (
-        <div className="w-full h-full pt-24">
+        <div className="w-full md:h-full pt-24">
             <p>
                 I'm a software engineer, open-source enthusiast, and retro tech
                 lover. I started my career as an Android developer, spending
@@ -40,8 +43,8 @@ function RightSide() {
 
 export default function Home() {
     return (
-        <div className="w-screen h-screen flex justify-center text-slate-400">
-            <div className="container xl:max-w-300 flex flex-row">
+        <div className="w-screen md:h-screen flex justify-center text-slate-400 p-8">
+            <div className="md:container xl:max-w-300 md:flex md:flex-row">
                 <LeftSide />
                 <RightSide />
             </div>
