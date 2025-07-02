@@ -218,7 +218,7 @@ function RightSide() {
 export default function Home() {
     return (
         <div className="w-screen flex justify-center text-slate-400">
-            <div className="md:container xl:max-w-300 md:flex md:flex-row">
+            <div className="md:container xl:max-w-300 md:flex md:flex-row md:items-start">
                 <LeftSide />
                 <RightSide />
             </div>
