@@ -1,6 +1,7 @@
 import {ThemeProvider} from '@/components/theme-provider';
 import {Metadata} from 'next';
 import './globals.css';
+import DynamicBackground from '@/components/dynamic-bg';
 
 export const metadata: Metadata = {
     title: 'kotleni`s private web site',
@@ -28,7 +29,10 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
+                    <div className="relative isolate min-h-screen w-full">
+                        <DynamicBackground />
+                        <main className="relative z-10">{children}</main>
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
