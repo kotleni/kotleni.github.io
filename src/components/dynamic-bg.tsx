@@ -28,9 +28,10 @@ export default function DynamicBackground() {
 
         // This function draws our simple, single-layer grid. That's it.
         const drawGrid = () => {
-            const theme = document.documentElement.classList.contains('dark')
-                ? 'dark'
-                : 'light';
+            // const theme = document.documentElement.classList.contains('dark')
+            //     ? 'dark'
+            //     : 'light';
+            const theme = 'dark';
             const themeColors = COLORS[theme];
 
             // Set canvas size
