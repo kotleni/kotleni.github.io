@@ -152,7 +152,7 @@ function RightSide() {
 export default function Home() {
     return (
         <div className="w-full flex justify-center text-slate-400 overflow-x-hidden">
-            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8 p-(--blocks-padding)">
+            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8 p-(--blocks-padding) gap-8">
                 <LeftSide />
                 <RightSide />
             </div>
