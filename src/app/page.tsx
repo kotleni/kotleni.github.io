@@ -6,8 +6,8 @@ import {BlockHeader} from '@/components/block-header';
 
 function LeftSide() {
     return (
-        <div className="w-full h-full">
-            <div className="w-[50%] p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
+        <div className="w-full">
+            <div className="w-full md:w-[50%] p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
                 <Link
                     href="/"
                     className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -17,7 +17,7 @@ function LeftSide() {
                 <h2 className="text-lg md:text-2xl font-medium mt-2 text-slate-200">
                     Full-stack Web Developer
                 </h2>
-                <p className="mt-3 leading-normal">
+                <p className="mt-3 leading-normal md:pr-64">
                     I build websites with NextJS, React, NestJS and Tailwind CSS
                     using TypeScript and WebStorm.
                 </p>
