@@ -3,7 +3,7 @@ import {FileText} from 'lucide-react';
 
 function LeftSide() {
     return (
-        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:box-border">
+        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:box-border p-8">
             <Link
                 href="/"
                 className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -26,7 +26,7 @@ interface StickyHeaderProps {
 
 function StickyHeader(props: StickyHeaderProps) {
     return (
-        <div className="max-md:sticky max-md:top-0 max-md:backdrop-blur mt-8 py-4">
+        <div className="max-md:sticky max-md:top-0 max-md:backdrop-blur mt-8 px-8">
             <h2 className="text-sm font-bold uppercase text-slate-200">
                 {props.title}
             </h2>
@@ -38,14 +38,14 @@ function AboutPart() {
     return (
         <>
             <StickyHeader title="About" />
-            <p className="mb-4">
+            <p className="mb-4 px-8">
                 Hi, I'm a software engineer, open-source enthusiast, and retro
                 tech lover. Professionally, my journey began in mobile, where I
                 spent three years building Android apps. In 2024, I brought that
                 experience to the web, embracing a new set of challenges and
                 technologies.
             </p>
-            <p className="mb-4">
+            <p className="mb-4 px-8">
                 This site has been my creative outlet for ten years, a place to
                 share what I'm learning about code and my love for Linux. When
                 I'm not at the keyboard, I'm probably playing retro games or
@@ -66,7 +66,7 @@ interface ExperienceCardProps {
 
 function ExperienceCard(props: ExperienceCardProps) {
     return (
-        <div className="mb-6">
+        <div className="mb-6 px-8">
             <p className="text-sm font-bold">
                 {props.startDate} - {props.endDate}
             </p>
@@ -95,7 +95,7 @@ interface ProjectCardProps {
 
 function ProjectCard(props: ProjectCardProps) {
     return (
-        <div className="mb-6">
+        <div className="mb-6 px-8">
             <h3 className="text-lg font-bold text-slate-200">{props.title}</h3>
             <p className="text-sm mt-3">{props.description}</p>
             <p className="text-sm my-3">
@@ -217,7 +217,7 @@ function RightSide() {
 
 export default function Home() {
     return (
-        <div className="w-screen flex justify-center text-slate-400">
+        <div className="w-full flex justify-center text-slate-400">
             <div className="md:container xl:max-w-300 md:flex md:flex-row md:items-start">
                 <LeftSide />
                 <RightSide />
