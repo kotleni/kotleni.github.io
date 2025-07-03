@@ -8,7 +8,7 @@ export interface ExperienceCardProps {
 
 export function ExperienceCard(props: ExperienceCardProps) {
     return (
-        <div className="mb-6 px-8">
+        <div className="mb-6">
             <p className="text-sm font-bold">
                 {props.startDate} - {props.endDate}
             </p>

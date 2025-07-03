@@ -7,7 +7,7 @@ export interface ProjectCardProps {
 
 export function ProjectCard(props: ProjectCardProps) {
     return (
-        <div className="mb-6 px-8">
+        <div className="mb-6">
             <h3 className="text-lg font-bold text-slate-200">{props.title}</h3>
             <p className="text-sm mt-3">{props.description}</p>
             <p className="text-sm my-3">

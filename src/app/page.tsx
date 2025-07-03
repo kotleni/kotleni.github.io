@@ -6,7 +6,7 @@ import {BlockHeader} from '@/components/block-header';
 
 function LeftSide() {
     return (
-        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:overflow-y-auto md:box-border p-8">
+        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:overflow-y-auto md:box-border">
             <Link
                 href="/"
                 className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -28,14 +28,14 @@ function AboutPart() {
     return (
         <>
             <BlockHeader title="About" />
-            <p className="mb-4 px-8">
+            <p className="mb-4">
                 Hi, I'm a software engineer, open-source enthusiast, and retro
                 tech lover. Professionally, my journey began in mobile, where I
                 spent three years building Android apps. In 2024, I brought that
                 experience to the web, embracing a new set of challenges and
                 technologies.
             </p>
-            <p className="mb-4 px-8">
+            <p className="mb-4">
                 This site has been my creative outlet for ten years, a place to
                 share what I'm learning about code and my love for Linux. When
                 I'm not at the keyboard, I'm probably playing retro games or
@@ -133,7 +133,7 @@ function RightSide() {
             <ExperiencePart />
             <ProgectsPart />
 
-            <p className="mt-16 py-4 px-8 text-sm text-slate-500">
+            <p className="mt-16 py-4 text-sm text-slate-500">
                 Designed in Figma and coded in WebStorm with fun. Built with
                 Next.js and Tailwind CSS, deployed with roockie (home-lab
                 server). Heavily inspired by{' '}
@@ -152,7 +152,7 @@ function RightSide() {
 export default function Home() {
     return (
         <div className="w-full flex justify-center text-slate-400 overflow-x-hidden">
-            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8">
+            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8 p-(--blocks-padding)">
                 <LeftSide />
                 <RightSide />
             </div>
