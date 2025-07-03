@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {FileText} from 'lucide-react';
 import {ProjectCard} from '@/components/project-card';
 import {ExperienceCard} from '@/components/experience-card';
-import {StickyHeader} from '@/components/sticky-header';
+import {BlockHeader} from '@/components/block-header';
 
 function LeftSide() {
     return (
@@ -27,7 +27,7 @@ function LeftSide() {
 function AboutPart() {
     return (
         <>
-            <StickyHeader title="About" />
+            <BlockHeader title="About" />
             <p className="mb-4 px-8">
                 Hi, I'm a software engineer, open-source enthusiast, and retro
                 tech lover. Professionally, my journey began in mobile, where I
@@ -49,7 +49,7 @@ function AboutPart() {
 function ExperiencePart() {
     return (
         <>
-            <StickyHeader title="Experience" />
+            <BlockHeader title="Experience" />
             <ExperienceCard
                 title="Mobile Developer"
                 description="Before the penguin i was penguin Android Developer with big skill set in penguin for penguin people like you :3 BZLah blah. Even this placeholder was generated without any AI! It's just my crazy brain :3"
@@ -97,7 +97,7 @@ function ExperiencePart() {
 function ProgectsPart() {
     return (
         <>
-            <StickyHeader title="Projects" />
+            <BlockHeader title="Projects" />
             <ProjectCard
                 title="Private web site"
                 description="Yes, it's really just site what u're see right now. I don't know if i can hold it anymore, but i really tired to update this. When i will be able to release it?"

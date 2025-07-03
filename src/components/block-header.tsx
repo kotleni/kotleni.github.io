@@ -2,7 +2,7 @@ export interface StickyHeaderProps {
     title: string;
 }
 
-export function StickyHeader(props: StickyHeaderProps) {
+export function BlockHeader(props: StickyHeaderProps) {
     return (
         <div className="z-10 py-2 mt-8 px-8">
             <h2 className="text-sm font-bold uppercase text-slate-200">
