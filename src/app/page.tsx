@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {FileText} from 'lucide-react';
 import {ProjectCard} from '@/components/project-card';
 import {ExperienceCard} from '@/components/experience-card';
+import {StickyHeader} from '@/components/sticky-header';
 
 function LeftSide() {
     return (
@@ -18,20 +19,6 @@ function LeftSide() {
             <p className="mt-3 leading-normal">
                 I build X fill me please, i love eat bananas when i am lonely.
             </p>
-        </div>
-    );
-}
-
-interface StickyHeaderProps {
-    title: string;
-}
-
-function StickyHeader(props: StickyHeaderProps) {
-    return (
-        <div className="sticky top-0 backdrop-blur-sm bg-slate-900/80 z-10 py-2 mt-8 px-8">
-            <h2 className="text-sm font-bold uppercase text-slate-200">
-                {props.title}
-            </h2>
         </div>
     );
 }
