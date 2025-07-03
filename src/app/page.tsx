@@ -151,7 +151,7 @@ function ExperiencePart() {
             />
             <a
                 href="/"
-                className="flex flex-row justify-end gap-2 text-slate-300 px-8"
+                className="flex flex-row justify-end gap-2 text-slate-400 px-8"
             >
                 <p className="text-sm">Download resume (PDF)</p>
                 <FileText className="size-5" />
