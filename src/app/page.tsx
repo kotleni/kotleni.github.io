@@ -6,20 +6,22 @@ import {BlockHeader} from '@/components/block-header';
 
 function LeftSide() {
     return (
-        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:overflow-y-auto md:box-border">
-            <Link
-                href="/"
-                className="text-4xl md:text-5xl font-bold text-slate-200"
-            >
-                Viktor Varenik
-            </Link>
-            <h2 className="text-lg md:text-2xl font-medium mt-2 text-slate-200">
-                Full-stack Web Developer
-            </h2>
-            <p className="mt-3 leading-normal">
-                I build websites with NextJS, React, NestJS and Tailwind CSS
-                using TypeScript and WebStorm.
-            </p>
+        <div className="w-full h-full">
+            <div className="w-[50%] p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
+                <Link
+                    href="/"
+                    className="text-4xl md:text-5xl font-bold text-slate-200"
+                >
+                    Viktor Varenik
+                </Link>
+                <h2 className="text-lg md:text-2xl font-medium mt-2 text-slate-200">
+                    Full-stack Web Developer
+                </h2>
+                <p className="mt-3 leading-normal">
+                    I build websites with NextJS, React, NestJS and Tailwind CSS
+                    using TypeScript and WebStorm.
+                </p>
+            </div>
         </div>
     );
 }
@@ -128,7 +130,7 @@ function ProgectsPart() {
 
 function RightSide() {
     return (
-        <div className="w-full md:h-full pt-16 md:pt-24 overflow-x-hidden">
+        <div className="w-full md:h-full pt-16 md:pt-24 p-(--blocks-padding) overflow-x-hidden">
             <AboutPart />
             <ExperiencePart />
             <ProgectsPart />
@@ -152,7 +154,7 @@ function RightSide() {
 export default function Home() {
     return (
         <div className="w-full flex justify-center text-slate-400 overflow-x-hidden">
-            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8 p-(--blocks-padding) gap-8">
+            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8 gap-8">
                 <LeftSide />
                 <RightSide />
             </div>
