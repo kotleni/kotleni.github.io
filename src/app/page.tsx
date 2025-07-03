@@ -17,7 +17,8 @@ function LeftSide() {
                 Full-stack Web Developer
             </h2>
             <p className="mt-3 leading-normal">
-                I build X fill me please, i love eat bananas when i am lonely.
+                I build websites with NextJS, React, NestJS and Tailwind CSS
+                using TypeScript and WebStorm.
             </p>
         </div>
     );
