@@ -3,7 +3,7 @@ import {FileText} from 'lucide-react';
 
 function LeftSide() {
     return (
-        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:box-border p-8">
+        <div className="w-full pt-4 md:pt-24 md:sticky md:top-0 md:max-h-screen md:overflow-y-auto md:box-border p-8">
             <Link
                 href="/"
                 className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -26,7 +26,7 @@ interface StickyHeaderProps {
 
 function StickyHeader(props: StickyHeaderProps) {
     return (
-        <div className="max-md:sticky max-md:top-0 max-md:backdrop-blur mt-8 px-8">
+        <div className="sticky top-0 backdrop-blur-sm bg-slate-900/80 z-10 py-2 mt-8 px-8">
             <h2 className="text-sm font-bold uppercase text-slate-200">
                 {props.title}
             </h2>
@@ -151,7 +151,7 @@ function ExperiencePart() {
             />
             <a
                 href="/"
-                className="flex flex-row justify-end gap-2 text-slate-300"
+                className="flex flex-row justify-end gap-2 text-slate-300 px-8"
             >
                 <p className="text-sm">Download resume (PDF)</p>
                 <FileText className="size-5" />
@@ -194,12 +194,12 @@ function ProgectsPart() {
 
 function RightSide() {
     return (
-        <div className="w-full md:h-full pt-16 md:pt-24">
+        <div className="w-full md:h-full pt-16 md:pt-24 overflow-x-hidden">
             <AboutPart />
             <ExperiencePart />
             <ProgectsPart />
 
-            <p className="mt-16 py-4 text-sm text-slate-500">
+            <p className="mt-16 py-4 px-8 text-sm text-slate-500">
                 Designed in Figma and coded in WebStorm with fun. Built with
                 Next.js and Tailwind CSS, deployed with roockie (home-lab
                 server). Heavily inspired by{' '}
@@ -217,8 +217,8 @@ function RightSide() {
 
 export default function Home() {
     return (
-        <div className="w-full flex justify-center text-slate-400">
-            <div className="md:container xl:max-w-300 md:flex md:flex-row md:items-start">
+        <div className="w-full flex justify-center text-slate-400 overflow-x-hidden">
+            <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start">
                 <LeftSide />
                 <RightSide />
             </div>
