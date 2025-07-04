@@ -8,6 +8,8 @@ import {useExtensions} from '@/hooks/use-extensions';
 import {Extension} from '@/extentions';
 
 function LeftSide() {
+    const extensions = useExtensions();
+
     return (
         <div className="w-full md:w-[40%] md:flex-shrink-0">
             <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
@@ -23,6 +25,7 @@ function LeftSide() {
                 <p className="mt-3 leading-normal sm:w-[90%] md:w-[70%] lg:w-[50%]">
                     I build websites with NextJS, React, NestJS and Tailwind CSS
                     using TypeScript and WebStorm.
+                    {extensions.isEnabled(Extension.Cute) ? ' :3' : ''}
                 </p>
             </div>
         </div>
