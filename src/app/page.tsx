@@ -38,7 +38,7 @@ function RightSide() {
             <ExperiencePart />
             <ProjectsPart />
 
-            <p className="mt-16 px-4 py-4 text-sm text-slate-500">
+            <p className="mt-16 md:px-4 pb-4 text-sm text-slate-500">
                 Designed in Figma and coded in WebStorm with fun. Built with
                 Next.js and Tailwind CSS, deployed with roockie (home-lab
                 server). Heavily inspired by{' '}
