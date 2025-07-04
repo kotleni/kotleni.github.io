@@ -10,12 +10,12 @@ export function ExperienceCard(props: ExperienceCardProps) {
     return (
         <div className="flex flex-col md:flex-row md:gap-2 mb-6">
             <span className="md:w-32 flex-shrink-0">
-                <p className="text-sm font-bold">
+                <p className="text-xs font-bold uppercase mt-1">
                     {props.startDate} - {props.endDate}
                 </p>
             </span>
             <span>
-                <h3 className="text-lg font-bold text-slate-200">
+                <h3 className="text-base font-bold text-slate-200">
                     {props.title}
                 </h3>
                 <p className="text-sm mt-3">{props.description}</p>
