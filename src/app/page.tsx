@@ -89,6 +89,7 @@ function ExperiencePart() {
             {/*/>*/}
             <a
                 href="/"
+                hidden={true}
                 className="flex flex-row justify-end gap-2 text-slate-400 px-8"
             >
                 <p className="text-sm">Download resume (PDF)</p>
