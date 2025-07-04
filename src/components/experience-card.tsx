@@ -8,22 +8,28 @@ export interface ExperienceCardProps {
 
 export function ExperienceCard(props: ExperienceCardProps) {
     return (
-        <div className="mb-6">
-            <p className="text-sm font-bold">
-                {props.startDate} - {props.endDate}
-            </p>
-            <h3 className="text-lg font-bold text-slate-200">{props.title}</h3>
-            <p className="text-sm mt-3">{props.description}</p>
-            <p className="text-sm my-3">
-                {props.tags.map(tag => (
-                    <span
-                        className="text-xs font-medium mr-2 px-3 py-1 bg-teal-400/10 text-teal-300 rounded-full"
-                        key={tag}
-                    >
-                        {tag}
-                    </span>
-                ))}
-            </p>
+        <div className="flex flex-col md:flex-row md:gap-2 mb-6">
+            <span className="md:w-32 flex-shrink-0">
+                <p className="text-sm font-bold">
+                    {props.startDate} - {props.endDate}
+                </p>
+            </span>
+            <span>
+                <h3 className="text-lg font-bold text-slate-200">
+                    {props.title}
+                </h3>
+                <p className="text-sm mt-3">{props.description}</p>
+                <p className="text-sm my-3">
+                    {props.tags.map(tag => (
+                        <span
+                            className="text-xs font-medium mr-2 px-3 py-1 bg-teal-400/10 text-teal-300 rounded-full"
+                            key={tag}
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </p>
+            </span>
         </div>
     );
 }
