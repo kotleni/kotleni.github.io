@@ -10,7 +10,7 @@ import {Extension} from '@/extentions';
 function LeftSide() {
     return (
         <div className="w-full md:w-[40%] md:flex-shrink-0">
-            <div className="w-full md:w-[40%] p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
+            <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
                 <Link
                     href="/"
                     className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -33,7 +33,7 @@ function RightSide() {
     const extensions = useExtensions();
 
     return (
-        <div className="w-full md:h-full pt-16 md:pt-24 p-(--blocks-padding) overflow-x-hidden">
+        <div className="w-full md:h-full pt-16 md:pt-24 p-(--blocks-padding-mobile) md:p-(--blocks-padding) overflow-x-hidden">
             <AboutPart />
             <ExperiencePart />
             <ProjectsPart />

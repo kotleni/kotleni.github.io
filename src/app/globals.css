@@ -3,6 +3,7 @@
 
 @theme inline {
   --blocks-top-margin: 40px;
+  --blocks-padding-mobile: 16px;
   --blocks-padding: 8px;
 
   --color-background: var(--background);
