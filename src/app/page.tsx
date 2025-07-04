@@ -38,13 +38,12 @@ function AboutPart() {
                 technologies.
             </p>
             <p className="mb-4">
-                My transition to the web has been an exciting deep-dive into the
-                modern JavaScript ecosystem. I'm currently focused on
-                technologies like React, Next.js, and TypeScript, and I'm always
-                eager to learn what's next. I believe that staying curious is
-                key to growth, and I actively seek out new tools and frameworks
-                that can help me build better, faster, and more reliable
-                applications.
+                My passion for technology extends beyond the application layer.
+                I enjoy working closer to the metal with C/C++ and Python,
+                especially within the Linux ecosystem. This enthusiasm carries
+                over into my hobbies as a 'ricing' enthusiast and hardware geek.
+                I'm driven by a deep curiosity to understand and optimize the
+                tools I use, from the silicon all the way up to the UI.
             </p>
         </>
     );
