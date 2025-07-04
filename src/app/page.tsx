@@ -31,18 +31,20 @@ function AboutPart() {
         <>
             <BlockHeader title="About" />
             <p className="mb-4">
-                Hi, I'm a software engineer, open-source enthusiast, and retro
-                tech lover. Professionally, my journey began in mobile, where I
-                spent three years building Android apps. In 2024, I brought that
+                Hi, I'm a software engineer, open-source enthusiast, and tech
+                lover. Professionally, my journey began in mobile, where I spent
+                three years building Android apps. In 2024, I brought that
                 experience to the web, embracing a new set of challenges and
                 technologies.
             </p>
             <p className="mb-4">
-                This site has been my creative outlet for ten years, a place to
-                share what I'm learning about code and my love for Linux. When
-                I'm not at the keyboard, I'm probably playing retro games or
-                contributing to an open-source project. (And for those
-                wondering: yes, I use Arch, btw).
+                My transition to the web has been an exciting deep-dive into the
+                modern JavaScript ecosystem. I'm currently focused on
+                technologies like React, Next.js, and TypeScript, and I'm always
+                eager to learn what's next. I believe that staying curious is
+                key to growth, and I actively seek out new tools and frameworks
+                that can help me build better, faster, and more reliable
+                applications.
             </p>
         </>
     );
