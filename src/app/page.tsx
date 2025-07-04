@@ -17,7 +17,7 @@ function LeftSide() {
                 <h2 className="text-lg md:text-2xl font-medium mt-2 text-slate-200">
                     Full-stack Web Developer
                 </h2>
-                <p className="mt-3 leading-normal md:pr-64">
+                <p className="mt-3 leading-normal sm:w-[90%] md:w-[70%] lg:w-[50%]">
                     I build websites with NextJS, React, NestJS and Tailwind CSS
                     using TypeScript and WebStorm.
                 </p>
