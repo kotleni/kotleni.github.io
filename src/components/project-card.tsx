@@ -1,3 +1,6 @@
+import {Button} from '@/components/ui/button';
+import Link from 'next/link';
+
 export interface ProjectCardProps {
     title: string;
     description: string;
@@ -8,7 +11,11 @@ export interface ProjectCardProps {
 export function ProjectCard(props: ProjectCardProps) {
     return (
         <div className="mb-6">
-            <h3 className="text-lg font-bold text-slate-200">{props.title}</h3>
+            <Link href={props.githubUrl} target="_blank" rel="noreferrer">
+                <h3 className="text-lg font-bold text-slate-200 hover:text-slate-300">
+                    {props.title}
+                </h3>
+            </Link>
             <p className="text-sm mt-3">{props.description}</p>
             <p className="text-sm my-3">
                 {props.tags.map(tag => (
