@@ -1,5 +1,6 @@
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
+import {ArrowUpRight} from 'lucide-react';
 
 export interface ProjectCardProps {
     title: string;
@@ -11,10 +12,14 @@ export interface ProjectCardProps {
 export function ProjectCard(props: ProjectCardProps) {
     return (
         <div className="mb-6">
-            <Link href={props.githubUrl} target="_blank" rel="noreferrer">
-                <h3 className="text-lg font-bold text-slate-200 hover:text-slate-300">
-                    {props.title}
-                </h3>
+            <Link
+                href={props.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-row items-center gap-1 text-slate-200 hover:text-slate-300"
+            >
+                <h3 className="text-lg font-bold ">{props.title}</h3>
+                <ArrowUpRight className="size-4" />
             </Link>
             <p className="text-sm mt-3">{props.description}</p>
             <p className="text-sm my-3">
