@@ -7,9 +7,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint '**/*.ts*'",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
     "format:eslint": "eslint --fix '**/*.ts*'"
   },
   "dependencies": {
