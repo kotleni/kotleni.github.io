@@ -56,27 +56,14 @@ function ExperiencePart() {
             <BlockHeader title="Experience" />
             <ExperienceCard
                 title="Mobile Developer"
-                description="Before the penguin i was penguin Android Developer with big skill set in penguin for penguin people like you :3 BZLah blah. Even this placeholder was generated without any AI! It's just my crazy brain :3"
+                description="For more than three years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
                 startDate="2017"
                 endDate="2024"
                 tags={['kotlin', 'swift', 'android', 'ios', 'multiplatform']}
             />
             <ExperienceCard
-                title="Trainee Full-stack Developer"
-                description="My thoughts are not code, they are spaghetti. I am the sigma spaghetti chef with maximum gyatt for the fanum tax. My brain just goes brrrrr skibidi brrrr dop dop. This was written by a real human bean, no bots allowed in my brain rotisserie >:3 Rawr."
-                startDate="2024"
-                endDate="2025"
-                tags={[
-                    'nodejs',
-                    'typescript',
-                    'reactjs',
-                    'nextjs',
-                    'tailwindcss',
-                ]}
-            />
-            <ExperienceCard
                 title="Freelance Full-stack Developer"
-                description="My brain is just a void* pointing to a memory address that segfaults when you look at it too hard. I need write a bit more because this text is too short."
+                description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
                 startDate="2024"
                 endDate="PRESENT"
                 tags={[
@@ -87,6 +74,19 @@ function ExperiencePart() {
                     'tailwindcss',
                 ]}
             />
+            {/*<ExperienceCard*/}
+            {/*    title="Trainee Full-stack Developer"*/}
+            {/*    description=""*/}
+            {/*    startDate="2024"*/}
+            {/*    endDate="2025"*/}
+            {/*    tags={[*/}
+            {/*        'nodejs',*/}
+            {/*        'typescript',*/}
+            {/*        'reactjs',*/}
+            {/*        'nextjs',*/}
+            {/*        'tailwindcss',*/}
+            {/*    ]}*/}
+            {/*/>*/}
             <a
                 href="/"
                 className="flex flex-row justify-end gap-2 text-slate-400 px-8"
