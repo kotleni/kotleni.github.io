@@ -1,4 +1,3 @@
-import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 import {ArrowUpRight} from 'lucide-react';
 
@@ -11,7 +10,7 @@ export interface ProjectCardProps {
 
 export function ProjectCard(props: ProjectCardProps) {
     return (
-        <div className="mb-6">
+        <div className="md:p-4 md:rounded-md md:transition-all md:hover:bg-slate-800/50 md:group-hover/list:opacity-50">
             <Link
                 href={props.githubUrl}
                 target="_blank"
