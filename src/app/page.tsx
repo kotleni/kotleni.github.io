@@ -6,8 +6,8 @@ import {BlockHeader} from '@/components/block-header';
 
 function LeftSide() {
     return (
-        <div className="w-full">
-            <div className="w-full md:w-[50%] p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
+        <div className="w-full md:w-[40%] md:flex-shrink-0">
+            <div className="w-full md:w-[40%] p-(--blocks-padding) pt-4 md:pt-38 md:fixed md:top-0 md:max-h-screen">
                 <Link
                     href="/"
                     className="text-4xl md:text-5xl font-bold text-slate-200"
