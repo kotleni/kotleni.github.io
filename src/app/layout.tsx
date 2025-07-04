@@ -2,6 +2,7 @@ import {ThemeProvider} from '@/components/theme-provider';
 import {Metadata} from 'next';
 import './globals.css';
 import DynamicBackground from '@/components/dynamic-bg';
+import {Suspense} from 'react';
 
 export const metadata: Metadata = {
     title: 'kotleni`s private web site',
@@ -23,17 +24,19 @@ export default function RootLayout({
                 <title>kotleni's web</title>
             </head>
             <body className="bg-slate-900 font-sans">
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <div className="relative isolate min-h-screen w-full">
-                        <DynamicBackground />
-                        <main className="relative z-10">{children}</main>
-                    </div>
-                </ThemeProvider>
+                <Suspense>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <div className="relative isolate min-h-screen w-full">
+                            <DynamicBackground />
+                            <main className="relative z-10">{children}</main>
+                        </div>
+                    </ThemeProvider>
+                </Suspense>
             </body>
         </html>
     );
