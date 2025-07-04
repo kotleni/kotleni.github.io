@@ -116,9 +116,9 @@ function ProjectsPart() {
                 ]}
             />
             <ProjectCard
-                title="Pixel board"
-                description="Online, real-time, multiplayer pixel board platform with public board to draw pixel art. Heavy inspired by Super Mario Bros. (not really)"
-                githubUrl="https://github.com/kotleni/"
+                title="PixelDash"
+                description="Create, collaborate, and compete on a massive open-source pixel canvas platform. This project goes beyond traditional pixel boards by allowing users to own territory, protect their art, and even import images to bring their vision to life."
+                githubUrl="https://github.com/kotleni/pixel-dash"
                 tags={[
                     'nodejs',
                     'typescript',
