@@ -3,6 +3,9 @@ import {FileText} from 'lucide-react';
 import {ProjectCard} from '@/components/project-card';
 import {ExperienceCard} from '@/components/experience-card';
 import {BlockHeader} from '@/components/block-header';
+import {AboutPart} from './about-part';
+import {ExperiencePart} from '@/app/experience-part';
+import {ProjectsPart} from '@/app/projects-part';
 
 function LeftSide() {
     return (
@@ -23,110 +26,6 @@ function LeftSide() {
                 </p>
             </div>
         </div>
-    );
-}
-
-function AboutPart() {
-    return (
-        <>
-            <BlockHeader title="About" />
-            <p className="mb-4 px-4 pt-4">
-                Hi, I'm a software engineer, open-source enthusiast, and tech
-                lover. Professionally, my journey began in mobile, where I spent
-                three years building Android apps. In 2024, I brought that
-                experience to the web, embracing a new set of challenges and
-                technologies.
-            </p>
-            <p className="mb-4 px-4">
-                My passion for technology extends beyond the application layer.
-                I enjoy working closer to the metal with C/C++ and Python,
-                especially within the Linux ecosystem. This enthusiasm carries
-                over into my hobbies as a 'ricing' enthusiast and hardware geek.
-                I'm driven by a deep curiosity to understand and optimize the
-                tools I use, from the silicon all the way up to the UI.
-            </p>
-        </>
-    );
-}
-
-function ExperiencePart() {
-    return (
-        <>
-            <BlockHeader title="Experience" />
-            <ExperienceCard
-                title="Mobile Developer"
-                description="For more than three years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
-                startDate="2017"
-                endDate="2024"
-                tags={['kotlin', 'swift', 'android', 'ios', 'multiplatform']}
-            />
-            <ExperienceCard
-                title="Freelance Full-stack Developer"
-                description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
-                startDate="2024"
-                endDate="PRESENT"
-                tags={[
-                    'nodejs',
-                    'typescript',
-                    'reactjs',
-                    'nextjs',
-                    'tailwindcss',
-                ]}
-            />
-            {/*<ExperienceCard*/}
-            {/*    title="Trainee Full-stack Developer"*/}
-            {/*    description=""*/}
-            {/*    startDate="2024"*/}
-            {/*    endDate="2025"*/}
-            {/*    tags={[*/}
-            {/*        'nodejs',*/}
-            {/*        'typescript',*/}
-            {/*        'reactjs',*/}
-            {/*        'nextjs',*/}
-            {/*        'tailwindcss',*/}
-            {/*    ]}*/}
-            {/*/>*/}
-            <a
-                href="/"
-                hidden={true}
-                className="flex flex-row justify-end gap-2 text-slate-400 px-8"
-            >
-                <p className="text-sm">Download resume (PDF)</p>
-                <FileText className="size-5" />
-            </a>
-        </>
-    );
-}
-
-function ProjectsPart() {
-    return (
-        <>
-            <BlockHeader title="Projects" />
-            <ProjectCard
-                title="Private web site"
-                description="This portfolio is a live project I designed and built from the ground up. It serves as a practical showcase of my skills in creating modern, responsive, and performant web applications using Next.js, React, TypeScript, and Tailwind CSS."
-                githubUrl="https://github.com/kotleni/kotleni.github.io"
-                tags={[
-                    'nodejs',
-                    'typescript',
-                    'reactjs',
-                    'nextjs',
-                    'tailwindcss',
-                ]}
-            />
-            <ProjectCard
-                title="PixelDash"
-                description="Create, collaborate, and compete on a massive open-source pixel canvas platform. This project goes beyond traditional pixel boards by allowing users to own territory, protect their art, and even import images to bring their vision to life."
-                githubUrl="https://github.com/kotleni/pixel-dash"
-                tags={[
-                    'nodejs',
-                    'typescript',
-                    'reactjs',
-                    'nextjs',
-                    'websockets',
-                ]}
-            />
-        </>
     );
 }
 
