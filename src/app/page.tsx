@@ -1,7 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import {AboutPart} from './about-part';
 import {ExperiencePart} from '@/app/experience-part';
 import {ProjectsPart} from '@/app/projects-part';
+import {useExtensions} from '@/hooks/use-extensions';
+import {Extension} from '@/extentions';
 
 function LeftSide() {
     return (
@@ -26,6 +30,8 @@ function LeftSide() {
 }
 
 function RightSide() {
+    const extensions = useExtensions();
+
     return (
         <div className="w-full md:h-full pt-16 md:pt-24 p-(--blocks-padding) overflow-x-hidden">
             <AboutPart />
@@ -42,7 +48,7 @@ function RightSide() {
                 >
                     Brittany Chiang website
                 </Link>
-                .
+                . {extensions.isEnabled(Extension.Cute) ? ':3' : ''}
             </p>
         </div>
     );
