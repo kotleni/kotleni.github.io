@@ -99,7 +99,7 @@ function ExperiencePart() {
     );
 }
 
-function ProgectsPart() {
+function ProjectsPart() {
     return (
         <>
             <BlockHeader title="Projects" />
@@ -136,7 +136,7 @@ function RightSide() {
         <div className="w-full md:h-full pt-16 md:pt-24 p-(--blocks-padding) overflow-x-hidden">
             <AboutPart />
             <ExperiencePart />
-            <ProgectsPart />
+            <ProjectsPart />
 
             <p className="mt-16 py-4 text-sm text-slate-500">
                 Designed in Figma and coded in WebStorm with fun. Built with
