@@ -105,7 +105,7 @@ function ProjectsPart() {
             <BlockHeader title="Projects" />
             <ProjectCard
                 title="Private web site"
-                description="Yes, it's really just site what u're see right now. I don't know if i can hold it anymore, but i really tired to update this. When i will be able to release it?"
+                description="This portfolio is a live project I designed and built from the ground up. It serves as a practical showcase of my skills in creating modern, responsive, and performant web applications using Next.js, React, TypeScript, and Tailwind CSS."
                 githubUrl="https://github.com/kotleni/kotleni.github.io"
                 tags={[
                     'nodejs',
