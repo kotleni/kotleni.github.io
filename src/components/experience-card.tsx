@@ -8,7 +8,7 @@ export interface ExperienceCardProps {
 
 export function ExperienceCard(props: ExperienceCardProps) {
     return (
-        <div className="flex flex-col md:flex-row md:gap-2 mb-6">
+        <div className="flex flex-col md:flex-row md:gap-2 md:p-4 md:rounded-md md:transition-all md:hover:bg-slate-800/50 md:group-hover/list:opacity-50">
             <span className="md:w-32 flex-shrink-0">
                 <p className="text-xs font-bold uppercase mt-1">
                     {props.startDate} - {props.endDate}
