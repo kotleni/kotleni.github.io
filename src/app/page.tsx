@@ -6,13 +6,16 @@ import {ExperiencePart} from '@/app/experience-part';
 import {ProjectsPart} from '@/app/projects-part';
 import {useExtensions} from '@/hooks/use-extensions';
 import {Extension} from '@/extentions';
+import { GithubLogo } from '@/icons/github-logo';
+import { GmailLogo } from '@/icons/gmail-logo';
+import { TelegramLogo } from '@/icons/telegram-logo';
 
 function LeftSide() {
     const extensions = useExtensions();
 
     return (
         <div className="w-full md:w-[40%] md:flex-shrink-0">
-            <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-34 md:fixed md:top-0 md:max-h-screen">
+            <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-3 md:fixed md:top-0 md:max-h-screen">
                 <Link
                     href="/"
                     className="text-4xl md:text-5xl font-bold text-slate-200"
@@ -27,6 +30,12 @@ function LeftSide() {
                     using TypeScript and WebStorm.
                     {extensions.isEnabled(Extension.Cute) ? ' :3' : ''}
                 </p>
+
+                <div className="flex flex-row gap-2 py-4 text-slate-300">
+                   <Link href="mailto:yavarenikya@gmail.com"><GmailLogo className="size-6 hover:animate-spin" /></Link>
+                   <Link href="https://github.com/kotleni"><GithubLogo className="size-6 hover:animate-spin" /></Link>
+                   <Link href="https://t.me/kotleni"><TelegramLogo className="size-6 hover:animate-spin" /></Link>
+                </div>
             </div>
         </div>
     );
