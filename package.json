@@ -7,7 +7,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "format:eslint": "eslint --fix '**/*.ts*'"
+    "format": "eslint --fix '**/*.ts*'"
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.2.13",
