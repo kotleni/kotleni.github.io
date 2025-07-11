@@ -16,7 +16,7 @@ function LeftSide() {
 
     return (
         <div className="w-full md:w-[40%] md:flex-shrink-0">
-            <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-3 md:fixed md:top-0 md:max-h-screen">
+            <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-34 md:fixed md:top-0 md:max-h-screen">
                 <Link
                     href="/"
                     className="text-4xl md:text-5xl font-bold text-slate-200"
