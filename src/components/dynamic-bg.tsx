@@ -90,8 +90,8 @@ export default function DynamicBackground() {
             aria-hidden="true"
             className="
         pointer-events-none fixed inset-0 z-[-1]
-        [mask-image:linear-gradient(to_bottom,white_40%,transparent_85%)]
-        [-webkit-mask-image:linear-gradient(to_bottom,white_40%,transparent_85%)]
+        [mask-image:linear-gradient(to_bottom,black_70%,transparent_90%)]
+        [-webkit-mask-image:linear-gradient(to_bottom,black_70%,transparent_90%)]
       "
         >
             <canvas ref={canvasRef} className="w-full h-full" />
