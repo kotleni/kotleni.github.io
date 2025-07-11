@@ -3,7 +3,7 @@ import {BlockHeader} from '@/components/block-header';
 export function AboutPart() {
     return (
         <>
-            <BlockHeader title="About" />
+            <BlockHeader emoji="👋" title="About" />
             <p className="mb-4 md:px-4 pt-4">
                 Hi, I'm a software engineer, open-source enthusiast, and tech
                 lover. Professionally, my journey began in mobile, where I spent
