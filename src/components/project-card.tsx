@@ -24,7 +24,7 @@ export function ProjectCard(props: ProjectCardProps) {
             <p className="text-sm my-3">
                 {props.tags.map(tag => (
                     <span
-                        className="text-xs font-medium mr-2 px-3 py-1 bg-teal-400/10 text-teal-300 rounded-full"
+                        className="text-xs font-medium mr-2 px-3 py-1 bg-primary/5 text-primary rounded-full"
                         key={tag}
                     >
                         {tag}
