@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {ArrowUpRight} from 'lucide-react';
+import {Chip} from './chip';
 
 export interface ProjectCardProps {
     title: string;
@@ -23,12 +24,7 @@ export function ProjectCard(props: ProjectCardProps) {
             <p className="text-sm mt-3">{props.description}</p>
             <p className="text-sm my-3">
                 {props.tags.map(tag => (
-                    <span
-                        className="text-xs font-medium mr-2 px-3 py-1 bg-primary/5 text-primary rounded-full"
-                        key={tag}
-                    >
-                        {tag}
-                    </span>
+                    <Chip key={tag} tag={tag} />
                 ))}
             </p>
         </div>

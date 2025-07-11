@@ -1,3 +1,5 @@
+import {Chip} from './chip';
+
 export interface ExperienceCardProps {
     title: string;
     description: string;
@@ -19,12 +21,7 @@ export function ExperienceCard(props: ExperienceCardProps) {
                 <p className="text-sm mt-3">{props.description}</p>
                 <p className="text-sm my-3">
                     {props.tags.map(tag => (
-                        <span
-                            className="text-xs font-medium mr-2 px-3 py-1 bg-primary/5 text-primary rounded-full"
-                            key={tag}
-                        >
-                            {tag}
-                        </span>
+                        <Chip key={tag} tag={tag} />
                     ))}
                 </p>
             </span>
