@@ -6,10 +6,10 @@ import {ExperiencePart} from '@/app/experience-part';
 import {ProjectsPart} from '@/app/projects-part';
 import {useExtensions} from '@/hooks/use-extensions';
 import {Extension} from '@/extentions';
-import { GithubLogo } from '@/icons/github-logo';
-import { GmailLogo } from '@/icons/gmail-logo';
-import { TelegramLogo } from '@/icons/telegram-logo';
-import { LinkedinLogo } from '@/icons/linkedin-logo';
+import {GithubLogo} from '@/icons/github-logo';
+import {GmailLogo} from '@/icons/gmail-logo';
+import {TelegramLogo} from '@/icons/telegram-logo';
+import {LinkedinLogo} from '@/icons/linkedin-logo';
 
 function LeftSide() {
     const extensions = useExtensions();
@@ -33,10 +33,18 @@ function LeftSide() {
                 </p>
 
                 <div className="flex flex-row gap-2 py-4 text-slate-300">
-                   <Link href="mailto:yavarenikya@gmail.com"><GmailLogo className="size-6 hover:animate-spin" /></Link>
-                   <Link href="https://github.com/kotleni"><GithubLogo className="size-6 hover:animate-spin" /></Link>
-                   <Link href="https://t.me/kotleni"><TelegramLogo className="size-6 hover:animate-spin" /></Link>
-                   <Link href="https://linkedin.com/in/kotleni/"><LinkedinLogo className="size-6 hover:animate-spin" /></Link>
+                    <Link href="mailto:yavarenikya@gmail.com">
+                        <GmailLogo className="size-6 hover:animate-spin" />
+                    </Link>
+                    <Link href="https://github.com/kotleni">
+                        <GithubLogo className="size-6 hover:animate-spin" />
+                    </Link>
+                    <Link href="https://t.me/kotleni">
+                        <TelegramLogo className="size-6 hover:animate-spin" />
+                    </Link>
+                    <Link href="https://linkedin.com/in/kotleni/">
+                        <LinkedinLogo className="size-6 hover:animate-spin" />
+                    </Link>
                 </div>
             </div>
         </div>
