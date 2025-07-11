@@ -4,7 +4,7 @@ export interface StickyHeaderProps {
 
 export function BlockHeader(props: StickyHeaderProps) {
     return (
-        <div className="z-10 md:pl-4 mt-(--blocks-top-margin)">
+        <div className="z-10 md:pl-4 pb-4 mt-(--blocks-top-margin)">
             <h2 className="text-sm font-bold uppercase text-slate-200">
                 {props.title}
             </h2>
