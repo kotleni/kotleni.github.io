@@ -2,7 +2,7 @@ name: Deploy Next.js site to Pages
 
 on:
   push:
-    branches: ["rework3"]
+    branches: ["main"]
 
   workflow_dispatch:
 
