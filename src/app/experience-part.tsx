@@ -5,7 +5,7 @@ import {FileText} from 'lucide-react';
 export function ExperiencePart() {
     return (
         <>
-            <BlockHeader title="Experience" />
+            <BlockHeader emoji="✨" title="Experience" />
             <ExperienceCard
                 title="Mobile Developer"
                 description="For more than three years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."

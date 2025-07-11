@@ -4,7 +4,7 @@ import {ProjectCard} from '@/components/project-card';
 export function ProjectsPart() {
     return (
         <>
-            <BlockHeader title="Projects" />
+            <BlockHeader emoji="💻" title="Projects" />
             <ProjectCard
                 title="Private web site"
                 description="This portfolio is a live project I designed and built from the ground up. It serves as a practical showcase of my skills in creating modern, responsive, and performant web applications using Next.js, React, TypeScript, and Tailwind CSS."
