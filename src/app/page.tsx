@@ -16,14 +16,14 @@ function LeftSide() {
 
     return (
         <div className="w-full md:w-[40%] md:flex-shrink-0">
-            <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-34 md:fixed md:top-0 md:max-h-screen">
+            <div className="w-full md:w-fit flex flex-col grow-0 p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-34 md:fixed md:top-0 md:max-h-screen">
                 <Link href="/" className="text-4xl md:text-5xl font-bold">
                     Viktor Varenik
                 </Link>
                 <h2 className="text-lg md:text-2xl font-medium mt-2">
                     Full-stack Web Developer
                 </h2>
-                <p className="mt-3 leading-normal sm:w-[90%] md:w-[70%] lg:w-[50%]">
+                <p className="mt-3 leading-normal max-w-md">
                     I build websites with NextJS, React, NestJS and Tailwind CSS
                     using TypeScript and WebStorm.
                     {extensions.isEnabled(Extension.Cute) ? ' :3' : ''}
