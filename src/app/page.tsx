@@ -17,13 +17,10 @@ function LeftSide() {
     return (
         <div className="w-full md:w-[40%] md:flex-shrink-0">
             <div className="w-full md:w-[40%] p-(--blocks-padding-mobile) md:p-(--blocks-padding) pt-4 md:pt-34 md:fixed md:top-0 md:max-h-screen">
-                <Link
-                    href="/"
-                    className="text-4xl md:text-5xl font-bold text-slate-200"
-                >
+                <Link href="/" className="text-4xl md:text-5xl font-bold">
                     Viktor Varenik
                 </Link>
-                <h2 className="text-lg md:text-2xl font-medium mt-2 text-slate-200">
+                <h2 className="text-lg md:text-2xl font-medium mt-2">
                     Full-stack Web Developer
                 </h2>
                 <p className="mt-3 leading-normal sm:w-[90%] md:w-[70%] lg:w-[50%]">
@@ -32,7 +29,7 @@ function LeftSide() {
                     {extensions.isEnabled(Extension.Cute) ? ' :3' : ''}
                 </p>
 
-                <div className="flex flex-row gap-2 py-4 text-slate-300">
+                <div className="flex flex-row gap-2 py-4">
                     <Link href="mailto:yavarenikya@gmail.com">
                         <GmailLogo className="size-6 hover:animate-spin" />
                     </Link>
@@ -60,13 +57,13 @@ function RightSide() {
             <ExperiencePart />
             <ProjectsPart />
 
-            <p className="mt-16 md:px-4 pb-4 text-sm text-slate-500">
+            <p className="mt-16 md:px-4 pb-4 text-sm">
                 Designed in Figma and coded in WebStorm with fun. Built with
                 Next.js and Tailwind CSS, deployed with roockie (home-lab
                 server). Heavily inspired by{' '}
                 <Link
                     href="https://brittanychiang.com/"
-                    className="font-medium text-slate-400 hover:text-teal-300"
+                    className="font-medium hover:text-primary"
                 >
                     Brittany Chiang website
                 </Link>
@@ -78,7 +75,7 @@ function RightSide() {
 
 export default function Home() {
     return (
-        <div className="w-full flex justify-center text-slate-400 overflow-x-hidden">
+        <div className="w-full flex justify-center overflow-x-hidden">
             <div className="w-full md:container xl:max-w-7xl md:flex md:flex-row md:items-start max-md:pt-8">
                 <LeftSide />
                 <RightSide />

@@ -23,7 +23,7 @@ export default function RootLayout({
                 />
                 <title>kotleni's web</title>
             </head>
-            <body className="bg-slate-900 font-sans">
+            <body className="font-sans">
                 <Suspense>
                     <ThemeProvider
                         attribute="class"

@@ -28,10 +28,9 @@ export default function DynamicBackground() {
 
         // This function draws our simple, single-layer grid. That's it.
         const drawGrid = () => {
-            // const theme = document.documentElement.classList.contains('dark')
-            //     ? 'dark'
-            //     : 'light';
-            const theme = 'dark';
+            const theme = document.documentElement.classList.contains('dark')
+                ? 'dark'
+                : 'light';
             const themeColors = COLORS[theme];
 
             // Set canvas size
@@ -91,11 +90,11 @@ export default function DynamicBackground() {
             aria-hidden="true"
             className="
         pointer-events-none fixed inset-0 z-[-1]
-        [mask-image:linear-gradient(to_bottom,black_40%,transparent_85%)]
-        [-webkit-mask-image:linear-gradient(to_bottom,black_40%,transparent_85%)]
+        [mask-image:linear-gradient(to_bottom,white_40%,transparent_85%)]
+        [-webkit-mask-image:linear-gradient(to_bottom,white_40%,transparent_85%)]
       "
         >
-            <canvas ref={canvasRef} />
+            <canvas ref={canvasRef} className="w-full h-full" />
         </div>
     );
 }

@@ -15,9 +15,7 @@ export function ExperienceCard(props: ExperienceCardProps) {
                 </p>
             </span>
             <span className="overflow-hidden">
-                <h3 className="text-base font-bold text-slate-200">
-                    {props.title}
-                </h3>
+                <h3 className="text-base font-bold">{props.title}</h3>
                 <p className="text-sm mt-3">{props.description}</p>
                 <p className="text-sm my-3">
                     {props.tags.map(tag => (
