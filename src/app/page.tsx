@@ -10,6 +10,7 @@ import {GithubLogo} from '@/icons/github-logo';
 import {GmailLogo} from '@/icons/gmail-logo';
 import {TelegramLogo} from '@/icons/telegram-logo';
 import {LinkedinLogo} from '@/icons/linkedin-logo';
+import {StyledLink} from '@/components/styled-link';
 
 function LeftSide() {
     const extensions = useExtensions();
@@ -58,15 +59,25 @@ function RightSide() {
             <ProjectsPart />
 
             <p className="mt-16 md:px-4 pb-4 text-sm">
-                Designed in Figma and coded in WebStorm with fun. Built with
-                Next.js and Tailwind CSS, deployed with roockie (home-lab
-                server). Heavily inspired by{' '}
-                <Link
-                    href="https://brittanychiang.com/"
-                    className="font-medium hover:text-primary/80"
-                >
+                Designed in{' '}
+                <StyledLink href="https://www.figma.com/">Figma</StyledLink> and
+                coded in{' '}
+                <StyledLink href="https://code.visualstudio.com/">
+                    VSCode
+                </StyledLink>
+                . Built with{' '}
+                <StyledLink href="https://nextjs.org/">Next.js</StyledLink>, and
+                <StyledLink href="https://tailwindcss.com/">
+                    Tailwind CSS
+                </StyledLink>
+                , deployed with{' '}
+                <StyledLink href="https://github.com/resources/articles/devops/ci-cd">
+                    Github CI
+                </StyledLink>
+                . Heavily inspired by{' '}
+                <StyledLink href="https://brittanychiang.com/">
                     Brittany Chiang website
-                </Link>
+                </StyledLink>
                 . {extensions.isEnabled(Extension.Cute) ? ':3' : ''}
             </p>
         </div>
