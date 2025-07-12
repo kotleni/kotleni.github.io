@@ -63,7 +63,7 @@ function RightSide() {
                 server). Heavily inspired by{' '}
                 <Link
                     href="https://brittanychiang.com/"
-                    className="font-medium hover:text-primary"
+                    className="font-medium hover:text-primary/80"
                 >
                     Brittany Chiang website
                 </Link>
