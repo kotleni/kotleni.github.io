@@ -66,7 +66,7 @@ function RightSide() {
                     VSCode
                 </StyledLink>
                 . Built with{' '}
-                <StyledLink href="https://nextjs.org/">Next.js</StyledLink>, and
+                <StyledLink href="https://nextjs.org/">Next.js</StyledLink>, and{' '}
                 <StyledLink href="https://tailwindcss.com/">
                     Tailwind CSS
                 </StyledLink>
