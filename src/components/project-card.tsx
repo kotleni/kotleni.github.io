@@ -16,9 +16,9 @@ export function ProjectCard(props: ProjectCardProps) {
                 href={props.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-row items-center gap-1 hover:text-primary"
+                className="flex flex-row items-center gap-1 hover:text-primary/80"
             >
-                <h3 className="text-base font-bold ">{props.title}</h3>
+                <h3 className="text-base font-bold">{props.title}</h3>
                 <ArrowUpRight className="size-4" />
             </Link>
             <p className="text-sm mt-3">{props.description}</p>
