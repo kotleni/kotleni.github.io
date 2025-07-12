@@ -14,7 +14,7 @@ export function StyledLink(props: StyledLinkProps) {
             href={props.href}
             target={props.target}
             rel={props.rel}
-            className="font-medium hover:text-primary/80"
+            className="font-medium underline hover:text-primary/80"
         >
             {props.children}
         </Link>
