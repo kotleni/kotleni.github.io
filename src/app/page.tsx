@@ -31,16 +31,16 @@ function LeftSide() {
 
                 <div className="flex flex-row gap-2 py-4">
                     <Link href="mailto:yavarenikya@gmail.com">
-                        <GmailLogo className="size-6 hover:animate-spin" />
+                        <GmailLogo className="size-6 hover:text-primary/80" />
                     </Link>
                     <Link href="https://github.com/kotleni">
-                        <GithubLogo className="size-6 hover:animate-spin" />
+                        <GithubLogo className="size-6 hover:text-primary/80" />
                     </Link>
                     <Link href="https://t.me/kotleni">
-                        <TelegramLogo className="size-6 hover:animate-spin" />
+                        <TelegramLogo className="size-6 hover:text-primary/80" />
                     </Link>
                     <Link href="https://linkedin.com/in/kotleni/">
-                        <LinkedinLogo className="size-6 hover:animate-spin" />
+                        <LinkedinLogo className="size-6 hover:text-primary/80" />
                     </Link>
                 </div>
             </div>
