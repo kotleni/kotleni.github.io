@@ -1,7 +1,6 @@
+import './globals.css';
 import {ThemeProvider} from '@/components/theme-provider';
 import {Metadata} from 'next';
-import './globals.css';
-import DynamicBackground from '@/components/dynamic-bg';
 import {Suspense} from 'react';
 
 export const metadata: Metadata = {
@@ -31,10 +30,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className="relative isolate min-h-screen w-full">
-                            <DynamicBackground />
-                            <main className="relative z-10">{children}</main>
-                        </div>
+                        {children}
                     </ThemeProvider>
                 </Suspense>
             </body>
