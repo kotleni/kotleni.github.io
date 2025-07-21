@@ -7,6 +7,7 @@ import {cn} from '@/lib/utils';
 import {Metadata} from 'next';
 import {Suspense} from 'react';
 import {Outfit} from 'next/font/google';
+import {usePathname} from 'next/navigation';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -16,6 +17,17 @@ import {Outfit} from 'next/font/google';
 const outfit = Outfit({
     subsets: ['latin'],
 });
+
+interface NavLinkInfo {
+    title: string;
+    url: string;
+}
+
+const navLinks: NavLinkInfo[] = [
+    {title: 'about', url: '/'},
+    {title: 'blog', url: '/blog'},
+    {title: 'projects', url: '/projects'},
+];
 
 interface NavigationLinkProps {
     isActive: boolean;
@@ -42,6 +54,8 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const pathName = usePathname();
+
     return (
         <html lang="en" suppressHydrationWarning>
             <head>
@@ -62,21 +76,16 @@ export default function RootLayout({
                         <div className="md:container md:px-48 flex flex-col p-4">
                             <header className="flex flex-row justify-end">
                                 <div className="flex flex-row gap-2">
-                                    <NavigationLink
-                                        title="about"
-                                        url="/"
-                                        isActive={true}
-                                    />
-                                    <NavigationLink
-                                        title="blog"
-                                        url="/blog"
-                                        isActive={false}
-                                    />
-                                    <NavigationLink
-                                        title="projects"
-                                        url="/projects"
-                                        isActive={false}
-                                    />
+                                    {navLinks.map((link, index) => {
+                                        return (
+                                            <NavigationLink
+                                                key={index}
+                                                title={link.title}
+                                                url={link.url}
+                                                isActive={pathName === link.url}
+                                            />
+                                        );
+                                    })}
                                 </div>
                             </header>
                             <main>{children}</main>
