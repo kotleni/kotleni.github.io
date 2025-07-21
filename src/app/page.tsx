@@ -9,7 +9,7 @@ import Image from 'next/image';
 export default function Home() {
     return (
         <div className="flex flex-col gap-4 pt-4">
-            <div className="flex flex-row gap-4">
+            <section className="flex flex-row gap-4">
                 <Image
                     src={Avatar}
                     alt="kotleni profile picture"
@@ -25,7 +25,15 @@ export default function Home() {
                         <TelegramLogo className="size-5" />
                     </div>
                 </div>
-            </div>
+            </section>
+            <section className='mt-4'>
+                <p className="font-semibold">about me.</p>
+                <p>
+                    i'm a passionate full-stack developer who learns and
+                    transforms complex problems into simple, beautiful, and
+                    intuitive solutions through development and design.
+                </p>
+            </section>
         </div>
     );
 }
