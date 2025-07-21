@@ -65,7 +65,12 @@ export default function RootLayout({
                 />
                 <title>kotleni's web</title>
             </head>
-            <body className={cn(outfit.className, 'dark:bg-slate-900')}>
+            <body
+                className={cn(
+                    outfit.className,
+                    'flex justify-center dark:bg-slate-900',
+                )}
+            >
                 <Suspense>
                     <ThemeProvider
                         attribute="class"
@@ -73,7 +78,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className="md:container md:px-48 flex flex-col p-4">
+                        <div className="md:container md:px-64 flex flex-col p-4">
                             <header className="flex flex-row justify-end">
                                 <div className="flex flex-row gap-2">
                                     {navLinks.map((link, index) => {
