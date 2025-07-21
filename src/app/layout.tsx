@@ -1,12 +1,41 @@
+'use client';
+
+import {GithubLogo} from '@/icons/github-logo';
 import './globals.css';
 import {ThemeProvider} from '@/components/theme-provider';
+import {cn} from '@/lib/utils';
 import {Metadata} from 'next';
 import {Suspense} from 'react';
+import {Outfit} from 'next/font/google';
 
-export const metadata: Metadata = {
-    title: 'kotleni`s private web site',
-    description: 'My own private web site.',
-};
+// export const metadata: Metadata = {
+//     title: 'kotleni`s private web site',
+//     description: 'My own private web site.',
+// };
+
+const outfit = Outfit({
+    subsets: ['latin'],
+});
+
+interface NavigationLinkProps {
+    isActive: boolean;
+    title: string;
+    url: string;
+}
+
+function NavigationLink({isActive, title, url}: NavigationLinkProps) {
+    return (
+        <a
+            href={url}
+            className={cn(
+                'bold lg:p-2 hover:text-foreground',
+                isActive ? '' : 'text-gray-700',
+            )}
+        >
+            {title}
+        </a>
+    );
+}
 
 export default function RootLayout({
     children,
@@ -22,7 +51,7 @@ export default function RootLayout({
                 />
                 <title>kotleni's web</title>
             </head>
-            <body className="dark:bg-slate-900 font-sans">
+            <body className={cn(outfit.className, 'dark:bg-slate-900')}>
                 <Suspense>
                     <ThemeProvider
                         attribute="class"
@@ -30,7 +59,28 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        {children}
+                        <div className="md:container md:px-48 flex flex-col p-4">
+                            <header className="flex flex-row justify-end">
+                                <div className="flex flex-row gap-2">
+                                    <NavigationLink
+                                        title="about"
+                                        url="/"
+                                        isActive={true}
+                                    />
+                                    <NavigationLink
+                                        title="blog"
+                                        url="/blog"
+                                        isActive={false}
+                                    />
+                                    <NavigationLink
+                                        title="projects"
+                                        url="/projects"
+                                        isActive={false}
+                                    />
+                                </div>
+                            </header>
+                            <main>{children}</main>
+                        </div>
                     </ThemeProvider>
                 </Suspense>
             </body>
