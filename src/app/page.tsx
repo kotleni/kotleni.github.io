@@ -26,9 +26,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className='mt-4'>
+            <section className="mt-4">
                 <p className="font-semibold">about me.</p>
-                <p>
+                <p className="mt-2">
                     i'm a passionate full-stack developer who learns and
                     transforms complex problems into simple, beautiful, and
                     intuitive solutions through development and design.

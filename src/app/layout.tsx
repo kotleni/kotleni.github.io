@@ -1,10 +1,8 @@
 'use client';
 
-import {GithubLogo} from '@/icons/github-logo';
 import './globals.css';
 import {ThemeProvider} from '@/components/theme-provider';
 import {cn} from '@/lib/utils';
-import {Metadata} from 'next';
 import {Suspense} from 'react';
 import {Outfit} from 'next/font/google';
 import {usePathname} from 'next/navigation';
@@ -78,7 +76,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className="md:container md:px-64 flex flex-col p-4">
+                        <div className="md:container md:px-99 flex flex-col p-4">
                             <header className="flex flex-row justify-end">
                                 <div className="flex flex-row gap-2">
                                     {navLinks.map((link, index) => {
