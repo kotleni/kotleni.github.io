@@ -7,6 +7,50 @@ import {TelegramLogo} from '@/icons/telegram-logo';
 import Avatar from '@/kotleni2.jpg';
 import Image from 'next/image';
 
+interface JourneyCardProps {
+    title: string;
+    companyTitle: string | undefined;
+    companyUrl: string | undefined;
+    workingDates: string;
+    description: string;
+}
+
+function JourneyCard(props: JourneyCardProps) {
+    return (
+        <div className="group flex flex-row gap-[16px] w-full py-2">
+            <div className="min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-red-300 transition-colors ease-in-out delay-0 duration-700 rounded-md"></div>
+            <div className="w-full">
+                <div className="flex justify-between min-w-full text-sm">
+                    <div className="text-xs">
+                        <p className="text-[16px]">{props.title}</p>
+                        <div
+                            className="flex flex-row gap-1"
+                            hidden={props.companyTitle === undefined}
+                        >
+                            <p>at,</p>
+                            <a
+                                hidden={props.companyUrl === undefined}
+                                href={props.companyUrl}
+                                className="underline"
+                            >
+                                {props.companyTitle}
+                            </a>
+                            <p
+                                hidden={props.companyUrl !== undefined}
+                                className="underline"
+                            >
+                                {props.companyTitle}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="text-md">{props.workingDates}</div>
+                </div>
+                <p className="mt-2 text-sm">{props.description}</p>
+            </div>
+        </div>
+    );
+}
+
 export default function Home() {
     return (
         <div className="flex flex-col gap-4 pt-4">
@@ -46,6 +90,25 @@ export default function Home() {
                     transforms complex problems into simple, beautiful, and
                     intuitive solutions through development and design.
                 </p>
+            </section>
+            <section className="mt-4">
+                <p className="font-semibold">journey.</p>
+                <div className="mt-2">
+                    <JourneyCard
+                        title="Android&iOS Developer"
+                        companyTitle="bunch"
+                        companyUrl={undefined}
+                        workingDates="jan 2019 - dec 2024"
+                        description="For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
+                    />
+                    <JourneyCard
+                        title="Full-stack Developer"
+                        companyTitle="Freelance"
+                        companyUrl={undefined}
+                        workingDates="nov 2024 - now"
+                        description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
+                    />
+                </div>
             </section>
         </div>
     );
