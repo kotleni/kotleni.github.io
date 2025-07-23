@@ -76,7 +76,7 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className="md:container md:px-99 flex flex-col p-4">
+                        <div className="md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99 flex flex-col p-4">
                             <header className="flex flex-row justify-end">
                                 <div className="flex flex-row gap-2">
                                     {navLinks.map((link, index) => {
