@@ -1,4 +1,5 @@
 'use client';
+import {SocialIcon} from '@/components/social-icon';
 import {GithubLogo} from '@/icons/github-logo';
 import {GmailLogo} from '@/icons/gmail-logo';
 import {LinkedinLogo} from '@/icons/linkedin-logo';
@@ -18,11 +19,23 @@ export default function Home() {
                 <div className="flex flex-col justify-center gap-1">
                     <h2 className="text-xl">Hey👋, I'm Viktor</h2>
                     <p>Full-stack Software Engineer | Ukraine</p>
-                    <div className="flex flex-row gap-2">
-                        <GmailLogo className="size-5" />
-                        <LinkedinLogo className="size-5" />
-                        <GithubLogo className="size-5" />
-                        <TelegramLogo className="size-5" />
+                    <div className="flex flex-row gap-3">
+                        <SocialIcon
+                            Icon={GmailLogo}
+                            url="mailto:yavarenikya@gmail.com"
+                        />
+                        <SocialIcon
+                            Icon={LinkedinLogo}
+                            url="https://www.linkedin.com/in/kotleni/"
+                        />
+                        <SocialIcon
+                            Icon={TelegramLogo}
+                            url="https://t.me/kotleni"
+                        />
+                        <SocialIcon
+                            Icon={GithubLogo}
+                            url="https://github.com/kotleni"
+                        />
                     </div>
                 </div>
             </section>
