@@ -5,6 +5,7 @@ import {GmailLogo} from '@/icons/gmail-logo';
 import {LinkedinLogo} from '@/icons/linkedin-logo';
 import {TelegramLogo} from '@/icons/telegram-logo';
 import Avatar from '@/kotleni2.jpg';
+import {cn} from '@/lib/utils';
 import Image from 'next/image';
 
 interface JourneyCardProps {
@@ -18,7 +19,12 @@ interface JourneyCardProps {
 function JourneyCard(props: JourneyCardProps) {
     return (
         <div className="group flex flex-row gap-[16px] w-full py-2">
-            <div className="min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-red-300 transition-colors ease-in-out delay-0 duration-700 rounded-md"></div>
+            <div
+                className={cn(
+                    'min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-red-300',
+                    ' transition-colors ease-in-out delay-0 duration-700 rounded-md',
+                )}
+            ></div>
             <div className="w-full">
                 <div className="flex justify-between min-w-full text-sm">
                     <div className="text-xs">
