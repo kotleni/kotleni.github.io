@@ -39,7 +39,7 @@ function NavigationLink({isActive, title, url}: NavigationLinkProps) {
             href={url}
             className={cn(
                 'bold lg:p-2 hover:text-foreground',
-                isActive ? '' : 'text-gray-700',
+                isActive ? '' : 'text-muted-foreground',
             )}
         >
             {title}
@@ -66,7 +66,7 @@ export default function RootLayout({
             <body
                 className={cn(
                     outfit.className,
-                    'flex justify-center dark:bg-slate-900',
+                    'flex justify-center dark:bg-background',
                 )}
             >
                 <Suspense>

@@ -21,8 +21,8 @@ function JourneyCard(props: JourneyCardProps) {
         <div className="group flex flex-row gap-[16px] w-full py-2">
             <div
                 className={cn(
-                    'min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-red-300',
-                    ' transition-colors ease-in-out delay-0 duration-700 rounded-md',
+                    'min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-primary',
+                    'transition-colors ease-in-out delay-0 duration-700 rounded-md',
                 )}
             ></div>
             <div className="w-full">
