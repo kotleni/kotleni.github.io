@@ -8,6 +8,14 @@ import {TelegramLogo} from '@/icons/telegram-logo';
 import Avatar from '@/kotleni2.jpg';
 import {cn} from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
+
+const EMAIL = 'yavarenikya@gmail.com';
+const URLS = {
+    linkedin: 'https://www.linkedin.com/in/kotleni/',
+    telegram: 'https://t.me/kotleni',
+    github: 'https://github.com/kotleni',
+};
 
 interface JourneyCardProps {
     title: string;
@@ -71,22 +79,10 @@ export default function Home() {
                     <h2 className="text-xl">Hey👋, I'm Viktor</h2>
                     <p>Full-stack Software Engineer | Ukraine</p>
                     <div className="flex flex-row gap-3">
-                        <SocialIcon
-                            Icon={GmailLogo}
-                            url="mailto:yavarenikya@gmail.com"
-                        />
-                        <SocialIcon
-                            Icon={LinkedinLogo}
-                            url="https://www.linkedin.com/in/kotleni/"
-                        />
-                        <SocialIcon
-                            Icon={TelegramLogo}
-                            url="https://t.me/kotleni"
-                        />
-                        <SocialIcon
-                            Icon={GithubLogo}
-                            url="https://github.com/kotleni"
-                        />
+                        <SocialIcon Icon={GmailLogo} url={'mailto:' + EMAIL} />
+                        <SocialIcon Icon={LinkedinLogo} url={URLS.linkedin} />
+                        <SocialIcon Icon={TelegramLogo} url={URLS.telegram} />
+                        <SocialIcon Icon={GithubLogo} url={URLS.github} />
                     </div>
                 </div>
             </section>
@@ -179,6 +175,24 @@ export default function Home() {
                         );
                     })}
                 </div>
+            </section>
+            <section className="mt-4">
+                <p className="font-semibold">contact.</p>
+                <p>
+                    interested in a conversation? drop dm's over{' '}
+                    <Link className="underline" href={URLS.linkedin}>
+                        linkedin
+                    </Link>
+                    ,{' '}
+                    <Link className="underline" href={URLS.telegram}>
+                        Telegram
+                    </Link>{' '}
+                    or{' '}
+                    <Link className="underline" href={'mailto:' + EMAIL}>
+                        email
+                    </Link>
+                    . ask me anything about my work, projects, or anything else.
+                </p>
             </section>
         </div>
     );
