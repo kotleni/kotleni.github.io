@@ -1,5 +1,6 @@
 'use client';
 import {SocialIcon} from '@/components/social-icon';
+import {Badge} from '@/components/ui/badge';
 import {GithubLogo} from '@/icons/github-logo';
 import {GmailLogo} from '@/icons/gmail-logo';
 import {LinkedinLogo} from '@/icons/linkedin-logo';
@@ -115,6 +116,68 @@ export default function Home() {
                         workingDates="nov 2024 - now"
                         description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
                     />
+                </div>
+            </section>
+            <section className="mt-4">
+                <p className="font-semibold">skills.</p>
+
+                <div className="mt-2 flex flex-row flex-wrap gap-2">
+                    {[
+                        // Core
+                        'javascript',
+                        'typescript',
+                        'html',
+                        'css',
+                        // Frameworks and libraries
+                        'reactjs',
+                        'nextjs',
+                        'expressjs',
+                        // Styling
+                        'tailwindcss',
+                        'sass',
+                        // Databases
+                        'prisma',
+                        'sql',
+                        'firebase',
+                        'mongodb',
+                        // DevOps
+                        'git',
+                        'linux',
+                        'docker',
+                        'kubernetes',
+                        'vercel',
+                    ].map(skill => {
+                        return (
+                            <Badge key={skill} variant="secondary">
+                                {skill}
+                            </Badge>
+                        );
+                    })}
+                </div>
+
+                <p className="mt-2 mb-1 text-sm">Additional stack:</p>
+                <div className="flex flex-row flex-wrap gap-2">
+                    {[
+                        'kotlin',
+                        'java',
+                        'c',
+                        'c++',
+                        'c#',
+                        'php',
+                        'python',
+                        'android',
+                        'ios',
+                        'unity',
+                        'sdl',
+                        'opengl',
+                        'gsls',
+                    ].map(skill => {
+                        return (
+                            <Badge key={skill} variant="secondary">
+                                {skill}
+                            </Badge>
+                        );
+                    })}
                 </div>
             </section>
         </div>
