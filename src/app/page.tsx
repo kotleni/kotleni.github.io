@@ -181,7 +181,7 @@ export default function Home() {
                 <p>
                     interested in a conversation? drop dm's over{' '}
                     <Link className="underline" href={URLS.linkedin}>
-                        linkedin
+                        Linkedin
                     </Link>
                     ,{' '}
                     <Link className="underline" href={URLS.telegram}>
@@ -189,7 +189,7 @@ export default function Home() {
                     </Link>{' '}
                     or{' '}
                     <Link className="underline" href={'mailto:' + EMAIL}>
-                        email
+                        {EMAIL}
                     </Link>
                     . ask me anything about my work, projects, or anything else.
                 </p>
