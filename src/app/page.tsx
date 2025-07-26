@@ -79,7 +79,7 @@ export default function Home() {
                     y: 30,
                     opacity: 0,
                     stagger: 0.15,
-                    duration: 0.8,
+                    duration: 0.6,
                     ease: 'power3.out',
                 });
             }
