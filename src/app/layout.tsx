@@ -78,10 +78,7 @@ export default function RootLayout({
                         disableTransitionOnChange
                     >
                         <div className="md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99 flex flex-col">
-                            <div
-                                hidden={pathName === '/blog'}
-                                className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
-                            >
+                            <div className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1">
                                 <p className="text-sm">
                                     I've launched a{' '}
                                     <Link
