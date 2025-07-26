@@ -8,22 +8,10 @@ interface Post {
 
 const posts: Post[] = [
     {
-        title: 'How to cut bananas',
-        url: '',
+        title: 'The sixth iteration of my website',
+        url: '/blog/new-website-v6',
         description:
-            'Gaming on Linux on M1 is here! We’re thrilled to release our Asahi game playing toolkit, which integrates our Vulkan 1.3 drivers with x86 emulation and Windows compatibility. Plus a bonus: conformant OpenCL 3.0…',
-    },
-    {
-        title: 'Why its so important to you',
-        url: '',
-        description:
-            'Finally, conformant Vulkan for the M1! The new Honeykrisp driver is the first conformant Vulkan® for Apple hardware on any operating system, implementing the full 1.3 spec without portability waivers…',
-    },
-    {
-        title: 'Linux are most important stuff',
-        url: '',
-        description:
-            'Upgrade your Asahi Linux systems, because your graphics drivers are getting a big boost: leapfrogging from OpenGL 2.1 over OpenGL 3.0 up to OpenGL 3.1! Similarly, the OpenGL ES 2.0 support is bumping up to OpenGL ES 3.0. That means more playable games and more functioning applications…',
+            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page.",
     },
 ];
 
@@ -39,7 +27,7 @@ export default function Blog() {
                                 {post.title}
                             </p>
                         </Link>
-                        <p>{post.description}</p>
+                        <p>{post.description}...</p>
                     </div>
                 );
             })}
