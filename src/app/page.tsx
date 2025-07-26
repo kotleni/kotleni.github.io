@@ -205,6 +205,7 @@ export default function Home() {
                     </Link>
                     . ask me anything about my work, projects, or anything else.
                 </p>
+                <br/>
             </section>
         </div>
     );
