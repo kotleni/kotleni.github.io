@@ -7,6 +7,7 @@ import {Suspense} from 'react';
 import {Outfit} from 'next/font/google';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
+import {NavigationLink} from '@/components/navigation-link';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -27,26 +28,6 @@ const navLinks: NavLinkInfo[] = [
     {title: 'blog', url: '/blog'},
     // {title: 'portfolio', url: '/portfolio'},
 ];
-
-interface NavigationLinkProps {
-    isActive: boolean;
-    title: string;
-    url: string;
-}
-
-function NavigationLink({isActive, title, url}: NavigationLinkProps) {
-    return (
-        <a
-            href={url}
-            className={cn(
-                'bold lg:p-2 hover:text-foreground',
-                isActive ? '' : 'text-muted-foreground',
-            )}
-        >
-            {title}
-        </a>
-    );
-}
 
 export default function RootLayout({
     children,
