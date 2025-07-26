@@ -10,8 +10,10 @@
     "format": "eslint --fix '**/*.ts*'"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
+    "@types/gsap": "^3.0.0",
     "@typescript-eslint/parser": "^8.36.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -19,6 +21,7 @@
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-n": "17.21.0",
     "eslint-plugin-prettier": "5.5.1",
+    "gsap": "^3.13.0",
     "lucide": "^0.525.0",
     "lucide-react": "^0.525.0",
     "next": "15.3.5",

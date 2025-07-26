@@ -1,11 +1,11 @@
+import {cn} from '@/lib/utils';
 import Link from 'next/link';
-import {ReactNode} from 'react';
 
 interface StyledLinkProps {
-    children: ReactNode;
+    title: string;
     href: string;
+    alwaysUnderlined?: boolean;
     target?: string;
-    rel?: string;
 }
 
 export function StyledLink(props: StyledLinkProps) {
@@ -13,10 +13,12 @@ export function StyledLink(props: StyledLinkProps) {
         <Link
             href={props.href}
             target={props.target}
-            rel={props.rel}
-            className="font-medium underline hover:text-primary/80"
+            className={cn(
+                'text-primary',
+                props.alwaysUnderlined ? 'underline' : 'hover:underline',
+            )}
         >
-            {props.children}
+            {props.title}
         </Link>
     );
 }

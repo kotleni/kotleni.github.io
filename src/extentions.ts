@@ -1,3 +1,1 @@
-export enum Extension {
-    Cute = 'cute', // Add some cute things
-}
+export enum Extension {}
