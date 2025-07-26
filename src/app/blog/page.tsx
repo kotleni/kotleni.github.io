@@ -11,7 +11,7 @@ const posts: Post[] = [
         title: 'The sixth iteration of my website',
         url: '/blog/new-website-v6',
         description:
-            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page.",
+            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page",
     },
 ];
 
