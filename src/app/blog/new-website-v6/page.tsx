@@ -100,12 +100,7 @@ export default function Post() {
                         href="mailto:yavarenikya@gmail.com"
                         title="meow"
                     />{' '}
-                    at me, or{' '}
-                    <StyledLink
-                        href="https://linkedin.com/in/your-profile"
-                        title="connect"
-                    />{' '}
-                    elsewhere.
+                    at me, or <StyledLink href="/" title="connect" /> elsewhere.
                 </p>
             </section>
         </div>
