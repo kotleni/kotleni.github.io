@@ -1,4 +1,5 @@
 'use client';
+
 import {SocialIcon} from '@/components/social-icon';
 import {Badge} from '@/components/ui/badge';
 import {GithubLogo} from '@/icons/github-logo';
@@ -9,6 +10,8 @@ import Avatar from '@/kotleni2.jpg';
 import {cn} from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import {useRef, useLayoutEffect} from 'react';
+import {gsap} from 'gsap';
 
 const EMAIL = 'yavarenikya@gmail.com';
 const URLS = {
@@ -67,8 +70,26 @@ function JourneyCard(props: JourneyCardProps) {
 }
 
 export default function Home() {
+    const mainRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            if (mainRef.current) {
+                gsap.from(mainRef.current.children, {
+                    y: 30,
+                    opacity: 0,
+                    stagger: 0.15,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                });
+            }
+        }, mainRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <div className="flex flex-col gap-4 pt-4">
+        <div ref={mainRef} className="flex flex-col gap-4 pt-4">
             <section className="flex flex-row gap-4">
                 <Image
                     src={Avatar}
@@ -119,36 +140,29 @@ export default function Home() {
 
                 <div className="mt-2 flex flex-row flex-wrap gap-2">
                     {[
-                        // Core
                         'javascript',
                         'typescript',
                         'html',
                         'css',
-                        // Frameworks and libraries
                         'reactjs',
                         'nextjs',
                         'expressjs',
-                        // Styling
                         'tailwindcss',
                         'sass',
-                        // Databases
                         'prisma',
                         'sql',
                         'firebase',
                         'mongodb',
-                        // DevOps
                         'git',
                         'linux',
                         'docker',
                         'kubernetes',
                         'vercel',
-                    ].map(skill => {
-                        return (
-                            <Badge key={skill} variant="secondary">
-                                {skill}
-                            </Badge>
-                        );
-                    })}
+                    ].map(skill => (
+                        <Badge key={skill} variant="secondary">
+                            {skill}
+                        </Badge>
+                    ))}
                 </div>
 
                 <p className="mt-2 mb-1 text-sm">Additional stack:</p>
@@ -167,13 +181,11 @@ export default function Home() {
                         'sdl',
                         'opengl',
                         'gsls',
-                    ].map(skill => {
-                        return (
-                            <Badge key={skill} variant="secondary">
-                                {skill}
-                            </Badge>
-                        );
-                    })}
+                    ].map(skill => (
+                        <Badge key={skill} variant="secondary">
+                            {skill}
+                        </Badge>
+                    ))}
                 </div>
             </section>
             <section className="mt-4">
