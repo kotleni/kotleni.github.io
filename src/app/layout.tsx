@@ -24,7 +24,7 @@ interface NavLinkInfo {
 const navLinks: NavLinkInfo[] = [
     {title: 'about', url: '/'},
     {title: 'blog', url: '/blog'},
-    {title: 'portfolio', url: '/portfolio'},
+    // {title: 'portfolio', url: '/portfolio'},
 ];
 
 interface NavigationLinkProps {
