@@ -6,6 +6,7 @@ import {cn} from '@/lib/utils';
 import {Suspense} from 'react';
 import {Outfit} from 'next/font/google';
 import {usePathname} from 'next/navigation';
+import Link from 'next/link';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -76,7 +77,22 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className="md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99 flex flex-col p-4">
+                        <div className="md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99 flex flex-col">
+                            <div
+                                hidden={pathName === '/blog'}
+                                className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
+                            >
+                                <p className="text-sm">
+                                    I've launched a{' '}
+                                    <Link
+                                        className="text-primary hover:underline"
+                                        href="/blog"
+                                    >
+                                        blog
+                                    </Link>{' '}
+                                    as my new experiment.
+                                </p>
+                            </div>
                             <header className="flex flex-row justify-end">
                                 <div className="flex flex-row gap-2">
                                     {navLinks.map((link, index) => {
