@@ -110,10 +110,9 @@ export default function Home() {
             <section className="mt-4">
                 <p className="font-semibold">about me.</p>
                 <p className="mt-2">
-                    i'm a enthusiastic full-stack developer who constantly
-                    learns and transforms complex problems into simple,
-                    beautiful, and intuitive solutions through development and
-                    design.
+                    I’m a full-stack developer passionate about software
+                    freedom, creating and contributing to open source projects
+                    that put users back in control of their data and technology.
                 </p>
             </section>
             <section className="mt-4">
@@ -121,7 +120,7 @@ export default function Home() {
                 <div className="mt-2">
                     <JourneyCard
                         title="Android&iOS Developer"
-                        companyTitle="bunch"
+                        companyTitle="AppLead Pro & VIPAPP & Gravity"
                         companyUrl={undefined}
                         workingDates="jan 2019 - dec 2024"
                         description="For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
