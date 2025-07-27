@@ -71,7 +71,7 @@ export default function RootLayout({
                                     as my new experiment.
                                 </p>
                             </div>
-                            <header className="flex flex-row justify-end">
+                            <header className="flex flex-row justify-end p-3 md:p-0">
                                 <div className="flex flex-row gap-2">
                                     {navLinks.map((link, index) => {
                                         return (
@@ -85,7 +85,7 @@ export default function RootLayout({
                                     })}
                                 </div>
                             </header>
-                            <main>{children}</main>
+                            <main className="pb-4">{children}</main>
                         </div>
                     </ThemeProvider>
                 </Suspense>
