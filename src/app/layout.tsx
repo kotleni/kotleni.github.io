@@ -85,7 +85,7 @@ export default function RootLayout({
                                     })}
                                 </div>
                             </header>
-                            <main>{children}</main>
+                            <main className="pb-4">{children}</main>
                         </div>
                     </ThemeProvider>
                 </Suspense>
