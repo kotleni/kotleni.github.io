@@ -110,10 +110,9 @@ export default function Home() {
             <section className="mt-4">
                 <p className="font-semibold">about me.</p>
                 <p className="mt-2">
-                    i'm a enthusiastic full-stack developer who constantly
-                    learns and transforms complex problems into simple,
-                    beautiful, and intuitive solutions through development and
-                    design.
+                    I’m a full-stack developer passionate about software
+                    freedom, creating and contributing to open source projects
+                    that put users back in control of their data and technology.
                 </p>
             </section>
             <section className="mt-4">
