@@ -26,7 +26,7 @@ interface NavLinkInfo {
 const navLinks: NavLinkInfo[] = [
     {title: 'about', url: '/'},
     {title: 'blog', url: '/blog'},
-    // {title: 'portfolio', url: '/portfolio'},
+    {title: 'sandbox', url: '/sandbox'},
 ];
 
 export default function RootLayout({
@@ -64,11 +64,11 @@ export default function RootLayout({
                                     I've launched a{' '}
                                     <Link
                                         className="text-primary hover:underline"
-                                        href="/blog"
+                                        href="/sandbox"
                                     >
-                                        blog
+                                        sandbox
                                     </Link>{' '}
-                                    as my new experiment.
+                                    for experimental web projects.
                                 </p>
                             </div>
                             <header className="flex flex-row justify-end p-3 md:p-0">
