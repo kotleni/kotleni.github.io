@@ -5,9 +5,10 @@ import {ThemeProvider} from '@/components/theme-provider';
 import {cn} from '@/lib/utils';
 import {Suspense} from 'react';
 import {Outfit} from 'next/font/google';
-import {usePathname} from 'next/navigation';
+import {usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import {NavigationLink} from '@/components/navigation-link';
+import {SidebarClose} from 'lucide-react';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -35,6 +36,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     const pathName = usePathname();
+    const params = useSearchParams();
+    const isFullsized = params.get('is_fullsized') === '1';
+    const ref = params.get('ref');
 
     return (
         <html lang="en" suppressHydrationWarning>
@@ -58,8 +62,18 @@ export default function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <div className="md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99 flex flex-col">
-                            <div className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1">
+                        <div
+                            className={cn(
+                                'flex flex-col',
+                                isFullsized
+                                    ? ''
+                                    : 'md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99',
+                            )}
+                        >
+                            <div
+                                className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
+                                hidden={isFullsized}
+                            >
                                 <p className="text-sm">
                                     I've launched a{' '}
                                     <Link
@@ -71,7 +85,10 @@ export default function RootLayout({
                                     for experimental web projects.
                                 </p>
                             </div>
-                            <header className="flex flex-row justify-end p-3 md:p-0">
+                            <header
+                                className="flex flex-row justify-end p-3 md:p-0"
+                                hidden={isFullsized}
+                            >
                                 <div className="flex flex-row gap-2">
                                     {navLinks.map((link, index) => {
                                         return (
@@ -85,7 +102,14 @@ export default function RootLayout({
                                     })}
                                 </div>
                             </header>
-                            <main className="pb-4">{children}</main>
+                            <div hidden={!isFullsized} className="absolute p-4">
+                                <Link href={ref ?? ''}>
+                                    <SidebarClose className="hover:text-accent-foreground cursor-pointer" />
+                                </Link>
+                            </div>
+                            <main className={cn(isFullsized ? '' : 'pb-4')}>
+                                {children}
+                            </main>
                         </div>
                     </ThemeProvider>
                 </Suspense>
