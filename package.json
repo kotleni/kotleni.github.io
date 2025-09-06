@@ -7,7 +7,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint" : "eslint '**/*.ts*'",
+    "lint": "eslint '**/*.ts*'",
     "format": "eslint --fix '**/*.ts*'"
   },
   "dependencies": {
