@@ -297,6 +297,19 @@ const Canvas = () => {
                 }
             });
 
+            // --- Self Collision (Cutting the snake) ---
+            // Start check from the 4th part to avoid head colliding with neck
+            for (let i = 4; i < snakeParts.length; i++) {
+                const part = snakeParts[i];
+                const dist = head.pos.distance(part.pos);
+
+                if (dist < SNAKE_PART_RADIUS) {
+                    // Cut the snake from this point
+                    snakeParts.splice(i);
+                    break; // Stop checking after the first collision
+                }
+            }
+
             // --- UI ---
             ctx.strokeStyle = 'white';
             ctx.strokeText(snakeParts.length.toString(), 32, canvas.height / 2);
