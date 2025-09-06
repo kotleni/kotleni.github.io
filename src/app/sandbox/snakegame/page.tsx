@@ -291,6 +291,6 @@ const Canvas = () => {
     );
 };
 
-export default function PhysboxPage() {
+export default function SnakeGamePage() {
     return <Canvas />;
 }

@@ -11,9 +11,9 @@ interface SandboxApp {
 
 const apps: SandboxApp[] = [
     {
-        name: 'Physbox',
-        description: "A 2d physical pixel's based sandbox",
-        url: '/sandbox/physbox',
+        name: 'Snake',
+        description: 'A 2d snake game with a lot of glows.',
+        url: '/sandbox/snakegame',
     },
 ];
 
