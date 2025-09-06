@@ -27,35 +27,38 @@ export default function SandboxPage() {
     const pathName = usePathname();
 
     return (
-        <div className="flex flex-wrap justify-center gap-4 p-4 sm:p-6">
-            {apps.map(app => (
-                <Link
-                    key={`${app.name}`}
-                    href={`${app.url}?is_fullsized=1&ref=${pathName}&is_darkbg=${app.isDarkBg ? '1' : 0}`}
-                    className="w-full max-w-xs overflow-hidden rounded-md border border-accent/50 bg-accent"
-                >
-                    {/* Image Container */}
-                    <div className="border-b border-accent/50">
-                        <Image
-                            src={app.preview}
-                            alt={`Screenshot of ${app.name}`}
-                            width={320}
-                            height={180}
-                            className="h-30 w-full object-cover"
-                        />
-                    </div>
+        <div className="flex flex-col pt-4 gap-4">
+            <h2 className="text-3xl font-bold">Sandbox apps</h2>
+            <div className="flex flex-wrap justify-center gap-4 sm:p-6">
+                {apps.map(app => (
+                    <Link
+                        key={`${app.name}`}
+                        href={`${app.url}?is_fullsized=1&ref=${pathName}&is_darkbg=${app.isDarkBg ? '1' : 0}`}
+                        className="w-full max-w-xs overflow-hidden rounded-md border border-accent/50 bg-accent"
+                    >
+                        {/* Image Container */}
+                        <div className="border-b border-accent/50">
+                            <Image
+                                src={app.preview}
+                                alt={`Screenshot of ${app.name}`}
+                                width={320}
+                                height={180}
+                                className="h-30 w-full object-cover"
+                            />
+                        </div>
 
-                    {/* Content Container */}
-                    <div className="p-2">
-                        <h3 className="text-sm font-semibold text-accent-foreground">
-                            {app.name}
-                        </h3>
-                        <p className="mt-1 text-sm text-accent-foreground/80">
-                            {app.description}
-                        </p>
-                    </div>
-                </Link>
-            ))}
+                        {/* Content Container */}
+                        <div className="p-2">
+                            <h3 className="text-sm font-semibold text-accent-foreground">
+                                {app.name}
+                            </h3>
+                            <p className="mt-1 text-sm text-accent-foreground/80">
+                                {app.description}
+                            </p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 }

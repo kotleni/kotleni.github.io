@@ -55,6 +55,8 @@ interface Particle {
 
 const Canvas = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const lastInputPos = useRef<Vec>(new Vec(0, 0));
+    const direction = useRef<Vec>(new Vec(1, 0));
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -73,6 +75,7 @@ const Canvas = () => {
 
         const FOOD_RADIUS = 12;
         const SNAKE_PART_RADIUS = 12;
+        const MOVEMENT_THRESHOLD = 5;
 
         // Initialize the snake at the start
         const initSnake = () => {
@@ -108,17 +111,34 @@ const Canvas = () => {
             }
         };
 
+        const updateDirection = (newPos: Vec) => {
+            if (lastInputPos.current.distance(newPos) > MOVEMENT_THRESHOLD) {
+                const head = snakeParts[0];
+                if (head) {
+                    const newDir = new Vec(
+                        newPos.x - head.pos.x,
+                        newPos.y - head.pos.y,
+                    );
+                    if (newDir.magnitude() > 0) {
+                        direction.current = newDir.normalized();
+                    }
+                }
+                lastInputPos.current = newPos;
+            }
+        };
+
         const handleMouseMove = (event: MouseEvent) => {
             mousePos = new Vec(event.clientX, event.clientY);
+            updateDirection(mousePos);
         };
 
         const handleTouchMove = (event: TouchEvent) => {
             if (event.target !== canvas) return;
-
-            event.preventDefault(); // Prevents scrolling
+            event.preventDefault();
             if (event.touches.length > 0) {
-                const touch = event.touches[0];
-                mousePos = new Vec(touch.clientX, touch.clientY);
+                const touch = event.touches;
+                mousePos = new Vec(touch[0].clientX, touch[0].clientY);
+                updateDirection(mousePos);
             }
         };
 
@@ -156,17 +176,15 @@ const Canvas = () => {
             const speed = 4;
             const segmentLength = SNAKE_PART_RADIUS * 0.8; // Segments are closer together
             const head = snakeParts[0];
-            const target = mousePos;
 
-            const dirToTarget = new Vec(
-                target.x - head.pos.x,
-                target.y - head.pos.y,
-            );
-            if (dirToTarget.magnitude() > 1) {
-                head.pos = head.pos.add(
-                    dirToTarget.normalized().multiply(speed),
-                );
-            }
+            // Move head towards direction
+            head.pos = head.pos.add(direction.current.multiply(speed));
+
+            // Prevent outofscreen
+            if (head.pos.x > canvas.width) direction.current.x = -1;
+            if (head.pos.x < 0) head.pos.x = direction.current.x = 1;
+            if (head.pos.y > canvas.height) direction.current.y = -1;
+            if (head.pos.y < 0) head.pos.y = direction.current.y = 1;
 
             for (let i = 1; i < snakeParts.length; i++) {
                 const currentPart = snakeParts[i];
@@ -221,10 +239,7 @@ const Canvas = () => {
             ctx.shadowBlur = 0;
 
             // Draw eyes on the head
-            const angle = Math.atan2(
-                target.y - head.pos.y,
-                target.x - head.pos.x,
-            );
+            const angle = Math.atan2(direction.current.y, direction.current.x);
             const eyeOffset = SNAKE_PART_RADIUS / 2;
             ctx.fillStyle = 'white';
             const eye1X = head.pos.x + Math.cos(angle - 0.5) * eyeOffset;
@@ -270,6 +285,19 @@ const Canvas = () => {
                     }
                 }
             });
+
+            // --- Self Collision (Cutting the snake) ---
+            // Start check from the 4th part to avoid head colliding with neck
+            for (let i = 4; i < snakeParts.length; i++) {
+                const part = snakeParts[i];
+                const dist = head.pos.distance(part.pos);
+
+                if (dist < SNAKE_PART_RADIUS) {
+                    // Cut the snake from this point
+                    snakeParts.splice(i);
+                    break; // Stop checking after the first collision
+                }
+            }
 
             // --- UI ---
             ctx.strokeStyle = 'white';
