@@ -113,6 +113,8 @@ const Canvas = () => {
         };
 
         const handleTouchMove = (event: TouchEvent) => {
+            if (event.target !== canvas) return;
+
             event.preventDefault(); // Prevents scrolling
             if (event.touches.length > 0) {
                 const touch = event.touches[0];

@@ -103,7 +103,10 @@ export default function RootLayout({
                                     })}
                                 </div>
                             </header>
-                            <div hidden={!isFullsized} className="absolute p-4">
+                            <div
+                                hidden={!isFullsized}
+                                className="absolute z-10 p-4"
+                            >
                                 <Link href={ref ?? ''}>
                                     <SidebarClose
                                         className={cn(
