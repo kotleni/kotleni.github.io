@@ -110,8 +110,10 @@ export default function RootLayout({
                                 <Link href={ref ?? ''}>
                                     <SidebarClose
                                         className={cn(
-                                            'hover:text-accent-foreground cursor-pointer',
-                                            isDarkBg ? 'text-neutral-50' : '',
+                                            'cursor-pointer',
+                                            isDarkBg
+                                                ? 'text-neutral-50 hover:text-neutral-400'
+                                                : 'hover:text-accent-foreground',
                                         )}
                                     />
                                 </Link>
