@@ -10,6 +10,7 @@ interface SandboxApp {
     description: string;
     url: string;
     preview: StaticImageData;
+    isDarkBg: boolean;
 }
 
 const apps: SandboxApp[] = [
@@ -18,6 +19,7 @@ const apps: SandboxApp[] = [
         description: 'A 2D snake game with a lot of glows.',
         url: '/sandbox/snakegame',
         preview: SnakeGameScreenshot,
+        isDarkBg: true,
     },
 ];
 
@@ -29,7 +31,7 @@ export default function SandboxPage() {
             {apps.map(app => (
                 <Link
                     key={`${app.name}`}
-                    href={`${app.url}?is_fullsized=1&ref=${pathName}`}
+                    href={`${app.url}?is_fullsized=1&ref=${pathName}&is_darkbg=${app.isDarkBg ? '1' : 0}`}
                     className="w-full max-w-xs overflow-hidden rounded-md border border-accent/50 bg-accent"
                 >
                     {/* Image Container */}

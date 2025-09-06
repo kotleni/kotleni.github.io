@@ -38,6 +38,7 @@ export default function RootLayout({
     const pathName = usePathname();
     const params = useSearchParams();
     const isFullsized = params.get('is_fullsized') === '1';
+    const isDarkBg = params.get('is_darkbg') === '1';
     const ref = params.get('ref');
 
     return (
@@ -104,7 +105,12 @@ export default function RootLayout({
                             </header>
                             <div hidden={!isFullsized} className="absolute p-4">
                                 <Link href={ref ?? ''}>
-                                    <SidebarClose className="hover:text-accent-foreground cursor-pointer" />
+                                    <SidebarClose
+                                        className={cn(
+                                            'hover:text-accent-foreground cursor-pointer',
+                                            isDarkBg ? 'text-neutral-50' : '',
+                                        )}
+                                    />
                                 </Link>
                             </div>
                             <main className={cn(isFullsized ? '' : 'pb-4')}>
