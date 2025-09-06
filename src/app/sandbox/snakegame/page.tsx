@@ -176,7 +176,6 @@ const Canvas = () => {
             const speed = 4;
             const segmentLength = SNAKE_PART_RADIUS * 0.8; // Segments are closer together
             const head = snakeParts[0];
-            const target = mousePos;
 
             // Move head towards direction
             head.pos = head.pos.add(direction.current.multiply(speed));
@@ -186,16 +185,6 @@ const Canvas = () => {
             if (head.pos.x < 0) head.pos.x = direction.current.x = 1;
             if (head.pos.y > canvas.height) direction.current.y = -1;
             if (head.pos.y < 0) head.pos.y = direction.current.y = 1;
-
-            // const dirToTarget = new Vec(
-            //     target.x - head.pos.x,
-            //     target.y - head.pos.y,
-            // );
-            // if (dirToTarget.magnitude() > 1) {
-            //     head.pos = head.pos.add(
-            //         dirToTarget.normalized().multiply(speed),
-            //     );
-            // }
 
             for (let i = 1; i < snakeParts.length; i++) {
                 const currentPart = snakeParts[i];
