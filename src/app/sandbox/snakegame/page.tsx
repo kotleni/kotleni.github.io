@@ -112,6 +112,14 @@ const Canvas = () => {
             mousePos = new Vec(event.clientX, event.clientY);
         };
 
+        const handleTouchMove = (event: TouchEvent) => {
+            event.preventDefault(); // Prevents scrolling
+            if (event.touches.length > 0) {
+                const touch = event.touches[0];
+                mousePos = new Vec(touch.clientX, touch.clientY);
+            }
+        };
+
         const resizeCanvas = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -274,12 +282,18 @@ const Canvas = () => {
         spawnFood(25);
         window.addEventListener('resize', resizeCanvas);
         window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('touchmove', handleTouchMove, {passive: false});
+        window.addEventListener('touchstart', handleTouchMove, {
+            passive: false,
+        });
         draw();
 
         return () => {
             cancelAnimationFrame(animationFrameId);
             window.removeEventListener('resize', resizeCanvas);
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchstart', handleTouchMove);
         };
     }, []);
 
