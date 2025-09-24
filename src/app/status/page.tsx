@@ -37,15 +37,15 @@ async function pingWebServer(
 
     const startTime = performance.now();
     try {
-        const response = await fetch(url, {
-            method: 'HEAD', // Use HEAD for a lightweight request
+        await fetch(url, {
+            method: 'HEAD',
             mode: 'no-cors',
             signal,
         });
         const endTime = performance.now();
         return endTime - startTime;
     } catch (error) {
-        // Network errors or aborts will be caught here
+        console.error(error);
         return null;
     } finally {
         clearTimeout(timeoutId);
@@ -91,7 +91,9 @@ function useServerPings(refreshInterval: number) {
             setIsLoading(false);
         };
 
-        fetchAndUpdate();
+        fetchAndUpdate()
+            .then(() => {})
+            .catch(() => {});
 
         const intervalId = setInterval(fetchAndUpdate, refreshInterval);
         return () => clearInterval(intervalId);
