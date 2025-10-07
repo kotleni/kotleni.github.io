@@ -128,3 +128,12 @@
     font-feature-settings: normal;
   }
 }
+
+/* Dark theme that works before ReactJS generates page
+ * I need this because of static build for github pages
+ */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: oklch(0.145 0 0);
+    }
+}
