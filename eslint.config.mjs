@@ -70,7 +70,6 @@ export default defineConfig([
             sourceType: 'module',
 
             parserOptions: {
-                project: './tsconfig.json',
                 projectService: true,
                 tsconfigRootDir: __dirname,
             },
