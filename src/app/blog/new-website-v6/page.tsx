@@ -8,6 +8,8 @@ import {useEffect, useState} from 'react';
 import {EyeIcon} from 'lucide-react';
 import {Skeleton} from '@/components/ui/skeleton';
 import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
+import {useRouter} from 'next/router';
+import {usePathname} from 'next/navigation';
 
 const nextjsReasons = [
     {
@@ -32,11 +34,12 @@ interface ViewsReportResponse {
 }
 
 export default function Post() {
+    const url = usePathname();
     const [viewsCount, setViewsCount] = useState(-1);
 
     const fetchViewsCountAndReport = async () => {
         const result = await fetch(
-            'https://api.kotleni.pp.ua/views/report?pageId=test',
+            `https://api.kotleni.pp.ua/views/report?pageId=${url}`,
             {method: 'POST'},
         );
         console.log(result.body);
