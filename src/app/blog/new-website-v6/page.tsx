@@ -4,12 +4,7 @@ import {StyledLink} from '@/components/styled-link';
 import {TextBlock} from '@/components/blog/text-block';
 import {Title} from '@/components/blog/title';
 import {OrderedList} from '@/components/blog/ordered-list';
-import {useEffect, useState} from 'react';
-import {EyeIcon} from 'lucide-react';
-import {Skeleton} from '@/components/ui/skeleton';
-import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
-import {useRouter} from 'next/router';
-import {usePathname} from 'next/navigation';
+import {ViewsCount} from '@/components/views-count';
 
 const nextjsReasons = [
     {
@@ -29,43 +24,10 @@ const nextjsReasons = [
     },
 ];
 
-interface ViewsReportResponse {
-    count: number;
-}
-
 export default function Post() {
-    const url = usePathname();
-    const [viewsCount, setViewsCount] = useState(-1);
-
-    const fetchViewsCountAndReport = async () => {
-        const result = await fetch(
-            `https://api.kotleni.pp.ua/views/report?pageId=${url}`,
-            {method: 'POST'},
-        );
-        console.log(result.body);
-        const data = (await result.json()) as ViewsReportResponse;
-        setViewsCount(data.count);
-    };
-
-    useEffect(() => {
-        void fetchViewsCountAndReport();
-    }, []);
-
     return (
         <div className="flex flex-col gap-4 mt-2">
-            <div className="flex flex-row items-center gap-2">
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <EyeIcon />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        <p>Anonymous views count.</p>
-                        <p>(Can be cheated by other users)</p>
-                    </TooltipContent>
-                </Tooltip>
-                <p hidden={viewsCount < 0}>{viewsCount}</p>
-                <Skeleton hidden={viewsCount >= 0} className="h-4 w-[25px]" />
-            </div>
+            <ViewsCount />
             <h1 className="font-bold text-3xl">
                 The sixth iteration of my website.
             </h1>
