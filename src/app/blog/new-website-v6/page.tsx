@@ -7,6 +7,7 @@ import {OrderedList} from '@/components/blog/ordered-list';
 import {useEffect, useState} from 'react';
 import {EyeIcon} from 'lucide-react';
 import {Skeleton} from '@/components/ui/skeleton';
+import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
 
 const nextjsReasons = [
     {
@@ -50,7 +51,15 @@ export default function Post() {
     return (
         <div className="flex flex-col gap-4 mt-2">
             <div className="flex flex-row items-center gap-2">
-                <EyeIcon />
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <EyeIcon />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Anonymous views count.</p>
+                        <p>(Can be cheated by other users)</p>
+                    </TooltipContent>
+                </Tooltip>
                 <p hidden={viewsCount < 0}>{viewsCount}</p>
                 <Skeleton hidden={viewsCount >= 0} className="h-4 w-[25px]" />
             </div>
