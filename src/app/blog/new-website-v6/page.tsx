@@ -27,7 +27,7 @@ const nextjsReasons = [
 export default function Post() {
     return (
         <div className="flex flex-col gap-4 mt-2">
-            <ViewsCount />
+            <ViewsCount size="default" />
             <h1 className="font-bold text-3xl">
                 The sixth iteration of my website.
             </h1>

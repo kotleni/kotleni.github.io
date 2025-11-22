@@ -12,6 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {useRef, useLayoutEffect} from 'react';
 import {gsap} from 'gsap';
+import {ViewsCount} from '@/components/views-count';
 
 const EMAIL = 'yavarenikya@gmail.com';
 const URLS = {
@@ -97,7 +98,9 @@ export default function Home() {
                     className="size-20 rounded-full"
                 />
                 <div className="flex flex-col justify-center gap-1">
-                    <h2 className="text-xl">Hey👋, I'm Viktor</h2>
+                    <h2 className="flex flex-row gap-2 text-xl">
+                        Hey👋, I'm Viktor <ViewsCount size="small" />
+                    </h2>
                     <p>Full-stack Software Engineer | Ukraine</p>
                     <div className="flex flex-row gap-3">
                         <SocialIcon Icon={GmailLogo} url={'mailto:' + EMAIL} />
