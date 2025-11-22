@@ -1,7 +1,10 @@
+'use client';
+
 import {StyledLink} from '@/components/styled-link';
 import {TextBlock} from '@/components/blog/text-block';
 import {Title} from '@/components/blog/title';
 import {OrderedList} from '@/components/blog/ordered-list';
+import {ViewsCount} from '@/components/views-count';
 
 const nextjsReasons = [
     {
@@ -24,6 +27,7 @@ const nextjsReasons = [
 export default function Post() {
     return (
         <div className="flex flex-col gap-4 mt-2">
+            <ViewsCount size="default" />
             <h1 className="font-bold text-3xl">
                 The sixth iteration of my website.
             </h1>
