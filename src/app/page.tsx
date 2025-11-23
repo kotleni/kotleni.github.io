@@ -1,8 +1,7 @@
 'use client';
 
 import {DecimalAge} from '@/components/decimal-age';
-import Icon from '@mdi/react';
-import {cn, getKyivTimeZoneInfo} from '@/lib/utils';
+import {getKyivTimeZoneInfo} from '@/lib/utils';
 import {aboutMe, myEmail, myUrls} from '@/data/about';
 import {SocialIcon} from '@/components/social-icon';
 import {GmailLogo} from '@/icons/gmail-logo';
@@ -12,12 +11,6 @@ import {GithubLogo} from '@/icons/github-logo';
 import {Badge} from '@/components/ui/badge';
 import Link from 'next/link';
 import {JourneyCard} from '@/components/journey-card';
-
-interface FeatureBadgeProps {
-    title: string;
-    iconPath: string;
-    classes: string;
-}
 
 export default function BioPage() {
     const timeInfo = getKyivTimeZoneInfo();
