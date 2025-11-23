@@ -1,7 +1,5 @@
 import {useEffect, useState} from 'react';
 import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
-import {EyeIcon} from 'lucide-react';
-import {cn} from '@/lib/utils';
 
 interface DecimalAgeProps {
     birthDate: string;

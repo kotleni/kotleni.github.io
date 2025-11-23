@@ -2,19 +2,6 @@
 
 import {DecimalAge} from '@/components/decimal-age';
 import Icon from '@mdi/react';
-import {
-    siArchlinux,
-    siC,
-    siCodeberg,
-    siCplusplus,
-    siDocker,
-    siGit,
-    siJavascript,
-    siKotlin,
-    siSwift,
-    siTypescript,
-    siWebstorm,
-} from 'simple-icons';
 import {cn, getKyivTimeZoneInfo} from '@/lib/utils';
 import {aboutMe, myEmail, myUrls} from '@/data/about';
 import {SocialIcon} from '@/components/social-icon';
@@ -46,39 +33,11 @@ const FeatureBadge = ({title, iconPath, classes}: FeatureBadgeProps) => {
     );
 };
 
-const features: FeatureBadgeProps[] = [
-    {title: 'typescript', iconPath: siTypescript.path, classes: 'bg-[#3178C6]'},
-    {
-        title: 'javascript',
-        iconPath: siJavascript.path,
-        classes: 'bg-[#F7DF1E]',
-    },
-    {title: 'kotlin', iconPath: siKotlin.path, classes: 'bg-[#7F52FF]'},
-    {title: 'java', iconPath: siJavascript.path, classes: 'bg-orange-500'}, // x
-    {title: 'clang', iconPath: siC.path, classes: 'bg-[#00599C]'},
-    {title: 'c++', iconPath: siCplusplus.path, classes: 'bg-[#00599C]'},
-    {title: 'swift', iconPath: siSwift.path, classes: 'bg-[#F05138]'},
-    {title: 'vscode', iconPath: siCodeberg.path, classes: 'bg-blue-500'}, // x
-    {title: 'webstorm', iconPath: siWebstorm.path, classes: 'bg-gray-500'},
-    {title: 'arch', iconPath: siArchlinux.path, classes: 'bg-[#1793D1]'},
-    {title: 'docker', iconPath: siDocker.path, classes: 'bg-[#2496ED]'},
-    {title: 'git', iconPath: siGit.path, classes: 'bg-[#F05032]'},
-];
-
 export default function BioPage() {
     const timeInfo = getKyivTimeZoneInfo();
 
     return (
         <div className="flex flex-col gap-6 mt-2 text-foreground/90">
-            {/*<section className="flex flex-col gap-2">*/}
-            {/*    <Title text="Technologies" />*/}
-            {/*    <div className="flex flex-row flex-wrap gap-2">*/}
-            {/*        {features.map((feature, index) => (*/}
-            {/*            <FeatureBadge key={index} {...feature} />*/}
-            {/*        ))}*/}
-            {/*    </div>*/}
-            {/*</section>*/}
-
             <section className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl font-bold tracking-tight">
