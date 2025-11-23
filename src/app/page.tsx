@@ -1,123 +1,166 @@
 'use client';
 
+import {DecimalAge} from '@/components/decimal-age';
+import {getKyivTimeZoneInfo} from '@/lib/utils';
+import {aboutMe, myEmail, myUrls} from '@/data/about';
 import {SocialIcon} from '@/components/social-icon';
-import {Badge} from '@/components/ui/badge';
-import {GithubLogo} from '@/icons/github-logo';
 import {GmailLogo} from '@/icons/gmail-logo';
 import {LinkedinLogo} from '@/icons/linkedin-logo';
 import {TelegramLogo} from '@/icons/telegram-logo';
-import Avatar from '@/kotleni2.jpg';
-import {cn} from '@/lib/utils';
-import Image from 'next/image';
+import {GithubLogo} from '@/icons/github-logo';
+import {Badge} from '@/components/ui/badge';
 import Link from 'next/link';
-import {useRef, useLayoutEffect} from 'react';
-import {gsap} from 'gsap';
-import {ViewsCount} from '@/components/views-count';
+import {JourneyCard} from '@/components/journey-card';
 
-const EMAIL = 'yavarenikya@gmail.com';
-const URLS = {
-    linkedin: 'https://www.linkedin.com/in/kotleni/',
-    telegram: 'https://t.me/kotleni',
-    github: 'https://github.com/kotleni',
-};
-
-interface JourneyCardProps {
-    title: string;
-    companyTitle: string | undefined;
-    companyUrl: string | undefined;
-    workingDates: string;
-    description: string;
-}
-
-function JourneyCard(props: JourneyCardProps) {
-    return (
-        <div className="group flex flex-row gap-[16px] w-full py-2">
-            <div
-                className={cn(
-                    'min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-primary',
-                    'transition-colors ease-in-out delay-0 duration-700 rounded-md',
-                )}
-            ></div>
-            <div className="w-full">
-                <div className="flex justify-between min-w-full text-sm">
-                    <div className="text-xs">
-                        <p className="text-[16px]">{props.title}</p>
-                        <div
-                            className="flex flex-row gap-1"
-                            hidden={props.companyTitle === undefined}
-                        >
-                            <p>at,</p>
-                            <a
-                                hidden={props.companyUrl === undefined}
-                                href={props.companyUrl}
-                                className="underline"
-                            >
-                                {props.companyTitle}
-                            </a>
-                            <p
-                                hidden={props.companyUrl !== undefined}
-                                className="underline"
-                            >
-                                {props.companyTitle}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="text-md">{props.workingDates}</div>
-                </div>
-                <p className="mt-2 text-sm">{props.description}</p>
-            </div>
-        </div>
-    );
-}
-
-export default function Home() {
-    const mainRef = useRef<HTMLDivElement>(null);
-
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            if (mainRef.current) {
-                gsap.from(mainRef.current.children, {
-                    y: 30,
-                    opacity: 0,
-                    stagger: 0.15,
-                    duration: 0.6,
-                    ease: 'power3.out',
-                });
-            }
-        }, mainRef);
-
-        return () => ctx.revert();
-    }, []);
+export default function BioPage() {
+    const timeInfo = getKyivTimeZoneInfo();
 
     return (
-        <div ref={mainRef} className="flex flex-col gap-4 pt-4">
-            <section className="flex flex-row gap-4">
-                <Image
-                    src={Avatar}
-                    alt="kotleni profile picture"
-                    className="size-20 rounded-full"
-                />
-                <div className="flex flex-col justify-center gap-1">
-                    <h2 className="flex flex-row gap-2 text-xl">
-                        Hey👋, I'm Viktor <ViewsCount size="small" />
-                    </h2>
-                    <p>Full-stack Software Engineer | Ukraine</p>
-                    <div className="flex flex-row gap-3">
-                        <SocialIcon Icon={GmailLogo} url={'mailto:' + EMAIL} />
-                        <SocialIcon Icon={LinkedinLogo} url={URLS.linkedin} />
-                        <SocialIcon Icon={TelegramLogo} url={URLS.telegram} />
-                        <SocialIcon Icon={GithubLogo} url={URLS.github} />
+        <div className="flex flex-col gap-6 mt-2 text-foreground/90">
+            <section className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                    <h1 className="text-3xl font-bold tracking-tight">
+                        Viktor Varenik
+                    </h1>
+                    <div className="flex gap-3">
+                        <SocialIcon
+                            Icon={GmailLogo}
+                            url={'mailto:' + myEmail}
+                        />
+                        <SocialIcon Icon={LinkedinLogo} url={myUrls.linkedin} />
+                        <SocialIcon Icon={TelegramLogo} url={myUrls.telegram} />
+                        <SocialIcon Icon={GithubLogo} url={myUrls.github} />
                     </div>
                 </div>
-            </section>
-            <section className="mt-4">
-                <p className="font-semibold">about me.</p>
-                <p className="mt-2">
-                    I’m a full-stack developer passionate about software
-                    freedom, creating and contributing to open source projects
-                    that put users back in control of their data and technology.
+                <p className="text-muted-foreground leading-relaxed">
+                    {aboutMe}
                 </p>
             </section>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <section className="flex flex-col">
+                    <p className="font-semibold">verbose.</p>
+                    <div className="flex flex-col gap-2 text-sm mt-2">
+                        <div className="flex justify-between items-center border-b border-border/50 pb-1">
+                            <span className="font-medium">Position</span>
+                            <span className="text-muted-foreground text-right">
+                                Full-stack Engineer
+                            </span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-border/50 pb-1">
+                            <span className="font-medium">Location</span>
+                            <a
+                                href="https://www.google.com/maps/place/Kharkiv"
+                                target="_blank"
+                                className="text-muted-foreground hover:underline underline-offset-4 decoration-dotted text-right"
+                            >
+                                Ukraine, Kharkiv
+                            </a>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-border/50 pb-1">
+                            <span className="font-medium">Timezone</span>
+                            <span
+                                className="text-muted-foreground text-right"
+                                title={timeInfo.season}
+                            >
+                                {timeInfo.utcOffset}
+                            </span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-border/50 pb-1">
+                            <span className="font-medium">Age</span>
+                            <span className="text-muted-foreground text-right">
+                                <DecimalAge birthDate="2002-09-02T03:24:00" />{' '}
+                                years
+                            </span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-border/50 pb-1">
+                            <span className="font-medium">Education</span>
+                            <span className="text-muted-foreground text-right">
+                                Not technical
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="flex flex-col">
+                    <p className="font-semibold">languages.</p>
+                    <div className="flex flex-col gap-2 text-sm mt-2">
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-medium">Ukrainian</span>
+                            <span className="text-muted-foreground">
+                                Native
+                            </span>
+                        </div>
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-medium">Russian</span>
+                            <span className="text-muted-foreground">
+                                Native
+                            </span>
+                        </div>
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-medium">English</span>
+                            <span className="text-muted-foreground">
+                                Upper-Intermediate (B2)
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section className="mt-4">
+                <p className="font-semibold">skills.</p>
+
+                <div className="mt-2 flex flex-row flex-wrap gap-2">
+                    {[
+                        'javascript',
+                        'typescript',
+                        'html',
+                        'css',
+                        'reactjs',
+                        'nextjs',
+                        'nestjs',
+                        'expressjs',
+                        'tailwindcss',
+                        'sass',
+                        'prisma',
+                        'zod',
+                        'sql',
+                        'firebase',
+                        'mongodb',
+                        'git',
+                        'linux',
+                        'docker',
+                        'vercel',
+                    ].map(skill => (
+                        <Badge key={skill} variant="secondary">
+                            {skill}
+                        </Badge>
+                    ))}
+                </div>
+
+                <p className="mt-2 mb-1 text-sm">Additional stack:</p>
+                <div className="flex flex-row flex-wrap gap-2">
+                    {[
+                        'kotlin',
+                        'java',
+                        'swift',
+                        'c#',
+                        'php',
+                        'python',
+                        'android',
+                        'ios',
+                        'unity',
+                        'sdl',
+                        'opengl',
+                        'gsls',
+                    ].map(skill => (
+                        <Badge key={skill} variant="secondary">
+                            {skill}
+                        </Badge>
+                    ))}
+                </div>
+            </section>
+
             <section className="mt-4">
                 <p className="font-semibold">journey.</p>
                 <div className="mt-2">
@@ -137,73 +180,74 @@ export default function Home() {
                     />
                 </div>
             </section>
-            <section className="mt-4">
-                <p className="font-semibold">skills.</p>
 
-                <div className="mt-2 flex flex-row flex-wrap gap-2">
-                    {[
-                        'javascript',
-                        'typescript',
-                        'html',
-                        'css',
-                        'reactjs',
-                        'nextjs',
-                        'expressjs',
-                        'tailwindcss',
-                        'sass',
-                        'prisma',
-                        'sql',
-                        'firebase',
-                        'mongodb',
-                        'git',
-                        'linux',
-                        'docker',
-                        'kubernetes',
-                        'vercel',
-                    ].map(skill => (
-                        <Badge key={skill} variant="secondary">
-                            {skill}
-                        </Badge>
-                    ))}
-                </div>
-
-                <p className="mt-2 mb-1 text-sm">Additional stack:</p>
-                <div className="flex flex-row flex-wrap gap-2">
-                    {[
-                        'kotlin',
-                        'java',
-                        'c',
-                        'c++',
-                        'c#',
-                        'php',
-                        'python',
-                        'android',
-                        'ios',
-                        'unity',
-                        'sdl',
-                        'opengl',
-                        'gsls',
-                    ].map(skill => (
-                        <Badge key={skill} variant="secondary">
-                            {skill}
-                        </Badge>
-                    ))}
+            <section className="flex flex-col" hidden={true}>
+                <p className="font-semibold">devices.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mt-2">
+                    <div className="p-3 border rounded-lg bg-card/30">
+                        <h3 className="font-semibold text-muted-foreground mb-2 text-xs uppercase tracking-wider">
+                            Workstations
+                        </h3>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>PC: AMD Ryzen 7 5700X</li>
+                            <li>MacBook Air M1 8/256</li>
+                        </ul>
+                    </div>
+                    <div className="p-3 border rounded-lg bg-card/30">
+                        <h3 className="font-semibold text-muted-foreground mb-2 text-xs uppercase tracking-wider">
+                            Home Lab
+                        </h3>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>HP Elitedesk G4 DM</li>
+                        </ul>
+                    </div>
+                    <div className="p-3 border rounded-lg bg-card/30">
+                        <h3 className="font-semibold text-muted-foreground mb-2 text-xs uppercase tracking-wider">
+                            Mobile
+                        </h3>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>iPhone 12 256Gb (Main)</li>
+                            <li className="text-muted-foreground">
+                                OnePlus Nord N10
+                            </li>
+                            <li className="text-muted-foreground">
+                                Xiaomi Redmi Note 9
+                            </li>
+                            <li className="text-muted-foreground">
+                                Xiaomi Redmi S2
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="p-3 border rounded-lg bg-card/30">
+                        <h3 className="font-semibold text-muted-foreground mb-2 text-xs uppercase tracking-wider">
+                            Entertainment
+                        </h3>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li className="flex items-center gap-2">
+                                Nintendo Switch rev 2
+                            </li>
+                            <li className="flex items-center gap-2">
+                                Oculus Quest 2
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
+
             <section className="mt-4">
                 <p className="font-semibold">contact.</p>
                 <p>
                     interested in a conversation? drop dm's over{' '}
-                    <Link className="underline" href={URLS.linkedin}>
+                    <Link className="underline" href={myUrls.linkedin}>
                         Linkedin
                     </Link>
                     ,{' '}
-                    <Link className="underline" href={URLS.telegram}>
+                    <Link className="underline" href={myUrls.telegram}>
                         Telegram
                     </Link>{' '}
                     or{' '}
-                    <Link className="underline" href={'mailto:' + EMAIL}>
-                        {EMAIL}
+                    <Link className="underline" href={'mailto:' + myEmail}>
+                        {myEmail}
                     </Link>
                     . ask me anything about my work, projects, or anything else.
                 </p>
