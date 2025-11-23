@@ -1,6 +1,6 @@
 'use client';
 
-import { DecimalAge } from '@/components/decimal-age';
+import {DecimalAge} from '@/components/decimal-age';
 import Icon from '@mdi/react';
 import {
     siArchlinux,
@@ -15,16 +15,16 @@ import {
     siTypescript,
     siWebstorm,
 } from 'simple-icons';
-import { cn, getKyivTimeZoneInfo } from '@/lib/utils';
-import { aboutMe, myEmail, myUrls } from '@/data/about';
-import { SocialIcon } from '@/components/social-icon';
-import { GmailLogo } from '@/icons/gmail-logo';
-import { LinkedinLogo } from '@/icons/linkedin-logo';
-import { TelegramLogo } from '@/icons/telegram-logo';
-import { GithubLogo } from '@/icons/github-logo';
-import { Badge } from '@/components/ui/badge';
+import {cn, getKyivTimeZoneInfo} from '@/lib/utils';
+import {aboutMe, myEmail, myUrls} from '@/data/about';
+import {SocialIcon} from '@/components/social-icon';
+import {GmailLogo} from '@/icons/gmail-logo';
+import {LinkedinLogo} from '@/icons/linkedin-logo';
+import {TelegramLogo} from '@/icons/telegram-logo';
+import {GithubLogo} from '@/icons/github-logo';
+import {Badge} from '@/components/ui/badge';
 import Link from 'next/link';
-import { JourneyCard } from '@/components/journey-card';
+import {JourneyCard} from '@/components/journey-card';
 
 interface FeatureBadgeProps {
     title: string;
@@ -32,7 +32,7 @@ interface FeatureBadgeProps {
     classes: string;
 }
 
-const FeatureBadge = ({ title, iconPath, classes }: FeatureBadgeProps) => {
+const FeatureBadge = ({title, iconPath, classes}: FeatureBadgeProps) => {
     return (
         <span
             className={cn(
@@ -47,22 +47,22 @@ const FeatureBadge = ({ title, iconPath, classes }: FeatureBadgeProps) => {
 };
 
 const features: FeatureBadgeProps[] = [
-    { title: 'typescript', iconPath: siTypescript.path, classes: 'bg-[#3178C6]' },
+    {title: 'typescript', iconPath: siTypescript.path, classes: 'bg-[#3178C6]'},
     {
         title: 'javascript',
         iconPath: siJavascript.path,
         classes: 'bg-[#F7DF1E]',
     },
-    { title: 'kotlin', iconPath: siKotlin.path, classes: 'bg-[#7F52FF]' },
-    { title: 'java', iconPath: siJavascript.path, classes: 'bg-orange-500' }, // x
-    { title: 'clang', iconPath: siC.path, classes: 'bg-[#00599C]' },
-    { title: 'c++', iconPath: siCplusplus.path, classes: 'bg-[#00599C]' },
-    { title: 'swift', iconPath: siSwift.path, classes: 'bg-[#F05138]' },
-    { title: 'vscode', iconPath: siCodeberg.path, classes: 'bg-blue-500' }, // x
-    { title: 'webstorm', iconPath: siWebstorm.path, classes: 'bg-gray-500' },
-    { title: 'arch', iconPath: siArchlinux.path, classes: 'bg-[#1793D1]' },
-    { title: 'docker', iconPath: siDocker.path, classes: 'bg-[#2496ED]' },
-    { title: 'git', iconPath: siGit.path, classes: 'bg-[#F05032]' },
+    {title: 'kotlin', iconPath: siKotlin.path, classes: 'bg-[#7F52FF]'},
+    {title: 'java', iconPath: siJavascript.path, classes: 'bg-orange-500'}, // x
+    {title: 'clang', iconPath: siC.path, classes: 'bg-[#00599C]'},
+    {title: 'c++', iconPath: siCplusplus.path, classes: 'bg-[#00599C]'},
+    {title: 'swift', iconPath: siSwift.path, classes: 'bg-[#F05138]'},
+    {title: 'vscode', iconPath: siCodeberg.path, classes: 'bg-blue-500'}, // x
+    {title: 'webstorm', iconPath: siWebstorm.path, classes: 'bg-gray-500'},
+    {title: 'arch', iconPath: siArchlinux.path, classes: 'bg-[#1793D1]'},
+    {title: 'docker', iconPath: siDocker.path, classes: 'bg-[#2496ED]'},
+    {title: 'git', iconPath: siGit.path, classes: 'bg-[#F05032]'},
 ];
 
 export default function BioPage() {

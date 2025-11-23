@@ -1,21 +1,22 @@
 'use client';
 
 import './globals.css';
-import {ThemeProvider} from '@/components/theme-provider';
-import {cn} from '@/lib/utils';
-import {Suspense} from 'react';
-import {Outfit} from 'next/font/google';
-import {usePathname, useSearchParams} from 'next/navigation';
+import { ThemeProvider } from '@/components/theme-provider';
+import { cn } from '@/lib/utils';
+import { Suspense } from 'react';
+import { Roboto } from 'next/font/google';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import {NavigationLink} from '@/components/navigation-link';
-import {SidebarClose} from 'lucide-react';
+import { NavigationLink } from '@/components/navigation-link';
+import { SidebarClose } from 'lucide-react';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
 //     description: 'My own private web site.',
 // };
 
-const outfit = Outfit({
+const roboto = Roboto({
+    weight: ['300', '400', '500', '700'],
     subsets: ['latin'],
 });
 
@@ -25,9 +26,10 @@ interface NavLinkInfo {
 }
 
 const navLinks: NavLinkInfo[] = [
-    {title: 'about', url: '/'},
-    {title: 'blog', url: '/blog'},
-    {title: 'sandbox', url: '/sandbox'},
+    { title: 'about', url: '/' },
+    { title: 'bio', url: '/bio' },
+    { title: 'blog', url: '/blog' },
+    { title: 'sandbox', url: '/sandbox' },
 ];
 
 function RootLayoutContent({
@@ -40,6 +42,7 @@ function RootLayoutContent({
     const isFullsized = params.get('is_fullsized') === '1';
     const isDarkBg = params.get('is_darkbg') === '1';
     const ref = params.get('ref');
+    const isHomePage = pathName === '/';
 
     return (
         <>
@@ -52,7 +55,7 @@ function RootLayoutContent({
             </head>
             <body
                 className={cn(
-                    outfit.className,
+                    roboto.className,
                     'flex justify-center dark:bg-background',
                 )}
             >
@@ -65,14 +68,14 @@ function RootLayoutContent({
                     <div
                         className={cn(
                             'flex flex-col',
-                            isFullsized
-                                ? ''
+                            isFullsized || isHomePage
+                                ? 'w-full h-screen'
                                 : 'w-full md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99',
                         )}
                     >
                         <div
                             className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
-                            hidden={isFullsized}
+                            hidden={isFullsized || isHomePage}
                         >
                             <p className="text-sm">
                                 I've launched a{' '}
@@ -87,7 +90,7 @@ function RootLayoutContent({
                         </div>
                         <header
                             className="flex flex-row justify-end p-3 md:p-0"
-                            hidden={isFullsized}
+                            hidden={isFullsized || isHomePage}
                         >
                             <div className="flex flex-row gap-2">
                                 {navLinks.map((link, index) => {
