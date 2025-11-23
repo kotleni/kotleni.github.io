@@ -19,20 +19,6 @@ interface FeatureBadgeProps {
     classes: string;
 }
 
-const FeatureBadge = ({title, iconPath, classes}: FeatureBadgeProps) => {
-    return (
-        <span
-            className={cn(
-                'flex flex-row items-center gap-1 px-2 py-1 text-sm font-semibold uppercase',
-                classes,
-            )}
-        >
-            <Icon path={iconPath} size={0.5} />
-            {title}
-        </span>
-    );
-};
-
 export default function BioPage() {
     const timeInfo = getKyivTimeZoneInfo();
 
