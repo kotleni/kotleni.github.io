@@ -247,6 +247,14 @@ export default function BioPage() {
                     . ask me anything about my work, projects, or anything else.
                 </p>
             </section>
+
+            <section className="mt-4">
+                <div className="flex flex-row gap-2 text-muted-foreground">
+                    <p>commit {process.env.COMMIT_HASH}</p>|
+                    <p>version {process.env.APP_VERSION}</p>|
+                    <StyledLink href="/status">status</StyledLink>
+                </div>
+            </section>
         </div>
     );
 }

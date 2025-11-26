@@ -76,8 +76,8 @@ function RootLayoutContent({
                         >
                             <p className="text-sm">
                                 I've launched a{' '}
-                                <StyledLink href="/sandbox">sandbox</StyledLink>{' '}
-                                for experimental web projects.
+                                <StyledLink href="/status">status</StyledLink>{' '}
+                                page to check my servers availability.
                             </p>
                         </div>
                         <header
