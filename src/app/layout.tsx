@@ -8,6 +8,7 @@ import {usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import {NavigationLink} from '@/components/navigation-link';
 import {SidebarClose} from 'lucide-react';
+import {StyledLink} from '@/components/styled-link';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -75,12 +76,7 @@ function RootLayoutContent({
                         >
                             <p className="text-sm">
                                 I've launched a{' '}
-                                <Link
-                                    className="text-primary hover:underline"
-                                    href="/sandbox"
-                                >
-                                    sandbox
-                                </Link>{' '}
+                                <StyledLink href="/sandbox">sandbox</StyledLink>{' '}
                                 for experimental web projects.
                             </p>
                         </div>

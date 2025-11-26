@@ -11,6 +11,7 @@ import {GithubLogo} from '@/icons/github-logo';
 import {Badge} from '@/components/ui/badge';
 import Link from 'next/link';
 import {JourneyCard} from '@/components/journey-card';
+import {StyledLink} from '@/components/styled-link';
 
 export default function BioPage() {
     const timeInfo = getKyivTimeZoneInfo();
@@ -238,17 +239,11 @@ export default function BioPage() {
                 <p className="font-semibold">contact.</p>
                 <p>
                     interested in a conversation? drop dm's over{' '}
-                    <Link className="underline" href={myUrls.linkedin}>
-                        Linkedin
-                    </Link>
-                    ,{' '}
-                    <Link className="underline" href={myUrls.telegram}>
-                        Telegram
-                    </Link>{' '}
-                    or{' '}
-                    <Link className="underline" href={'mailto:' + myEmail}>
+                    <StyledLink href={myUrls.linkedin}>Linkedin</StyledLink>,{' '}
+                    <StyledLink href={myUrls.telegram}>Telegram</StyledLink> or{' '}
+                    <StyledLink href={'mailto:' + myEmail}>
                         {myEmail}
-                    </Link>
+                    </StyledLink>
                     . ask me anything about my work, projects, or anything else.
                 </p>
             </section>
