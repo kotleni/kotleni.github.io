@@ -76,7 +76,7 @@ export default function BioPage() {
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
                             <span className="font-bold">Education</span>
                             <span className="text-muted-foreground text-right">
-                                Not technical
+                                Non-technical
                             </span>
                         </div>
                     </div>
