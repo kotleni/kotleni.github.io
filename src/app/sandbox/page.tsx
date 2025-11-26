@@ -34,7 +34,7 @@ export default function SandboxPage() {
                     <Link
                         key={`${app.name}`}
                         href={`${app.url}?is_fullsized=1&ref=${pathName}&is_darkbg=${app.isDarkBg ? '1' : 0}`}
-                        className="w-full max-w-xs overflow-hidden rounded-md border border-accent/50 bg-accent"
+                        className="w-full max-w-xs overflow-hidden border border-accent/50 bg-accent hover:bg-accent/80"
                     >
                         {/* Image Container */}
                         <div className="border-b border-accent/50">
