@@ -15,9 +15,9 @@ import {SidebarClose} from 'lucide-react';
 //     description: 'My own private web site.',
 // };
 
-const outfit = Outfit({
-    subsets: ['latin'],
-});
+// const outfit = Outfit({
+//     subsets: ['latin'],
+// });
 
 interface NavLinkInfo {
     title: string;
@@ -52,7 +52,7 @@ function RootLayoutContent({
             </head>
             <body
                 className={cn(
-                    outfit.className,
+                    // outfit.className,
                     'flex justify-center dark:bg-background',
                 )}
             >

@@ -42,13 +42,13 @@ export default function BioPage() {
                     <p className="font-semibold">verbose.</p>
                     <div className="flex flex-col gap-2 text-sm mt-2">
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Position</span>
+                            <span className="font-bold">Position</span>
                             <span className="text-muted-foreground text-right">
                                 Full-stack Engineer
                             </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Location</span>
+                            <span className="font-bold">Location</span>
                             <a
                                 href="https://www.google.com/maps/place/Kharkiv"
                                 target="_blank"
@@ -58,7 +58,7 @@ export default function BioPage() {
                             </a>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Timezone</span>
+                            <span className="font-bold">Timezone</span>
                             <span
                                 className="text-muted-foreground text-right"
                                 title={timeInfo.season}
@@ -67,14 +67,14 @@ export default function BioPage() {
                             </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Age</span>
+                            <span className="font-bold">Age</span>
                             <span className="text-muted-foreground text-right">
                                 <DecimalAge birthDate="2002-09-02T03:24:00" />{' '}
                                 years
                             </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Education</span>
+                            <span className="font-bold">Education</span>
                             <span className="text-muted-foreground text-right">
                                 Not technical
                             </span>
@@ -86,19 +86,19 @@ export default function BioPage() {
                     <p className="font-semibold">languages.</p>
                     <div className="flex flex-col gap-2 text-sm mt-2">
                         <div className="flex justify-between border-b border-border/50 pb-1">
-                            <span className="font-medium">Ukrainian</span>
+                            <span className="font-bold">Ukrainian</span>
                             <span className="text-muted-foreground">
                                 Native
                             </span>
                         </div>
                         <div className="flex justify-between border-b border-border/50 pb-1">
-                            <span className="font-medium">Russian</span>
+                            <span className="font-bold">Russian</span>
                             <span className="text-muted-foreground">
                                 Native
                             </span>
                         </div>
                         <div className="flex justify-between border-b border-border/50 pb-1">
-                            <span className="font-medium">English</span>
+                            <span className="font-bold">English</span>
                             <span className="text-muted-foreground">
                                 Upper-Intermediate (B2)
                             </span>
