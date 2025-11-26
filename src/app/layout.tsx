@@ -4,7 +4,6 @@ import './globals.css';
 import {ThemeProvider} from '@/components/theme-provider';
 import {cn} from '@/lib/utils';
 import {Suspense} from 'react';
-import {Outfit} from 'next/font/google';
 import {usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import {NavigationLink} from '@/components/navigation-link';
