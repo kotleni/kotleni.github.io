@@ -9,8 +9,8 @@ import {LinkedinLogo} from '@/icons/linkedin-logo';
 import {TelegramLogo} from '@/icons/telegram-logo';
 import {GithubLogo} from '@/icons/github-logo';
 import {Badge} from '@/components/ui/badge';
-import Link from 'next/link';
 import {JourneyCard} from '@/components/journey-card';
+import {StyledLink} from '@/components/styled-link';
 
 export default function BioPage() {
     const timeInfo = getKyivTimeZoneInfo();
@@ -42,13 +42,13 @@ export default function BioPage() {
                     <p className="font-semibold">verbose.</p>
                     <div className="flex flex-col gap-2 text-sm mt-2">
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Position</span>
+                            <span className="font-bold">Position</span>
                             <span className="text-muted-foreground text-right">
                                 Full-stack Engineer
                             </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Location</span>
+                            <span className="font-bold">Location</span>
                             <a
                                 href="https://www.google.com/maps/place/Kharkiv"
                                 target="_blank"
@@ -58,7 +58,7 @@ export default function BioPage() {
                             </a>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Timezone</span>
+                            <span className="font-bold">Timezone</span>
                             <span
                                 className="text-muted-foreground text-right"
                                 title={timeInfo.season}
@@ -67,16 +67,16 @@ export default function BioPage() {
                             </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Age</span>
+                            <span className="font-bold">Age</span>
                             <span className="text-muted-foreground text-right">
                                 <DecimalAge birthDate="2002-09-02T03:24:00" />{' '}
                                 years
                             </span>
                         </div>
                         <div className="flex justify-between items-center border-b border-border/50 pb-1">
-                            <span className="font-medium">Education</span>
+                            <span className="font-bold">Education</span>
                             <span className="text-muted-foreground text-right">
-                                Not technical
+                                Non-technical
                             </span>
                         </div>
                     </div>
@@ -86,19 +86,19 @@ export default function BioPage() {
                     <p className="font-semibold">languages.</p>
                     <div className="flex flex-col gap-2 text-sm mt-2">
                         <div className="flex justify-between border-b border-border/50 pb-1">
-                            <span className="font-medium">Ukrainian</span>
+                            <span className="font-bold">Ukrainian</span>
                             <span className="text-muted-foreground">
                                 Native
                             </span>
                         </div>
                         <div className="flex justify-between border-b border-border/50 pb-1">
-                            <span className="font-medium">Russian</span>
+                            <span className="font-bold">Russian</span>
                             <span className="text-muted-foreground">
                                 Native
                             </span>
                         </div>
                         <div className="flex justify-between border-b border-border/50 pb-1">
-                            <span className="font-medium">English</span>
+                            <span className="font-bold">English</span>
                             <span className="text-muted-foreground">
                                 Upper-Intermediate (B2)
                             </span>
@@ -238,19 +238,21 @@ export default function BioPage() {
                 <p className="font-semibold">contact.</p>
                 <p>
                     interested in a conversation? drop dm's over{' '}
-                    <Link className="underline" href={myUrls.linkedin}>
-                        Linkedin
-                    </Link>
-                    ,{' '}
-                    <Link className="underline" href={myUrls.telegram}>
-                        Telegram
-                    </Link>{' '}
-                    or{' '}
-                    <Link className="underline" href={'mailto:' + myEmail}>
+                    <StyledLink href={myUrls.linkedin}>Linkedin</StyledLink>,{' '}
+                    <StyledLink href={myUrls.telegram}>Telegram</StyledLink> or{' '}
+                    <StyledLink href={'mailto:' + myEmail}>
                         {myEmail}
-                    </Link>
+                    </StyledLink>
                     . ask me anything about my work, projects, or anything else.
                 </p>
+            </section>
+
+            <section className="mt-4">
+                <div className="flex flex-row gap-2 text-muted-foreground">
+                    <p>commit {process.env.COMMIT_HASH}</p>|
+                    <p>version {process.env.APP_VERSION}</p>|
+                    <StyledLink href="/status">status</StyledLink>
+                </div>
             </section>
         </div>
     );

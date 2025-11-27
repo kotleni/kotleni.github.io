@@ -5,6 +5,7 @@ import {TextBlock} from '@/components/blog/text-block';
 import {Title} from '@/components/blog/title';
 import {OrderedList} from '@/components/blog/ordered-list';
 import {ViewsCount} from '@/components/views-count';
+import {myEmail} from '@/data/about';
 
 const nextjsReasons = [
     {
@@ -43,10 +44,9 @@ export default function Post() {
                 <TextBlock>
                     You can find the source code for some of my previous
                     websites (different branches) in my GitHub{' '}
-                    <StyledLink
-                        href="https://github.com/kotleni/kotleni.github.io/"
-                        title="repository"
-                    />
+                    <StyledLink href="https://github.com/kotleni/kotleni.github.io/">
+                        repository
+                    </StyledLink>
                     .
                 </TextBlock>
             </section>
@@ -96,11 +96,8 @@ export default function Post() {
                 </TextBlock>
                 <TextBlock>
                     Thanks for reading. Feel free to{' '}
-                    <StyledLink
-                        href="mailto:yavarenikya@gmail.com"
-                        title="meow"
-                    />{' '}
-                    at me, or <StyledLink href="/" title="connect" /> elsewhere.
+                    <StyledLink href={`mailto:${myEmail}`}>meow</StyledLink> at
+                    me, or <StyledLink href="/">connect</StyledLink> elsewhere.
                 </TextBlock>
             </section>
         </div>

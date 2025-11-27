@@ -1,24 +1,17 @@
 import {cn} from '@/lib/utils';
 import Link from 'next/link';
+import {ComponentProps} from 'react';
 
-interface StyledLinkProps {
-    title: string;
-    href: string;
-    alwaysUnderlined?: boolean;
-    target?: string;
-}
+type StyledLinkProps = ComponentProps<typeof Link>;
 
 export function StyledLink(props: StyledLinkProps) {
     return (
         <Link
-            href={props.href}
-            target={props.target}
+            {...props}
             className={cn(
-                'text-primary',
-                props.alwaysUnderlined ? 'underline' : 'hover:underline',
+                props.className,
+                'text-primary hover:bg-primary hover:text-background',
             )}
-        >
-            {props.title}
-        </Link>
+        />
     );
 }
