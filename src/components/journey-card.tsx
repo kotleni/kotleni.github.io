@@ -14,7 +14,6 @@ export function JourneyCard(props: JourneyCardProps) {
             <div
                 className={cn(
                     'min-h-full min-w-[2px] bg-neutral-200 group-hover:bg-primary',
-                    'transition-colors ease-in-out delay-0 duration-700 rounded-md',
                 )}
             ></div>
             <div className="w-full">

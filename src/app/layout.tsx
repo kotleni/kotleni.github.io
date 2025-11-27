@@ -4,7 +4,6 @@ import './globals.css';
 import {ThemeProvider} from '@/components/theme-provider';
 import {cn} from '@/lib/utils';
 import {Suspense} from 'react';
-import {Outfit} from 'next/font/google';
 import {usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import {NavigationLink} from '@/components/navigation-link';
@@ -15,9 +14,9 @@ import {SidebarClose} from 'lucide-react';
 //     description: 'My own private web site.',
 // };
 
-const outfit = Outfit({
-    subsets: ['latin'],
-});
+// const outfit = Outfit({
+//     subsets: ['latin'],
+// });
 
 interface NavLinkInfo {
     title: string;
@@ -52,7 +51,7 @@ function RootLayoutContent({
             </head>
             <body
                 className={cn(
-                    outfit.className,
+                    // outfit.className,
                     'flex justify-center dark:bg-background',
                 )}
             >
@@ -70,21 +69,16 @@ function RootLayoutContent({
                                 : 'w-full md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99',
                         )}
                     >
-                        <div
-                            className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
-                            hidden={isFullsized}
-                        >
-                            <p className="text-sm">
-                                I've launched a{' '}
-                                <Link
-                                    className="text-primary hover:underline"
-                                    href="/sandbox"
-                                >
-                                    sandbox
-                                </Link>{' '}
-                                for experimental web projects.
-                            </p>
-                        </div>
+                        {/*<div*/}
+                        {/*    className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"*/}
+                        {/*    hidden={isFullsized}*/}
+                        {/*>*/}
+                        {/*    <p className="text-sm">*/}
+                        {/*        I've launched a{' '}*/}
+                        {/*        <StyledLink href="/status">status</StyledLink>{' '}*/}
+                        {/*        page to check my servers availability.*/}
+                        {/*    </p>*/}
+                        {/*</div>*/}
                         <header
                             className="flex flex-row justify-end p-3 md:p-0"
                             hidden={isFullsized}
