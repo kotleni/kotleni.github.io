@@ -9,7 +9,6 @@ import {LinkedinLogo} from '@/icons/linkedin-logo';
 import {TelegramLogo} from '@/icons/telegram-logo';
 import {GithubLogo} from '@/icons/github-logo';
 import {Badge} from '@/components/ui/badge';
-import Link from 'next/link';
 import {JourneyCard} from '@/components/journey-card';
 import {StyledLink} from '@/components/styled-link';
 
