@@ -31,9 +31,7 @@ export const DecimalAge = ({birthDate}: DecimalAgeProps) => {
 
     return (
         <Tooltip>
-            <TooltipTrigger className="font-mono text-neutral-200">
-                {age}
-            </TooltipTrigger>
+            <TooltipTrigger className="font-mono">{age}</TooltipTrigger>
             <TooltipContent>
                 <p>Detailed age as decimal number.</p>
             </TooltipContent>
