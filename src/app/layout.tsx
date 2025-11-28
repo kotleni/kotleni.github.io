@@ -8,6 +8,7 @@ import {usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import {NavigationLink} from '@/components/navigation-link';
 import {SidebarClose} from 'lucide-react';
+import {Snowflakes} from '@/components/snowflakes';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -61,6 +62,7 @@ function RootLayoutContent({
                     enableSystem
                     disableTransitionOnChange
                 >
+                    <Snowflakes />
                     <div
                         className={cn(
                             'flex flex-col',
