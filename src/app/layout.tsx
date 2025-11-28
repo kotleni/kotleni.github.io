@@ -8,7 +8,7 @@ import {usePathname, useSearchParams} from 'next/navigation';
 import Link from 'next/link';
 import {NavigationLink} from '@/components/navigation-link';
 import {SidebarClose} from 'lucide-react';
-import {Snowflakes} from '@/components/snowflakes';
+import {Christmas, Snowflakes} from '@/components/christmas';
 
 // export const metadata: Metadata = {
 //     title: 'kotleni`s private web site',
@@ -63,6 +63,7 @@ function RootLayoutContent({
                     disableTransitionOnChange
                 >
                     <Snowflakes />
+                    <Christmas />
                     <div
                         className={cn(
                             'flex flex-col',
