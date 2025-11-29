@@ -26,6 +26,7 @@ interface NavLinkInfo {
 
 const navLinks: NavLinkInfo[] = [
     {title: 'about', url: '/'},
+    {title: 'projects', url: '/projects'},
     {title: 'blog', url: '/blog'},
     {title: 'sandbox', url: '/sandbox'},
 ];
