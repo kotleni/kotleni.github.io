@@ -94,7 +94,10 @@ export const Snowflakes = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             const currentScrollY = window.scrollY;
-            const scrollVelocity = currentScrollY - lastScrollY.current;
+            const scrollVelocity = Math.max(
+                Math.min(currentScrollY - lastScrollY.current, 18),
+                -18,
+            );
             lastScrollY.current = currentScrollY;
 
             const rawWind = getGlobalWind(time);
