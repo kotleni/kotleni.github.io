@@ -32,15 +32,15 @@ class Snowflake {
         this.path = p;
     }
 
-    update(w: number, h: number, scrollVel: number, wind: number) {
-        this.vy -= scrollVel * 0.05;
+    update(w: number, h: number, scrollVel: number, wind: number, dt: number) {
+        this.vy -= scrollVel * 0.05 * dt;
 
         const targetVx = this.baseVx + wind * 3;
-        this.vx += (targetVx - this.vx) * 0.1;
-        this.vy += (this.fallSpeed - this.vy) * 0.05;
+        this.vx += (targetVx - this.vx) * 0.1 * dt;
+        this.vy += (this.fallSpeed - this.vy) * 0.05 * dt;
 
-        this.x += this.vx;
-        this.y += this.vy;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
 
         if (this.y > h + 10) {
             this.y = -10;
@@ -102,6 +102,12 @@ export const Snowflakes = () => {
         }
 
         const loop = (t: number) => {
+            const now = t;
+            const dt = lastFrame.current
+                ? (now - lastFrame.current) / 16.666
+                : 1;
+            lastFrame.current = now;
+
             const w = canvas.width;
             const h = canvas.height;
 
@@ -124,7 +130,7 @@ export const Snowflakes = () => {
             const arr = flakes.current;
             for (let i = 0; i < arr.length; i++) {
                 const f = arr[i];
-                f.update(w, h, scrollVel, wind);
+                f.update(w, h, scrollVel, wind, dt);
                 f.draw(ctx);
             }
 
