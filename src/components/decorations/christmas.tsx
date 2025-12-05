@@ -6,7 +6,7 @@ const getGlobalWind = (time: number): number =>
 class Snowflake {
     x: number;
     y: number;
-    vx = 0;
+    vx: number;
     vy: number;
     radius: number;
     baseVx: number;
@@ -22,6 +22,7 @@ class Snowflake {
         this.radius = Math.random() * 3 + 1;
         this.baseVx = (Math.random() - 0.5) * 1.5;
         this.fallSpeed = Math.random() * 1.5 + 1;
+        this.vx = 0;
         this.vy = Math.random() * 1.5 + 1;
 
         this.opacity = Math.random() * 0.5 + 0.3;
