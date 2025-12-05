@@ -13,9 +13,6 @@ const nextConfig: NextConfig = {
     images: {
         unoptimized: true,
     },
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
     env: {
         APP_VERSION: pkg.version,
         COMMIT_HASH: commitHash,
