@@ -7,6 +7,11 @@ const commitHash = child_process
     .toString()
     .trim();
 
+const branch = child_process
+    .execSync('git rev-parse --abbrev-ref HEAD')
+    .toString()
+    .trim();
+
 const nextConfig: NextConfig = {
     output: 'export',
     basePath: '',
@@ -14,8 +19,7 @@ const nextConfig: NextConfig = {
         unoptimized: true,
     },
     env: {
-        APP_VERSION: pkg.version,
-        COMMIT_HASH: commitHash,
+        APP_VERSION: `${pkg.version}-${commitHash}-${branch}`,
     },
 };
 
