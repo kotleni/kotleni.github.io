@@ -4,7 +4,7 @@ import {StyledLink} from '@/components/styled-link';
 
 export default function ProjectsPage() {
     return (
-        <div>
+        <div className="pt-4">
             <Title text="Projects" />
 
             {Object.entries(allMyProjects)

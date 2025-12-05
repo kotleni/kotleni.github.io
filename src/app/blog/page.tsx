@@ -1,3 +1,4 @@
+import {Title} from '@/components/blog/title';
 import Link from 'next/link';
 
 interface Post {
@@ -18,7 +19,7 @@ const posts: Post[] = [
 export default function Blog() {
     return (
         <div className="flex flex-col gap-4 pt-4">
-            <h2 className="text-3xl font-bold">Blog posts</h2>
+            <Title text="Blog posts" />
             {posts.map((post, index) => {
                 return (
                     <div key={index}>
