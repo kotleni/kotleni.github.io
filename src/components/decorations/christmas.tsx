@@ -136,7 +136,6 @@ export const Snowflakes = () => {
                 ctx.fillStyle = '#fff';
                 ctx.font = '14px monospace';
                 ctx.fillText(`${fpsRef.current} FPS`, 10, 20);
-                ctx.fillText(`Flakes: ${arr.length}`, 10, 40);
             }
 
             requestRef.current = requestAnimationFrame(loop);
