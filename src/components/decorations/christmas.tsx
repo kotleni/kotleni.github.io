@@ -1,8 +1,7 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
-const getGlobalWind = (time: number): number => {
-    return Math.sin(time * 0.0002) * 0.6 + Math.sin(time * 0.0005) * 0.2;
-};
+const getGlobalWind = (time: number): number =>
+    Math.sin(time * 0.0002) * 0.6 + Math.sin(time * 0.0005) * 0.2;
 
 class Snowflake {
     x: number;
@@ -12,77 +11,90 @@ class Snowflake {
     radius: number;
     baseVx: number;
     opacity: number;
+    fallSpeed: number;
+    opacityStr: string;
+    path: Path2D;
 
-    constructor(width: number, height: number) {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
+    constructor(w: number, h: number) {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+
         this.radius = Math.random() * 3 + 1;
         this.baseVx = (Math.random() - 0.5) * 1.5;
-        this.vy = Math.random() * 1.5 + 1;
+        this.fallSpeed = Math.random() * 1.5 + 1;
         this.vx = 0;
+        this.vy = Math.random() * 1.5 + 1;
+
         this.opacity = Math.random() * 0.5 + 0.3;
+        this.opacityStr = `rgba(222,222,222,${this.opacity})`;
+
+        const p = new Path2D();
+        p.arc(0, 0, this.radius, 0, Math.PI * 2);
+        this.path = p;
     }
 
-    update(
-        width: number,
-        height: number,
-        scrollVelocity: number,
-        windForce: number,
-    ) {
-        this.vy -= scrollVelocity * 0.05;
+    update(w: number, h: number, scrollVel: number, wind: number, dt: number) {
+        this.vy -= scrollVel * 0.05 * dt;
 
-        const targetVx = this.baseVx + windForce * 3;
+        const targetVx = this.baseVx + wind * 3;
+        this.vx += (targetVx - this.vx) * 0.1 * dt;
+        this.vy += (this.fallSpeed - this.vy) * 0.05 * dt;
 
-        this.vx += (targetVx - this.vx) * 0.1;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
 
-        const baseFallSpeed = Math.random() * 1.5 + 1;
-        this.vy += (baseFallSpeed - this.vy) * 0.05;
-
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.y > height + 10) {
+        if (this.y > h + 10) {
             this.y = -10;
-            this.x = Math.random() * width;
-        } else if (this.y < -10 && scrollVelocity > 0) {
-            this.y = height + 10;
-            this.x = Math.random() * width;
+            this.x = Math.random() * w;
+        } else if (this.y < -10 && scrollVel > 0) {
+            this.y = h + 10;
+            this.x = Math.random() * w;
         }
 
-        if (this.x > width + 10) {
-            this.x = -10;
-        } else if (this.x < -10) {
-            this.x = width + 10;
-        }
+        if (this.x > w + 10) this.x = -10;
+        else if (this.x < -10) this.x = w + 10;
     }
 
     draw(ctx: CanvasRenderingContext2D) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(222, 222, 222, ${this.opacity})`;
-        ctx.fill();
+        ctx.fillStyle = this.opacityStr;
+
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.fill(this.path);
+        ctx.restore();
     }
 }
 
 export const Snowflakes = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const requestRef = useRef<number>(0);
     const flakes = useRef<Snowflake[]>([]);
-    const lastScrollY = useRef<number>(0);
+    const requestRef = useRef(0);
+    const lastScrollY = useRef(0);
+    const fpsRef = useRef(0);
+    const lastFrame = useRef(0);
+    const [showFps, setShowFps] = useState(false);
+
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key.toLowerCase() === 'f') setShowFps(s => !s);
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, []);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
+
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const handleResize = () => {
+        const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
-
-        window.addEventListener('resize', handleResize);
-        handleResize();
+        window.addEventListener('resize', resize);
+        resize();
 
         if (flakes.current.length === 0) {
             for (let i = 0; i < 150; i++) {
@@ -90,33 +102,52 @@ export const Snowflakes = () => {
             }
         }
 
-        const animate = (time: number) => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const loop = (t: number) => {
+            const prev = lastFrame.current;
+            const now = t;
+            const dt = prev ? Math.min((now - prev) / 16.666, 1.5) : 1;
+            if (prev) {
+                fpsRef.current = Math.round(1000 / (t - prev));
+            }
+            lastFrame.current = now;
 
-            const currentScrollY = window.scrollY;
-            const scrollVelocity = Math.max(
-                Math.min(currentScrollY - lastScrollY.current, 18),
+            const w = canvas.width;
+            const h = canvas.height;
+
+            ctx.clearRect(0, 0, w, h);
+
+            const scrollY = window.scrollY;
+            const scrollVel = Math.max(
+                Math.min(scrollY - lastScrollY.current, 18),
                 -18,
             );
-            lastScrollY.current = currentScrollY;
+            lastScrollY.current = scrollY;
 
-            const rawWind = getGlobalWind(time);
+            const wind = getGlobalWind(t);
 
-            flakes.current.forEach(f => {
-                f.update(canvas.width, canvas.height, scrollVelocity, rawWind);
+            const arr = flakes.current;
+            for (let i = 0; i < arr.length; i++) {
+                const f = arr[i];
+                f.update(w, h, scrollVel, wind, dt);
                 f.draw(ctx);
-            });
+            }
 
-            requestRef.current = requestAnimationFrame(animate);
+            if (showFps) {
+                ctx.fillStyle = '#fff';
+                ctx.font = '14px monospace';
+                ctx.fillText(`${fpsRef.current} FPS`, 10, 20);
+            }
+
+            requestRef.current = requestAnimationFrame(loop);
         };
 
-        animate(0);
+        requestRef.current = requestAnimationFrame(loop);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
             cancelAnimationFrame(requestRef.current);
+            window.removeEventListener('resize', resize);
         };
-    }, []);
+    }, [showFps]);
 
     return (
         <canvas
