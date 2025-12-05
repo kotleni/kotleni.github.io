@@ -102,21 +102,18 @@ export const Snowflakes = () => {
         }
 
         const loop = (t: number) => {
+            const prev = lastFrame.current;
             const now = t;
-            const dt = lastFrame.current
-                ? (now - lastFrame.current) / 16.666
-                : 1;
+            const dt = prev ? Math.min((now - prev) / 16.666, 1.5) : 1;
+            if (prev) {
+                fpsRef.current = Math.round(1000 / (t - prev));
+            }
             lastFrame.current = now;
 
             const w = canvas.width;
             const h = canvas.height;
 
             ctx.clearRect(0, 0, w, h);
-
-            if (lastFrame.current) {
-                fpsRef.current = Math.round(1000 / (t - lastFrame.current));
-            }
-            lastFrame.current = t;
 
             const scrollY = window.scrollY;
             const scrollVel = Math.max(
