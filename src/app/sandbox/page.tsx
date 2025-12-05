@@ -4,6 +4,7 @@ import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import Image, {StaticImageData} from 'next/image';
 import SnakeGameScreenshot from '@/app/sandbox/snakegame/screenshot1.png';
+import {Title} from '@/components/blog/title';
 
 interface SandboxApp {
     name: string;
@@ -28,7 +29,7 @@ export default function SandboxPage() {
 
     return (
         <div className="flex flex-col pt-4 gap-4">
-            <h2 className="text-3xl font-bold">Sandbox apps</h2>
+            <Title text="Sandbox apps" />
             <div className="flex flex-wrap justify-center gap-4 sm:p-6">
                 {apps.map(app => (
                     <Link
