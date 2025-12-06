@@ -114,7 +114,7 @@ function RootLayoutContent({
                                 />
                             </Link>
                         </div>
-                        <main className={cn(isFullsized ? '' : 'pb-4')}>
+                        <main className={cn(isFullsized ? '' : 'pb-4', 'h-full flex')}>
                             {children}
                         </main>
                     </div>
