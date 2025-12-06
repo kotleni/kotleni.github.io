@@ -25,6 +25,7 @@ export default function ProjectsPage() {
                                             <StyledLink
                                                 className="w-fit"
                                                 href={project.url}
+                                                target="_blank"
                                             >
                                                 {project.name}
                                             </StyledLink>{' '}
