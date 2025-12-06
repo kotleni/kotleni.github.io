@@ -9,10 +9,16 @@ interface Post {
 
 const posts: Post[] = [
     {
+        title: 'Why i abandoned idea of using Asahi Linux',
+        url: '/blog/asahi-linux',
+        description:
+            "I am a Linux guy. I've used it on my VPS and home lab for years. On my desktop computer, I run Arch Linux exclusively, and I fully enjoy...",
+    },
+    {
         title: 'The sixth iteration of my website',
         url: '/blog/new-website-v6',
         description:
-            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page",
+            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page...",
     },
 ];
 
