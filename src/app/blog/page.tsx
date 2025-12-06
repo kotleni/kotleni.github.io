@@ -1,6 +1,5 @@
 import {Title} from '@/components/blog/title';
 import Link from 'next/link';
-import {Badge} from '@/components/ui/badge';
 
 interface Post {
     title: string;
@@ -39,7 +38,12 @@ export default function Blog() {
                                     {post.title}
                                 </p>
                             </Link>
-                            <p hidden={!post.isNew} className="font-bold text-destructive">New!</p>
+                            <p
+                                hidden={!post.isNew}
+                                className="font-bold text-destructive"
+                            >
+                                New!
+                            </p>
                         </div>
                         <p>{post.description}...</p>
                     </div>
