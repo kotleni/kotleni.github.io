@@ -15,14 +15,14 @@ const posts: Post[] = [
         url: '/blog/asahi-linux',
         isNew: true,
         description:
-            "I am a Linux guy. I've used it on my VPS and home lab for years. On my desktop computer, I run Arch Linux exclusively, and I fully enjoy...",
+            "I am a Linux guy. I've used it on my VPS and home lab for years. On my desktop computer, I run Arch Linux exclusively, and I fully enjoy",
     },
     {
         title: 'The sixth iteration of my website',
         url: '/blog/new-website-v6',
         isNew: false,
         description:
-            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page...",
+            "Throughout my life, I've created a bunch of different websites with various designs, but none of them ever felt quite right for my personal page",
     },
 ];
 
