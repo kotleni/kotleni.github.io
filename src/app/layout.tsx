@@ -1,6 +1,5 @@
 import './globals.css';
 import {Suspense} from 'react';
-import {RootLayoutContent} from '@/components/root-layout-content';
 import {Metadata} from 'next';
 
 export const metadata: Metadata = {

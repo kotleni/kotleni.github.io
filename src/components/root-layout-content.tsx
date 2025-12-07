@@ -3,7 +3,7 @@ import {ThemeProvider} from '@/components/theme-provider';
 import {Snowflakes} from '@/components/decorations/christmas';
 import {BackButton} from '@/components/back-button';
 import {PageNavigationLink} from '@/components/page-nav-link';
-import { StyledLink } from './styled-link';
+import {StyledLink} from './styled-link';
 
 interface NavLinkInfo {
     title: string;
@@ -46,7 +46,10 @@ export function RootLayoutContent({
                 >
                     <p className="text-sm">
                         Check out my latest{' '}
-                        <StyledLink href="/blog/asahi-linux">blog post</StyledLink>.
+                        <StyledLink href="/blog/asahi-linux">
+                            blog post
+                        </StyledLink>
+                        .
                     </p>
                 </div>
                 <header
@@ -69,7 +72,9 @@ export function RootLayoutContent({
                     <BackButton />
                 </div>
                 <div>
-                    <main className={cn(isFullsized ? '' : 'pb-4', 'h-full flex')}>
+                    <main
+                        className={cn(isFullsized ? '' : 'pb-4', 'h-full flex')}
+                    >
                         {children}
                     </main>
                 </div>
