@@ -1,5 +1,3 @@
-'use client';
-
 import {StyledLink} from '@/components/styled-link';
 import {TextBlock} from '@/components/blog/text-block';
 import {Title} from '@/components/blog/title';
@@ -97,7 +95,8 @@ export default function Post() {
                 <TextBlock>
                     Thanks for reading. Feel free to{' '}
                     <StyledLink href={`mailto:${myEmail}`}>meow</StyledLink> at
-                    me, or <StyledLink href="/">connect</StyledLink> elsewhere.
+                    me, or <StyledLink href="/public">connect</StyledLink>{' '}
+                    elsewhere.
                 </TextBlock>
             </section>
         </div>
