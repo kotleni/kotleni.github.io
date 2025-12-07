@@ -3,6 +3,7 @@ import {ThemeProvider} from '@/components/theme-provider';
 import {Snowflakes} from '@/components/decorations/christmas';
 import {BackButton} from '@/components/back-button';
 import {PageNavigationLink} from '@/components/page-nav-link';
+import { StyledLink } from './styled-link';
 
 interface NavLinkInfo {
     title: string;
@@ -39,16 +40,15 @@ export function RootLayoutContent({
                         : 'w-full md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99',
                 )}
             >
-                {/*<div*/}
-                {/*    className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"*/}
-                {/*    hidden={isFullsized}*/}
-                {/*>*/}
-                {/*    <p className="text-sm">*/}
-                {/*        I've launched a{' '}*/}
-                {/*        <StyledLink href="/status">status</StyledLink>{' '}*/}
-                {/*        page to check my servers availability.*/}
-                {/*    </p>*/}
-                {/*</div>*/}
+                <div
+                    className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
+                    hidden={isFullsized}
+                >
+                    <p className="text-sm">
+                        Check out my latest{' '}
+                        <StyledLink href="/blog/asahi-linux">blog post</StyledLink>.
+                    </p>
+                </div>
                 <header
                     className="flex flex-row justify-end p-3 md:p-0"
                     hidden={isFullsized}
