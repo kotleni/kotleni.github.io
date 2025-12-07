@@ -1,5 +1,3 @@
-'use client';
-
 import {DecimalAge} from '@/components/decimal-age';
 import {getKyivTimeZoneInfo} from '@/lib/utils';
 import {aboutMe, myEmail, myUrls} from '@/data/about';

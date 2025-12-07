@@ -1,9 +1,6 @@
-'use client';
-
-import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import Image, {StaticImageData} from 'next/image';
-import SnakeGameScreenshot from '@/app/sandbox/snakegame/screenshot1.png';
+import SnakeGameScreenshot from '@/app/(fullscreen)/sandbox/snakegame/screenshot1.png';
 import {Title} from '@/components/blog/title';
 
 interface SandboxApp {
@@ -25,16 +22,14 @@ const apps: SandboxApp[] = [
 ];
 
 export default function SandboxPage() {
-    const pathName = usePathname();
-
     return (
         <div className="flex flex-col pt-4 gap-4">
             <Title text="Sandbox apps" />
             <div className="flex flex-wrap justify-center gap-4 sm:p-6">
                 {apps.map(app => (
                     <Link
-                        key={`${app.name}`}
-                        href={`${app.url}?is_fullsized=1&ref=${pathName}&is_darkbg=${app.isDarkBg ? '1' : 0}`}
+                        key={app.name}
+                        href={app.url}
                         className="w-full max-w-xs overflow-hidden border border-accent/50 bg-accent hover:bg-accent/80"
                     >
                         {/* Image Container */}
