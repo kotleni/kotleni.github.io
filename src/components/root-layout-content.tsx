@@ -68,9 +68,11 @@ export function RootLayoutContent({
                 <div hidden={!isFullsized} className="absolute z-10 p-4">
                     <BackButton />
                 </div>
-                <main className={cn(isFullsized ? '' : 'pb-4', 'h-full flex')}>
-                    {children}
-                </main>
+                <div>
+                    <main className={cn(isFullsized ? '' : 'pb-4', 'h-full flex')}>
+                        {children}
+                    </main>
+                </div>
             </div>
         </ThemeProvider>
     );
