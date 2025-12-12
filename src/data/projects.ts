@@ -36,6 +36,12 @@ const defineProject = (
 
 const projects2025: Project[] = [
     defineProject(
+        'friendly-web',
+        'Web client for a Friendly backend',
+        'https://github.com/friendly-social/web',
+        [ProjectPlatform.web],
+    ),
+    defineProject(
         'corefsjs',
         'Virtual file system library for browsers',
         'https://github.com/kotleni/corefsjs',
@@ -173,6 +179,20 @@ const projects2024: Project[] = [
 ];
 
 const projects2023: Project[] = [
+    defineProject(
+        'credentials-storage-kt',
+        'Multiplatform Kotlin library for storing key-value credentials',
+        'https://github.com/timemates/credentials-storage-kt',
+        [
+            ProjectPlatform.android,
+            ProjectPlatform.ios,
+            ProjectPlatform.backend,
+            ProjectPlatform.linux,
+            ProjectPlatform.web,
+            ProjectPlatform.windows,
+            ProjectPlatform.osx,
+        ],
+    ),
     defineProject(
         'DiscordApp-iOS',
         'An experimental Discord client written in Swift for iOS',
