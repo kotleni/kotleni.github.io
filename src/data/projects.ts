@@ -36,6 +36,12 @@ const defineProject = (
 
 const projects2025: Project[] = [
     defineProject(
+        'ukrainemetro-web',
+        'A web app for viewing maps of all subways of Ukraine',
+        'https://github.com/UniconTeam/UkraineMetro-web',
+        [ProjectPlatform.web],
+    ),
+    defineProject(
         'friendly-web',
         'Web client for a Friendly backend',
         'https://github.com/friendly-social/web',
