@@ -1,4 +1,3 @@
-import {ViewsCount} from '@/components/views-count';
 import {TextBlock} from '@/components/blog/text-block';
 import {OrderedList} from '@/components/blog/ordered-list';
 
@@ -68,7 +67,7 @@ const notWorking = [
 export default function AsahiLinuxBlogPost() {
     return (
         <div className="flex flex-col gap-6 mt-2">
-            <ViewsCount size="default" />
+            {/*<ViewsCount size="default" />*/}
 
             <header>
                 <h1 className="font-bold text-3xl">
