@@ -9,6 +9,7 @@ import yaml from 'highlight.js/lib/languages/yaml';
 import markdown from 'highlight.js/lib/languages/markdown';
 import typescript from 'highlight.js/lib/languages/typescript';
 import {MDXComponents} from 'mdx/types';
+import {StyledLink} from '@/components/styled-link';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('html', xml); // xml handles html
@@ -44,9 +45,9 @@ export const A = ({
     children,
     href,
 }: React.PropsWithChildren<{href: string}>) => (
-    <a href={href} className="text-blue-600 hover:underline">
+    <StyledLink href={href}>
         {children}
-    </a>
+    </StyledLink>
 );
 export const Ul = ({children}: React.PropsWithChildren) => (
     <ul className="list-disc list-inside mb-4 ml-4">{children}</ul>
@@ -107,7 +108,7 @@ export const Pre = ({
 
     return (
         <pre
-            className="p-4 rounded-lg overflow-x-auto my-4 text-sm font-mono bg-gray-800 text-white"
+            className="p-3 overflow-x-auto text-sm font-mono bg-neutral-600 dark:bg-primary/30 text-white"
             dangerouslySetInnerHTML={{__html: highlightedCode}}
         />
     );

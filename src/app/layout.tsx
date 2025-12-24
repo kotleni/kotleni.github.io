@@ -1,3 +1,4 @@
+import 'highlight.js/styles/github-dark.css';
 import './globals.css';
 import {Suspense} from 'react';
 import {Metadata} from 'next';
