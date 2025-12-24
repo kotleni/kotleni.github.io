@@ -73,7 +73,10 @@ export function RootLayoutContent({
                 </div>
                 <div>
                     <main
-                        className={cn(isFullsized ? '' : 'pb-4', 'h-full flex')}
+                        className={cn(
+                            isFullsized ? '' : 'pb-4',
+                            'h-full flex flex-col',
+                        )}
                     >
                         {children}
                     </main>

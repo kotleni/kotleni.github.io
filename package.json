@@ -1,6 +1,6 @@
 {
   "name": "kotleniweb2",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "private": true,
   "packageManager": "pnpm@10.12.2",
   "scripts": {
@@ -17,10 +17,14 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@mdi/react": "^1.6.1",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.1.1",
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@types/gsap": "^3.0.0",
+    "@types/mdx": "^2.0.13",
     "@typescript-eslint/parser": "^8.49.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -29,6 +33,7 @@
     "eslint-plugin-n": "17.23.1",
     "eslint-plugin-prettier": "5.5.4",
     "gsap": "^3.14.1",
+    "highlight.js": "^11.11.1",
     "lucide": "^0.556.0",
     "lucide-react": "^0.556.0",
     "next": "16.0.8",

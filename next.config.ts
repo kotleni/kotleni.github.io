@@ -1,6 +1,7 @@
 import type {NextConfig} from 'next';
 import child_process from 'child_process';
 import * as pkg from './package.json';
+import createMDX from '@next/mdx';
 
 const commitHash = child_process
     .execSync('git log --pretty=format:"%h" -n1')
@@ -13,6 +14,7 @@ const branch = child_process
     .trim();
 
 const nextConfig: NextConfig = {
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
     output: 'export',
     basePath: '',
     images: {
@@ -23,4 +25,6 @@ const nextConfig: NextConfig = {
     },
 };
 
-export default nextConfig;
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);

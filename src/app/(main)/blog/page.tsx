@@ -1,4 +1,4 @@
-import {Title} from '@/components/blog/title';
+import {Title} from '@/components/title';
 import Link from 'next/link';
 
 interface Post {

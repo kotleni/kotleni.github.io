@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image, {StaticImageData} from 'next/image';
 import SnakeGameScreenshot from '@/app/(fullscreen)/sandbox/snakegame/screenshot1.png';
-import {Title} from '@/components/blog/title';
+import {Title} from '@/components/title';
 
 interface SandboxApp {
     name: string;

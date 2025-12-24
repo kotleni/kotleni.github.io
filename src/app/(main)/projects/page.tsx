@@ -1,5 +1,5 @@
 import {allMyProjects} from '@/data/projects';
-import {Title} from '@/components/blog/title';
+import {Title} from '@/components/title';
 import {StyledLink} from '@/components/styled-link';
 
 export default function ProjectsPage() {
