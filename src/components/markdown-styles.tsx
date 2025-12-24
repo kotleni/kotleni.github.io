@@ -45,9 +45,7 @@ export const A = ({
     children,
     href,
 }: React.PropsWithChildren<{href: string}>) => (
-    <StyledLink href={href}>
-        {children}
-    </StyledLink>
+    <StyledLink href={href}>{children}</StyledLink>
 );
 export const Ul = ({children}: React.PropsWithChildren) => (
     <ul className="list-disc list-inside mb-4 ml-4">{children}</ul>
