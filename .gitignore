@@ -2,6 +2,7 @@
 
 .idea/
 
+.open-next/
 # dependencies
 /node_modules
 /.pnp

@@ -15,7 +15,7 @@ const branch = child_process
 
 const nextConfig: NextConfig = {
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-    output: 'export',
+    output: 'standalone',
     basePath: '',
     images: {
         unoptimized: true,
