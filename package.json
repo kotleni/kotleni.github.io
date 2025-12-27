@@ -11,6 +11,7 @@
     "format": "eslint --fix '**/*.ts*'",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "dev-deploy" : "opennextjs-cloudflare build && wrangler versions upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "engines": {
