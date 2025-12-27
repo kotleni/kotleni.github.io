@@ -5,15 +5,13 @@
     "composite": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2023"],
-    "module": "commonjs",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "pretty": true,
+    "pretty": false,
     "sourceMap": true,
     "stripInternal": true,
-    "strict": true,
-    "target": "ES2022"
+    "strict": true
   },
   "exclude": ["node_modules"]
 }
