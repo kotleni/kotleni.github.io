@@ -53,7 +53,6 @@ export default function RootLayout({
                     httpEquiv="Content-Security-Policy"
                     content="upgrade-insecure-requests"
                 />
-                <title>kotleni's web</title>
             </head>
             <body className="flex justify-center dark:bg-background">
                 <Suspense>{children}</Suspense>
