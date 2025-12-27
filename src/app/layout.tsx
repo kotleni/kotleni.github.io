@@ -12,12 +12,7 @@ export const metadata: Metadata = {
 const mononokiFont = localFont({
     display: 'block',
     preload: true,
-    fallback: [
-        'monospace',
-        'Liberation Mono',
-        'SFMono-Regular',
-        'Consolas',
-    ],
+    fallback: ['monospace', 'Liberation Mono', 'SFMono-Regular', 'Consolas'],
     variable: '--font-mononoki',
     src: [
         {
