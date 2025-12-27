@@ -35,7 +35,7 @@ const mononokiFont = localFont({
             style: 'italic',
         },
     ],
-})
+});
 
 export default function RootLayout({
     children,
@@ -43,7 +43,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning className={`${mononokiFont.className} antialiased`}>
+        <html
+            lang="en"
+            suppressHydrationWarning
+            className={`${mononokiFont.className} antialiased`}
+        >
             <head>
                 <meta
                     name="viewport"
