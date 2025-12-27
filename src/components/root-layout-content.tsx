@@ -4,6 +4,7 @@ import {Snowflakes} from '@/components/decorations/christmas';
 import {BackButton} from '@/components/back-button';
 import {PageNavigationLink} from '@/components/page-nav-link';
 import {StyledLink} from './styled-link';
+import {Loading} from '@/components/loading';
 
 interface NavLinkInfo {
     title: string;
@@ -32,6 +33,7 @@ export function RootLayoutContent({
             disableTransitionOnChange
         >
             <Snowflakes />
+            <Loading />
             <div
                 className={cn(
                     'flex flex-col',

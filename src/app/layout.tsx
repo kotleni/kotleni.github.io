@@ -1,4 +1,3 @@
-import 'highlight.js/styles/github-dark.css';
 import './globals.css';
 import {Suspense} from 'react';
 import {Metadata} from 'next';
@@ -11,7 +10,9 @@ export const metadata: Metadata = {
 };
 
 const mononokiFont = localFont({
-    display: 'swap',
+    display: 'block',
+    preload: true,
+    fallback: ['monospace', 'Liberation Mono', 'SFMono-Regular', 'Consolas'],
     variable: '--font-mononoki',
     src: [
         {
