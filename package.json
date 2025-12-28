@@ -2,7 +2,7 @@
   "name": "kotleniweb2",
   "version": "1.2.2",
   "private": true,
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.26.2",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
