@@ -11,8 +11,8 @@ export function NavigationLink({isActive, title, url}: NavigationLinkProps) {
         <a
             href={url}
             className={cn(
-                'bold lg:p-2 text-lg md:text-base hover:text-primary',
-                isActive ? '' : 'text-muted-foreground',
+                'bold lg:p-2 text-lg md:text-base text-primary/80 hover:underline hover:text-primary',
+                isActive ? 'underline' : '',
             )}
         >
             {title}
