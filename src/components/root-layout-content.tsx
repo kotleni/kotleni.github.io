@@ -46,11 +46,7 @@ export function RootLayoutContent({
                     hidden={isFullsized}
                 >
                     <p className="text-sm">
-                        Check out my latest{' '}
-                        <StyledLink href="/blog/asahi-linux">
-                            blog post
-                        </StyledLink>
-                        .
+                        Happy new 2026 year! O.o
                     </p>
                 </div>
                 <header
