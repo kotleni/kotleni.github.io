@@ -45,9 +45,7 @@ export function RootLayoutContent({
                     className="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
                     hidden={isFullsized}
                 >
-                    <p className="text-sm">
-                        Happy new 2026 year! O.o
-                    </p>
+                    <p className="text-sm">Happy new 2026 year! O.o</p>
                 </div>
                 <header
                     className="flex flex-row justify-end p-3 md:p-0"

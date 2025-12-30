@@ -26,9 +26,21 @@ export default function BioPage() {
                             url={'mailto:' + myEmail}
                             label="Gmail"
                         />
-                        <SocialIcon Icon={LinkedinLogo} url={myUrls.linkedin} label="Linkedin" />
-                        <SocialIcon Icon={TelegramLogo} url={myUrls.telegram} label="Telegram" />
-                        <SocialIcon Icon={GithubLogo} url={myUrls.github} label="Github" />
+                        <SocialIcon
+                            Icon={LinkedinLogo}
+                            url={myUrls.linkedin}
+                            label="Linkedin"
+                        />
+                        <SocialIcon
+                            Icon={TelegramLogo}
+                            url={myUrls.telegram}
+                            label="Telegram"
+                        />
+                        <SocialIcon
+                            Icon={GithubLogo}
+                            url={myUrls.github}
+                            label="Github"
+                        />
                     </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
