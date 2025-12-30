@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@gsap/react':
-        specifier: ^2.1.2
-        version: 2.1.2(gsap@3.14.2)(react@19.2.3)
       '@mdi/react':
         specifier: ^1.6.1
         version: 1.6.1
@@ -32,36 +29,12 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.2.8
         version: 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@types/gsap':
-        specifier: ^3.0.0
-        version: 3.0.0
-      '@types/mdx':
-        specifier: ^2.0.13
-        version: 2.0.13
-      '@typescript-eslint/parser':
-        specifier: ^8.50.1
-        version: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      eslint:
-        specifier: 9.39.2
-        version: 9.39.2(jiti@2.6.1)
-      eslint-config-prettier:
-        specifier: 10.1.8
-        version: 10.1.8(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-n:
-        specifier: 17.23.1
-        version: 17.23.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      eslint-plugin-prettier:
-        specifier: 5.5.4
-        version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.7.4)
-      gsap:
-        specifier: ^3.14.2
-        version: 3.14.2
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
@@ -77,9 +50,6 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      prettier:
-        specifier: ^3.7.4
-        version: 3.7.4
       react:
         specifier: ^19.2.3
         version: 19.2.3
@@ -89,15 +59,9 @@ importers:
       shadcn:
         specifier: ^3.6.2
         version: 3.6.2(@types/node@25.0.3)(hono@4.11.3)(typescript@5.9.3)
-      simple-icons:
-        specifier: ^16.3.0
-        version: 16.3.0
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.4.0
-      typescript-eslint:
-        specifier: ^8.50.1
-        version: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.3.3
@@ -108,6 +72,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
+      '@types/mdx':
+        specifier: ^2.0.13
+        version: 2.0.13
       '@types/node':
         specifier: ^25.0.3
         version: 25.0.3
@@ -120,6 +87,24 @@ importers:
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.50.1
         version: 8.50.1(@typescript-eslint/parser@8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.50.1
+        version: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      eslint:
+        specifier: 9.39.2
+        version: 9.39.2(jiti@2.6.1)
+      eslint-config-prettier:
+        specifier: 10.1.8
+        version: 10.1.8(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-n:
+        specifier: 17.23.1
+        version: 17.23.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      eslint-plugin-prettier:
+        specifier: 5.5.4
+        version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.7.4)
+      prettier:
+        specifier: ^3.7.4
+        version: 3.7.4
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -129,6 +114,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      typescript-eslint:
+        specifier: ^8.50.1
+        version: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
 
 packages:
 
@@ -334,12 +322,6 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
-
-  '@gsap/react@2.1.2':
-    resolution: {integrity: sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==}
-    peerDependencies:
-      gsap: ^3.12.5
-      react: '>=17'
 
   '@hono/node-server@1.19.7':
     resolution: {integrity: sha512-vUcD0uauS7EU2caukW8z5lJKtoGMokxNbJtBiwHgpqxEXokaHCBkQUmCHhjFB1VUTWdqj25QoMkMKzgjq+uhrw==}
@@ -1063,10 +1045,6 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
-
-  '@types/gsap@3.0.0':
-    resolution: {integrity: sha512-BbWLi4WRHGze4C8NV7U7yRevuBFiPkPZZyGa0rryanvh/9HPUFXTNBXsGQxJZJq7Ix7j4RXMYodP3s+OsqCErg==}
-    deprecated: This is a stub types definition. gsap provides its own type definitions, so you do not need this installed.
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
@@ -1820,9 +1798,6 @@ packages:
   graphql@16.12.0:
     resolution: {integrity: sha512-DKKrynuQRne0PNpEbzuEdHlYOMksHSUI8Zc9Unei5gTsMNA2/vMpoMz/yKba50pejK56qj98qM0SjYxAKi13gQ==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
-
-  gsap@3.14.2:
-    resolution: {integrity: sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==}
 
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -2723,10 +2698,6 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  simple-icons@16.3.0:
-    resolution: {integrity: sha512-Bi28W15wyjt9902EnR6Mfr9gqt5ElKbKviYA80j77VkcUJtkeSGa6K4XKJWmBw1djiMPy0+it9KOk9nKMisYeQ==}
-    engines: {node: '>=0.12.18'}
-
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
@@ -3332,11 +3303,6 @@ snapshots:
       react-dom: 19.2.3(react@19.2.3)
 
   '@floating-ui/utils@0.2.10': {}
-
-  '@gsap/react@2.1.2(gsap@3.14.2)(react@19.2.3)':
-    dependencies:
-      gsap: 3.14.2
-      react: 19.2.3
 
   '@hono/node-server@1.19.7(hono@4.11.3)':
     dependencies:
@@ -3966,10 +3932,6 @@ snapshots:
       '@types/estree': 1.0.8
 
   '@types/estree@1.0.8': {}
-
-  '@types/gsap@3.0.0':
-    dependencies:
-      gsap: 3.14.2
 
   '@types/hast@3.0.4':
     dependencies:
@@ -4759,8 +4721,6 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   graphql@16.12.0: {}
-
-  gsap@3.14.2: {}
 
   has-flag@4.0.0: {}
 
@@ -5908,8 +5868,6 @@ snapshots:
   signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
-
-  simple-icons@16.3.0: {}
 
   sisteransi@1.0.5: {}
 
