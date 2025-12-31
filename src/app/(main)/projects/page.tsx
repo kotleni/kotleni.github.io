@@ -1,4 +1,4 @@
-import { allMyProjects } from '@/data/projects';
+import {allMyProjects, ProjectPlatform} from '@/data/projects';
 import { Title } from '@/components/title';
 import { StyledLink } from '@/components/styled-link';
 
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
             </div>
 
             <div className="mb-12 text-xs">
-                <div className="text-neutral-500 mb-2">Projects per year</div>
+                <div className="text-neutral-400 mb-2">Projects per year</div>
                 <div className="space-y-1">
                     {sortedEntries.map(([year, projects]) => {
                         const count = projects.length;
@@ -57,18 +57,34 @@ export default function ProjectsPage() {
             {sortedEntries.map(([year, projects]) => (
                 <div key={year} className="mb-12 last:mb-0">
                     <h2 className="font-semibold text-lg pb-3 text-white">{year}</h2>
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         {projects.map((project) => (
-                            <div key={project.name} className="text-neutral-500">
-                                <StyledLink
-                                    className="text-white hover:text-neutral-300 font-medium"
-                                    href={project.url}
-                                    target="_blank"
-                                >
-                                    {project.name}
-                                </StyledLink>
+                            <div key={project.name}>
+                                <div className="flex items-baseline justify-between">
+                                    <StyledLink
+                                        className="text-white hover:text-neutral-300 font-medium"
+                                        href={project.url}
+                                        target="_blank"
+                                    >
+                                        {project.name}
+                                    </StyledLink>
+
+                                    {project.platforms && project.platforms.length > 0 && (
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {project.platforms.map((platform) => (
+                                                <span
+                                                    key={platform}
+                                                    className="px-1.5 py-0.5 text-xs bg-neutral-800 text-neutral-400"
+                                                >
+                          {platform}
+                        </span>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
                                 {project.description && (
-                                    <p className="mt-1 text-sm">{project.description}</p>
+                                    <p className="mt-1 text-sm text-neutral-500">{project.description}</p>
                                 )}
                             </div>
                         ))}

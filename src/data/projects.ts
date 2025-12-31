@@ -1,16 +1,16 @@
 export enum ProjectPlatform {
-    web,
-    android,
-    ios,
-    windows,
-    linux,
-    osx,
-    osdev,
-    embedded,
-    backend,
-    minecraftMod,
-    browserExtension,
-    miBand,
+    web= 'web',
+    android = 'android',
+    ios = 'ios',
+    windows = 'windows',
+    linux = 'linux',
+    osx = 'osx',
+    osdev = 'osdev',
+    embedded = 'embedded',
+    backend = 'backend',
+    minecraftMod = 'minecraft mod',
+    browserExtension = 'browser extension',
+    other = 'other',
 }
 
 export interface Project {
@@ -272,7 +272,7 @@ const projects2022: Project[] = [
         'SimpleBand4-WatchFace',
         'Simple and optimized watchface for Mi Band 4',
         'https://github.com/kotleni/SimpleBand4-WatchFace',
-        [ProjectPlatform.miBand],
+        [ProjectPlatform.other],
     ),
 ];
 
