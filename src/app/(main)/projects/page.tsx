@@ -1,6 +1,7 @@
 import {allMyProjects, ProjectPlatform} from '@/data/projects';
 import { Title } from '@/components/title';
 import { StyledLink } from '@/components/styled-link';
+import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
 
 export default function ProjectsPage() {
     const entries = Object.entries(allMyProjects);
@@ -61,13 +62,24 @@ export default function ProjectsPage() {
                         {projects.map((project) => (
                             <div key={project.name}>
                                 <div className="flex items-baseline justify-between">
-                                    <StyledLink
-                                        className="text-white hover:text-neutral-300 font-medium"
-                                        href={project.url}
-                                        target="_blank"
-                                    >
-                                        {project.name}
-                                    </StyledLink>
+                                    <div className="flex items-center gap-2">
+                                        {project.url ? (
+                                            <StyledLink
+                                                className="text-white hover:text-neutral-300 font-medium"
+                                                href={project.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {project.name}
+                                            </StyledLink>
+                                        ) : (
+                                            <span className="text-white font-medium">{project.name}</span>
+                                        )}
+
+                                        {!project.url && (
+                                            <span className="text-xs text-neutral-500">Closed source</span>
+                                        )}
+                                    </div>
 
                                     {project.platforms && project.platforms.length > 0 && (
                                         <div className="flex flex-wrap gap-1.5">

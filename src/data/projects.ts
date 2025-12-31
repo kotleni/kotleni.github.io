@@ -16,14 +16,14 @@ export enum ProjectPlatform {
 export interface Project {
     name: string;
     description: string;
-    url: string;
+    url: string | null;
     platforms: ProjectPlatform[];
 }
 
 const defineProject = (
     name: string,
     description: string,
-    url: string,
+    url: string | null,
     platforms: ProjectPlatform[],
 ): Project => {
     return {
@@ -316,6 +316,12 @@ const projects2018: Project[] = [
         'https://github.com/kotleni/PocketVK',
         [ProjectPlatform.backend],
     ),
+    defineProject(
+        'AnonymousChat',
+        'Anonymous chatting platform with public rooms',
+        null,
+        [ProjectPlatform.android],
+    )
 ];
 
 export const allMyProjects = {
