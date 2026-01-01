@@ -1,5 +1,5 @@
 export enum ProjectPlatform {
-    web= 'web',
+    web = 'web',
     android = 'android',
     ios = 'ios',
     windows = 'windows',
@@ -185,17 +185,19 @@ const projects2024: Project[] = [
 ];
 
 const projects2023: Project[] = [
-    defineProject(
-        'PomodoroTrack',
-        'Pomodoro technique timer tracker',
-        null,
-        [ProjectPlatform.android],
-    ),
+    defineProject('PomodoroTrack', 'Pomodoro technique timer tracker', null, [
+        ProjectPlatform.android,
+    ]),
     defineProject(
         'AdventureProject',
         'Unfinished 2D platformer game about secret island with his story',
         null,
-        [ProjectPlatform.android, ProjectPlatform.ios, ProjectPlatform.windows, ProjectPlatform.linux],
+        [
+            ProjectPlatform.android,
+            ProjectPlatform.ios,
+            ProjectPlatform.windows,
+            ProjectPlatform.linux,
+        ],
     ),
     defineProject(
         'credentials-storage-kt',
@@ -315,7 +317,7 @@ const projects2020: Project[] = [
         'Android IDE that allow to write and build for android on Android',
         null,
         [ProjectPlatform.android],
-    )
+    ),
 ];
 
 const projects2019: Project[] = [
@@ -339,7 +341,7 @@ const projects2018: Project[] = [
         'Anonymous chatting platform with public rooms',
         null,
         [ProjectPlatform.android],
-    )
+    ),
 ];
 
 const projects2017: Project[] = [

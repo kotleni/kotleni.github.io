@@ -1,19 +1,23 @@
 import {allMyProjects, ProjectPlatform} from '@/data/projects';
-import { Title } from '@/components/title';
-import { StyledLink } from '@/components/styled-link';
+import {Title} from '@/components/title';
+import {StyledLink} from '@/components/styled-link';
 import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
 
 export default function ProjectsPage() {
     const entries = Object.entries(allMyProjects);
 
-    const totalProjects = entries.reduce((acc, [, projects]) => acc + projects.length, 0);
+    const totalProjects = entries.reduce(
+        (acc, [, projects]) => acc + projects.length,
+        0,
+    );
     const yearsCount = entries.length;
-    const avgPerYear = yearsCount > 0 ? (totalProjects / yearsCount).toFixed(1) : '0';
+    const avgPerYear =
+        yearsCount > 0 ? (totalProjects / yearsCount).toFixed(1) : '0';
 
     const mostProductive = entries.reduce(
         (max, [year, projects]) =>
-            projects.length > max.count ? { year, count: projects.length } : max,
-        { year: '', count: 0 }
+            projects.length > max.count ? {year, count: projects.length} : max,
+        {year: '', count: 0},
     );
 
     const sortedEntries = [...entries].reverse();
@@ -27,7 +31,9 @@ export default function ProjectsPage() {
                 <span className="mr-6">Total: {totalProjects}</span>
                 <span className="mr-6">Years: {yearsCount}</span>
                 <span className="mr-6">Avg/year: {avgPerYear}</span>
-                <span>Peak: {mostProductive.year} ({mostProductive.count})</span>
+                <span>
+                    Peak: {mostProductive.year} ({mostProductive.count})
+                </span>
             </div>
 
             <div className="mb-12 text-xs">
@@ -39,11 +45,13 @@ export default function ProjectsPage() {
 
                         return (
                             <div key={year} className="flex items-center gap-3">
-                                <div className="w-10 text-neutral-500 tabular-nums">{year}</div>
+                                <div className="w-10 text-neutral-500 tabular-nums">
+                                    {year}
+                                </div>
                                 <div className="flex-1 h-3 bg-neutral-800">
                                     <div
                                         className="h-full bg-neutral-500"
-                                        style={{ width: `${width}%` }}
+                                        style={{width: `${width}%`}}
                                     />
                                 </div>
                                 <div className="w-6 text-right text-neutral-400 tabular-nums">
@@ -57,9 +65,11 @@ export default function ProjectsPage() {
 
             {sortedEntries.map(([year, projects]) => (
                 <div key={year} className="mb-12 last:mb-0">
-                    <h2 className="font-semibold text-lg pb-3 text-white">{year}</h2>
+                    <h2 className="font-semibold text-lg pb-3 text-white">
+                        {year}
+                    </h2>
                     <div className="space-y-6">
-                        {projects.map((project) => (
+                        {projects.map(project => (
                             <div key={project.name}>
                                 <div className="flex items-baseline justify-between">
                                     <div className="flex items-center gap-2">
@@ -73,30 +83,39 @@ export default function ProjectsPage() {
                                                 {project.name}
                                             </StyledLink>
                                         ) : (
-                                            <span className="text-white font-medium">{project.name}</span>
+                                            <span className="text-white font-medium">
+                                                {project.name}
+                                            </span>
                                         )}
 
                                         {!project.url && (
-                                            <span className="text-xs text-neutral-500">Closed source</span>
+                                            <span className="text-xs text-neutral-500">
+                                                Closed source
+                                            </span>
                                         )}
                                     </div>
 
-                                    {project.platforms && project.platforms.length > 0 && (
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {project.platforms.map((platform) => (
-                                                <span
-                                                    key={platform}
-                                                    className="px-1.5 py-0.5 text-xs bg-neutral-800 text-neutral-400"
-                                                >
-                          {platform}
-                        </span>
-                                            ))}
-                                        </div>
-                                    )}
+                                    {project.platforms &&
+                                        project.platforms.length > 0 && (
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {project.platforms.map(
+                                                    platform => (
+                                                        <span
+                                                            key={platform}
+                                                            className="px-1.5 py-0.5 text-xs bg-neutral-800 text-neutral-400"
+                                                        >
+                                                            {platform}
+                                                        </span>
+                                                    ),
+                                                )}
+                                            </div>
+                                        )}
                                 </div>
 
                                 {project.description && (
-                                    <p className="mt-1 text-sm text-neutral-500">{project.description}</p>
+                                    <p className="mt-1 text-sm text-neutral-500">
+                                        {project.description}
+                                    </p>
                                 )}
                             </div>
                         ))}
