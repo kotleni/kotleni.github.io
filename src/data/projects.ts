@@ -186,6 +186,18 @@ const projects2024: Project[] = [
 
 const projects2023: Project[] = [
     defineProject(
+        'PomodoroTrack',
+        'Pomodoro technique timer tracker',
+        null,
+        [ProjectPlatform.android],
+    ),
+    defineProject(
+        'AdventureProject',
+        'Unfinished 2D platformer game about secret island with his story',
+        null,
+        [ProjectPlatform.android, ProjectPlatform.ios, ProjectPlatform.windows, ProjectPlatform.linux],
+    ),
+    defineProject(
         'credentials-storage-kt',
         'Multiplatform Kotlin library for storing key-value credentials',
         'https://github.com/timemates/credentials-storage-kt',
@@ -298,6 +310,12 @@ const projects2020: Project[] = [
         'https://github.com/kotleni/HelloOS',
         [ProjectPlatform.osdev],
     ),
+    defineProject(
+        'AndroidXIDE',
+        'Android IDE that allow to write and build for android on Android',
+        null,
+        [ProjectPlatform.android],
+    )
 ];
 
 const projects2019: Project[] = [
@@ -324,7 +342,17 @@ const projects2018: Project[] = [
     )
 ];
 
+const projects2017: Project[] = [
+    defineProject(
+        'Degradator',
+        'Mini game that gives fun tasks to play with friends',
+        null,
+        [ProjectPlatform.android],
+    ),
+];
+
 export const allMyProjects = {
+    '2017': projects2017,
     '2018': projects2018,
     '2019': projects2019,
     '2020': projects2020,
