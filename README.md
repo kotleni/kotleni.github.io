@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kotleni.pp.com">Live</a>
+  <a href="https://kotleni.pp.ua">Live</a>
 </p>
 
 <img src="./.github/browser-example1.png">
