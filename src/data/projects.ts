@@ -313,9 +313,9 @@ const projects2020: Project[] = [
         [ProjectPlatform.osdev],
     ),
     defineProject(
-        'AndroidXIDE',
-        'Android IDE that allow to write and build for android on Android',
-        null,
+        'EtiketKharkiv',
+        'Detect and ID etiket cards that used in Kharkiv city',
+        'https://github.com/kotleni/kotleni.github.io/tree/legacy/v3/projects/android/eticket',
         [ProjectPlatform.android],
     ),
 ];
@@ -339,6 +339,12 @@ const projects2018: Project[] = [
     defineProject(
         'AnonymousChat',
         'Anonymous chatting platform with public rooms',
+        null,
+        [ProjectPlatform.android],
+    ),
+    defineProject(
+        'AndroidXIDE',
+        'Android IDE that allow to write and build for android on Android',
         null,
         [ProjectPlatform.android],
     ),
