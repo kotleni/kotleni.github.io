@@ -1,29 +1,29 @@
 export enum ProjectPlatform {
-    web,
-    android,
-    ios,
-    windows,
-    linux,
-    osx,
-    osdev,
-    embedded,
-    backend,
-    minecraftMod,
-    browserExtension,
-    miBand,
+    web = 'web',
+    android = 'android',
+    ios = 'ios',
+    windows = 'windows',
+    linux = 'linux',
+    osx = 'osx',
+    osdev = 'osdev',
+    embedded = 'embedded',
+    backend = 'backend',
+    minecraftMod = 'minecraft mod',
+    browserExtension = 'browser extension',
+    other = 'other',
 }
 
 export interface Project {
     name: string;
     description: string;
-    url: string;
+    url: string | null;
     platforms: ProjectPlatform[];
 }
 
 const defineProject = (
     name: string,
     description: string,
-    url: string,
+    url: string | null,
     platforms: ProjectPlatform[],
 ): Project => {
     return {
@@ -185,6 +185,20 @@ const projects2024: Project[] = [
 ];
 
 const projects2023: Project[] = [
+    defineProject('PomodoroTrack', 'Pomodoro technique timer tracker', null, [
+        ProjectPlatform.android,
+    ]),
+    defineProject(
+        'AdventureProject',
+        'Unfinished 2D platformer game about secret island with his story',
+        null,
+        [
+            ProjectPlatform.android,
+            ProjectPlatform.ios,
+            ProjectPlatform.windows,
+            ProjectPlatform.linux,
+        ],
+    ),
     defineProject(
         'credentials-storage-kt',
         'Multiplatform Kotlin library for storing key-value credentials',
@@ -272,7 +286,7 @@ const projects2022: Project[] = [
         'SimpleBand4-WatchFace',
         'Simple and optimized watchface for Mi Band 4',
         'https://github.com/kotleni/SimpleBand4-WatchFace',
-        [ProjectPlatform.miBand],
+        [ProjectPlatform.other],
     ),
 ];
 
@@ -298,6 +312,12 @@ const projects2020: Project[] = [
         'https://github.com/kotleni/HelloOS',
         [ProjectPlatform.osdev],
     ),
+    defineProject(
+        'AndroidXIDE',
+        'Android IDE that allow to write and build for android on Android',
+        null,
+        [ProjectPlatform.android],
+    ),
 ];
 
 const projects2019: Project[] = [
@@ -316,9 +336,25 @@ const projects2018: Project[] = [
         'https://github.com/kotleni/PocketVK',
         [ProjectPlatform.backend],
     ),
+    defineProject(
+        'AnonymousChat',
+        'Anonymous chatting platform with public rooms',
+        null,
+        [ProjectPlatform.android],
+    ),
+];
+
+const projects2017: Project[] = [
+    defineProject(
+        'Degradator',
+        'Mini game that gives fun tasks to play with friends',
+        null,
+        [ProjectPlatform.android],
+    ),
 ];
 
 export const allMyProjects = {
+    '2017': projects2017,
     '2018': projects2018,
     '2019': projects2019,
     '2020': projects2020,

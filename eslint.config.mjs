@@ -76,6 +76,7 @@ export default defineConfig([
         },
 
         rules: {
+            '@typescript-eslint/no-unused-vars': 'warn',
             '@typescript-eslint/ban-ts-comment': 'warn',
             '@typescript-eslint/no-floating-promises': 'error',
             '@typescript-eslint/no-non-null-assertion': 'off',
