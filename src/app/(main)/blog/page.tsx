@@ -14,7 +14,7 @@ const posts: Post[] = [
         url: '/blog/hosting-infrastructure-early2026',
         isNew: true,
         description:
-            "For non-production purposes, I have two servers: a VPS from OVHCloud and a home lab with a single HP EliteDesk",
+            'For non-production purposes, I have two servers: a VPS from OVHCloud and a home lab with a single HP EliteDesk',
     },
     {
         title: 'Why i abandoned idea of using Asahi Linux',
