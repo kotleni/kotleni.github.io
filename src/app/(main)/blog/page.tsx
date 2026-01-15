@@ -10,9 +10,16 @@ interface Post {
 
 const posts: Post[] = [
     {
+        title: 'My hosting infrastructure',
+        url: '/blog/hosting-infrastructure-early2026',
+        isNew: true,
+        description:
+            "For non-production purposes, I have two servers: a VPS from OVHCloud and a home lab with a single HP EliteDesk",
+    },
+    {
         title: 'Why i abandoned idea of using Asahi Linux',
         url: '/blog/asahi-linux',
-        isNew: true,
+        isNew: false,
         description:
             "I am a Linux guy. I've used it on my VPS and home lab for years. On my desktop computer, I run Arch Linux exclusively, and I fully enjoy",
     },
