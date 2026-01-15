@@ -5,7 +5,7 @@ import localFont from 'next/font/local';
 
 export const metadata: Metadata = {
     title: 'kotleni`s web site',
-    description: 'My own private web site.',
+    description: 'My own personal website.',
     metadataBase: new URL('https://kotleni.github.io'),
 };
 
