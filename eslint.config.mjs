@@ -1,100 +1,78 @@
-import {defineConfig, globalIgnores} from 'eslint/config';
-import n from 'eslint-plugin-n';
-import prettier from 'eslint-plugin-prettier';
-import tsParser from '@typescript-eslint/parser';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
 import js from '@eslint/js';
-import {FlatCompat} from '@eslint/eslintrc';
+import ts from 'typescript-eslint';
+import svelte from 'eslint-plugin-svelte';
+import prettierConfig from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
+import n from 'eslint-plugin-n';
+import globals from 'globals';
+import svelteParser from 'svelte-eslint-parser';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all,
-});
-
-export default defineConfig([
-    globalIgnores(['**/build/', 'test/fixtures/', '**/template/', '.next/']),
+export default ts.config(
+    // 1. Global Ignores
     {
-        extends: compat.extends(
-            'eslint:recommended',
-            'plugin:n/recommended',
-            'prettier',
-        ),
+        ignores: ['**/dist/', '**/build/', '.svelte-kit/', '.next/']
+    },
 
+    // 2. Base Configurations
+    js.configs.recommended,
+    ...ts.configs.recommended,
+    ...svelte.configs['flat/recommended'],
+
+    // 3. Plugin Setup & Global Rules
+    {
         plugins: {
-            n,
-            prettier,
+            'n': n,
+            'prettier': prettierPlugin,
         },
-
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node,
+            }
+        },
         rules: {
             'prettier/prettier': 'error',
-            'block-scoped-var': 'error',
-            eqeqeq: 'error',
             'no-var': 'error',
             'prefer-const': 'error',
-            'eol-last': 'error',
-            'prefer-arrow-callback': 'error',
-            'no-trailing-spaces': 'error',
-
-            quotes: [
-                'warn',
-                'single',
-                {
-                    avoidEscape: true,
-                },
-            ],
-
-            'no-restricted-properties': [
-                'error',
-                {
-                    object: 'describe',
-                    property: 'only',
-                },
-                {
-                    object: 'it',
-                    property: 'only',
-                },
-            ],
-        },
+            'eqeqeq': 'error',
+            'quotes': ['warn', 'single', { avoidEscape: true }],
+            'n/no-missing-import': 'off',
+            'n/no-unsupported-features/es-syntax': 'off',
+        }
     },
+
+    // 4. Svelte Specific Config
+    {
+        files: ['**/*.svelte'],
+        languageOptions: {
+            parser: svelteParser,
+            parserOptions: {
+                parser: ts.parser, // Handles the <script> tags
+                projectService: true,
+                extraFileExtensions: ['.svelte'],
+                tsconfigRootDir: import.meta.dirname,
+            }
+        },
+        rules: {
+            // Rules for TypeScript inside Svelte
+            '@typescript-eslint/no-unused-vars': 'warn',
+            '@typescript-eslint/no-floating-promises': 'error',
+            '@typescript-eslint/no-explicit-any': 'warn',
+        }
+    },
+
+    // 5. TypeScript Standalone Config
     {
         files: ['**/*.ts', '**/*.tsx'],
-        extends: compat.extends('plugin:@typescript-eslint/recommended'),
-
         languageOptions: {
-            parser: tsParser,
-            ecmaVersion: 2018,
-            sourceType: 'module',
-
+            parser: ts.parser,
             parserOptions: {
                 projectService: true,
-                tsconfigRootDir: __dirname,
-            },
-        },
-
-        rules: {
-            '@typescript-eslint/no-unused-vars': 'warn',
-            '@typescript-eslint/ban-ts-comment': 'warn',
-            '@typescript-eslint/no-floating-promises': 'error',
-            '@typescript-eslint/no-non-null-assertion': 'off',
-            '@typescript-eslint/no-use-before-define': 'off',
-            '@typescript-eslint/no-warning-comments': 'off',
-            '@typescript-eslint/no-empty-function': 'off',
-            '@typescript-eslint/no-var-requires': 'off',
-            '@typescript-eslint/explicit-function-return-type': 'off',
-            '@typescript-eslint/explicit-module-boundary-types': 'off',
-            '@typescript-eslint/ban-types': 'off',
-            '@typescript-eslint/camelcase': 'off',
-            'n/no-missing-import': 'off',
-            'n/no-empty-function': 'off',
-            'n/no-unsupported-features/es-syntax': 'off',
-            'n/no-missing-require': 'off',
-            'n/shebang': 'off',
-            'no-dupe-class-members': 'off',
-            'require-atomic-updates': 'off',
-        },
+                tsconfigRootDir: import.meta.dirname,
+            }
+        }
     },
-]);
+
+    // 6. Prettier Override (MUST BE LAST)
+    prettierConfig
+);
