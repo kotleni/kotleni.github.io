@@ -26,6 +26,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
+    "@types/showdown": "^2.0.6",
     "@typescript-eslint/eslint-plugin": "^8.53.0",
     "@typescript-eslint/parser": "^8.53.0",
     "eslint": "9.39.2",
@@ -45,9 +46,11 @@
     "eslint-plugin-svelte": "^3.14.0",
     "globals": "^17.0.0",
     "prettier-plugin-svelte": "^3.4.1",
+    "showdown": "^2.1.0",
     "svelte-eslint-parser": "^1.4.1",
     "svelte-spa-router": "^4.0.1",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "tsc": "^2.0.4"
   }
 }

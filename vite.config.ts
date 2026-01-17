@@ -3,6 +3,8 @@ import {svelte} from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from '@tailwindcss/vite';
 import {execSync} from 'child_process';
 import pkg from './package.json';
+import path from 'path';
+import markdownPrecompile from './buildSrc/markdown-precompile';
 
 const commitHash = execSync('git log --pretty=format:"%h" -n1')
     .toString()
@@ -13,8 +15,13 @@ const appVersion = `${pkg.version}-${commitHash}-${branch}`;
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [svelte(), tailwindcss()],
+    plugins: [svelte(), tailwindcss(), markdownPrecompile()],
     define: {
         APP_VERSION: JSON.stringify(appVersion),
+    },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
     },
 });
