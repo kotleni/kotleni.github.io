@@ -18,7 +18,7 @@
         skillsStack,
         skillsStackAdditional,
     } from '@/data/about';
-    import { push } from 'svelte-spa-router';
+    import {push} from 'svelte-spa-router';
     const timeInfo = getKyivTimeZoneInfo();
 
     const targetCount = 8;
@@ -32,13 +32,18 @@
                 Viktor Varenik
                 <!-- svelte-ignore a11y_click_events_have_key_events -->
                 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-                <p class="text-sm opacity-60 cursor-pointer select-none" onclick={() => {
-                    counter += 1;
-                    if (counter >= targetCount) {
-                        console.log('Oh, that\'s was strange...');
-                        push('/nudes');
-                    }
-                }}>(kotleni)</p>
+                <p
+                    class="text-sm opacity-60 cursor-pointer select-none"
+                    onclick={() => {
+                        counter += 1;
+                        if (counter >= targetCount) {
+                            console.log("Oh, that's was strange...");
+                            push('/nudes');
+                        }
+                    }}
+                >
+                    (kotleni)
+                </p>
             </h1>
             <div class="flex gap-3">
                 <SocialIcon
@@ -169,7 +174,7 @@
 
     <section class="mt-4">
         <p class="font-semibold">journey.</p>
-        <div class="mt-2">
+        <div class="flex flex-col gap-6 pt-2">
             <JourneyCard
                 title="Android&iOS Developer"
                 companyTitle="AppLead Pro & VIPAPP & Gravity"
