@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import {execSync} from 'child_process';
 import pkg from './package.json';
 import path from 'path';
-import markdownPrecompile from './buildSrc/markdown-precompile';
+import markdownPrecompile from './build-src/markdown-precompile';
 
 const commitHash = execSync('git log --pretty=format:"%h" -n1')
     .toString()
