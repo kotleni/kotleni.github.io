@@ -10,7 +10,6 @@
     import NudesPage from './routes/nudes/NudesPage.svelte';
 
     console.log('Hello, world!');
-    
 </script>
 
 <main class="w-full flex flex-col items-center">

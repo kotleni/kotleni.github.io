@@ -11,7 +11,7 @@
         $props();
 </script>
 
-<div class="group flex flex-row gap-16px w-full py-2">
+<div class="group flex flex-row gap-16px w-full py-0">
     <div
         class="min-h-full min-w-2px bg-neutral-200 group-hover:bg-primary"
     ></div>
