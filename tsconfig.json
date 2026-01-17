@@ -24,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [".eslintrc.json", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [".eslintrc.json", "vite.config.ts", "vite-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.svelte"],
   "exclude": ["node_modules"]
 }
