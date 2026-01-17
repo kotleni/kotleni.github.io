@@ -24,7 +24,7 @@
 </script>
 
 {#snippet statItem(label: string, value: string)}
-    <span class="mr-6">{label}: {value}</span>
+    <span class="mr-2">{label}: {value}</span>
 {/snippet}
 
 {#snippet projectBar(year: string, count: number)}
