@@ -8,60 +8,53 @@ import globals from 'globals';
 import svelteParser from 'svelte-eslint-parser';
 
 export default ts.config(
-    // 1. Global Ignores
     {
-        ignores: ['**/dist/', '**/build/', '.svelte-kit/', '.next/']
+        ignores: ['**/dist/', '**/build/'],
     },
 
-    // 2. Base Configurations
     js.configs.recommended,
     ...ts.configs.recommended,
     ...svelte.configs['flat/recommended'],
 
-    // 3. Plugin Setup & Global Rules
     {
         plugins: {
-            'n': n,
-            'prettier': prettierPlugin,
+            n: n,
+            prettier: prettierPlugin,
         },
         languageOptions: {
             globals: {
                 ...globals.browser,
                 ...globals.node,
-            }
+                APP_VERSION: 'readonly',
+            },
         },
         rules: {
             'prettier/prettier': 'error',
             'no-var': 'error',
             'prefer-const': 'error',
-            'eqeqeq': 'error',
-            'quotes': ['warn', 'single', { avoidEscape: true }],
+            eqeqeq: 'error',
+            quotes: ['warn', 'single', {avoidEscape: true}],
             'n/no-missing-import': 'off',
             'n/no-unsupported-features/es-syntax': 'off',
-        }
+        },
     },
-
-    // 4. Svelte Specific Config
     {
         files: ['**/*.svelte'],
         languageOptions: {
             parser: svelteParser,
             parserOptions: {
-                parser: ts.parser, // Handles the <script> tags
+                parser: ts.parser,
                 projectService: true,
                 extraFileExtensions: ['.svelte'],
                 tsconfigRootDir: import.meta.dirname,
-            }
+            },
         },
         rules: {
-            // Rules for TypeScript inside Svelte
             '@typescript-eslint/no-unused-vars': 'warn',
             '@typescript-eslint/no-floating-promises': 'error',
             '@typescript-eslint/no-explicit-any': 'warn',
-        }
+        },
     },
-
-    // 5. TypeScript Standalone Config
     {
         files: ['**/*.ts', '**/*.tsx'],
         languageOptions: {
@@ -69,10 +62,8 @@ export default ts.config(
             parserOptions: {
                 projectService: true,
                 tsconfigRootDir: import.meta.dirname,
-            }
-        }
+            },
+        },
     },
-
-    // 6. Prettier Override (MUST BE LAST)
-    prettierConfig
+    prettierConfig,
 );

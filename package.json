@@ -9,8 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
-    "lint": "eslint '**/*.ts*' && eslint '**/*.svelte'",
-    "format": "eslint --fix '**/*.ts*' && eslint --fix '**/*.svelte'"
+    "lint": "eslint \"**/*.{js,mjs,ts,svelte}\"",
+    "format": "eslint --fix \"**/*.{js,mjs,ts,svelte}\""
   },
   "engines": {
     "node": ">=21.0.0",
@@ -40,9 +40,11 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "clsx": "^2.1.1",
     "eslint-plugin-svelte": "^3.14.0",
     "globals": "^17.0.0",
+    "prettier-plugin-svelte": "^3.4.1",
     "svelte-eslint-parser": "^1.4.1",
     "svelte-spa-router": "^4.0.1",
     "tailwind-merge": "^3.4.0",

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Component } from "svelte";
+    import type {Component} from 'svelte';
 
     interface Props {
         label: string;
