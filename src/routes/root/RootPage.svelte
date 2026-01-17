@@ -38,7 +38,7 @@
                         counter += 1;
                         if (counter >= targetCount) {
                             console.log("Oh, that's was strange...");
-                            push('/nudes');
+                            void push('/nudes');
                         }
                     }}
                 >
