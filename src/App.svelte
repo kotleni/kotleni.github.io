@@ -18,6 +18,7 @@
                 '/blog': BlogPage,
                 '/blog/:postId': BlogPreviewPage,
 
+                '/not-found': NotFoundPage,
                 '*': NotFoundPage,
             }}
         />
