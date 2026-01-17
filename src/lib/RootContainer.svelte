@@ -1,8 +1,8 @@
 <script lang="ts">
+    import {cn} from '@/lib/utils';
     import type {Snippet} from 'svelte';
-    import PageNavigationLink from './PageNavigationLink.svelte';
-    import {cn} from './utils';
-    import StyledLink from './StyledLink.svelte';
+    import PageNavigationLink from '@/lib/PageNavigationLink.svelte';
+    import StyledLink from '@/lib/StyledLink.svelte';
 
     interface NavLinkInfo {
         title: string;

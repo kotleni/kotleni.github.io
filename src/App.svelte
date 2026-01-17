@@ -1,11 +1,11 @@
 <script lang="ts">
     import Router from 'svelte-spa-router';
-    import RootContainer from './lib/RootContainer.svelte';
+    import RootContainer from '@/lib/RootContainer.svelte';
 
-    import RootPage from './routes/root/RootPage.svelte';
-    import ProjectsPage from './routes/projects/ProjectsPage.svelte';
-    import BlogPage from './routes/blog/BlogPage.svelte';
-    import BlogPreviewPage from './routes/blogPreview/BlogPreviewPage.svelte';
+    import RootPage from '@/routes/root/RootPage.svelte';
+    import ProjectsPage from '@/routes/projects/ProjectsPage.svelte';
+    import BlogPage from '@/routes/blog/BlogPage.svelte';
+    import BlogPreviewPage from '@/routes/blogPreview/BlogPreviewPage.svelte';
 </script>
 
 <main>
