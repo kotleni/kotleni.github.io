@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta httpEquiv="Content-Security-Policy"
+          content="upgrade-insecure-requests" />
+    <title>kotleni's web</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- early loading styles and scripts-->  
+    <style>
+      :root {
+        color-scheme: light dark;
+
+        --background-light: oklch(1 0 0);
+        --foreground-light: oklch(0.141 0.005 285.823);
+        --background-dark: oklch(0.141 0.005 285.823);
+        --foreground-dark: oklch(0.985 0 0);
+      }
+      body {
+        color: light-dark(var(--foreground-light), var(--foreground-dark));
+        background-color: light-dark(var(--background-light), var(--background-dark));
+      }
+    </style>
+    <script>
+      const theme = localStorage.getItem('theme');
+			if (
+				theme === 'dark' ||
+				(!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only update if the user hasn't set a manual preference
+        if (!localStorage.getItem('theme')) {
+          if (e.matches) {
+              document.documentElement.classList.add('dark');
+          } else {
+              document.documentElement.classList.remove('dark');
+          }
+        }
+      });
+    </script>
+  </head>
+  <body class="w-full flex justify-center dark:bg-background dark:text-foreground">
+    <div class="w-full" id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
