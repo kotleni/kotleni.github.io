@@ -31,7 +31,11 @@
     <div
         class="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
     >
-        <p class="text-sm">This site is now running on <StyledLink href="https://svelte.dev/">Svelte</StyledLink>.</p>
+        <p class="text-sm">
+            This site is now running on <StyledLink href="https://svelte.dev/"
+                >Svelte</StyledLink
+            >.
+        </p>
     </div>
     <header class="flex flex-row justify-end p-3 md:p-0">
         <div class="flex flex-row gap-2">
