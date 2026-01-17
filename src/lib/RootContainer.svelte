@@ -44,9 +44,7 @@
             {/each}
         </div>
     </header>
-    <div>
-        <main class={cn('pb-4', 'h-full flex flex-col')}>
-            {@render children?.()}
-        </main>
+    <div class={cn('pb-4', 'w-full h-full flex flex-col')}>
+        {@render children?.()}
     </div>
 </div>

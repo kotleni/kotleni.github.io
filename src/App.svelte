@@ -5,10 +5,11 @@
     import RootPage from '@/routes/root/RootPage.svelte';
     import ProjectsPage from '@/routes/projects/ProjectsPage.svelte';
     import BlogPage from '@/routes/blog/BlogPage.svelte';
-    import BlogPreviewPage from '@/routes/blogPreview/BlogPreviewPage.svelte';
+    import BlogPreviewPage from '@/routes/blog-preview/BlogPreviewPage.svelte';
+    import NotFoundPage from './routes/not-found/NotFoundPage.svelte';
 </script>
 
-<main>
+<main class="w-full">
     <RootContainer>
         <Router
             routes={{
@@ -16,6 +17,8 @@
                 '/projects': ProjectsPage,
                 '/blog': BlogPage,
                 '/blog/:postId': BlogPreviewPage,
+
+                '*': NotFoundPage,
             }}
         />
     </RootContainer>
