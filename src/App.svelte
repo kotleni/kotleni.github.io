@@ -7,9 +7,13 @@
     import BlogPage from '@/routes/blog/BlogPage.svelte';
     import BlogPreviewPage from '@/routes/blog-preview/BlogPreviewPage.svelte';
     import NotFoundPage from './routes/not-found/NotFoundPage.svelte';
+    import NudesPage from './routes/nudes/NudesPage.svelte';
+
+    console.log('Hello, world!');
+    
 </script>
 
-<main class="w-full">
+<main class="w-full flex flex-col items-center">
     <RootContainer>
         <Router
             routes={{
@@ -17,6 +21,7 @@
                 '/projects': ProjectsPage,
                 '/blog': BlogPage,
                 '/blog/:postId': BlogPreviewPage,
+                '/nudes': NudesPage,
 
                 '/not-found': NotFoundPage,
                 '*': NotFoundPage,

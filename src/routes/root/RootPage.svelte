@@ -18,13 +18,28 @@
         skillsStack,
         skillsStackAdditional,
     } from '@/data/about';
+    import { push } from 'svelte-spa-router';
     const timeInfo = getKyivTimeZoneInfo();
+
+    const targetCount = 8;
+    let counter = $state(0);
 </script>
 
 <div class="flex flex-col gap-6 mt-2 text-foreground/90">
     <section class="flex flex-col gap-3">
         <div class="flex items-center justify-between">
-            <h1 class="text-3xl font-bold tracking-tight">Viktor Varenik</h1>
+            <h1 class="text-3xl font-bold tracking-tight">
+                Viktor Varenik
+                <!-- svelte-ignore a11y_click_events_have_key_events -->
+                <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+                <p class="text-sm opacity-60 cursor-pointer select-none" onclick={() => {
+                    counter += 1;
+                    if (counter >= targetCount) {
+                        console.log('Oh, that\'s was strange...');
+                        push('/nudes');
+                    }
+                }}>(kotleni)</p>
+            </h1>
             <div class="flex gap-3">
                 <SocialIcon
                     iconComponent={GmailIcon}
