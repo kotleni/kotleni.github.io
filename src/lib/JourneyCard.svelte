@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { cn } from "./utils";
+    import {cn} from './utils';
 
     interface Props {
         title: string;
@@ -30,8 +30,8 @@
                         hidden={companyUrl === undefined}
                         href={companyUrl}
                         class={cn(
-                            "underline",
-                            companyUrl === undefined ? "" : "text-primary",
+                            'underline',
+                            companyUrl === undefined ? '' : 'text-primary',
                         )}
                     >
                         {companyTitle}

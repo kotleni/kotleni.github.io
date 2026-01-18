@@ -180,7 +180,7 @@
             <JourneyCard
                 title="Front-end developer"
                 companyTitle="Intetics Team"
-                companyUrl='https://intetics.com/'
+                companyUrl="https://intetics.com/"
                 workingDates="nov 20224 - now"
                 description="Building web applications with React, Next.js, and TypeScript. I work on a diverse range of projects, from single-page apps to complex admin panels. Mainly as outsource."
             />
