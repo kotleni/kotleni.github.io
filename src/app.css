@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
-/* TODO: do i want to preload fonts? */
 @font-face {
   font-family: "mononoki";
+  font-display: swap;
   src: url("/fonts/mononoki-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
+  font-style: monospace;
 }
 
 @theme inline {
@@ -131,6 +131,6 @@
     @apply m-0 p-0;
     height: 100%;
     width: 100%;
-    font-family: 'mononoki', sans-serif;
+    font-family: 'mononoki', monospace;
   }
 }
