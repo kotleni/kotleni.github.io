@@ -262,8 +262,8 @@
             <StyledLink href={myUrls.telegram}>Telegram</StyledLink> or
             <StyledLink href={'mailto:' + myEmail}>
                 {myEmail}
-            </StyledLink>
-            . ask me anything about my work, projects, or anything else.
+            </StyledLink>. ask me anything about my work, projects, or anything
+            else.
         </p>
     </section>
 
