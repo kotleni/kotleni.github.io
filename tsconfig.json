@@ -1,29 +1,36 @@
 {
-  "extends": "./tsconfig-google.json",
-  "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
+    "extends": "./tsconfig-google.json",
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": [
+        ".eslintrc.json",
+        "vite.config.ts",
+        "vite-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.svelte"
     ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": [".eslintrc.json", "vite.config.ts", "vite-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.svelte"],
-  "exclude": ["node_modules"]
+    "exclude": ["node_modules"]
 }

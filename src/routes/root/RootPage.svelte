@@ -1,16 +1,5 @@
 <script lang="ts">
-    import GithubIcon from '@/lib/icons/GithubIcon.svelte';
-    import GmailIcon from '@/lib/icons/GmailIcon.svelte';
-    import LinkedInIcon from '@/lib/icons/LinkedInIcon.svelte';
-    import TelegramIcon from '@/lib/icons/TelegramIcon.svelte';
-
-    import DecimalAge from '@/lib/DecimalAge.svelte';
-    import SocialIcon from '@/lib/SocialIcon.svelte';
-    import StyledLink from '@/lib/StyledLink.svelte';
-    import Badge from '@/lib/Badge.svelte';
-    import JourneyCard from '@/lib/JourneyCard.svelte';
-    import {getKyivTimeZoneInfo} from '@/lib/utils';
-
+    import {push} from 'svelte-spa-router';
     import {
         aboutMe,
         myEmail,
@@ -18,7 +7,17 @@
         skillsStack,
         skillsStackAdditional,
     } from '@/data/about';
-    import {push} from 'svelte-spa-router';
+    import Badge from '@/lib/Badge.svelte';
+    import DecimalAge from '@/lib/DecimalAge.svelte';
+    import GithubIcon from '@/lib/icons/GithubIcon.svelte';
+    import GmailIcon from '@/lib/icons/GmailIcon.svelte';
+    import LinkedInIcon from '@/lib/icons/LinkedInIcon.svelte';
+    import TelegramIcon from '@/lib/icons/TelegramIcon.svelte';
+    import JourneyCard from '@/lib/JourneyCard.svelte';
+    import SocialIcon from '@/lib/SocialIcon.svelte';
+    import StyledLink from '@/lib/StyledLink.svelte';
+    import {getKyivTimeZoneInfo} from '@/lib/utils';
+
     const timeInfo = getKyivTimeZoneInfo();
 
     const targetCount = 8;

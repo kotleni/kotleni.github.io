@@ -1,6 +1,6 @@
 <script lang="ts">
-    import FancyHomeButton from '@/lib/FancyHomeButton.svelte';
     import {CloudOff} from '@lucide/svelte';
+    import FancyHomeButton from '@/lib/FancyHomeButton.svelte';
 </script>
 
 <div

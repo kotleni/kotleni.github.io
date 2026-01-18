@@ -1,11 +1,10 @@
 <script lang="ts">
     import Router from 'svelte-spa-router';
     import RootContainer from '@/lib/RootContainer.svelte';
-
-    import RootPage from '@/routes/root/RootPage.svelte';
-    import ProjectsPage from '@/routes/projects/ProjectsPage.svelte';
     import BlogPage from '@/routes/blog/BlogPage.svelte';
     import BlogPreviewPage from '@/routes/blog-preview/BlogPreviewPage.svelte';
+    import ProjectsPage from '@/routes/projects/ProjectsPage.svelte';
+    import RootPage from '@/routes/root/RootPage.svelte';
     import NotFoundPage from './routes/not-found/NotFoundPage.svelte';
     import NudesPage from './routes/nudes/NudesPage.svelte';
 

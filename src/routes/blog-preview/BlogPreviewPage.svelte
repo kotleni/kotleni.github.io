@@ -10,7 +10,7 @@
         postId: string;
     }
 
-    export let params: RouteParams = {postId: ''};
+    export const params: RouteParams = {postId: ''};
 
     const fetchPost = async (postId: string) => {
         try {

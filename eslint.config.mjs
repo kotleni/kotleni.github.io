@@ -1,11 +1,11 @@
 import js from '@eslint/js';
-import ts from 'typescript-eslint';
-import svelte from 'eslint-plugin-svelte';
 import prettierConfig from 'eslint-config-prettier';
-import prettierPlugin from 'eslint-plugin-prettier';
 import n from 'eslint-plugin-n';
+import prettierPlugin from 'eslint-plugin-prettier';
+import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import svelteParser from 'svelte-eslint-parser';
+import ts from 'typescript-eslint';
 
 export default ts.config(
     {

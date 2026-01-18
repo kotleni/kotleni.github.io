@@ -1,8 +1,8 @@
 <script lang="ts">
-    import {allMyProjects} from '@/data/projects';
     import type {Project} from '@/data/projects';
-    import Title from '@/lib/Title.svelte';
+    import {allMyProjects} from '@/data/projects';
     import StyledLink from '@/lib/StyledLink.svelte';
+    import Title from '@/lib/Title.svelte';
 
     const entries = Object.entries(allMyProjects);
     const totalProjects = entries.reduce(

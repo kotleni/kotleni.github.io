@@ -1,11 +1,11 @@
-import {defineConfig} from 'vite';
 import {svelte} from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from '@tailwindcss/vite';
 import {execSync} from 'child_process';
-import pkg from './package.json';
-import path from 'path';
-import markdownPrecompile from './build-src/markdown-precompile';
 import {FontaineTransform} from 'fontaine';
+import path from 'path';
+import {defineConfig} from 'vite';
+import markdownPrecompile from './build-src/markdown-precompile';
+import pkg from './package.json';
 
 const commitHash = execSync('git log --pretty=format:"%h" -n1')
     .toString()

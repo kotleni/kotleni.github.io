@@ -1,17 +1,17 @@
 {
-  "compilerOptions": {
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "composite": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2023"],
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "pretty": false,
-    "sourceMap": true,
-    "stripInternal": true,
-    "strict": true
-  },
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "composite": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["ES2023"],
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "pretty": false,
+        "sourceMap": true,
+        "stripInternal": true,
+        "strict": true
+    },
+    "exclude": ["node_modules"]
 }

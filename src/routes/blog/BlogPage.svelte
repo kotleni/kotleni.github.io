@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Title from '@/lib/Title.svelte';
     import type {Post} from '@/data/blog-posts';
     import {posts} from '@/data/blog-posts';
+    import Title from '@/lib/Title.svelte';
 </script>
 
 {#snippet postEntry(post: Post)}

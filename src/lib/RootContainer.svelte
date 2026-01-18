@@ -1,8 +1,8 @@
 <script lang="ts">
-    import {cn} from '@/lib/utils';
     import type {Snippet} from 'svelte';
     import PageNavigationLink from '@/lib/PageNavigationLink.svelte';
     import StyledLink from '@/lib/StyledLink.svelte';
+    import {cn} from '@/lib/utils';
 
     interface NavLinkInfo {
         title: string;
@@ -21,7 +21,7 @@
 
     const {children}: Props = $props();
 
-    let isMenuOpen = $state(false);
+    const isMenuOpen = $state(false);
 </script>
 
 <div
