@@ -178,18 +178,25 @@
         <p class="font-semibold">journey.</p>
         <div class="flex flex-col gap-6 pt-2">
             <JourneyCard
-                title="Android&iOS Developer"
-                companyTitle="AppLead Pro & VIPAPP & Gravity"
-                companyUrl={undefined}
-                workingDates="jan 2019 - dec 2024"
-                description="For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
+                title="Front-end developer"
+                companyTitle="Intetics Team"
+                companyUrl='https://intetics.com/'
+                workingDates="nov 20224 - now"
+                description="Building web applications with React, Next.js, and TypeScript. I work on a diverse range of projects, from single-page apps to complex admin panels. Mainly as outsource."
             />
             <JourneyCard
                 title="Full-stack Developer"
                 companyTitle="Freelance"
                 companyUrl={undefined}
                 workingDates="nov 2024 - now"
-                description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
+                description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Svelte, Vue and TypeScript to deliver production-ready code for my clients."
+            />
+            <JourneyCard
+                title="Android&iOS Developer"
+                companyTitle="AppLead Pro & VIPAPP & Gravity"
+                companyUrl={undefined}
+                workingDates="jan 2019 - dec 2024"
+                description="For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
             />
         </div>
     </section>
