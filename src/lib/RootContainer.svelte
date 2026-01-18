@@ -20,6 +20,8 @@
     ];
 
     const {children}: Props = $props();
+
+    let isMenuOpen = $state(false);
 </script>
 
 <div
@@ -38,10 +40,20 @@
         </p>
     </div>
     <header class="flex flex-row justify-end p-3 md:p-0">
-        <div class="flex flex-row gap-2">
-            {#each navLinks as link (link)}
+        <div class="flex flex-row flex-wrap gap-2">
+            {#each navLinks.slice(0, isMenuOpen ? 999 : 3) as link (link)}
                 <PageNavigationLink title={link.title} url={link.url} />
             {/each}
+            {#if navLinks.length > 3}
+                <button
+                    onclick={() => {
+                        isMenuOpen = !isMenuOpen;
+                    }}
+                    class="bold lg:p-2 text-lg md:text-base text-primary/60 hover:underline hover:text-primary cursor-pointer"
+                >
+                    {isMenuOpen ? '[less]' : '[more]'}
+                </button>
+            {/if}
         </div>
     </header>
     <div class={cn('pb-4', 'w-full h-full flex flex-col')}>
