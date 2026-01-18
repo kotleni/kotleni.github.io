@@ -112,7 +112,9 @@
                     class="flex justify-between items-center border-b border-border/50 pb-1"
                 >
                     <span class="font-bold">Age</span>
-                    <span class="text-muted-foreground text-right flex flex-row gap-1.5">
+                    <span
+                        class="text-muted-foreground text-right flex flex-row gap-1.5"
+                    >
                         <DecimalAge birthDate="2002-09-02T03:24:00" />
                         years
                     </span>
