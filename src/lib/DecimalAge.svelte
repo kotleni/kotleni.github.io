@@ -8,7 +8,7 @@
     const {birthDate}: Props = $props();
 
     const ONE_YEAR_IN_MS = 31556952000;
-    let preciseAge: string = $state('0');
+    let preciseAge: string = $state('00.000000000');
 
     const update = () => {
         const now = new Date().getTime();
