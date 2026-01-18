@@ -27,7 +27,7 @@
 <div
     class={cn(
         'flex flex-col',
-        'w-full md:container px-4 sm:px-12 md:px-28 lg:px-60 xl:px-72 2xl:px-99',
+        'w-full md:container px-4 sm:px-12 md:px-8 lg:px-40 xl:px-72 2xl:px-99',
     )}
 >
     <div
