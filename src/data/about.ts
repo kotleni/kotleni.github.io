@@ -31,18 +31,16 @@ export const skillsStack = [
     'linux',
     'docker',
     'vercel',
+    'biome',
+    'eslint'
 ];
 export const skillsStackAdditional = [
     'kotlin',
     'java',
     'swift',
-    'c#',
-    'php',
+    'clang',
+    'c++',
     'python',
     'android',
     'ios',
-    'unity',
-    'sdl',
-    'opengl',
-    'gsls',
 ];
