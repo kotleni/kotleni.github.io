@@ -19,6 +19,8 @@
         skillsStackAdditional,
     } from '@/data/about';
     import {push} from 'svelte-spa-router';
+    import {badges} from '@/data/badges';
+    import WebBadge from '@/lib/WebBadge.svelte';
     const timeInfo = getKyivTimeZoneInfo();
 
     const targetCount = 8;
@@ -265,6 +267,15 @@
             </StyledLink>. ask me anything about my work, projects, or anything
             else.
         </p>
+    </section>
+
+    <section class="mt-4">
+        <p class="font-semibold">badges.</p>
+        <div class="flex flex-row gap-2 flex-wrap">
+            {#each badges as badge (badge.label)}
+                <WebBadge {badge} />
+            {/each}
+        </div>
     </section>
 
     <section class="mt-4">
