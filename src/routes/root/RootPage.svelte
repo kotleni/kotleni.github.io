@@ -19,6 +19,8 @@
         skillsStackAdditional,
     } from '@/data/about';
     import {push} from 'svelte-spa-router';
+    import {badges} from '@/data/badges';
+    import WebBadge from '@/lib/WebBadge.svelte';
     const timeInfo = getKyivTimeZoneInfo();
 
     const targetCount = 8;
@@ -28,11 +30,11 @@
 <div class="flex flex-col gap-6 mt-2 text-foreground/90">
     <section class="flex flex-col gap-3">
         <div class="flex items-center justify-between">
-            <h1 class="text-3xl font-bold tracking-tight">
+            <div class="text-3xl font-bold tracking-tight">
                 Viktor Varenik
                 <!-- svelte-ignore a11y_click_events_have_key_events -->
-                <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-                <p
+                <!-- svelte-ignore a11y_no_static_element_interactions -->
+                <div
                     class="text-sm opacity-60 cursor-pointer select-none"
                     onclick={() => {
                         counter += 1;
@@ -43,8 +45,8 @@
                     }}
                 >
                     (kotleni)
-                </p>
-            </h1>
+                </div>
+            </div>
             <div class="flex gap-3">
                 <SocialIcon
                     iconComponent={GmailIcon}
@@ -265,6 +267,15 @@
             </StyledLink>. ask me anything about my work, projects, or anything
             else.
         </p>
+    </section>
+
+    <section class="mt-4">
+        <p class="font-semibold">badges.</p>
+        <div class="flex flex-row gap-2 flex-wrap">
+            {#each badges as badge (badge.label)}
+                <WebBadge {badge} />
+            {/each}
+        </div>
     </section>
 
     <section class="mt-4">
