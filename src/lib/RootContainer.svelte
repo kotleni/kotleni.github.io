@@ -2,7 +2,6 @@
     import {cn} from '@/lib/utils';
     import type {Snippet} from 'svelte';
     import PageNavigationLink from '@/lib/PageNavigationLink.svelte';
-    import StyledLink from '@/lib/StyledLink.svelte';
 
     interface NavLinkInfo {
         title: string;
@@ -33,10 +32,11 @@
     <div
         class="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
     >
-        <p class="text-sm">
-            This site is now running on <StyledLink href="https://svelte.dev/"
-                >Svelte</StyledLink
-            >.
+        <p class="texThis site is now running ot-sm">
+            Now with retro badges! <span
+                class="font-bold text-transparent bg-linear-to-r from-indigo-500 to-pink-600 bg-clip-text"
+                >For FREE!</span
+            >
         </p>
     </div>
     <header class="flex flex-row justify-end p-3 md:p-0">
