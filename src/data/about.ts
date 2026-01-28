@@ -32,7 +32,7 @@ export const skillsStack = [
     'docker',
     'vercel',
     'biome',
-    'eslint'
+    'eslint',
 ];
 export const skillsStackAdditional = [
     'kotlin',
