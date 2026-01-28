@@ -30,11 +30,11 @@
 <div class="flex flex-col gap-6 mt-2 text-foreground/90">
     <section class="flex flex-col gap-3">
         <div class="flex items-center justify-between">
-            <h1 class="text-3xl font-bold tracking-tight">
+            <div class="text-3xl font-bold tracking-tight">
                 Viktor Varenik
                 <!-- svelte-ignore a11y_click_events_have_key_events -->
-                <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-                <p
+                <!-- svelte-ignore a11y_no_static_element_interactions -->
+                <div
                     class="text-sm opacity-60 cursor-pointer select-none"
                     onclick={() => {
                         counter += 1;
@@ -45,8 +45,8 @@
                     }}
                 >
                     (kotleni)
-                </p>
-            </h1>
+                </div>
+            </div>
             <div class="flex gap-3">
                 <SocialIcon
                     iconComponent={GmailIcon}
