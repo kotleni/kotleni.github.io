@@ -31,13 +31,9 @@
 >
     <div
         class="w-full bg-accent flex flex-row justify-center items-center gap-2 p-1"
+        hidden={true}
     >
-        <p class="texThis site is now running ot-sm">
-            Now with retro badges! <span
-                class="font-bold text-transparent bg-linear-to-r from-indigo-500 to-pink-600 bg-clip-text"
-                >For FREE!</span
-            >
-        </p>
+        <p class="texThis site is now running ot-sm">Hello, world!</p>
     </div>
     <header class="flex flex-row justify-end p-3 md:p-0">
         <div class="flex flex-row flex-wrap gap-2">

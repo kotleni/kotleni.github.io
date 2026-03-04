@@ -1,13 +1,14 @@
 {
-    "plugins" : ["prettier-plugin-svelte"],
+    "plugins": ["prettier-plugin-svelte"],
     "bracketSpacing": false,
     "singleQuote": true,
     "trailingComma": "all",
     "arrowParens": "avoid",
     "tabWidth": 4,
+    "endOfLine": "lf",
     "overrides": [
         {
-            "files" : "*.svelte",
+            "files": "*.svelte",
             "options": {
                 "parser": "svelte"
             }
