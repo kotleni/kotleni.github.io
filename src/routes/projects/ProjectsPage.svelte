@@ -31,8 +31,8 @@
     {@const width = (count / maxCount) * 100}
     <div class="flex items-center gap-3">
         <div class="w-10 text-neutral-500 tabular-nums">{year}</div>
-        <div class="flex-1 h-3 bg-neutral-800">
-            <div class="h-full bg-neutral-500" style:width="{width}%"></div>
+        <div class="flex-1 h-3 bg-primary/20">
+            <div class="h-full bg-primary" style:width="{width}%"></div>
         </div>
         <div class="w-6 text-right text-neutral-400 tabular-nums">{count}</div>
     </div>
@@ -52,7 +52,9 @@
                         {project.name}
                     </StyledLink>
                 {:else}
-                    <span class="text-white font-medium">{project.name}</span>
+                    <span class="text-foreground/80 font-medium"
+                        >{project.name}</span
+                    >
                 {/if}
 
                 {#if !project.url}
@@ -64,7 +66,7 @@
                 <div class="flex flex-wrap gap-1.5">
                     {#each project.platforms as platform (platform)}
                         <span
-                            class="px-1.5 py-0.5 text-xs bg-neutral-800 text-neutral-400"
+                            class="px-1.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground dark:text-accent-foreground"
                         >
                             {platform}
                         </span>
