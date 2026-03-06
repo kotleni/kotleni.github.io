@@ -104,9 +104,13 @@
         <div class="mb-12 last:mb-0">
             <h2 class="font-semibold text-lg pb-3 text-white">{year}</h2>
             <div class="space-y-6">
-                {#each projects as project (project)}
-                    {@render projectCard(project)}
-                {/each}
+                {#if projects.length > 0}
+                    {#each projects as project (project)}
+                        {@render projectCard(project)}
+                    {/each}
+                {:else}
+                    <p class="text-foreground/50">Nothing yet.</p>
+                {/if}
             </div>
         </div>
     {/each}

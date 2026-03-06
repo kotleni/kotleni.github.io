@@ -34,6 +34,8 @@ const defineProject = (
     };
 };
 
+const projects2026: Project[] = [];
+
 const projects2025: Project[] = [
     defineProject(
         'ukrainemetro-web',
@@ -369,4 +371,5 @@ export const allMyProjects = {
     '2023': projects2023,
     '2024': projects2024,
     '2025': projects2025,
+    '2026': projects2026,
 };
