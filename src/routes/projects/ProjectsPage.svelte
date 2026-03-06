@@ -102,7 +102,7 @@
 
     {#each sortedEntries as [year, projects] (year)}
         <div class="mb-12 last:mb-0">
-            <h2 class="font-semibold text-lg pb-3 text-white">{year}</h2>
+            <h2 class="font-semibold text-lg pb-3 text-foreground">{year}</h2>
             <div class="space-y-6">
                 {#if projects.length > 0}
                     {#each projects as project (project)}
