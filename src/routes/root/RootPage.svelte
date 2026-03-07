@@ -121,14 +121,14 @@
                         years
                     </span>
                 </div>
-                <div
+                <!-- <div
                     class="flex justify-between items-center border-b border-border/50 pb-1"
                 >
                     <span class="font-bold">Education</span>
                     <span class="text-muted-foreground text-right">
                         Non-technical
                     </span>
-                </div>
+                </div> -->
             </div>
         </section>
 
