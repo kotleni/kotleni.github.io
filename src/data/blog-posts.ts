@@ -7,6 +7,13 @@ export interface Post {
 
 export const posts: Post[] = [
     {
+        title: 'Baking Markdown into HTML',
+        url: 'baking-markdown-into-html',
+        isNew: true,
+        description:
+            'For my blog posts I don’t use any heavy backend, CMS, or fancy admin panel — everything is just plain Markdown',
+    },
+    {
         title: 'My hosting infrastructure',
         url: 'hosting-infrastructure',
         isNew: false,
@@ -14,7 +21,7 @@ export const posts: Post[] = [
             'For non-production purposes, I have two servers: a VPS from OVHCloud and a home lab with a single HP EliteDesk',
     },
     {
-        title: 'Why i abandoned idea of using Asahi Linux',
+        title: 'Why I abandoned idea of using Asahi Linux',
         url: 'asahi-linux',
         isNew: false,
         description:
