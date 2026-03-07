@@ -21,7 +21,7 @@ export const posts: Post[] = [
             'For non-production purposes, I have two servers: a VPS from OVHCloud and a home lab with a single HP EliteDesk',
     },
     {
-        title: 'Why i abandoned idea of using Asahi Linux',
+        title: 'Why I abandoned idea of using Asahi Linux',
         url: 'asahi-linux',
         isNew: false,
         description:
