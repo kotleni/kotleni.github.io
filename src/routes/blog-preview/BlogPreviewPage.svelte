@@ -35,46 +35,45 @@
     .blog-post :global(h1) {
         font-size: 1.875rem;
         font-weight: 800;
-        margin-bottom: 1rem;
-        margin-top: 2rem;
-        color: white;
+        margin: 2rem 0 1rem 0;
+        color: var(--foreground);
     }
     .blog-post :global(h2) {
         font-size: 1.5rem;
         font-weight: 700;
-        margin-bottom: 0.75rem;
-        margin-top: 1.5rem;
-        color: white;
+        margin: 1.5rem 0 0.75rem 0;
+        color: var(--foreground);
     }
     .blog-post :global(h3) {
         font-size: 1.25rem;
         font-weight: 600;
-        margin-bottom: 0.5rem;
-        margin-top: 1.25rem;
+        margin: 1.25rem 0 0.5rem 0;
+        color: var(--foreground);
     }
     .blog-post :global(h4) {
         font-size: 1.125rem;
         font-weight: 600;
-        margin-bottom: 0.5rem;
-        margin-top: 1rem;
+        margin: 1rem 0 0.5rem 0;
+        color: var(--foreground);
     }
 
     .blog-post :global(p) {
         font-size: 1rem;
         line-height: 1.625;
         margin-bottom: 1rem;
-        color: #d4d4d4;
+        color: var(--foreground);
     }
+
     .blog-post :global(strong) {
         font-weight: 700;
-        color: white;
+        color: var(--foreground);
     }
     .blog-post :global(em) {
         font-style: italic;
     }
 
     .blog-post :global(a) {
-        color: var(--color-primary, #3b82f6);
+        color: var(--primary);
         text-decoration: none;
         font-weight: 500;
     }
@@ -82,42 +81,40 @@
         text-decoration: underline;
     }
 
+    .blog-post :global(ul),
+    .blog-post :global(ol) {
+        list-style-position: inside;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+    }
     .blog-post :global(ul) {
         list-style-type: disc;
-        list-style-position: inside;
-        margin-bottom: 1rem;
-        margin-left: 1rem;
     }
     .blog-post :global(ol) {
         list-style-type: decimal;
-        list-style-position: inside;
-        margin-bottom: 1rem;
-        margin-left: 1rem;
     }
     .blog-post :global(li) {
         margin-bottom: 0.5rem;
     }
 
-    /* Blockquote */
     .blog-post :global(blockquote) {
-        border-left: 4px solid #404040;
+        border-left: 4px solid var(--muted);
         padding-left: 1rem;
         font-style: italic;
         margin: 1.5rem 0;
-        color: #a3a3a3;
+        color: var(--muted-foreground);
     }
 
     .blog-post :global(pre) {
         padding: 1rem;
         overflow-x: auto;
         font-size: 0.875rem;
-        font-family:
-            ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        background-color: #171717; /* dark neutral */
-        color: #e5e5e5;
-        border-radius: 0.375rem;
+        font-family: 'mononoki', monospace;
+        background-color: var(--input);
+        color: var(--foreground);
+        border-radius: var(--radius-md);
         margin-bottom: 1.25rem;
-        border: 1px solid #262626;
+        border: 1px solid var(--border);
     }
 
     .blog-post :global(table) {
@@ -127,24 +124,31 @@
         margin: 1.5rem 0;
     }
     .blog-post :global(thead) {
-        background-color: #262626;
+        background-color: var(--card);
     }
     .blog-post :global(th) {
         padding: 0.75rem 1rem;
         font-weight: 700;
         font-size: 0.875rem;
         text-transform: uppercase;
-        color: #737373;
+        color: var(--card-foreground);
     }
     .blog-post :global(td) {
         padding: 0.75rem 1rem;
-        border-bottom: 1px solid #262626;
-        color: #d4d4d4;
+        border-bottom: 1px solid var(--border);
+        color: var(--foreground);
     }
 
     .blog-post :global(hr) {
         margin: 2.5rem 0;
         border: 0;
-        border-top: 1px solid #262626;
+        border-top: 1px solid var(--border);
+    }
+
+    .loading {
+        text-align: center;
+        font-size: 1rem;
+        padding: 2rem;
+        color: var(--foreground);
     }
 </style>
