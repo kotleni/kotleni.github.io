@@ -67,7 +67,6 @@ export const skillsStack = [
     'css',
     'reactjs',
     'vue',
-    'svelte',
     'nextjs',
     'nestjs',
     'expressjs',
