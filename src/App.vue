@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {useDark, usePreferredDark} from '@vueuse/core';
+
+usePreferredDark();
+useDark({
+    selector: 'html',
+    attribute: 'class',
+    valueDark: 'dark',
+    valueLight: '',
+});
+</script>
 
 <template>
     <main class="main">
