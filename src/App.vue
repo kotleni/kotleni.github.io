@@ -47,7 +47,8 @@ useDark({
 }
 @media screen and (width >= 900px) {
     .main {
-        width: 80%;
+        width: 70%;
+        max-width: 800px;
     }
 }
 </style>
