@@ -1,11 +1,11 @@
 import {defineConfig} from 'vite';
-import {svelte} from '@sveltejs/vite-plugin-svelte';
-import tailwindcss from '@tailwindcss/vite';
+import vue from '@vitejs/plugin-vue';
 import {execSync} from 'child_process';
 import pkg from './package.json';
 import path from 'path';
-import markdownPrecompile from './build-src/markdown-precompile';
+import tailwindcss from '@tailwindcss/vite';
 import {FontaineTransform} from 'fontaine';
+import markdownPrecompile from './build-src/markdown-precompile';
 
 const commitHash = execSync('git log --pretty=format:"%h" -n1')
     .toString()
@@ -22,7 +22,7 @@ const fontaineOptions = {
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [
-        svelte(),
+        vue(),
         tailwindcss(),
         markdownPrecompile(),
         FontaineTransform.vite(fontaineOptions),

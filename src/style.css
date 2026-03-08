@@ -55,7 +55,7 @@
 
 :root {
   --radius: 0.65rem;
-  --background: oklch(1 0 0);
+  --background: oklch(98.033% 0.00681 324.866);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
@@ -133,4 +133,31 @@
     width: 100%;
     font-family: 'mononoki', monospace;
   }
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+#app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: var(--primary); 
+}
+
+a:hover {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
 }
