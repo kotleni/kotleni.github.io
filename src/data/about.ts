@@ -39,6 +39,7 @@ export const journeyItems: Journey[] = [
     },
 ];
 
+export const birthDate = new Date('2002-09-02');
 export const helloLine = "Hey👋, I'm Viktor";
 export const aboutMe =
     'I’m a full-stack developer passionate about software\n' +

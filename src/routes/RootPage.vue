@@ -2,14 +2,27 @@
 import JourneyItem from '@/components/JourneyItem.vue';
 import {
     aboutMe,
+    birthDate,
     journeyItems,
     skillsStack,
     skillsStackAdditional,
     socials,
 } from '@/data/about';
 import {badges} from '@/data/badges';
+import {computed} from 'vue';
 
 const appVersion = APP_VERSION;
+
+const ageString = computed(() => {
+    const now = new Date();
+    let years = now.getFullYear() - birthDate.getFullYear();
+    let months = now.getMonth() - birthDate.getMonth();
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    return `${years} years, ${months} months`;
+});
 </script>
 
 <template>
@@ -51,7 +64,7 @@ const appVersion = APP_VERSION;
                 </div>
                 <div class="table-line">
                     <p class="field-title">Age</p>
-                    up 23 years, 6 months
+                    up {{ ageString }}
                 </div>
             </div>
             <div class="table-info-column">
