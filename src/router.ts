@@ -1,5 +1,5 @@
 import RootPage from '@/routes/RootPage.vue';
-import {createMemoryHistory, createRouter, RouteRecordRaw} from 'vue-router';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 import BlogPage from './routes/BlogPage.vue';
 import ReadPage from './routes/ReadPage.vue';
 
@@ -10,6 +10,6 @@ const routes: RouteRecordRaw[] = [
 ];
 
 export const router = createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes,
 });
