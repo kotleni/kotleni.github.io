@@ -154,7 +154,9 @@ body {
 }
 
 a {
-    color: var(--primary); 
+    color: var(--primary);
+    padding-left: 2px;
+    padding-right: 2px; 
 }
 
 a:hover {
