@@ -33,6 +33,7 @@ useDark({
 .topbar {
     width: 100%;
     padding: 8px;
+    margin-bottom: 16px;
 
     display: flex;
     flex-direction: column;
