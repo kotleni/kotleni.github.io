@@ -4,12 +4,12 @@ import {
     aboutMe,
     birthDate,
     journeyItems,
+    myEmail,
     skillsStack,
     skillsStackAdditional,
     socials,
 } from '@/data/about';
 import {badges} from '@/data/badges';
-import {posts} from '@/data/blog-posts';
 import {computed} from 'vue';
 
 const appVersion = APP_VERSION;
@@ -37,15 +37,21 @@ const ageString = computed(() => {
         </div>
         <div class="container socials-container">
             <h3>socials.</h3>
-            Interested in a conversation? Drop DM's over socials bellow. Ask me
-            anything about my work, projects, or anything else.
+            <div>
+                Interested in a conversation? Drop DM's over socials bellow, or
+                mail me at <a :href="'mailto:' + myEmail">{{ myEmail }}</a
+                >. Ask me anything about my work, projects, or anything else.
+            </div>
             <div class="socials-list">
                 <a
                     v-for="social in socials"
                     :key="social.name"
                     :href="social.url"
-                    >{{ social.name }}</a
+                    class="social-item"
                 >
+                    <component :is="social.icon" v-if="social.icon" />
+                    <template v-if="!social.icon">{{ social.name }}</template>
+                </a>
             </div>
         </div>
         <div class="container two-rows">
@@ -205,6 +211,11 @@ const ageString = computed(() => {
     display: flex;
     flex-direction: row;
     gap: 8px;
+}
+.socials-list svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
 }
 .skills-list {
     padding-top: 8px;

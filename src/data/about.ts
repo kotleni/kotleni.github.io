@@ -1,6 +1,13 @@
+import DiscordIcon from '@/components/icons/DiscordIcon.vue';
+import GithubIcon from '@/components/icons/GithubIcon.vue';
+import LinkedinIcon from '@/components/icons/LinkedinIcon.vue';
+import TelegramIcon from '@/components/icons/TelegramIcon.vue';
+import TwitterIcon from '@/components/icons/TwitterIcon.vue';
+import {Component} from 'vue';
+
 export interface Social {
     name: string;
-    icon: string | null;
+    icon: Component | null;
     url: string;
 }
 
@@ -48,16 +55,20 @@ export const aboutMe =
     'I also enjoy coding in C/C++ for fun, and previously developed Android and iOS applications.';
 export const myEmail = 'yavarenikya@gmail.com';
 export const socials: Social[] = [
-    {name: 'Email', icon: null, url: `mailto:${myEmail}`},
-    {name: 'Github', icon: null, url: 'https://github.com/kotleni'},
-    {name: 'Twitter', icon: null, url: 'https://x.com/kotleni_'},
-    {name: 'Linkedin', icon: null, url: 'https://www.linkedin.com/in/kotleni/'},
+    // {name: 'Email', icon: MailOpen, url: `mailto:${myEmail}`},
+    {name: 'Github', icon: GithubIcon, url: 'https://github.com/kotleni'},
+    {name: 'Twitter', icon: TwitterIcon, url: 'https://x.com/kotleni_'},
+    {
+        name: 'Linkedin',
+        icon: LinkedinIcon,
+        url: 'https://www.linkedin.com/in/kotleni/',
+    },
     {
         name: 'Discord',
-        icon: null,
+        icon: DiscordIcon,
         url: 'https://discord.com/users/420149869601357824',
     },
-    {name: 'Telegram', icon: null, url: 'https://t.me/kotleni'},
+    {name: 'Telegram', icon: TelegramIcon, url: 'https://t.me/kotleni'},
 ];
 
 export const skillsStack = [
