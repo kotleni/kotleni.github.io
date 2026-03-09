@@ -1,11 +1,11 @@
 import js from '@eslint/js';
 import ts from 'typescript-eslint';
-import svelte from 'eslint-plugin-svelte';
+import vue from 'eslint-plugin-vue';
+import vueParser from 'vue-eslint-parser';
 import prettierConfig from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 import n from 'eslint-plugin-n';
 import globals from 'globals';
-import svelteParser from 'svelte-eslint-parser';
 
 export default ts.config(
     {
@@ -14,11 +14,11 @@ export default ts.config(
 
     js.configs.recommended,
     ...ts.configs.recommended,
-    ...svelte.configs['flat/recommended'],
+    ...vue.configs['flat/recommended'],
 
     {
         plugins: {
-            n: n,
+            n,
             prettier: prettierPlugin,
         },
         languageOptions: {
@@ -39,13 +39,13 @@ export default ts.config(
         },
     },
     {
-        files: ['**/*.svelte'],
+        files: ['**/*.vue'],
         languageOptions: {
-            parser: svelteParser,
+            parser: vueParser,
             parserOptions: {
                 parser: ts.parser,
                 projectService: true,
-                extraFileExtensions: ['.svelte'],
+                extraFileExtensions: ['.vue'],
                 tsconfigRootDir: import.meta.dirname,
             },
         },
