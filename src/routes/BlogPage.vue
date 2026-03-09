@@ -33,6 +33,11 @@ import {posts} from '@/data/blog-posts';
     border: 0px solid var(--color-primary);
     border-radius: 6px;
 }
+@media screen and (width < 600px) {
+    .container {
+        border-radius: 0px;
+    }
+}
 .blog-list {
     width: 100%;
     padding-top: 8px;

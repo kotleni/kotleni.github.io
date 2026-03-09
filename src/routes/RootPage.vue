@@ -164,6 +164,11 @@ const ageString = computed(() => {
     border: 0px solid var(--color-primary);
     border-radius: 6px;
 }
+@media screen and (width < 600px) {
+    .container {
+        border-radius: 0px;
+    }
+}
 .two-rows {
     gap: 16px;
     display: flex;

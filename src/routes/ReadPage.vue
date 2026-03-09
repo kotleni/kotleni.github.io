@@ -26,13 +26,16 @@ watchEffect(async () => {
 </script>
 
 <template>
-    <div>
+    <div class="post-container">
         <div v-if="loading" class="loading">Loading post...</div>
         <div v-else class="blog-post" v-html="html" />
     </div>
 </template>
 
 <style>
+.post-container {
+    padding: 16px;
+}
 .blog-post h1 {
     font-size: 1.875rem;
     font-weight: 800;
