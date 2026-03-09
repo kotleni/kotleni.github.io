@@ -13,9 +13,16 @@ useDark({
 <template>
     <main class="main">
         <div class="topbar">
-            kotleni's web
+            <span class="page-title"
+                ><img
+                    class="page-icon"
+                    width="16"
+                    src="/favicon.svg"
+                />kotleni's web</span
+            >
             <nav class="navbar">
                 <RouterLink class="link" to="/">Home</RouterLink>
+                <RouterLink class="link" to="/blog">Blog</RouterLink>
             </nav>
         </div>
         <RouterView />
@@ -37,7 +44,7 @@ useDark({
 
     display: flex;
     justify-content: center;
-    gap: 4px;
+    gap: 8px;
 }
 .main {
     width: 100%;
@@ -49,6 +56,20 @@ useDark({
     .main {
         width: 70%;
         max-width: 800px;
+    }
+}
+.page-title {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
     }
 }
 </style>

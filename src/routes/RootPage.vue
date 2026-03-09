@@ -9,6 +9,7 @@ import {
     socials,
 } from '@/data/about';
 import {badges} from '@/data/badges';
+import {posts} from '@/data/blog-posts';
 import {computed} from 'vue';
 
 const appVersion = APP_VERSION;
