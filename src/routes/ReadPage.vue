@@ -26,34 +26,31 @@ watchEffect(async () => {
 </script>
 
 <template>
-    <div v-if="loading" class="loading">Loading post...</div>
-
-    <div v-else class="blog-post" v-html="html" />
+    <div>
+        <div v-if="loading" class="loading">Loading post...</div>
+        <div v-else class="blog-post" v-html="html" />
+    </div>
 </template>
 
 <style>
 .blog-post h1 {
     font-size: 1.875rem;
     font-weight: 800;
-    margin: 2rem 0 1rem 0;
     color: var(--foreground);
 }
 .blog-post h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    margin: 1.5rem 0 0.75rem 0;
     color: var(--foreground);
 }
 .blog-post h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    margin: 1.25rem 0 0.5rem 0;
     color: var(--foreground);
 }
 .blog-post h4 {
     font-size: 1.125rem;
     font-weight: 600;
-    margin: 1rem 0 0.5rem 0;
     color: var(--foreground);
 }
 
