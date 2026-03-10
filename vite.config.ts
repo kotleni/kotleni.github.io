@@ -3,7 +3,6 @@ import vue from '@vitejs/plugin-vue';
 import {execSync} from 'child_process';
 import pkg from './package.json';
 import path from 'path';
-import tailwindcss from '@tailwindcss/vite';
 import {FontaineTransform} from 'fontaine';
 import markdownPrecompile from './build-src/markdown-precompile';
 
@@ -23,7 +22,6 @@ const fontaineOptions = {
 export default defineConfig({
     plugins: [
         vue(),
-        tailwindcss(),
         markdownPrecompile(),
         FontaineTransform.vite(fontaineOptions),
     ],
