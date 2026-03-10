@@ -1,12 +1,5 @@
-@font-face {
-  font-family: "mononoki";
-  font-display: swap;
-  src: url("/fonts/mononoki-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: monospace;
-}
-
-@theme inline {
+:root {
+  /*  bind tailwindcss like variables */
   --blocks-top-margin: 40px;
   --blocks-padding-mobile: 16px;
   --blocks-padding: 8px;
@@ -49,9 +42,7 @@
 
   --navigation-bar-height: 48px;
   --navigation-bar: var(--sidebar);
-}
 
-:root {
   --radius: 0.65rem;
   --background: oklch(98.033% 0.00681 324.866);
   --foreground: oklch(0.141 0.005 285.823);
@@ -120,17 +111,24 @@
   --sidebar-ring: oklch(0.527 0.154 150.069);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-    box-sizing: border-box;
-  }
-  html, body {
-    @apply m-0 p-0;
-    height: 100%;
-    width: 100%;
-    font-family: 'mononoki', monospace;
-  }
+@font-face {
+  font-family: "mononoki";
+  font-display: swap;
+  src: url("/fonts/mononoki-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'mononoki', monospace;
 }
 
 html {
