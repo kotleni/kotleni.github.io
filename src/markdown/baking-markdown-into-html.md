@@ -13,8 +13,8 @@ But how could I load Markdown content on my website? One option was to use libra
 
 ## What I build
 Since I use Vite as project bundler, I can write custom plugins for it. 
-So that’s exactly what I did. The source code is here: <a href="https://github.com/kotleni/kotleni.github.io/blob/efc0543ebe118a253c2b7bd09892ec48be58e63b/build-src/markdown-precompile.ts" target="_blank">markdown-precompile.ts</a>.
+So that’s exactly what I did. The source code is here: <a href="https://github.com/kotleni/kotleni.github.io/blob/d725c9abc856e817693fd17ec89fdf05383f8f61/build-src/markdown-precompile.ts" target="_blank">/build-src/markdown-precompile.ts</a>.
 
 The plugin uses the popular npm package <a href="https://www.npmjs.com/package/showdown" target="_blank">showdown</a> to convert Markdown to HTML and bundles everything into a newly generated JavaScript object.
 
-When someone opens a blog post, the page simply fetches the corresponding `.js` file and injects the content. For more details on how it’s used, check <a href="https://github.com/kotleni/kotleni.github.io/blob/efc0543ebe118a253c2b7bd09892ec48be58e63b/src/routes/blog-preview/BlogPreviewPage.svelte" target="_blank">BlogPreviewPage.svelte</a>.
+When someone opens a blog post, the page simply fetches the corresponding `.js` file and injects the content. For more details on how it’s used, check <a href="https://github.com/kotleni/kotleni.github.io/blob/d725c9abc856e817693fd17ec89fdf05383f8f61/src/routes/ReadPage.vue" target="_blank">/src/routes/ReadPage.vue</a>.
