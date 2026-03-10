@@ -48,4 +48,9 @@ export const badges: Badge[] = [
         imageUrl: '/badges/this-website-is-gay.gif',
         targetUrl: '#',
     },
+    {
+        label: 'YourAdHere',
+        imageUrl: '/badges/your-ad-here.png',
+        targetUrl: 'mailto:yavarenikya@gmail.com',
+    },
 ];

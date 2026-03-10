@@ -25,6 +25,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [".eslintrc.json", "vite.config.ts", "vite-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.svelte"],
+  "include": [".eslintrc.json", "vite.config.ts", "vite-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.vue"],
   "exclude": ["node_modules"]
 }
