@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useDark, usePreferredDark} from '@vueuse/core';
+import RainOverlay from './components/RainOverlay.vue';
 
 usePreferredDark();
 useDark({
@@ -30,6 +31,7 @@ useDark({
                 <component :is="Component" />
             </Transition>
         </RouterView>
+        <RainOverlay />
     </main>
 </template>
 
