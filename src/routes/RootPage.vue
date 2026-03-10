@@ -174,6 +174,15 @@ const ageString = computed(() => {
     display: flex;
     flex-direction: row;
 }
+@media screen and (width < 600px) {
+    .two-rows {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .table-line {
+        align-items: center;
+    }
+}
 .table-info-column {
     display: flex;
     flex-direction: column;
