@@ -179,23 +179,21 @@ const ageString = computed(() => {
         flex-direction: column;
         gap: 12px;
     }
-    .table-line {
-        align-items: center;
-    }
 }
 .table-info-column {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0px;
     flex-grow: 1;
 }
 .table-line {
-    padding-bottom: 4px;
+    padding-bottom: 0px;
 
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 4px;
     justify-content: space-between;
+    align-items: center;
 
     border-color: var(--color-muted);
     border-bottom-style: solid;
