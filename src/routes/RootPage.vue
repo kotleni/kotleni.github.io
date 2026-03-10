@@ -244,6 +244,9 @@ const ageString = computed(() => {
 
     font-size: 0.875rem;
 }
+.skill-chip:hover {
+    background-color: var(--color-primary);
+}
 .subtitle {
     padding-top: 16px;
     font-size: 0.9rem;
