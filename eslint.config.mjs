@@ -29,7 +29,8 @@ export default ts.config(
             },
         },
         rules: {
-            'prettier/prettier': 'error',
+            'prettier/prettier': ['error', {endOfLine: 'lf'}],
+            'linebreak-style': ['error', 'unix'],
             'no-var': 'error',
             'prefer-const': 'error',
             eqeqeq: 'error',
