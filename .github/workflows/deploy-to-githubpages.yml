@@ -34,7 +34,7 @@ jobs:
         run: bun install
 
       - name: Build with Vite
-        run: bun run vite build
+        run: bun run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
