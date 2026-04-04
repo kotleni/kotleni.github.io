@@ -24,7 +24,7 @@ export default function BlogPage() {
                     >
                         <div className="flex flex-row items-center gap-2 md:flex-col md:items-start">
                             <span className="font-mono text-[0.74rem] tracking-[0.12em] text-muted-ink">
-                                {String(index + 1).padStart(2, '0')}
+                                {String(posts.length - index).padStart(2, '0')}
                             </span>
                             {post.isNew ? (
                                 <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-accent">
