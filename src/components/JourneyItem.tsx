@@ -20,7 +20,9 @@ export default function JourneyItem({
             <div className="w-full">
                 <div className="flex flex-col gap-[18px] md:flex-row md:items-start md:justify-between">
                     <div className="text-[0.95rem]">
-                        <p className="m-0 text-[1.08rem] leading-[1.25]">{title}</p>
+                        <p className="m-0 text-[1.08rem] leading-[1.25]">
+                            {title}
+                        </p>
 
                         {companyTitle ? (
                             <div className="flex flex-wrap items-center gap-1.5 text-muted-ink">
