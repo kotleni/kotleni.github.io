@@ -1,6 +1,12 @@
 import {Link} from 'react-router-dom';
 import {posts} from '@/data/blog-posts';
 
+const postDateFormatter = new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+});
+
 export default function BlogPage() {
     return (
         <section className="relative flex flex-col gap-[26px] border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px]">
@@ -35,6 +41,14 @@ export default function BlogPage() {
                                         New!
                                     </span>
                                 ) : null}
+                                <time
+                                    dateTime={post.publishedAt}
+                                    className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted-ink"
+                                >
+                                    {postDateFormatter.format(
+                                        new Date(post.publishedAt),
+                                    )}
+                                </time>
                             </div>
                             <div className="min-w-0">
                                 <div className="flex items-center gap-3">
