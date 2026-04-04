@@ -1,13 +1,15 @@
-import DiscordIcon from '@/components/icons/DiscordIcon.vue';
-import GithubIcon from '@/components/icons/GithubIcon.vue';
-import LinkedinIcon from '@/components/icons/LinkedinIcon.vue';
-import TelegramIcon from '@/components/icons/TelegramIcon.vue';
-import TwitterIcon from '@/components/icons/TwitterIcon.vue';
-import {Component} from 'vue';
+import type {ComponentType, SVGProps} from 'react';
+import DiscordIcon from '@/components/icons/DiscordIcon';
+import GithubIcon from '@/components/icons/GithubIcon';
+import LinkedinIcon from '@/components/icons/LinkedinIcon';
+import TelegramIcon from '@/components/icons/TelegramIcon';
+import TwitterIcon from '@/components/icons/TwitterIcon';
+
+type SocialIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
 export interface Social {
     name: string;
-    icon: Component | null;
+    icon: SocialIcon | null;
     url: string;
 }
 
@@ -26,36 +28,32 @@ export const journeyItems: Journey[] = [
         companyUrl: 'https://intetics.com/',
         date: 'nov 2024 - now',
         description:
-            'Building web applications with React, Next.js, and TypeScript. I work on a diverse range of projects, from single-page apps to complex admin panels. Mainly as outsource.',
+            'Building web applications with React, Next.js, and TypeScript. I work on a diverse range of projects, from single-page apps to complex admin panels, mainly in outsource teams.',
     },
     {
         title: 'Full-stack developer',
         companyName: 'Freelance',
         companyUrl: null,
-        date: 'now 2024 - now',
+        date: 'nov 2024 - now',
         description:
-            'As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Svelte, Vue and TypeScript to deliver production-ready code for my clients.',
+            'As a freelance developer, I take full ownership of building modern web applications. I use a stack including React, Svelte, Vue, and TypeScript to deliver production-ready code for clients.',
     },
     {
-        title: 'Android&iOS developer',
-        companyName: 'AppLead Pro & VIPAPP & Gravity',
+        title: 'Android & iOS developer',
+        companyName: 'AppLead Pro, VIPAPP, Gravity',
         companyUrl: null,
         date: 'jan 2019 - dec 2024',
         description:
-            'For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift).',
+            'For more than four years, I was deeply immersed in native mobile development, building, launching, and maintaining applications for both Android with Kotlin and iOS with Swift.',
     },
 ];
 
 export const birthDate = new Date('2002-09-02');
-export const helloLine = "Hey👋, I'm Viktor";
 export const aboutMe =
-    'I’m a full-stack developer passionate about software\n' +
-    '                    freedom, creating and contributing to open source projects\n' +
-    '                    that put users back in control of their data and technology.\n' +
-    'I also enjoy coding in C/C++ for fun, and previously developed Android and iOS applications.';
+    "I'm a full-stack developer passionate about software freedom, creating and contributing to open source projects that put users back in control of their data and technology. I also enjoy coding in C/C++ for fun, and previously developed Android and iOS applications.";
 export const myEmail = 'yavarenikya@gmail.com';
+
 export const socials: Social[] = [
-    // {name: 'Email', icon: MailOpen, url: `mailto:${myEmail}`},
     {name: 'Github', icon: GithubIcon, url: 'https://github.com/kotleni'},
     {name: 'Twitter', icon: TwitterIcon, url: 'https://x.com/kotleni_'},
     {
@@ -95,6 +93,7 @@ export const skillsStack = [
     'biome',
     'eslint',
 ];
+
 export const skillsStackAdditional = [
     'kotlin',
     'java',

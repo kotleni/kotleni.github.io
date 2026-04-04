@@ -1,6 +1,6 @@
 <p align="center">
   <b>Personal website & portfolio</b><br>
-  Built with Vite, Vue.js, TypeScript, and love.
+  Built with Vite, React, TypeScript, and love.
 </p>
 
 <p align="center">

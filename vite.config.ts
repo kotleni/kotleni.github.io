@@ -1,9 +1,10 @@
-import {defineConfig} from 'vite';
-import vue from '@vitejs/plugin-vue';
 import {execSync} from 'child_process';
-import pkg from './package.json';
 import path from 'path';
+import {defineConfig} from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import {FontaineTransform} from 'fontaine';
+import pkg from './package.json';
 import markdownPrecompile from './build-src/markdown-precompile';
 
 const commitHash = execSync('git log --pretty=format:"%h" -n1')
@@ -18,10 +19,10 @@ const fontaineOptions = {
     resolvePath: (id: string) => new URL(`./public${id}`, import.meta.url),
 };
 
-// https://vite.dev/config/
 export default defineConfig({
     plugins: [
-        vue(),
+        tailwindcss(),
+        react(),
         markdownPrecompile(),
         FontaineTransform.vite(fontaineOptions),
     ],
