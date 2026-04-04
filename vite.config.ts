@@ -2,6 +2,7 @@ import {execSync} from 'child_process';
 import path from 'path';
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import {FontaineTransform} from 'fontaine';
 import pkg from './package.json';
 import markdownPrecompile from './build-src/markdown-precompile';
@@ -20,6 +21,7 @@ const fontaineOptions = {
 
 export default defineConfig({
     plugins: [
+        tailwindcss(),
         react(),
         markdownPrecompile(),
         FontaineTransform.vite(fontaineOptions),

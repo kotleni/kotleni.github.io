@@ -90,5 +90,10 @@ export default function RainOverlay() {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="rn-ov" />;
+    return (
+        <canvas
+            ref={canvasRef}
+            className="pointer-events-none fixed inset-0 z-[99999] h-screen w-screen mix-blend-multiply opacity-15"
+        />
+    );
 }

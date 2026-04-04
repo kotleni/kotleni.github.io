@@ -55,16 +55,20 @@ export default function ReadPage() {
     }, [postId]);
 
     return (
-        <div className="post-container">
+        <div className="w-full">
             {loading ? (
-                <div className="post-shell loading">Loading post...</div>
+                <div className="relative flex min-h-[280px] items-center justify-center border border-line bg-panel px-[18px] py-7 text-muted-ink shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px]">
+                    Loading post...
+                </div>
             ) : (
-                <article className="post-shell post-card">
-                    <div className="reading-rail">
-                        <span className="reading-label">Read</span>
+                <article className="relative grid gap-7 border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:grid-cols-[100px_minmax(0,1fr)] md:px-[30px]">
+                    <div className="pt-2">
+                        <span className="inline-block bg-brand px-2 py-[7px] font-mono text-[0.74rem] uppercase tracking-[0.12em] text-white">
+                            Read
+                        </span>
                     </div>
                     <div
-                        className="blog-post"
+                        className="markdown min-w-0 max-w-[72ch]"
                         dangerouslySetInnerHTML={{__html: html ?? ''}}
                     />
                 </article>
