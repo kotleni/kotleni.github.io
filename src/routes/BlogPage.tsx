@@ -18,34 +18,36 @@ export default function BlogPage() {
             </div>
             <div className="flex flex-col gap-3.5">
                 {posts.map((post, index) => (
-                    <article
-                        key={post.title}
-                        className="grid gap-5 border border-line bg-panel-strong p-4 transition hover:translate-x-[5px] hover:border-line-strong max-[560px]:hover:translate-x-0 md:grid-cols-[92px_minmax(0,1fr)]"
-                    >
-                        <div className="flex flex-row items-center gap-2 md:flex-col md:items-start">
-                            <span className="font-mono text-[0.74rem] tracking-[0.12em] text-muted-ink">
-                                {String(posts.length - index).padStart(2, '0')}
-                            </span>
-                            {post.isNew ? (
-                                <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-accent">
-                                    New!
+                    <Link to={`/blog/${post.url}`}>
+                        <article
+                            key={post.title}
+                            className="grid gap-5 border border-line bg-panel-strong p-4 transition hover:translate-x-[5px] hover:border-line-strong max-[560px]:hover:translate-x-0 md:grid-cols-[92px_minmax(0,1fr)]"
+                        >
+                            <div className="flex flex-row items-center gap-2 md:flex-col md:items-start">
+                                <span className="font-mono text-[0.74rem] tracking-[0.12em] text-muted-ink">
+                                    {String(posts.length - index).padStart(
+                                        2,
+                                        '0',
+                                    )}
                                 </span>
-                            ) : null}
-                        </div>
-                        <div className="min-w-0">
-                            <div className="flex items-center gap-3">
-                                <Link
-                                    className="text-[clamp(1.12rem,2vw,1.42rem)] leading-[1.15] font-bold text-inherit no-underline hover:text-brand-strong"
-                                    to={`/blog/${post.url}`}
-                                >
-                                    {post.title}
-                                </Link>
+                                {post.isNew ? (
+                                    <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-accent">
+                                        New!
+                                    </span>
+                                ) : null}
                             </div>
-                            <p className="mt-2.5 mb-0 max-w-[62ch] text-muted-ink">
-                                {post.description}...
-                            </p>
-                        </div>
-                    </article>
+                            <div className="min-w-0">
+                                <div className="flex items-center gap-3">
+                                    <span className="text-[clamp(1.12rem,2vw,1.42rem)] leading-[1.15] font-bold text-inherit no-underline hover:text-brand-strong">
+                                        {post.title}
+                                    </span>
+                                </div>
+                                <p className="mt-2.5 mb-0 max-w-[62ch] text-muted-ink">
+                                    {post.description}...
+                                </p>
+                            </div>
+                        </article>
+                    </Link>
                 ))}
             </div>
         </section>
