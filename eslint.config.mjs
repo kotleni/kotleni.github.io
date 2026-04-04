@@ -1,27 +1,29 @@
 import js from '@eslint/js';
-import ts from 'typescript-eslint';
-import vue from 'eslint-plugin-vue';
-import vueParser from 'vue-eslint-parser';
 import prettierConfig from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 import n from 'eslint-plugin-n';
+import reactHooks from 'eslint-plugin-react-hooks';
+import ts from 'typescript-eslint';
 import globals from 'globals';
 
 export default ts.config(
     {
         ignores: ['**/dist/', '**/build/'],
     },
-
     js.configs.recommended,
     ...ts.configs.recommended,
-    ...vue.configs['flat/recommended'],
-
     {
+        files: ['**/*.{ts,tsx}'],
         plugins: {
             n,
             prettier: prettierPlugin,
+            'react-hooks': reactHooks,
         },
         languageOptions: {
+            parserOptions: {
+                projectService: true,
+                tsconfigRootDir: import.meta.dirname,
+            },
             globals: {
                 ...globals.browser,
                 ...globals.node,
@@ -29,6 +31,7 @@ export default ts.config(
             },
         },
         rules: {
+            ...reactHooks.configs.recommended.rules,
             'prettier/prettier': ['error', {endOfLine: 'lf'}],
             'linebreak-style': ['error', 'unix'],
             'no-var': 'error',
@@ -40,30 +43,26 @@ export default ts.config(
         },
     },
     {
-        files: ['**/*.vue'],
+        files: ['**/*.mjs'],
+        plugins: {
+            n,
+            prettier: prettierPlugin,
+        },
         languageOptions: {
-            parser: vueParser,
-            parserOptions: {
-                parser: ts.parser,
-                projectService: true,
-                extraFileExtensions: ['.vue'],
-                tsconfigRootDir: import.meta.dirname,
+            globals: {
+                ...globals.browser,
+                ...globals.node,
             },
         },
         rules: {
-            '@typescript-eslint/no-unused-vars': 'warn',
-            '@typescript-eslint/no-floating-promises': 'error',
-            '@typescript-eslint/no-explicit-any': 'warn',
-        },
-    },
-    {
-        files: ['**/*.ts', '**/*.tsx'],
-        languageOptions: {
-            parser: ts.parser,
-            parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname,
-            },
+            'prettier/prettier': ['error', {endOfLine: 'lf'}],
+            'linebreak-style': ['error', 'unix'],
+            'no-var': 'error',
+            'prefer-const': 'error',
+            eqeqeq: 'error',
+            quotes: ['warn', 'single', {avoidEscape: true}],
+            'n/no-missing-import': 'off',
+            'n/no-unsupported-features/es-syntax': 'off',
         },
     },
     prettierConfig,
