@@ -1,114 +1,61 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  /*  bind tailwindcss like variables */
-  --blocks-top-margin: 40px;
-  --blocks-padding-mobile: 16px;
-  --blocks-padding: 8px;
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-
-  --navigation-bar-height: 48px;
-  --navigation-bar: var(--sidebar);
-
-  --radius: 0.65rem;
-  --background: oklch(98.033% 0.00681 324.866);
-  --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.69 0.075 334.93);
-  --primary-foreground: oklch(0.982 0.018 155.826);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.69 0.075 334.93);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.723 0.219 149.579);
-  --sidebar-primary-foreground: oklch(0.982 0.018 155.826);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.723 0.219 149.579);
+  --app-font-sans: "Trebuchet MS", "Segoe UI", sans-serif;
+  --app-font-mono: "mononoki", "Consolas", monospace;
+  --app-canvas: #ece5da;
+  --app-panel: #f7f1e7;
+  --app-panel-strong: #fffaf3;
+  --app-ink: #182232;
+  --app-muted-ink: #5d6473;
+  --app-brand: #0f5db8;
+  --app-brand-strong: #0a4486;
+  --app-accent: #cf623d;
+  --app-highlight: #e3b64d;
+  --app-danger: #b8473a;
+  --app-line: #cfc2af;
+  --app-line-strong: #9aadcb;
+  --app-ring: rgb(15 93 184 / 0.35);
+  --app-shadow-panel: 0 16px 40px rgb(24 34 50 / 0.08);
+  --app-selection: rgb(15 93 184 / 0.16);
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.69 0.075 334.93);
-  --primary-foreground: oklch(0.393 0.095 152.535);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.69 0.075 334.93);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.696 0.17 162.48);
-  --sidebar-primary-foreground: oklch(0.393 0.095 152.535);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.527 0.154 150.069);
+  --app-canvas: #111824;
+  --app-panel: #182131;
+  --app-panel-strong: #202b3d;
+  --app-ink: #f4edde;
+  --app-muted-ink: #a6b0c0;
+  --app-brand: #79aefc;
+  --app-brand-strong: #9bc3ff;
+  --app-accent: #ff8b61;
+  --app-highlight: #f0c45a;
+  --app-danger: #f07167;
+  --app-line: #324056;
+  --app-line-strong: #698ec8;
+  --app-ring: rgb(121 174 252 / 0.4);
+  --app-shadow-panel: 0 18px 48px rgb(0 0 0 / 0.3);
+  --app-selection: rgb(121 174 252 / 0.22);
+}
+
+@theme inline {
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+  --color-canvas: var(--app-canvas);
+  --color-panel: var(--app-panel);
+  --color-panel-strong: var(--app-panel-strong);
+  --color-ink: var(--app-ink);
+  --color-muted-ink: var(--app-muted-ink);
+  --color-brand: var(--app-brand);
+  --color-brand-strong: var(--app-brand-strong);
+  --color-accent: var(--app-accent);
+  --color-highlight: var(--app-highlight);
+  --color-danger: var(--app-danger);
+  --color-line: var(--app-line);
+  --color-line-strong: var(--app-line-strong);
+  --shadow-panel: var(--app-shadow-panel);
 }
 
 @font-face {
@@ -116,44 +63,216 @@
   font-display: swap;
   src: url("/fonts/mononoki-Regular.woff2") format("woff2");
   font-weight: 400;
-  font-style: monospace;
+  font-style: normal;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+html,
+body,
+#app {
   width: 100%;
-  font-family: 'mononoki', monospace;
+  min-height: 100%;
 }
 
 html {
-    width: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-    width: 100%;
-    
-    background-color: var(--background);
-    color: var(--foreground);
+  margin: 0;
+  background: var(--app-canvas);
+  color: var(--app-ink);
+  font-family: var(--app-font-sans);
+  line-height: 1.6;
 }
 
-#app {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+::selection {
+  background: var(--app-selection);
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
-    color: var(--primary);
+  color: var(--app-brand);
+  text-decoration-color: rgb(15 93 184 / 0.35);
+  text-underline-offset: 0.18em;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 a:hover {
-    color: var(--foreground);
-    background-color: var(--primary);
+  color: var(--app-brand-strong);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--app-ring);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  color: var(--app-ink);
+  line-height: 1.08;
+}
+
+.markdown h1 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: -0.06em;
+}
+
+.markdown h2 {
+  margin: 2.4rem 0 1rem;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: -0.04em;
+}
+
+.markdown h3 {
+  margin: 1.8rem 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.markdown h4 {
+  margin: 1.4rem 0 0.6rem;
+  font-size: 1.08rem;
+}
+
+.markdown p,
+.markdown li {
+  font-size: 1rem;
+  line-height: 1.82;
+  color: color-mix(in srgb, var(--app-ink) 92%, var(--app-muted-ink) 8%);
+}
+
+.markdown strong {
+  color: var(--app-ink);
+}
+
+.markdown a {
+  color: var(--app-brand);
+}
+
+.markdown code {
+  padding: 0.16rem 0.38rem;
+  background: color-mix(in srgb, var(--app-ink) 8%, var(--app-panel-strong) 92%);
+  font-family: var(--app-font-mono);
+  font-size: 0.92em;
+}
+
+.markdown pre {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.2rem;
+  overflow-x: auto;
+  border: 1px solid var(--app-line);
+  background: var(--app-panel-strong);
+  font-family: var(--app-font-mono);
+  font-size: 0.9rem;
+}
+
+.markdown pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0 0 1rem 1.2rem;
+  padding: 0;
+}
+
+.markdown li + li {
+  margin-top: 0.45rem;
+}
+
+.markdown blockquote {
+  margin: 1.6rem 0;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--app-accent);
+  background: color-mix(in srgb, var(--app-accent) 6%, var(--app-panel-strong) 94%);
+  color: var(--app-muted-ink);
+}
+
+.markdown table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.markdown thead {
+  background: color-mix(in srgb, var(--app-ink) 4%, var(--app-panel-strong) 96%);
+}
+
+.markdown th,
+.markdown td {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--app-line);
+}
+
+.markdown th {
+  font-family: var(--app-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.markdown hr {
+  margin: 2.6rem 0;
+  border: 0;
+  border-top: 1px solid var(--app-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

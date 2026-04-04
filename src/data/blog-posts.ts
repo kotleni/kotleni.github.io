@@ -11,7 +11,7 @@ export const posts: Post[] = [
         url: 'baking-markdown-into-html',
         isNew: true,
         description:
-            'For my blog posts I don’t use any heavy backend, CMS, or fancy admin panel — everything is just plain Markdown',
+            "For my blog posts I don't use any heavy backend, CMS, or fancy admin panel. Everything is just plain Markdown",
     },
     {
         title: 'My hosting infrastructure',
@@ -25,7 +25,7 @@ export const posts: Post[] = [
         url: 'asahi-linux',
         isNew: false,
         description:
-            "I am a Linux guy. I've used it on my VPS and home lab for years. On my desktop computer, I run Arch Linux exclusively, and I fully enjoy",
+            "I am a Linux guy. I've used it on my VPS and home lab for years. On my desktop computer, I run Arch Linux exclusively, and I fully enjoy it",
     },
     {
         title: 'The sixth iteration of my website',
