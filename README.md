@@ -7,4 +7,4 @@
   <a href="https://me.kotle.uk">Live</a>
 </p>
 
-<img src="./.github/browser-example3.png">
+<img src="./.github/preview3.png">
