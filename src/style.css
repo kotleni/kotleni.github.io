@@ -129,6 +129,7 @@
     width: 100%;
   }
 }
+
 #app {
   display: flex;
   justify-content: center;
@@ -142,7 +143,7 @@
 .markdown h2,
 .markdown h3,
 .markdown h4 {
-  color: var(--app-ink);
+  color: var(--color-foreground);
   line-height: 1.08;
 }
 
@@ -172,21 +173,24 @@
 .markdown li {
   font-size: 1rem;
   line-height: 1.82;
-  color: color-mix(in srgb, var(--app-ink) 92%, var(--app-muted-ink) 8%);
+  color: var(--color-foreground);
 }
 
 .markdown strong {
-  color: var(--app-ink);
+  /* todo */
+  color: var(--color-foreground);
 }
 
 .markdown a {
-  color: var(--app-brand);
+  color: var(--color-primary);
 }
 
+/* todo */
 .markdown code {
   padding: 0.16rem 0.38rem;
-  background: color-mix(in srgb, var(--app-ink) 8%, var(--app-panel-strong) 92%);
-  font-family: var(--app-font-mono);
+  background: var(--color-muted);
+  color: var(--color-muted-foreground);
+  font-family: monospace;
   font-size: 0.92em;
 }
 
@@ -194,9 +198,6 @@
   margin: 1.5rem 0;
   padding: 1.1rem 1.2rem;
   overflow-x: auto;
-  border: 1px solid var(--app-line);
-  background: var(--app-panel-strong);
-  font-family: var(--app-font-mono);
   font-size: 0.9rem;
 }
 
@@ -218,9 +219,7 @@
 .markdown blockquote {
   margin: 1.6rem 0;
   padding: 0.9rem 1rem;
-  border-left: 4px solid var(--app-accent);
-  background: color-mix(in srgb, var(--app-accent) 6%, var(--app-panel-strong) 94%);
-  color: var(--app-muted-ink);
+  border-left: 4px solid var(--color-primary);
 }
 
 .markdown table {
@@ -231,17 +230,17 @@
 }
 
 .markdown thead {
-  background: color-mix(in srgb, var(--app-ink) 4%, var(--app-panel-strong) 96%);
+  background: var(--color-muted);
+  color: var(--color-muted-foreground);
 }
 
 .markdown th,
 .markdown td {
   padding: 0.9rem 1rem;
-  border: 1px solid var(--app-line);
+  border: 1px solid var(--color-muted);
 }
 
 .markdown th {
-  font-family: var(--app-font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -250,6 +249,6 @@
 .markdown hr {
   margin: 2.6rem 0;
   border: 0;
-  border-top: 1px solid var(--app-line);
+  border-top: 1px solid var(--color-muted);
 }
 

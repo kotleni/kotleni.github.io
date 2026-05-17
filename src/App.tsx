@@ -1,21 +1,24 @@
-import {useEffect} from 'react';
-import {House, NotebookText} from 'lucide-react';
+import React, {useEffect, useRef, useState} from 'react';
 import {NavLink, Route, Routes, useLocation} from 'react-router-dom';
 import {RootPage} from '@/routes/RootPage';
+import { RootLayoutContent } from './components/root-layout-content';
 
 interface NavigationPage {
     to: string;
     label: string;
+    description: string;
 }
 
 const navigationItems: NavigationPage[] = [
     {
         to: '/',
-        label: 'Home',
+        label: 'About',
+        description: 'Information about myself.',
     },
     {
         to: '/notes',
         label: 'Notes',
+        description: 'Short writings that I wrote.',
     },
 ];
 
@@ -44,28 +47,13 @@ function usePreferredDarkMode() {
 export default function App() {
     usePreferredDarkMode();
 
-    const location = useLocation();
-
     return (
-        <main className="container md:px-8">
-            <header>
-                <div className="flex flex-row gap-2">
-                    {navigationItems.map(navItem => (
-                        <NavLink
-                            className="text-primary hover:bg-primary hover:text-background"
-                            key={navItem.to}
-                            to={navItem.to}
-                        >
-                            {navItem.label}
-                        </NavLink>
-                    ))}
-                </div>
-            </header>
+        <RootLayoutContent>
             <div>
                 <Routes>
-                    <Route path="/" element={<RootPage />} />
+                    <Route index element={<RootPage />} />
                 </Routes>
             </div>
-        </main>
+        </RootLayoutContent>
     );
 }
