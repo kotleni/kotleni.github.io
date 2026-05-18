@@ -1,5 +1,6 @@
 import {JourneyCard} from '@/components/journey-card';
 import {StyledLink} from '@/components/styled-link';
+import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
 import {getKyivTimeZoneInfo} from '@/lib/utils';
 
 type DetailResolver = () => string;
@@ -61,11 +62,6 @@ class BioBuilder {
         return this;
     }
 
-    language(name: string, levelName: string): this {
-        this.data.languages.push({name, levelName});
-        return this;
-    }
-
     build(): Bio {
         return this.data;
     }
@@ -82,17 +78,19 @@ const bio = new BioBuilder()
     )
     .detail('Location', () => 'Kremenchuk, Ukraine')
     .detail('Timezone', () => getKyivTimeZoneInfo().utcOffset ?? '?')
-    .detail('Age', () => '23')
+    .detail('Age', () => '23.3333')
+    .detail('Height', () => '185cm')
     .detail('Education', () => "Bachelor's Diploma \n(Machinery engineering)")
-    .detail('Devices', () => 'PC with AMD Ryzen 7 5700X, MacBook Air M1')
+    .detail(
+        'Devices',
+        () =>
+            'PC with AMD Ryzen 7 5700X, EliteDesk G4 (as home-server), MacBook Air M1',
+    )
     .detail(
         'Smartphones',
         () => 'iPhone 12, OnePlus Nord N10, Xiaomi S2 and Xiaomi Redmi Note 9',
     )
     .detail('OS', () => 'Arch Linux on PC and Laptop')
-    .language('English', 'Upper-Intermediate (B2)')
-    .language('Ukrainian', 'Native')
-    .language('Russian', 'Native')
     .mail('yavarenikya@gmail.com')
     .contact('Github', 'https://github.com/kotleni')
     .contact('Linkedin', 'https://www.linkedin.com/in/kotleni/')
@@ -120,10 +118,7 @@ export function RootPage() {
                     <p className="font-semibold">verbose.</p>
                     <div className="flex flex-col gap-2 text-sm mt-2">
                         {bio.details.map(detail => (
-                            <div
-                                key={detail.title}
-                                className="flex justify-between items-center border-b border-border/50 pb-1"
-                            >
+                            <div className="flex justify-between items-center border-b border-border/50 pb-1">
                                 <span className="font-bold">
                                     {detail.title}
                                 </span>
@@ -138,19 +133,24 @@ export function RootPage() {
                 <section className="flex flex-col">
                     <p className="font-semibold">languages.</p>
                     <div className="flex flex-col gap-2 text-sm mt-2">
-                        {bio.languages.map(language => (
-                            <div
-                                key={language.name}
-                                className="flex justify-between border-b border-border/50 pb-1"
-                            >
-                                <span className="font-bold">
-                                    {language.name}
-                                </span>
-                                <span className="text-muted-foreground">
-                                    {language.levelName}
-                                </span>
-                            </div>
-                        ))}
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-bold">Ukrainian</span>
+                            <span className="text-muted-foreground">
+                                Native
+                            </span>
+                        </div>
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-bold">Russian</span>
+                            <span className="text-muted-foreground">
+                                Native
+                            </span>
+                        </div>
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-bold">English</span>
+                            <span className="text-muted-foreground">
+                                Upper-Intermediate (B2)
+                            </span>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -181,7 +181,7 @@ export function RootPage() {
                     interested in a conversation? drop dm's over{' '}
                     <span className="flex gap-2">
                         {bio.socials.map(social => (
-                            <StyledLink key={social.url} href={social.url}>
+                            <StyledLink href={social.url}>
                                 {social.name}
                             </StyledLink>
                         ))}

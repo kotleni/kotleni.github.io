@@ -1,26 +1,8 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {NavLink, Route, Routes, useLocation} from 'react-router-dom';
+import {useEffect} from 'react';
+import {Route, Routes} from 'react-router-dom';
 import {RootPage} from '@/routes/RootPage';
-import { RootLayoutContent } from './components/root-layout-content';
-
-interface NavigationPage {
-    to: string;
-    label: string;
-    description: string;
-}
-
-const navigationItems: NavigationPage[] = [
-    {
-        to: '/',
-        label: 'About',
-        description: 'Information about myself.',
-    },
-    {
-        to: '/notes',
-        label: 'Notes',
-        description: 'Short writings that I wrote.',
-    },
-];
+import {RootLayoutContent} from './components/root-layout-content';
+import {TooltipProvider} from './components/ui/tooltip';
 
 function usePreferredDarkMode() {
     useEffect(() => {
@@ -48,12 +30,14 @@ export default function App() {
     usePreferredDarkMode();
 
     return (
-        <RootLayoutContent>
-            <div>
-                <Routes>
-                    <Route index element={<RootPage />} />
-                </Routes>
-            </div>
-        </RootLayoutContent>
+        <TooltipProvider>
+            <RootLayoutContent>
+                <div className="container px-2 md:px-24 lg:px-32">
+                    <Routes>
+                        <Route index element={<RootPage />} />
+                    </Routes>
+                </div>
+            </RootLayoutContent>
+        </TooltipProvider>
     );
 }
