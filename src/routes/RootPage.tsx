@@ -152,6 +152,13 @@ export function RootPage() {
                         workingDates="nov 2024 - now"
                         description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
                     />
+                    <JourneyCard
+                        title="React Developer"
+                        companyTitle="Intetics Team"
+                        companyUrl="https://intetics.com/"
+                        workingDates="nov 2024 - now"
+                        description="Developing responsive web applications for various clients using React and Next.js. Focused mostly on front-end (mobile-first), integration with APIs, state management, and performance optimization."
+                    />
                 </div>
             </section>
 
