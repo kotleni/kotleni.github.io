@@ -1,0 +1,203 @@
+import {JourneyCard} from '@/components/journey-card';
+import {StyledLink} from '@/components/styled-link';
+import {Tooltip, TooltipContent, TooltipTrigger} from '@/components/ui/tooltip';
+import {getKyivTimeZoneInfo} from '@/lib/utils';
+
+type DetailResolver = () => string;
+
+interface Detail {
+    title: string;
+    resolver: DetailResolver;
+}
+
+interface Social {
+    name: string;
+    url: string;
+}
+
+interface Language {
+    name: string;
+    levelName: string;
+}
+
+interface Bio {
+    fullName: string;
+    description: string;
+    details: Detail[];
+    additional: string[];
+    socials: Social[];
+    email: string;
+    languages: Language[];
+}
+
+class BioBuilder {
+    private data: Bio = {
+        fullName: '',
+        description: '',
+        details: [],
+        additional: [],
+        socials: [],
+        email: '',
+        languages: [],
+    };
+
+    base(fullName: string, description: string): this {
+        this.data.fullName = fullName;
+        this.data.description = description;
+        return this;
+    }
+
+    detail(title: string, resolver: DetailResolver): this {
+        this.data.details.push({title, resolver});
+        return this;
+    }
+
+    contact(name: string, url: string): this {
+        this.data.socials.push({name, url});
+        return this;
+    }
+
+    mail(email: string): this {
+        this.data.email = email;
+        return this;
+    }
+
+    build(): Bio {
+        return this.data;
+    }
+}
+
+const bio = new BioBuilder()
+    .base(
+        'Viktor Varenik',
+        `I'm a software engineer focused on software efficiency, simplicity and freedom. I also enjoy recreational programming, reverse engineering and networking. Previously, I developed native mobile applications for Android and iOS.`,
+    )
+    .detail(
+        'Position',
+        () => 'Full Stack Software Engineer | Infrastructure & DevOps',
+    )
+    .detail('Location', () => 'Kremenchuk, Ukraine')
+    .detail('Timezone', () => getKyivTimeZoneInfo().utcOffset ?? '?')
+    .detail('Age', () => '23.3333')
+    .detail('Height', () => '185cm')
+    .detail('Education', () => "Bachelor's Diploma \n(Machinery engineering)")
+    .detail(
+        'Devices',
+        () =>
+            'PC with AMD Ryzen 7 5700X, EliteDesk G4 (as home-server), MacBook Air M1',
+    )
+    .detail(
+        'Smartphones',
+        () => 'iPhone 12, OnePlus Nord N10, Xiaomi S2 and Xiaomi Redmi Note 9',
+    )
+    .detail('OS', () => 'Arch Linux on PC and Laptop')
+    .mail('yavarenikya@gmail.com')
+    .contact('Github', 'https://github.com/kotleni')
+    .contact('Linkedin', 'https://www.linkedin.com/in/kotleni/')
+    .contact('Telegram', 'https://t.me/kotleni')
+    .contact('X', 'https://x.com/kotleni_')
+    .build();
+
+export function RootPage() {
+    return (
+        <div className="flex flex-col gap-6 mt-2 text-foreground/90">
+            <section className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                    <h1 className="text-3xl font-bold tracking-tight">
+                        {bio.fullName}
+                    </h1>
+                    <div className="flex gap-3"></div>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                    {bio.description}
+                </p>
+            </section>
+
+            <div className="flex flex-col gap-6">
+                <section className="flex flex-col">
+                    <p className="font-semibold">verbose.</p>
+                    <div className="flex flex-col gap-2 text-sm mt-2">
+                        {bio.details.map(detail => (
+                            <div className="flex justify-between items-center border-b border-border/50 pb-1">
+                                <span className="font-bold">
+                                    {detail.title}
+                                </span>
+                                <span className="text-muted-foreground text-right">
+                                    {detail.resolver()}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="flex flex-col">
+                    <p className="font-semibold">languages.</p>
+                    <div className="flex flex-col gap-2 text-sm mt-2">
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-bold">Ukrainian</span>
+                            <span className="text-muted-foreground">
+                                Native
+                            </span>
+                        </div>
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-bold">Russian</span>
+                            <span className="text-muted-foreground">
+                                Native
+                            </span>
+                        </div>
+                        <div className="flex justify-between border-b border-border/50 pb-1">
+                            <span className="font-bold">English</span>
+                            <span className="text-muted-foreground">
+                                Upper-Intermediate (B2)
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section className="mt-4">
+                <p className="font-semibold">journey.</p>
+                <div className="mt-2">
+                    <JourneyCard
+                        title="Android&iOS Developer"
+                        companyTitle="AppLead Pro & VIPAPP & Gravity"
+                        companyUrl={undefined}
+                        workingDates="jan 2019 - dec 2024"
+                        description="For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
+                    />
+                    <JourneyCard
+                        title="Full-stack Developer"
+                        companyTitle="Freelance"
+                        companyUrl={undefined}
+                        workingDates="nov 2024 - now"
+                        description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
+                    />
+                </div>
+            </section>
+
+            <section className="mt-4">
+                <p className="font-semibold">contact.</p>
+                <p>
+                    interested in a conversation? drop dm's over{' '}
+                    <span className="flex gap-2">
+                        {bio.socials.map(social => (
+                            <StyledLink href={social.url}>
+                                {social.name}
+                            </StyledLink>
+                        ))}
+                    </span>
+                    <StyledLink href={'mailto:' + bio.email}>
+                        {bio.email}
+                    </StyledLink>
+                    . ask me anything about my work, projects, or anything else.
+                </p>
+            </section>
+
+            <section className="mt-4">
+                <div className="flex flex-row gap-2 text-muted-foreground">
+                    <p>version null</p>|
+                </div>
+            </section>
+        </div>
+    );
+}

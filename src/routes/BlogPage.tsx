@@ -1,69 +1,57 @@
 import {Link} from 'react-router-dom';
 import {posts} from '@/data/blog-posts';
 
-const postDateFormatter = new Intl.DateTimeFormat('en', {
-    day: 'numeric',
+const dateFormatter = new Intl.DateTimeFormat('en', {
     month: 'short',
+    day: 'numeric',
     year: 'numeric',
 });
 
-export default function BlogPage() {
+export function BlogPage() {
     return (
-        <section className="relative flex flex-col gap-[26px] border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px]">
-            <div className="max-w-[48rem]">
-                <p className="mb-4 font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                    Writing
+        <div className="flex w-full flex-col gap-12">
+            <header className="flex flex-col gap-3.5">
+                <p className="text-xs uppercase tracking-[0.12em] text-primary">
+                    blog
                 </p>
-                <h1 className="mb-2.5 text-[clamp(2.8rem,6vw,5rem)] leading-[0.92] tracking-[-0.07em]">
-                    posts.
+                <h1 className="max-w-[12ch] text-[clamp(2.35rem,9vw,4.5rem)] font-bold leading-[0.96] text-foreground">
+                    Notes from the workbench.
                 </h1>
-                <p className="m-0 max-w-[70ch] text-[1rem] text-muted-ink">
-                    Notes on engineering, infrastructure, Linux, and whatever I
-                    am building or breaking at the moment.
+                <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+                    Short writeups about web tooling, infrastructure, Linux, and
+                    whatever else survives the draft folder.
                 </p>
-            </div>
-            <div className="flex flex-col gap-3.5">
-                {posts.map((post, index) => (
-                    <Link to={`/blog/${post.url}`}>
-                        <article
-                            key={post.title}
-                            className="grid gap-5 border border-line bg-panel-strong p-4 transition hover:translate-x-[5px] hover:border-line-strong max-[560px]:hover:translate-x-0 md:grid-cols-[92px_minmax(0,1fr)]"
+            </header>
+
+            <section className="border-y border-border">
+                {posts.map(post => (
+                    <Link
+                        key={post.url}
+                        to={`/blog/${post.url}`}
+                        className="group grid grid-cols-[1fr_auto] gap-4 border-t border-border py-4 text-inherit no-underline first:border-t-0 max-sm:grid-cols-1 max-sm:gap-2"
+                    >
+                        <span className="flex flex-col gap-2">
+                            <span className="flex items-center gap-2 font-bold text-foreground group-hover:text-primary">
+                                {post.title}
+                                {post.isNew && (
+                                    <span className="rounded-sm border border-border px-1.5 py-0.5 text-[0.7rem] font-bold text-primary">
+                                        new
+                                    </span>
+                                )}
+                            </span>
+                            <span className="text-sm leading-6 text-muted-foreground">
+                                {post.description}
+                            </span>
+                        </span>
+                        <time
+                            dateTime={post.publishedAt}
+                            className="whitespace-nowrap text-xs text-muted-foreground"
                         >
-                            <div className="flex flex-row items-center gap-2 md:flex-col md:items-start">
-                                <span className="font-mono text-[0.74rem] tracking-[0.12em] text-muted-ink">
-                                    {String(posts.length - index).padStart(
-                                        2,
-                                        '0',
-                                    )}
-                                </span>
-                                {post.isNew ? (
-                                    <span className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-accent">
-                                        New!
-                                    </span>
-                                ) : null}
-                                <time
-                                    dateTime={post.publishedAt}
-                                    className="font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted-ink"
-                                >
-                                    {postDateFormatter.format(
-                                        new Date(post.publishedAt),
-                                    )}
-                                </time>
-                            </div>
-                            <div className="min-w-0">
-                                <div className="flex items-center gap-3">
-                                    <span className="text-[clamp(1.12rem,2vw,1.42rem)] leading-[1.15] font-bold text-inherit no-underline hover:text-brand-strong">
-                                        {post.title}
-                                    </span>
-                                </div>
-                                <p className="mt-2.5 mb-0 max-w-[62ch] text-muted-ink">
-                                    {post.description}...
-                                </p>
-                            </div>
-                        </article>
+                            {dateFormatter.format(new Date(post.publishedAt))}
+                        </time>
                     </Link>
                 ))}
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }
