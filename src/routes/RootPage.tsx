@@ -1,294 +1,258 @@
-import JourneyItem from '@/components/JourneyItem';
-import {
-    aboutMe,
-    birthDate,
-    journeyItems,
-    myEmail,
-    skillsStack,
-    skillsStackAdditional,
-    socials,
-} from '@/data/about';
+import {JourneyCard} from '@/components/journey-card';
+import {StyledLink} from '@/components/styled-link';
 import {badges} from '@/data/badges';
+import {getKyivTimeZoneInfo} from '@/lib/utils';
 
-const heroFacts = [
-    {label: 'Role', value: 'Full-stack engineer'},
-    {label: 'Base', value: 'Ukraine, Kremenchuk'},
-    {label: 'Timezone', value: 'GMT+2'},
-    {label: 'Reach out', value: myEmail},
-];
+type DetailResolver = () => string;
 
-const profileFacts = [
-    {label: 'Position', value: 'Full-stack engineer'},
-    {label: 'Location', value: 'Ukraine, Kremenchuk'},
-    {label: 'Timezone', value: 'GMT+2'},
-    {label: 'Age', value: `up ${getAgeString()}`},
-];
-
-const languageFacts = [
-    {label: 'Ukrainian', value: 'Native'},
-    {label: 'Russian', value: 'Native'},
-    {label: 'English', value: 'Upper-Intermediate (B2)'},
-];
-
-function getAgeString() {
-    const now = new Date();
-    let years = now.getFullYear() - birthDate.getFullYear();
-    let months = now.getMonth() - birthDate.getMonth();
-
-    if (months < 0) {
-        years -= 1;
-        months += 12;
-    }
-
-    return `${years} years, ${months} months`;
+interface Detail {
+    title: string;
+    resolver: DetailResolver;
 }
 
-export default function RootPage() {
+interface Social {
+    name: string;
+    url: string;
+}
+
+interface Language {
+    name: string;
+    levelName: string;
+}
+
+interface Bio {
+    fullName: string;
+    description: string;
+    details: Detail[];
+    additional: string[];
+    socials: Social[];
+    email: string;
+    languages: Language[];
+}
+
+class BioBuilder {
+    private data: Bio = {
+        fullName: '',
+        description: '',
+        details: [],
+        additional: [],
+        socials: [],
+        email: '',
+        languages: [],
+    };
+
+    base(fullName: string, description: string): this {
+        this.data.fullName = fullName;
+        this.data.description = description;
+        return this;
+    }
+
+    detail(title: string, resolver: DetailResolver): this {
+        this.data.details.push({title, resolver});
+        return this;
+    }
+
+    contact(name: string, url: string): this {
+        this.data.socials.push({name, url});
+        return this;
+    }
+
+    mail(email: string): this {
+        this.data.email = email;
+        return this;
+    }
+
+    language(name: string, levelName: string): this {
+        this.data.languages.push({name, levelName});
+        return this;
+    }
+
+    build(): Bio {
+        return this.data;
+    }
+}
+
+const bio = new BioBuilder()
+    .base(
+        'Viktor Varenik',
+        `I'm a software engineer focused on software efficiency, simplicity and freedom. I also enjoy recreational programming, reverse engineering and networking. Previously, I developed native mobile applications for Android and iOS.`,
+    )
+    .detail(
+        'Position',
+        () => 'Full Stack Software Engineer | Infrastructure & DevOps',
+    )
+    .detail('Location', () => 'Kremenchuk, Ukraine')
+    .detail('Timezone', () => getKyivTimeZoneInfo().utcOffset ?? '?')
+    .detail('Age', () => '23')
+    .detail('Education', () => "Bachelor's Diploma \n(Machinery engineering)")
+    .detail('Devices', () => 'PC with AMD Ryzen 7 5700X, MacBook Air M1')
+    .detail(
+        'Smartphones',
+        () => 'iPhone 12, OnePlus Nord N10, Xiaomi S2 and Xiaomi Redmi Note 9',
+    )
+    .detail('OS', () => 'Arch Linux on PC and Laptop')
+    .language('English', 'Upper-Intermediate (B2)')
+    .language('Ukrainian', 'Native')
+    .language('Russian', 'Native')
+    .mail('yavarenikya@gmail.com')
+    .contact('Github', 'https://github.com/kotleni')
+    .contact('Linkedin', 'https://www.linkedin.com/in/kotleni/')
+    .contact('Telegram', 'https://t.me/kotleni')
+    .contact('X', 'https://x.com/kotleni_')
+    .build();
+
+export function RootPage() {
     return (
-        <div className="flex flex-col gap-[22px]">
-            <section className="relative grid gap-[26px] border border-line bg-panel px-[18px] py-[34px] shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.85fr)]">
-                <div className="relative z-10">
-                    <p className="mb-4 font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                        About
-                    </p>
-                    <div className="grid gap-2 pb-4">
-                        <h1 className="m-0 max-w-[10ch] text-[clamp(3rem,8vw,5.4rem)] leading-[0.92] font-bold tracking-[-0.07em] text-balance max-[560px]:max-w-none">
-                            Viktor Varenik
-                        </h1>
-                        <h1 className="m-0 text-[clamp(1rem,2vw,1.35rem)] font-semibold tracking-[0.02em] text-accent">
-                            (kotleni)
-                        </h1>
-                    </div>
-                    <p className="m-0 max-w-[70ch] text-[1rem] text-muted-ink">
-                        {aboutMe}
-                    </p>
-                </div>
-                <div className="relative z-10 flex items-end">
-                    <div className="grid w-full gap-3.5 sm:grid-cols-2">
-                        {heroFacts.map(fact => (
+        <div className="flex w-full flex-col gap-12">
+            <header className="flex flex-col gap-3.5">
+                <p className="text-xs uppercase tracking-[0.12em] text-primary">
+                    software engineer
+                </p>
+                <h1 className="max-w-[12ch] text-[clamp(2.35rem,9vw,4.5rem)] font-bold leading-[0.96] text-foreground">
+                    {bio.fullName}
+                </h1>
+                <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+                    {bio.description}
+                </p>
+            </header>
+
+            <div className="grid gap-12">
+                <section className="flex flex-col gap-4">
+                    <h2 className="font-bold text-foreground">verbose.</h2>
+                    <div className="border-y border-border">
+                        {bio.details.map(detail => (
                             <div
-                                key={fact.label}
-                                className="border border-line bg-panel-strong px-3.5 pt-3.5 pb-3"
+                                key={detail.title}
+                                className="grid grid-cols-[minmax(8rem,0.75fr)_1.25fr] gap-4 border-t border-border py-3.5 text-sm first:border-t-0 max-sm:grid-cols-1"
                             >
-                                <span className="mb-1.5 block font-mono text-[0.72rem] uppercase tracking-[0.08em] text-muted-ink">
-                                    {fact.label}
+                                <span className="font-bold text-foreground">
+                                    {detail.title}
                                 </span>
-                                <span className="block min-w-0 break-words text-[0.98rem] font-semibold">
-                                    {fact.label === 'Reach out' ? (
-                                        <a
-                                            href={`mailto:${myEmail}`}
-                                            className="break-all"
-                                        >
-                                            {fact.value}
-                                        </a>
-                                    ) : (
-                                        fact.value
-                                    )}
+                                <span className="whitespace-pre-wrap text-muted-foreground">
+                                    {detail.resolver()}
                                 </span>
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section className="relative grid gap-7 border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px] lg:grid-cols-[190px_minmax(0,1fr)]">
-                <div className="flex flex-col gap-2.5 border-b border-line pb-3.5 lg:border-r lg:border-b-0 lg:pr-[18px] lg:pb-0">
-                    <p className="font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                        Connect
-                    </p>
-                    <h2 className="m-0 text-[1.42rem] leading-none tracking-[-0.04em]">
-                        socials.
-                    </h2>
-                </div>
-                <div className="min-w-0">
-                    <div className="flex flex-col gap-[18px]">
-                        <p className="m-0 max-w-[70ch] text-[1rem] text-muted-ink">
-                            Interested in a conversation? Drop DMs over socials
-                            below, or mail me at{' '}
-                            <a href={`mailto:${myEmail}`}>{myEmail}</a>. Ask me
-                            anything about my work, projects, or anything else.
-                        </p>
-                        <div className="flex flex-wrap gap-3">
-                            {socials.map(social => {
-                                const Icon = social.icon;
-
-                                return (
-                                    <a
-                                        key={social.name}
-                                        href={social.url}
-                                        className="inline-flex items-center gap-2.5 border border-line bg-panel-strong px-3 py-2.5 text-ink no-underline transition hover:-translate-y-px hover:border-line-strong max-[560px]:w-full"
-                                        aria-label={social.name}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        {Icon ? (
-                                            <Icon
-                                                className="h-5 w-5 shrink-0 fill-current"
-                                                aria-hidden="true"
-                                            />
-                                        ) : null}
-                                        <span className="text-[0.94rem] font-semibold">
-                                            {social.name}
-                                        </span>
-                                    </a>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="relative grid gap-7 border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px] lg:grid-cols-[190px_minmax(0,1fr)]">
-                <div className="flex flex-col gap-2.5 border-b border-line pb-3.5 lg:border-r lg:border-b-0 lg:pr-[18px] lg:pb-0">
-                    <p className="font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                        Profile
-                    </p>
-                    <h2 className="m-0 text-[1.42rem] leading-none tracking-[-0.04em]">
-                        details.
-                    </h2>
-                </div>
-                <div className="min-w-0">
-                    <div className="grid gap-[22px] lg:grid-cols-2">
-                        <div className="flex flex-col gap-0.5">
-                            <h3>verbose.</h3>
-                            {profileFacts.map(fact => (
-                                <div
-                                    key={fact.label}
-                                    className="flex items-center justify-between gap-[18px] border-b border-line py-3 last:border-b-0"
-                                >
-                                    <p className="m-0 font-mono text-[0.76rem] uppercase tracking-[0.08em] text-muted-ink">
-                                        {fact.label}
-                                    </p>
-                                    <span>{fact.value}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="flex flex-col gap-0.5">
-                            <h3>languages.</h3>
-                            {languageFacts.map(fact => (
-                                <div
-                                    key={fact.label}
-                                    className="flex items-center justify-between gap-[18px] border-b border-line py-3 last:border-b-0"
-                                >
-                                    <p className="m-0 font-mono text-[0.76rem] uppercase tracking-[0.08em] text-muted-ink">
-                                        {fact.label}
-                                    </p>
-                                    <span>{fact.value}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="relative grid gap-7 border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px] lg:grid-cols-[190px_minmax(0,1fr)]">
-                <div className="flex flex-col gap-2.5 border-b border-line pb-3.5 lg:border-r lg:border-b-0 lg:pr-[18px] lg:pb-0">
-                    <p className="font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                        Stack
-                    </p>
-                    <h2 className="m-0 text-[1.42rem] leading-none tracking-[-0.04em]">
-                        skills.
-                    </h2>
-                </div>
-                <div className="min-w-0">
-                    <div className="flex flex-wrap gap-2.5">
-                        {skillsStack.map(skill => (
-                            <span
-                                key={skill}
-                                className="border border-line bg-panel-strong px-2.5 py-2 font-mono text-[0.86rem] transition hover:-translate-y-px hover:border-line-strong"
+                <section className="flex flex-col gap-4">
+                    <h2 className="font-bold text-foreground">languages.</h2>
+                    <div className="border-y border-border">
+                        {bio.languages.map(language => (
+                            <div
+                                key={language.name}
+                                className="grid grid-cols-[minmax(8rem,0.75fr)_1.25fr] gap-4 border-t border-border py-3.5 text-sm first:border-t-0 max-sm:grid-cols-1"
                             >
-                                {skill}
+                                <span className="font-bold text-foreground">
+                                    {language.name}
+                                </span>
+                                <span className="text-muted-foreground">
+                                    {language.levelName}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>
+
+            <section className="flex flex-col gap-4">
+                <h2 className="font-bold text-foreground">journey.</h2>
+                <div className="flex flex-col gap-6">
+                    <JourneyCard
+                        title="Android&iOS Developer"
+                        companyTitle="AppLead Pro & VIPAPP & Gravity"
+                        companyUrl={undefined}
+                        workingDates="jan 2019 - dec 2024"
+                        description="For more than four years, I was deeply immersed in native mobile development. This foundational chapter of my career was spent building, launching, and maintaining robust applications for both Android (Kotlin) and iOS (Swift)."
+                    />
+                    <JourneyCard
+                        title="Full-stack Developer"
+                        companyTitle="Freelance"
+                        companyUrl={undefined}
+                        workingDates="nov 2024 - now"
+                        description="As a freelance developer, I take full ownership of building modern web applications. I use a powerful stack including React, Node.js, and TypeScript to deliver production-ready code for my clients."
+                    />
+                    <JourneyCard
+                        title="React Developer"
+                        companyTitle="Intetics Team"
+                        companyUrl="https://intetics.com/"
+                        workingDates="nov 2024 - now"
+                        description="Developing responsive web applications for various clients using React and Next.js. Focused mostly on front-end (mobile-first), integration with APIs, state management, and performance optimization."
+                    />
+                </div>
+            </section>
+
+            <section className="flex flex-col gap-4">
+                <h2 className="font-bold text-foreground">contact.</h2>
+                <div className="text-[0.95rem] leading-7 text-muted-foreground">
+                    interested in a conversation? drop dm's over{' '}
+                    <span className="inline-flex flex-wrap gap-x-2 gap-y-1 items-center">
+                        {bio.socials.map((social, index) => (
+                            <span
+                                key={social.url}
+                                className="inline-flex items-center"
+                            >
+                                <StyledLink href={social.url}>
+                                    {social.name.toLowerCase()}
+                                </StyledLink>
+                                {index < bio.socials.length - 1 && (
+                                    <span className="ml-2 font-normal text-muted-foreground/50">
+                                        /
+                                    </span>
+                                )}
                             </span>
                         ))}
-                    </div>
-                    <div className="pt-6">
-                        <h4 className="mb-2.5 font-mono text-[0.78rem] uppercase tracking-[0.1em] text-muted-ink">
-                            Additional stack:
-                        </h4>
-                        <div className="flex flex-wrap gap-2.5">
-                            {skillsStackAdditional.map(skill => (
+                    </span>
+                    <br className="hidden sm:block" />
+                    or email me at{' '}
+                    <span className="font-medium">
+                        <StyledLink href={'mailto:' + bio.email}>
+                            {bio.email}
+                        </StyledLink>
+                    </span>
+                    . ask me anything about my work, projects, or anything else.
+                </div>
+            </section>
+
+            <footer className="flex flex-col items-center gap-4 border-t border-border pt-4 text-center text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
+                <div className="flex flex-wrap justify-center gap-1">
+                    {badges.map(badge => {
+                        const image = (
+                            <img
+                                className="h-[31px] w-[88px] [image-rendering:pixelated]"
+                                src={badge.imageUrl}
+                                alt={badge.label}
+                                width="88"
+                                height="31"
+                            />
+                        );
+
+                        if (!badge.targetUrl) {
+                            return (
                                 <span
-                                    key={skill}
-                                    className="border border-line bg-panel-strong px-2.5 py-2 font-mono text-[0.86rem] transition hover:-translate-y-px hover:border-line-strong"
+                                    key={badge.imageUrl}
+                                    className="inline-flex"
                                 >
-                                    {skill}
+                                    {image}
                                 </span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+                            );
+                        }
 
-            <section className="relative grid gap-7 border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px] lg:grid-cols-[190px_minmax(0,1fr)]">
-                <div className="flex flex-col gap-2.5 border-b border-line pb-3.5 lg:border-r lg:border-b-0 lg:pr-[18px] lg:pb-0">
-                    <p className="font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                        Work
-                    </p>
-                    <h2 className="m-0 text-[1.42rem] leading-none tracking-[-0.04em]">
-                        journey.
-                    </h2>
-                </div>
-                <div className="min-w-0">
-                    <div className="flex flex-col gap-3.5">
-                        {journeyItems.map(journey => (
-                            <div
-                                key={`${journey.companyName}-${journey.date}`}
-                                className="border border-line bg-panel-strong px-4 pt-4 pb-3.5 transition hover:translate-x-1 hover:border-line-strong max-[560px]:hover:translate-x-0"
-                            >
-                                <JourneyItem
-                                    title={journey.title}
-                                    companyTitle={journey.companyName}
-                                    companyUrl={journey.companyUrl}
-                                    workingDates={journey.date}
-                                    description={journey.description}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="relative grid gap-7 border border-line bg-panel px-[18px] py-7 shadow-panel before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-brand md:px-[30px] lg:grid-cols-[190px_minmax(0,1fr)]">
-                <div className="flex flex-col gap-2.5 border-b border-line pb-3.5 lg:border-r lg:border-b-0 lg:pr-[18px] lg:pb-0">
-                    <p className="font-mono text-[0.76rem] uppercase tracking-[0.16em] text-accent">
-                        Web
-                    </p>
-                    <h2 className="m-0 text-[1.42rem] leading-none tracking-[-0.04em]">
-                        badges.
-                    </h2>
-                </div>
-                <div className="min-w-0">
-                    <div className="flex flex-wrap gap-3">
-                        {badges.map(badge => (
+                        return (
                             <a
-                                key={badge.label}
-                                className="inline-flex border border-line bg-panel-strong p-2 transition hover:-translate-y-px hover:border-line-strong"
-                                href={badge.targetUrl ?? undefined}
-                                target={
-                                    badge.targetUrl && badge.targetUrl !== '#'
-                                        ? '_blank'
-                                        : undefined
-                                }
-                                rel={
-                                    badge.targetUrl && badge.targetUrl !== '#'
-                                        ? 'noreferrer'
-                                        : undefined
-                                }
+                                key={badge.imageUrl}
+                                href={badge.targetUrl}
+                                aria-label={badge.label}
+                                className="inline-flex"
                             >
-                                <img
-                                    src={badge.imageUrl}
-                                    aria-label={badge.label}
-                                />
+                                {image}
                             </a>
-                        ))}
-                    </div>
+                        );
+                    })}
                 </div>
-            </section>
-
-            <div className="pt-2 text-center font-mono text-[0.8rem] uppercase tracking-[0.08em] text-muted-ink">
-                <p>version {APP_VERSION}</p>
-            </div>
+                <p>version {PACKAGE_VERSION}</p>
+            </footer>
         </div>
     );
 }
