@@ -1,4 +1,5 @@
 import {cn} from '@/lib/utils';
+import {Link} from 'react-router-dom';
 
 interface NavigationLinkProps {
     isActive: boolean;
@@ -8,14 +9,11 @@ interface NavigationLinkProps {
 
 export function NavigationLink({isActive, title, url}: NavigationLinkProps) {
     return (
-        <a
-            href={url}
-            className={cn(
-                'bold lg:p-2 text-lg md:text-base text-primary/80 hover:underline hover:text-primary',
-                isActive ? 'underline' : '',
-            )}
+        <Link
+            to={url}
+            className={cn('nav-link', isActive ? 'nav-link-active' : '')}
         >
             {title}
-        </a>
+        </Link>
     );
 }

@@ -18,9 +18,10 @@ export function RootLayoutContent({
 }>) {
     return (
         <>
-            <div className="flex flex-col">
-                <header className="flex flex-row justify-end p-3 md:p-0">
-                    <div className="flex flex-row gap-2">
+            <div className="layout-shell">
+                <header className="site-nav">
+                    <div className="site-mark">kotleni</div>
+                    <nav>
                         {navLinks.map((link, index) => {
                             return (
                                 <PageNavigationLink
@@ -30,13 +31,9 @@ export function RootLayoutContent({
                                 />
                             );
                         })}
-                    </div>
+                    </nav>
                 </header>
-                <div>
-                    <main className="pb-4 h-full flex flex-col">
-                        {children}
-                    </main>
-                </div>
+                <main className="site-main">{children}</main>
             </div>
             <RainOverlay />
         </>

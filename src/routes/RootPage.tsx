@@ -102,62 +102,42 @@ const bio = new BioBuilder()
 
 export function RootPage() {
     return (
-        <div className="flex flex-col gap-6 mt-2 text-foreground/90">
-            <section className="flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-bold tracking-tight">
-                        {bio.fullName}
-                    </h1>
-                    <div className="flex gap-3"></div>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">
-                    {bio.description}
-                </p>
-            </section>
+        <div className="page-stack">
+            <header className="page-header">
+                <p className="eyebrow">software engineer</p>
+                <h1>{bio.fullName}</h1>
+                <p>{bio.description}</p>
+            </header>
 
-            <div className="flex flex-col gap-6">
-                <section className="flex flex-col">
-                    <p className="font-semibold">verbose.</p>
-                    <div className="flex flex-col gap-2 text-sm mt-2">
+            <div className="section-grid">
+                <section className="section-block">
+                    <h2>verbose.</h2>
+                    <div className="data-list">
                         {bio.details.map(detail => (
-                            <div
-                                key={detail.title}
-                                className="flex justify-between items-center border-b border-border/50 pb-1"
-                            >
-                                <span className="font-bold">
-                                    {detail.title}
-                                </span>
-                                <span className="text-muted-foreground text-right">
-                                    {detail.resolver()}
-                                </span>
+                            <div key={detail.title} className="data-row">
+                                <span>{detail.title}</span>
+                                <span>{detail.resolver()}</span>
                             </div>
                         ))}
                     </div>
                 </section>
 
-                <section className="flex flex-col">
-                    <p className="font-semibold">languages.</p>
-                    <div className="flex flex-col gap-2 text-sm mt-2">
+                <section className="section-block">
+                    <h2>languages.</h2>
+                    <div className="data-list">
                         {bio.languages.map(language => (
-                            <div
-                                key={language.name}
-                                className="flex justify-between border-b border-border/50 pb-1"
-                            >
-                                <span className="font-bold">
-                                    {language.name}
-                                </span>
-                                <span className="text-muted-foreground">
-                                    {language.levelName}
-                                </span>
+                            <div key={language.name} className="data-row">
+                                <span>{language.name}</span>
+                                <span>{language.levelName}</span>
                             </div>
                         ))}
                     </div>
                 </section>
             </div>
 
-            <section className="mt-4">
-                <p className="font-semibold">journey.</p>
-                <div className="mt-2">
+            <section className="section-block">
+                <h2>journey.</h2>
+                <div className="journey-list">
                     <JourneyCard
                         title="Android&iOS Developer"
                         companyTitle="AppLead Pro & VIPAPP & Gravity"
@@ -175,29 +155,41 @@ export function RootPage() {
                 </div>
             </section>
 
-            <section className="mt-4">
-                <p className="font-semibold">contact.</p>
-                <p>
+            <section className="section-block">
+                <h2>contact.</h2>
+                <div className="contact-text">
                     interested in a conversation? drop dm's over{' '}
-                    <span className="flex gap-2">
-                        {bio.socials.map(social => (
-                            <StyledLink key={social.url} href={social.url}>
-                                {social.name}
-                            </StyledLink>
+                    <span className="inline-flex flex-wrap gap-x-2 gap-y-1 items-center">
+                        {bio.socials.map((social, index) => (
+                            <span
+                                key={social.url}
+                                className="inline-flex items-center"
+                            >
+                                <StyledLink href={social.url}>
+                                    {social.name.toLowerCase()}
+                                </StyledLink>
+                                {index < bio.socials.length - 1 && (
+                                    <span className="ml-2 font-normal text-muted-foreground/50">
+                                        /
+                                    </span>
+                                )}
+                            </span>
                         ))}
                     </span>
-                    <StyledLink href={'mailto:' + bio.email}>
-                        {bio.email}
-                    </StyledLink>
+                    <br className="hidden sm:block" />
+                    or email me at{' '}
+                    <span className="font-medium">
+                        <StyledLink href={'mailto:' + bio.email}>
+                            {bio.email}
+                        </StyledLink>
+                    </span>
                     . ask me anything about my work, projects, or anything else.
-                </p>
-            </section>
-
-            <section className="mt-4">
-                <div className="flex flex-row gap-2 text-muted-foreground">
-                    <p>version null</p>|
                 </div>
             </section>
+
+            <footer className="site-footer">
+                <p>version null</p>
+            </footer>
         </div>
     );
 }
