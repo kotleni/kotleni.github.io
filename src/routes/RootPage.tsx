@@ -1,5 +1,6 @@
 import {JourneyCard} from '@/components/journey-card';
 import {StyledLink} from '@/components/styled-link';
+import {badges} from '@/data/badges';
 import {getKyivTimeZoneInfo} from '@/lib/utils';
 
 type DetailResolver = () => string;
@@ -102,42 +103,62 @@ const bio = new BioBuilder()
 
 export function RootPage() {
     return (
-        <div className="page-stack">
-            <header className="page-header">
-                <p className="eyebrow">software engineer</p>
-                <h1>{bio.fullName}</h1>
-                <p>{bio.description}</p>
+        <div className="flex w-full flex-col gap-12">
+            <header className="flex flex-col gap-3.5">
+                <p className="text-xs uppercase tracking-[0.12em] text-primary">
+                    software engineer
+                </p>
+                <h1 className="max-w-[12ch] text-[clamp(2.35rem,9vw,4.5rem)] font-bold leading-[0.96] text-foreground">
+                    {bio.fullName}
+                </h1>
+                <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+                    {bio.description}
+                </p>
             </header>
 
-            <div className="section-grid">
-                <section className="section-block">
-                    <h2>verbose.</h2>
-                    <div className="data-list">
+            <div className="grid gap-12">
+                <section className="flex flex-col gap-4">
+                    <h2 className="font-bold text-foreground">verbose.</h2>
+                    <div className="border-y border-border">
                         {bio.details.map(detail => (
-                            <div key={detail.title} className="data-row">
-                                <span>{detail.title}</span>
-                                <span>{detail.resolver()}</span>
+                            <div
+                                key={detail.title}
+                                className="grid grid-cols-[minmax(8rem,0.75fr)_1.25fr] gap-4 border-t border-border py-3.5 text-sm first:border-t-0 max-sm:grid-cols-1"
+                            >
+                                <span className="font-bold text-foreground">
+                                    {detail.title}
+                                </span>
+                                <span className="whitespace-pre-wrap text-muted-foreground">
+                                    {detail.resolver()}
+                                </span>
                             </div>
                         ))}
                     </div>
                 </section>
 
-                <section className="section-block">
-                    <h2>languages.</h2>
-                    <div className="data-list">
+                <section className="flex flex-col gap-4">
+                    <h2 className="font-bold text-foreground">languages.</h2>
+                    <div className="border-y border-border">
                         {bio.languages.map(language => (
-                            <div key={language.name} className="data-row">
-                                <span>{language.name}</span>
-                                <span>{language.levelName}</span>
+                            <div
+                                key={language.name}
+                                className="grid grid-cols-[minmax(8rem,0.75fr)_1.25fr] gap-4 border-t border-border py-3.5 text-sm first:border-t-0 max-sm:grid-cols-1"
+                            >
+                                <span className="font-bold text-foreground">
+                                    {language.name}
+                                </span>
+                                <span className="text-muted-foreground">
+                                    {language.levelName}
+                                </span>
                             </div>
                         ))}
                     </div>
                 </section>
             </div>
 
-            <section className="section-block">
-                <h2>journey.</h2>
-                <div className="journey-list">
+            <section className="flex flex-col gap-4">
+                <h2 className="font-bold text-foreground">journey.</h2>
+                <div className="flex flex-col gap-6">
                     <JourneyCard
                         title="Android&iOS Developer"
                         companyTitle="AppLead Pro & VIPAPP & Gravity"
@@ -162,9 +183,9 @@ export function RootPage() {
                 </div>
             </section>
 
-            <section className="section-block">
-                <h2>contact.</h2>
-                <div className="contact-text">
+            <section className="flex flex-col gap-4">
+                <h2 className="font-bold text-foreground">contact.</h2>
+                <div className="text-[0.95rem] leading-7 text-muted-foreground">
                     interested in a conversation? drop dm's over{' '}
                     <span className="inline-flex flex-wrap gap-x-2 gap-y-1 items-center">
                         {bio.socials.map((social, index) => (
@@ -194,8 +215,43 @@ export function RootPage() {
                 </div>
             </section>
 
-            <footer className="site-footer">
-                <p>version null</p>
+            <footer className="flex flex-col items-center gap-4 border-t border-border pt-4 text-center text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
+                <div className="flex flex-wrap justify-center gap-1">
+                    {badges.map(badge => {
+                        const image = (
+                            <img
+                                className="h-[31px] w-[88px] [image-rendering:pixelated]"
+                                src={badge.imageUrl}
+                                alt={badge.label}
+                                width="88"
+                                height="31"
+                            />
+                        );
+
+                        if (!badge.targetUrl) {
+                            return (
+                                <span
+                                    key={badge.imageUrl}
+                                    className="inline-flex"
+                                >
+                                    {image}
+                                </span>
+                            );
+                        }
+
+                        return (
+                            <a
+                                key={badge.imageUrl}
+                                href={badge.targetUrl}
+                                aria-label={badge.label}
+                                className="inline-flex"
+                            >
+                                {image}
+                            </a>
+                        );
+                    })}
+                </div>
+                <p>version {PACKAGE_VERSION}</p>
             </footer>
         </div>
     );

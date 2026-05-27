@@ -1,5 +1,3 @@
-import {cn} from '@/lib/utils';
-
 interface JourneyCardProps {
     title: string;
     companyTitle: string | undefined;
@@ -10,35 +8,41 @@ interface JourneyCardProps {
 
 export function JourneyCard(props: JourneyCardProps) {
     return (
-        <div className="journey-item group">
-            <div className={cn('journey-line')}></div>
-            <div className="journey-body">
-                <div className="journey-head">
+        <div className="group grid grid-cols-[2px_1fr] gap-4">
+            <div className="min-h-full w-0.5 bg-border group-hover:bg-primary"></div>
+            <div className="flex flex-col gap-3">
+                <div className="flex justify-between gap-4 max-sm:flex-col">
                     <div>
-                        <p className="journey-title">{props.title}</p>
+                        <p className="font-bold text-foreground">
+                            {props.title}
+                        </p>
                         <div
-                            className="journey-company"
+                            className="flex flex-wrap gap-1.5 text-[0.85rem] text-muted-foreground"
                             hidden={props.companyTitle === undefined}
                         >
                             <p>at</p>
                             <a
                                 hidden={props.companyUrl === undefined}
                                 href={props.companyUrl}
-                                className="text-link"
+                                className="text-primary no-underline hover:bg-primary hover:text-background"
                             >
                                 {props.companyTitle}
                             </a>
                             <p
                                 hidden={props.companyUrl !== undefined}
-                                className="text-link"
+                                className="text-primary"
                             >
                                 {props.companyTitle}
                             </p>
                         </div>
                     </div>
-                    <div className="journey-date">{props.workingDates}</div>
+                    <div className="whitespace-nowrap text-[0.85rem] text-muted-foreground">
+                        {props.workingDates}
+                    </div>
                 </div>
-                <p>{props.description}</p>
+                <p className="text-[0.95rem] leading-7 text-muted-foreground">
+                    {props.description}
+                </p>
             </div>
         </div>
     );

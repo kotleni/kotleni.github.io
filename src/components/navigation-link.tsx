@@ -11,7 +11,10 @@ export function NavigationLink({isActive, title, url}: NavigationLinkProps) {
     return (
         <Link
             to={url}
-            className={cn('nav-link', isActive ? 'nav-link-active' : '')}
+            className={cn(
+                'inline-flex min-h-8 items-center rounded-sm px-2.5 text-sm text-muted-foreground no-underline hover:bg-muted hover:text-foreground',
+                isActive ? 'bg-muted text-foreground' : '',
+            )}
         >
             {title}
         </Link>

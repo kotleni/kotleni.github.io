@@ -28,6 +28,7 @@ export default defineConfig({
     ],
     define: {
         APP_VERSION: JSON.stringify(appVersion),
+        PACKAGE_VERSION: JSON.stringify(pkg.version),
     },
     resolve: {
         alias: {
