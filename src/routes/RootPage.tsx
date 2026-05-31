@@ -204,8 +204,7 @@ export function RootPage() {
                             </span>
                         ))}
                     </span>
-                    <br className="hidden sm:block" />
-                    or email me at{' '}
+                    <br className="hidden sm:block" /> or email me at{' '}
                     <span className="font-medium">
                         <StyledLink href={'mailto:' + bio.email}>
                             {bio.email}
