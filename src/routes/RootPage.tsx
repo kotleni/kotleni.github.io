@@ -103,29 +103,31 @@ const bio = new BioBuilder()
 
 export function RootPage() {
     return (
-        <div className="flex w-full flex-col gap-12">
-            <header className="flex flex-col gap-3.5">
-                <p className="text-xs uppercase tracking-[0.12em] text-primary">
+        <div className="flex w-full flex-col gap-14">
+            <header className="flex flex-col gap-4">
+                <span className="inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-primary">
                     software engineer
-                </p>
-                <h1 className="max-w-[12ch] text-[clamp(2.35rem,9vw,4.5rem)] font-bold leading-[0.96] text-foreground">
+                </span>
+                <h1 className="max-w-[12ch] text-[clamp(2.2rem,8vw,4rem)] font-bold leading-[0.96] text-foreground">
                     {bio.fullName}
                 </h1>
-                <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+                <p className="max-w-2xl text-[0.95rem] leading-7 text-muted-foreground">
                     {bio.description}
                 </p>
             </header>
 
-            <div className="grid gap-12">
-                <section className="flex flex-col gap-4">
-                    <h2 className="font-bold text-foreground">verbose.</h2>
-                    <div className="border-y border-border">
+            <section className="flex flex-col gap-4">
+                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
+                    verbose.
+                </h2>
+                <div className="rounded-xl bg-card p-5 shadow-sm ring-1 ring-border sm:p-6">
+                    <div className="flex flex-col divide-y divide-border">
                         {bio.details.map(detail => (
                             <div
                                 key={detail.title}
-                                className="grid grid-cols-[minmax(8rem,0.75fr)_1.25fr] gap-4 border-t border-border py-3.5 text-sm first:border-t-0 max-sm:grid-cols-1"
+                                className="flex flex-col gap-1 py-3.5 text-sm first:pt-0 last:pb-0 sm:flex-row sm:gap-4"
                             >
-                                <span className="font-bold text-foreground">
+                                <span className="min-w-[8rem] shrink-0 font-medium text-foreground sm:w-1/4">
                                     {detail.title}
                                 </span>
                                 <span className="whitespace-pre-wrap text-muted-foreground">
@@ -134,31 +136,33 @@ export function RootPage() {
                             </div>
                         ))}
                     </div>
-                </section>
-
-                <section className="flex flex-col gap-4">
-                    <h2 className="font-bold text-foreground">languages.</h2>
-                    <div className="border-y border-border">
-                        {bio.languages.map(language => (
-                            <div
-                                key={language.name}
-                                className="grid grid-cols-[minmax(8rem,0.75fr)_1.25fr] gap-4 border-t border-border py-3.5 text-sm first:border-t-0 max-sm:grid-cols-1"
-                            >
-                                <span className="font-bold text-foreground">
-                                    {language.name}
-                                </span>
-                                <span className="text-muted-foreground">
-                                    {language.levelName}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
             <section className="flex flex-col gap-4">
-                <h2 className="font-bold text-foreground">journey.</h2>
-                <div className="flex flex-col gap-6">
+                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
+                    languages.
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                    {bio.languages.map(language => (
+                        <span
+                            key={language.name}
+                            className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-3.5 py-1.5 text-sm text-secondary-foreground"
+                        >
+                            <span className="font-medium">{language.name}</span>
+                            <span className="text-muted-foreground">
+                                {language.levelName}
+                            </span>
+                        </span>
+                    ))}
+                </div>
+            </section>
+
+            <section className="flex flex-col gap-4">
+                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
+                    journey.
+                </h2>
+                <div className="flex flex-col gap-4">
                     <JourneyCard
                         title="Android&iOS Developer"
                         companyTitle="AppLead Pro & VIPAPP & Gravity"
@@ -184,37 +188,42 @@ export function RootPage() {
             </section>
 
             <section className="flex flex-col gap-4">
-                <h2 className="font-bold text-foreground">contact.</h2>
-                <div className="text-[0.95rem] leading-7 text-muted-foreground">
-                    interested in a conversation? drop dm's over{' '}
-                    <span className="inline-flex flex-wrap gap-x-2 gap-y-1 items-center">
-                        {bio.socials.map((social, index) => (
-                            <span
-                                key={social.url}
-                                className="inline-flex items-center"
-                            >
-                                <StyledLink href={social.url}>
-                                    {social.name.toLowerCase()}
-                                </StyledLink>
-                                {index < bio.socials.length - 1 && (
-                                    <span className="ml-2 font-normal text-muted-foreground/50">
-                                        /
-                                    </span>
-                                )}
-                            </span>
-                        ))}
-                    </span>
-                    <br className="hidden sm:block" /> or email me at{' '}
-                    <span className="font-medium">
-                        <StyledLink href={'mailto:' + bio.email}>
-                            {bio.email}
-                        </StyledLink>
-                    </span>
-                    . ask me anything about my work, projects, or anything else.
+                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
+                    contact.
+                </h2>
+                <div className="rounded-xl bg-card p-5 shadow-sm ring-1 ring-border sm:p-6">
+                    <p className="text-[0.9rem] leading-7 text-muted-foreground">
+                        interested in a conversation? drop dm's over{' '}
+                        <span className="inline-flex flex-wrap gap-x-1.5 gap-y-1 items-center">
+                            {bio.socials.map((social, index) => (
+                                <span
+                                    key={social.url}
+                                    className="inline-flex items-center"
+                                >
+                                    <StyledLink href={social.url}>
+                                        {social.name.toLowerCase()}
+                                    </StyledLink>
+                                    {index < bio.socials.length - 1 && (
+                                        <span className="ml-1.5 text-muted-foreground/40">
+                                            /
+                                        </span>
+                                    )}
+                                </span>
+                            ))}
+                        </span>
+                        <br className="hidden sm:block" /> or email me at{' '}
+                        <span className="font-medium">
+                            <StyledLink href={'mailto:' + bio.email}>
+                                {bio.email}
+                            </StyledLink>
+                        </span>
+                        . ask me anything about my work, projects, or anything
+                        else.
+                    </p>
                 </div>
             </section>
 
-            <footer className="flex flex-col items-center gap-4 border-t border-border pt-4 text-center text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
+            <footer className="flex flex-col items-center gap-4 border-t border-border pt-6 text-center text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
                 <div className="flex flex-wrap justify-center gap-1">
                     {badges.map(badge => {
                         const image = (

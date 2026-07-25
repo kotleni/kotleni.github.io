@@ -8,8 +8,7 @@ interface JourneyCardProps {
 
 export function JourneyCard(props: JourneyCardProps) {
     return (
-        <div className="group grid grid-cols-[2px_1fr] gap-4">
-            <div className="min-h-full w-0.5 bg-border group-hover:bg-primary"></div>
+        <div className="group rounded-xl bg-card p-5 shadow-sm ring-1 ring-border transition-shadow hover:shadow-md sm:p-6">
             <div className="flex flex-col gap-3">
                 <div className="flex justify-between gap-4 max-sm:flex-col">
                     <div>
@@ -24,7 +23,7 @@ export function JourneyCard(props: JourneyCardProps) {
                             <a
                                 hidden={props.companyUrl === undefined}
                                 href={props.companyUrl}
-                                className="text-primary no-underline hover:bg-primary hover:text-background"
+                                className="text-primary no-underline transition-colors hover:underline"
                             >
                                 {props.companyTitle}
                             </a>
@@ -36,11 +35,11 @@ export function JourneyCard(props: JourneyCardProps) {
                             </p>
                         </div>
                     </div>
-                    <div className="whitespace-nowrap text-[0.85rem] text-muted-foreground">
+                    <div className="whitespace-nowrap text-[0.8rem] text-muted-foreground">
                         {props.workingDates}
                     </div>
                 </div>
-                <p className="text-[0.95rem] leading-7 text-muted-foreground">
+                <p className="text-[0.9rem] leading-7 text-muted-foreground">
                     {props.description}
                 </p>
             </div>
