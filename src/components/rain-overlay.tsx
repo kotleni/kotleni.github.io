@@ -43,7 +43,7 @@ export default function RainOverlay() {
 
         const loop = () => {
             context.clearRect(0, 0, width, height);
-            context.strokeStyle = 'rgba(174, 194, 224, 0.6)';
+            context.strokeStyle = 'rgba(200, 215, 240, 0.7)';
             context.lineWidth = 1.2;
             context.lineCap = 'round';
 
@@ -93,7 +93,7 @@ export default function RainOverlay() {
     return (
         <canvas
             ref={canvasRef}
-            className="pointer-events-none fixed inset-0 z-[99999] h-screen w-screen mix-blend-multiply opacity-15"
+            className="pointer-events-none fixed inset-0 z-[99999] h-screen w-screen opacity-30"
         />
     );
 }
