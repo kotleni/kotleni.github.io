@@ -12,8 +12,10 @@ export function NavigationLink({isActive, title, url}: NavigationLinkProps) {
         <Link
             to={url}
             className={cn(
-                'inline-flex min-h-8 items-center rounded-sm px-2.5 text-sm text-muted-foreground no-underline hover:bg-muted hover:text-foreground',
-                isActive ? 'bg-muted text-foreground' : '',
+                'inline-flex min-h-8 items-center rounded-full px-3.5 text-[0.82rem] text-muted-foreground no-underline transition-all',
+                isActive
+                    ? 'bg-primary/10 text-primary'
+                    : 'hover:bg-muted hover:text-foreground',
             )}
         >
             {title}
