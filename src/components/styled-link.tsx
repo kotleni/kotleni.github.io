@@ -9,7 +9,7 @@ export function StyledLink(props: StyledLinkProps) {
             {...props}
             className={cn(
                 props.className,
-                'text-primary hover:bg-primary hover:text-background',
+                'text-primary transition-colors hover:underline',
             )}
         />
     );

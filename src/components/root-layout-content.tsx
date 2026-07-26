@@ -20,15 +20,14 @@ export function RootLayoutContent({
     return (
         <>
             <div className="flex min-h-screen w-full flex-col items-center">
-                <header className="grid w-full max-w-3xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 pt-5">
-                    <div></div>
+                <header className="flex w-full max-w-3xl items-center justify-between px-5 pt-6 sm:px-7 sm:pt-8">
                     <Link
                         to="/"
-                        className="text-center text-[0.82rem] leading-8 text-muted-foreground no-underline hover:text-foreground"
+                        className="text-[0.85rem] font-medium text-foreground no-underline transition-colors hover:text-primary"
                     >
                         kotleni
                     </Link>
-                    <nav className="flex items-center justify-end gap-1">
+                    <nav className="flex items-center gap-1">
                         {navLinks.map((link, index) => {
                             return (
                                 <PageNavigationLink
@@ -40,7 +39,7 @@ export function RootLayoutContent({
                         })}
                     </nav>
                 </header>
-                <main className="flex w-full justify-center py-12 sm:py-16">
+                <main className="flex w-full justify-center py-10 sm:py-14">
                     {children}
                 </main>
             </div>

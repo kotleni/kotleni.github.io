@@ -5,8 +5,8 @@ export function BackButton() {
     return (
         <SidebarClose
             className={cn(
-                'cursor-pointer',
-                'text-neutral-50 hover:text-neutral-400',
+                'cursor-pointer transition-colors',
+                'text-muted-foreground hover:text-foreground',
             )}
             onClick={() => {
                 history.back();
