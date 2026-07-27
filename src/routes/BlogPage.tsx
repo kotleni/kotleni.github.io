@@ -28,34 +28,34 @@ export function BlogPage() {
                     {posts
                         .filter(post => !post.isArchived)
                         .map(post => (
-                        <Link
-                            key={post.url}
-                            to={`/blog/${post.url}`}
-                            className="group flex flex-col gap-2 py-4 text-inherit no-underline first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                        >
-                            <span className="flex flex-col gap-2">
-                                <span className="flex items-center gap-2 font-bold text-foreground transition-colors group-hover:text-primary">
-                                    {post.title}
-                                    {post.isNew && (
-                                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[0.7rem] font-medium text-primary">
-                                            new
-                                        </span>
-                                    )}
-                                </span>
-                                <span className="text-sm leading-6 text-muted-foreground">
-                                    {post.description}
-                                </span>
-                            </span>
-                            <time
-                                dateTime={post.publishedAt}
-                                className="whitespace-nowrap text-xs text-muted-foreground"
+                            <Link
+                                key={post.url}
+                                to={`/blog/${post.url}`}
+                                className="group flex flex-col gap-2 py-4 text-inherit no-underline first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
                             >
-                                {dateFormatter.format(
-                                    new Date(post.publishedAt),
-                                )}
-                            </time>
-                        </Link>
-                    ))}
+                                <span className="flex flex-col gap-2">
+                                    <span className="flex items-center gap-2 font-bold text-foreground transition-colors group-hover:text-primary">
+                                        {post.title}
+                                        {post.isNew && (
+                                            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[0.7rem] font-medium text-primary">
+                                                new
+                                            </span>
+                                        )}
+                                    </span>
+                                    <span className="text-sm leading-6 text-muted-foreground">
+                                        {post.description}
+                                    </span>
+                                </span>
+                                <time
+                                    dateTime={post.publishedAt}
+                                    className="whitespace-nowrap text-xs text-muted-foreground"
+                                >
+                                    {dateFormatter.format(
+                                        new Date(post.publishedAt),
+                                    )}
+                                </time>
+                            </Link>
+                        ))}
                 </div>
             </section>
         </div>
