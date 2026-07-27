@@ -1,16 +1,8 @@
 import {Link, useParams} from 'react-router-dom';
 import {posts} from '@/data/blog-posts';
-import asahiLinux from '@/markdown/asahi-linux.md';
-import bakingMarkdownIntoHtml from '@/markdown/baking-markdown-into-html.md';
-import hostingInfrastructure from '@/markdown/hosting-infrastructure.md';
-import newWebsiteV6 from '@/markdown/new-website-v6.md';
+import {useEffect, useState} from 'react';
 
-const postHtml: Record<string, string> = {
-    'asahi-linux': asahiLinux,
-    'baking-markdown-into-html': bakingMarkdownIntoHtml,
-    'hosting-infrastructure': hostingInfrastructure,
-    'new-website-v6': newWebsiteV6,
-};
+const postModules = import.meta.glob<{default: string}>('../markdown/*.md');
 
 const dateFormatter = new Intl.DateTimeFormat('en', {
     month: 'short',
@@ -21,7 +13,32 @@ const dateFormatter = new Intl.DateTimeFormat('en', {
 export function BlogPostPage() {
     const {slug} = useParams();
     const post = posts.find(item => item.url === slug);
-    const html = slug ? postHtml[slug] : undefined;
+    const [html, setHtml] = useState<string | undefined>(undefined);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setHtml(undefined);
+        setLoading(true);
+
+        if (!slug) {
+            setLoading(false);
+            return;
+        }
+
+        const loader = postModules[`../markdown/${slug}.md`];
+        if (!loader) {
+            setLoading(false);
+            return;
+        }
+
+        loader()
+            .then(mod => setHtml(mod.default))
+            .finally(() => setLoading(false));
+    }, [slug]);
+
+    if (loading) {
+        return <div className="flex w-full flex-col gap-12">...</div>;
+    }
 
     if (!post || !html) {
         return (
