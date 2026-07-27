@@ -7,13 +7,17 @@ interface NavigationLinkProps {
 }
 
 export function PageNavigationLink(props: NavigationLinkProps) {
-    const currentPath = useLocation().pathname;
+    const {pathname} = useLocation();
+    const isActive =
+        props.url === '/'
+            ? pathname === props.url
+            : pathname.startsWith(props.url);
 
     return (
         <NavigationLink
             title={props.title}
             url={props.url}
-            isActive={currentPath === props.url}
+            isActive={isActive}
         />
     );
 }
