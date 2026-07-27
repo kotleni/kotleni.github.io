@@ -65,7 +65,7 @@ export function BlogPostPage() {
     }
 
     return (
-        <article className="flex w-full flex-col gap-12">
+        <article className="flex w-full flex-col gap-6">
             <header className="flex flex-col gap-4">
                 <Link
                     to="/blog"
@@ -79,12 +79,6 @@ export function BlogPostPage() {
                 >
                     {dateFormatter.format(new Date(post.publishedAt))}
                 </time>
-                <h1 className="max-w-[12ch] text-[clamp(2.2rem,8vw,4rem)] font-bold leading-[0.96] text-foreground">
-                    {post.title}
-                </h1>
-                <p className="max-w-2xl text-[0.95rem] leading-7 text-muted-foreground">
-                    {post.description}
-                </p>
             </header>
 
             <div
