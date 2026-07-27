@@ -25,7 +25,9 @@ export function BlogPage() {
 
             <section className="rounded-xl bg-card p-5 shadow-sm ring-1 ring-border sm:p-6">
                 <div className="flex flex-col divide-y divide-border">
-                    {posts.map(post => (
+                    {posts
+                        .filter(post => !post.isArchived)
+                        .map(post => (
                         <Link
                             key={post.url}
                             to={`/blog/${post.url}`}
