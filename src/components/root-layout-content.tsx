@@ -1,6 +1,8 @@
 import {PageNavigationLink} from '@/components/page-nav-link';
 import {Link} from 'react-router-dom';
-import RainOverlay from './rain-overlay';
+import {SiteFooter} from '@/components/site-footer';
+import {ThemeToggle} from '@/components/theme-toggle';
+import {Ticker} from '@/components/ticker';
 
 interface NavLinkInfo {
     title: string;
@@ -18,32 +20,36 @@ export function RootLayoutContent({
     children: React.ReactNode;
 }>) {
     return (
-        <>
-            <div className="flex min-h-screen w-full flex-col items-center">
-                <header className="flex w-full max-w-3xl items-center justify-between px-5 pt-6 sm:px-7 sm:pt-8">
-                    <Link
-                        to="/"
-                        className="text-[0.85rem] font-medium text-foreground no-underline transition-colors hover:text-primary"
+        <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4 sm:px-6">
+            <Ticker />
+            <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
+                <Link
+                    to="/"
+                    className="flex items-center gap-2 text-sm font-bold text-foreground no-underline"
+                >
+                    <span
+                        aria-hidden="true"
+                        className="win flex size-6 items-center justify-center text-[0.7rem]"
                     >
-                        kotleni
-                    </Link>
+                        k
+                    </span>
+                    kotleni
+                </Link>
+                <div className="ml-auto flex items-center gap-1.5">
                     <nav className="flex items-center gap-1">
-                        {navLinks.map((link, index) => {
-                            return (
-                                <PageNavigationLink
-                                    key={index}
-                                    title={link.title}
-                                    url={link.url}
-                                />
-                            );
-                        })}
+                        {navLinks.map(link => (
+                            <PageNavigationLink
+                                key={link.url}
+                                title={link.title}
+                                url={link.url}
+                            />
+                        ))}
                     </nav>
-                </header>
-                <main className="flex w-full justify-center py-10 sm:py-14">
-                    {children}
-                </main>
-            </div>
-            <RainOverlay />
-        </>
+                    <ThemeToggle />
+                </div>
+            </header>
+            <main className="flex-1 py-6">{children}</main>
+            <SiteFooter />
+        </div>
     );
 }

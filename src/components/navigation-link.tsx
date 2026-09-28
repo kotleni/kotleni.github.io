@@ -11,14 +11,15 @@ export function NavigationLink({isActive, title, url}: NavigationLinkProps) {
     return (
         <Link
             to={url}
+            aria-current={isActive ? 'page' : undefined}
             className={cn(
-                'inline-flex min-h-8 items-center rounded-full px-3.5 text-[0.82rem] text-muted-foreground no-underline transition-all',
+                'px-1.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] no-underline transition-colors',
                 isActive
-                    ? 'bg-primary/10 text-primary'
-                    : 'hover:bg-muted hover:text-foreground',
+                    ? 'bg-accent text-accent-foreground'
+                    : 'text-muted-foreground hover:bg-muted hover:text-foreground',
             )}
         >
-            {title}
+            {isActive ? `[${title}]` : title}
         </Link>
     );
 }

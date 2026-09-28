@@ -2,6 +2,7 @@ import {Link, useParams} from 'react-router-dom';
 import {posts} from '@/data/blog-posts';
 import {useEffect, useState} from 'react';
 import {cn} from '@/lib/utils';
+import {Panel} from '@/components/panel';
 
 const postModules = import.meta.glob<{default: string}>('../markdown/*.md');
 
@@ -12,50 +13,37 @@ const dateFormatter = new Intl.DateTimeFormat('en', {
 });
 
 const proseTypography = cn(
-    '[&_h1]:mb-5 [&_h1]:text-[clamp(2rem,6vw,3.2rem)]',
-    '[&_h1]:leading-tight [&_h1]:text-foreground',
-    '[&_h2]:mb-4 [&_h2]:mt-10',
-    '[&_h2]:text-[clamp(1.3rem,3.5vw,1.8rem)]',
-    '[&_h2]:leading-tight [&_h2]:text-foreground',
-    '[&_h3]:mb-3 [&_h3]:mt-7 [&_h3]:text-xl',
-    '[&_h3]:leading-tight [&_h3]:text-foreground',
-    '[&_h4]:mb-2.5 [&_h4]:mt-6 [&_h4]:text-lg',
-    '[&_h4]:leading-tight [&_h4]:text-foreground',
-    '[&_p]:text-base [&_p]:leading-8 [&_p]:text-foreground',
-    '[&_li]:text-base [&_li]:leading-8 [&_li]:text-foreground',
-    '[&_li+li]:mt-2',
-    '[&_ol]:mb-4 [&_ol]:ml-5 [&_ol]:p-0',
-    '[&_ul]:mb-4 [&_ul]:ml-5 [&_ul]:p-0',
-    '[&_blockquote]:my-6 [&_blockquote]:rounded-r-lg',
-    '[&_blockquote]:border-l-2 [&_blockquote]:border-primary/30',
-    '[&_blockquote]:bg-muted/50 [&_blockquote]:py-3 [&_blockquote]:pl-4',
-    '[&_a]:text-primary [&_a]:transition-colors [&_a]:hover:underline',
+    '[&_h1]:mb-4 [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:leading-tight [&_h1]:sm:text-3xl',
+    '[&_h2]:mb-3 [&_h2]:mt-8 [&_h2]:text-lg [&_h2]:font-bold [&_h2]:leading-tight',
+    '[&_h3]:mb-2 [&_h3]:mt-6 [&_h3]:font-bold',
+    '[&_h4]:mb-2 [&_h4]:mt-5 [&_h4]:font-bold',
+    '[&_p]:leading-7',
+    '[&_li]:leading-7',
+    '[&_li+li]:mt-1',
+    '[&_ol]:mb-4 [&_ol]:ml-6 [&_ol]:list-decimal [&_ol]:p-0',
+    '[&_ul]:mb-4 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:p-0',
+    '[&_blockquote]:my-5 [&_blockquote]:border-l-2 [&_blockquote]:border-accent',
+    '[&_blockquote]:pl-4 [&_blockquote]:text-muted-foreground [&_blockquote]:italic',
+    '[&_a]:text-accent [&_a]:underline [&_a]:decoration-dotted [&_a]:underline-offset-2',
+    'last:[&>*]:mb-0',
 );
 
 const proseCode = cn(
-    '[&_code]:rounded-md [&_code]:bg-muted',
-    '[&_code]:px-1.5 [&_code]:py-0.5',
-    '[&_code]:font-mono [&_code]:text-[0.92em]',
-    '[&_code]:text-muted-foreground',
-    '[&_pre]:my-6 [&_pre]:overflow-x-auto',
-    '[&_pre]:rounded-xl [&_pre]:bg-card',
-    '[&_pre]:p-5 [&_pre]:ring-1 [&_pre]:ring-border',
-    '[&_pre]:text-sm',
-    '[&_pre_code]:bg-transparent [&_pre_code]:p-0',
+    '[&_code]:well [&_code]:px-1 [&_code]:text-[0.85em]',
+    '[&_pre]:my-5 [&_pre]:overflow-x-auto [&_pre]:well',
+    '[&_pre]:p-4 [&_pre]:text-[0.85rem] [&_pre]:leading-6',
+    '[&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:border-0',
+    '[&_pre_code]:text-[1em] [&_pre_code]:shadow-[none]',
 );
 
 const proseMisc = cn(
-    '[&_hr]:my-10 [&_hr]:border-0',
-    '[&_hr]:border-t [&_hr]:border-border',
+    '[&_hr]:my-8 [&_hr]:border-0 [&_hr]:border-t [&_hr]:border-dashed [&_hr]:border-border',
     '[&_strong]:text-foreground',
-    '[&_table]:my-6 [&_table]:w-full',
-    '[&_table]:border-collapse [&_table]:text-left',
-    '[&_td]:rounded-md [&_td]:border',
-    '[&_td]:border-border [&_td]:p-3',
-    '[&_th]:border [&_th]:border-border [&_th]:p-3',
-    '[&_th]:text-xs [&_th]:uppercase [&_th]:tracking-[0.08em]',
-    '[&_thead]:bg-muted/60 [&_thead]:text-muted-foreground',
-    'last:[&>*]:mb-0',
+    '[&_img]:my-5 [&_img]:border [&_img]:border-border',
+    '[&_table]:my-5 [&_table]:w-full [&_table]:border-collapse [&_table]:text-left [&_table]:text-sm',
+    '[&_td]:border [&_td]:border-border [&_td]:p-2',
+    '[&_th]:border [&_th]:border-border [&_th]:bg-muted [&_th]:p-2',
+    '[&_th]:text-xs [&_th]:uppercase [&_th]:tracking-[0.1em]',
 );
 
 export function BlogPostPage() {
@@ -85,54 +73,81 @@ export function BlogPostPage() {
     }, [slug]);
 
     if (loading) {
-        return <div className="flex w-full flex-col gap-12">...</div>;
+        return <div className="text-muted-foreground">loading...</div>;
     }
 
     if (!post || !html) {
         return (
-            <div className="flex w-full flex-col gap-12">
-                <header className="flex flex-col gap-4">
-                    <span className="inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-primary">
-                        404
+            <div className="flex flex-col gap-6">
+                <header className="flex flex-col gap-3">
+                    <span className="text-[0.7rem] uppercase tracking-[0.18em] text-accent">
+                        error 404
                     </span>
-                    <h1 className="max-w-[12ch] text-[clamp(2.2rem,8vw,4rem)] font-bold leading-[0.96] text-foreground">
+                    <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
                         Post not found.
                     </h1>
-                    <p className="max-w-2xl text-[0.95rem] leading-7 text-muted-foreground">
+                    <p className="max-w-prose text-muted-foreground">
                         This one does not exist, or moved somewhere quieter.
                     </p>
                 </header>
                 <Link
                     to="/blog"
-                    className="text-primary no-underline transition-colors hover:underline"
+                    className="w-fit text-accent underline decoration-dotted underline-offset-2 no-underline hover:decoration-solid"
                 >
-                    back to blog
+                    [ back to index ]
                 </Link>
             </div>
         );
     }
 
+    const position = posts.findIndex(item => item.url === post.url);
+    const older = posts[position + 1];
+    const newer = posts[position - 1];
+
     return (
-        <article className="flex w-full flex-col gap-6">
-            <header className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-[0.7rem] uppercase tracking-[0.14em]">
                 <Link
                     to="/blog"
-                    className="text-primary no-underline transition-colors hover:underline"
+                    className="text-muted-foreground no-underline hover:text-accent hover:underline"
                 >
-                    back to blog
+                    [ back to index ]
                 </Link>
                 <time
                     dateTime={post.publishedAt}
-                    className="inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-primary"
+                    className="text-muted-foreground"
                 >
                     {dateFormatter.format(new Date(post.publishedAt))}
                 </time>
-            </header>
+            </div>
 
-            <div
-                className={cn(proseTypography, proseCode, proseMisc)}
-                dangerouslySetInnerHTML={{__html: html}}
-            />
-        </article>
+            <Panel title={`${post.url}.md`}>
+                <div
+                    className={cn(proseTypography, proseCode, proseMisc)}
+                    dangerouslySetInnerHTML={{__html: html}}
+                />
+            </Panel>
+
+            <nav className="flex flex-wrap items-center justify-between gap-2 border-t border-dashed border-border pt-4 text-[0.7rem] uppercase tracking-[0.14em]">
+                {older ? (
+                    <Link
+                        to={`/blog/${older.url}`}
+                        className="text-muted-foreground no-underline hover:text-accent hover:underline"
+                    >
+                        &lt;&lt; {older.title}
+                    </Link>
+                ) : (
+                    <span />
+                )}
+                {newer && (
+                    <Link
+                        to={`/blog/${newer.url}`}
+                        className="text-muted-foreground no-underline hover:text-accent hover:underline"
+                    >
+                        {newer.title} &gt;&gt;
+                    </Link>
+                )}
+            </nav>
+        </div>
     );
 }

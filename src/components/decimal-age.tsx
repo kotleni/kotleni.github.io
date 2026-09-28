@@ -22,7 +22,7 @@ export const DecimalAge = ({birthDate}: DecimalAgeProps) => {
 
         calculateAge();
 
-        const intervalId = setInterval(calculateAge, 50);
+        const intervalId = setInterval(calculateAge, 1000);
 
         return () => clearInterval(intervalId);
     }, [birthDate]);
