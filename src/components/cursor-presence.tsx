@@ -157,7 +157,9 @@ export function CursorPresence() {
 
         const base = import.meta.env.DEV
             ? `ws://${window.location.hostname}:3001`
-            : 'ws://amber.kotle.uk:3001';
+            : window.location.protocol === 'https:'
+              ? 'wss://amber.kotle.uk'
+              : 'ws://amber.kotle.uk:3001';
 
         let closed = false;
         let stopReconnect = false;
