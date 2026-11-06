@@ -1,4 +1,10 @@
 import {useEffect, useRef} from 'react';
+import {
+    emitLocalGarlandDrag,
+    ghostCursors,
+    remoteCursors,
+    remoteGarlandDrags,
+} from '@/lib/remote-cursors';
 import {useReducedMotion} from '@/lib/snowfall';
 
 interface RopePoint {
@@ -266,6 +272,14 @@ export function Garland() {
             | {kind: 'rope'; index: number}
             | null;
         let drag: DragTarget = null;
+        const lockedRemote = new Map<
+            string,
+            {kind: 'ball' | 'rope'; index: number}
+        >();
+        const lockedGhost = new Map<
+            string,
+            {kind: 'ball' | 'rope'; index: number}
+        >();
         const pointerPos = {x: -9999, y: -9999, vx: 0, vy: 0};
         let lastPointer = {x: -9999, y: -9999, time: 0};
 
@@ -277,7 +291,10 @@ export function Garland() {
             canvas.height = Math.round(height * dpr);
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             garland = buildGarland(width);
+            if (drag) emitLocalGarlandDrag(null);
             drag = null;
+            lockedRemote.clear();
+            lockedGhost.clear();
         };
 
         const isFixed = (kind: 'rope' | 'ball', index: number) => {
@@ -314,6 +331,167 @@ export function Garland() {
         const step = (dt: number, seconds: number) => {
             const wind = windAt(seconds);
             const dtSub = dt / SUBSTEPS;
+            const pageW = Math.max(document.documentElement.scrollWidth, width);
+            const pageH = Math.max(
+                document.documentElement.scrollHeight,
+                height,
+            );
+            const scrollX = window.scrollX;
+            const scrollY = window.scrollY;
+            for (const userId of [...lockedRemote.keys()]) {
+                if (!remoteGarlandDrags.has(userId)) {
+                    lockedRemote.delete(userId);
+                }
+            }
+            for (const userId of remoteGarlandDrags.keys()) {
+                if (lockedRemote.has(userId)) continue;
+                const remote = remoteCursors.get(userId);
+                if (!remote?.hasPosition) continue;
+                const rx = remote.tx * pageW - scrollX;
+                const ry = remote.ty * pageH - scrollY;
+                let bestBall = -1;
+                let bestBallDist = Infinity;
+                garland.ornaments.forEach((ornament, index) => {
+                    if (drag?.kind === 'ball' && drag.index === index) return;
+                    const dist = Math.hypot(ornament.x - rx, ornament.y - ry);
+                    if (dist < bestBallDist) {
+                        bestBall = index;
+                        bestBallDist = dist;
+                    }
+                });
+                let bestRope = -1;
+                let bestRopeDist = Infinity;
+                garland.points.forEach((point, index) => {
+                    if (point.pinned) return;
+                    if (drag?.kind === 'rope' && drag.index === index) return;
+                    const dist = Math.hypot(point.x - rx, point.y - ry);
+                    if (dist < bestRopeDist) {
+                        bestRope = index;
+                        bestRopeDist = dist;
+                    }
+                });
+                if (bestBall >= 0 && bestBallDist <= bestRopeDist) {
+                    lockedRemote.set(userId, {kind: 'ball', index: bestBall});
+                } else if (bestRope >= 0) {
+                    lockedRemote.set(userId, {kind: 'rope', index: bestRope});
+                }
+            }
+            const remoteGrabs: Array<{
+                kind: 'ball' | 'rope';
+                index: number;
+                x: number;
+                y: number;
+            }> = [];
+            for (const [userId, locked] of lockedRemote.entries()) {
+                const remote = remoteCursors.get(userId);
+                if (!remote?.hasPosition) continue;
+                if (drag?.kind === locked.kind && drag.index === locked.index) {
+                    continue;
+                }
+                const rx = remote.tx * pageW - scrollX;
+                const ry = remote.ty * pageH - scrollY;
+                if (
+                    rx < -200 ||
+                    rx > width + 200 ||
+                    ry < -200 ||
+                    ry > height + 200
+                ) {
+                    continue;
+                }
+                remoteGrabs.push({
+                    kind: locked.kind,
+                    index: locked.index,
+                    x: rx,
+                    y: ry,
+                });
+            }
+            for (const ghostId of [...lockedGhost.keys()]) {
+                if (!ghostCursors.has(ghostId)) {
+                    lockedGhost.delete(ghostId);
+                }
+            }
+            for (const ghost of ghostCursors.values()) {
+                if (lockedGhost.has(ghost.id)) continue;
+                const rx = ghost.x * pageW - scrollX;
+                const ry = ghost.y * pageH - scrollY;
+                if (
+                    rx < -60 ||
+                    rx > width + 60 ||
+                    ry < -60 ||
+                    ry > height + 60
+                ) {
+                    continue;
+                }
+                let bestBall = -1;
+                let bestBallDist = Infinity;
+                garland.ornaments.forEach((ornament, index) => {
+                    if (drag?.kind === 'ball' && drag.index === index) return;
+                    const dist = Math.hypot(ornament.x - rx, ornament.y - ry);
+                    if (dist <= ornament.radius + 8 && dist < bestBallDist) {
+                        bestBall = index;
+                        bestBallDist = dist;
+                    }
+                });
+                if (bestBall >= 0) {
+                    lockedGhost.set(ghost.id, {
+                        kind: 'ball',
+                        index: bestBall,
+                    });
+                    continue;
+                }
+                let bestRope = -1;
+                let bestRopeDist = Infinity;
+                garland.points.forEach((point, index) => {
+                    if (point.pinned) return;
+                    if (drag?.kind === 'rope' && drag.index === index) return;
+                    const dist = Math.hypot(point.x - rx, point.y - ry);
+                    if (dist <= 12 && dist < bestRopeDist) {
+                        bestRope = index;
+                        bestRopeDist = dist;
+                    }
+                });
+                if (bestRope >= 0) {
+                    lockedGhost.set(ghost.id, {kind: 'rope', index: bestRope});
+                }
+            }
+            const ghostGrabs: Array<{
+                kind: 'ball' | 'rope';
+                index: number;
+                x: number;
+                y: number;
+            }> = [];
+            for (const [ghostId, locked] of lockedGhost.entries()) {
+                const ghost = ghostCursors.get(ghostId);
+                if (!ghost) continue;
+                if (drag?.kind === locked.kind && drag.index === locked.index) {
+                    continue;
+                }
+                if (
+                    remoteGrabs.some(
+                        grab =>
+                            grab.kind === locked.kind &&
+                            grab.index === locked.index,
+                    )
+                ) {
+                    continue;
+                }
+                const rx = ghost.x * pageW - scrollX;
+                const ry = ghost.y * pageH - scrollY;
+                if (
+                    rx < -200 ||
+                    rx > width + 200 ||
+                    ry < -200 ||
+                    ry > height + 200
+                ) {
+                    continue;
+                }
+                ghostGrabs.push({
+                    kind: locked.kind,
+                    index: locked.index,
+                    x: rx,
+                    y: ry,
+                });
+            }
 
             for (let s = 0; s < SUBSTEPS; s++) {
                 garland.points.forEach((point, index) => {
@@ -365,6 +543,44 @@ export function Garland() {
                         ornament.y = pointerPos.y;
                         ornament.px = pointerPos.x - pointerPos.vx * dtSub;
                         ornament.py = pointerPos.y - pointerPos.vy * dtSub;
+                    }
+                }
+                for (const grab of ghostGrabs) {
+                    if (grab.kind === 'ball') {
+                        const ornament = garland.ornaments[grab.index];
+                        if (ornament) {
+                            ornament.x = grab.x;
+                            ornament.y = grab.y;
+                            ornament.px = grab.x;
+                            ornament.py = grab.y;
+                        }
+                    } else {
+                        const point = garland.points[grab.index];
+                        if (point) {
+                            point.x = grab.x;
+                            point.y = grab.y;
+                            point.px = grab.x;
+                            point.py = grab.y;
+                        }
+                    }
+                }
+                for (const grab of remoteGrabs) {
+                    if (grab.kind === 'ball') {
+                        const ornament = garland.ornaments[grab.index];
+                        if (ornament) {
+                            ornament.x = grab.x;
+                            ornament.y = grab.y;
+                            ornament.px = grab.x;
+                            ornament.py = grab.y;
+                        }
+                    } else {
+                        const point = garland.points[grab.index];
+                        if (point) {
+                            point.x = grab.x;
+                            point.y = grab.y;
+                            point.px = grab.x;
+                            point.py = grab.y;
+                        }
                     }
                 }
 
@@ -432,6 +648,36 @@ export function Garland() {
                         if (ornament) {
                             ornament.x = pointerPos.x;
                             ornament.y = pointerPos.y;
+                        }
+                    }
+                    for (const grab of ghostGrabs) {
+                        if (grab.kind === 'ball') {
+                            const ornament = garland.ornaments[grab.index];
+                            if (ornament) {
+                                ornament.x = grab.x;
+                                ornament.y = grab.y;
+                            }
+                        } else {
+                            const point = garland.points[grab.index];
+                            if (point) {
+                                point.x = grab.x;
+                                point.y = grab.y;
+                            }
+                        }
+                    }
+                    for (const grab of remoteGrabs) {
+                        if (grab.kind === 'ball') {
+                            const ornament = garland.ornaments[grab.index];
+                            if (ornament) {
+                                ornament.x = grab.x;
+                                ornament.y = grab.y;
+                            }
+                        } else {
+                            const point = garland.points[grab.index];
+                            if (point) {
+                                point.x = grab.x;
+                                point.y = grab.y;
+                            }
                         }
                     }
                 }
@@ -505,6 +751,7 @@ export function Garland() {
             const hit = hitTest(event.clientX, event.clientY);
             if (!hit) return;
             drag = hit;
+            emitLocalGarlandDrag(hit);
             updatePointerVelocity(event);
             document.body.style.cursor = 'grabbing';
             event.stopPropagation();
@@ -524,6 +771,7 @@ export function Garland() {
         };
 
         const onPointerUp = () => {
+            if (drag) emitLocalGarlandDrag(null);
             drag = null;
             document.body.style.cursor = '';
         };

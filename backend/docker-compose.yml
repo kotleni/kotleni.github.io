@@ -1,0 +1,24 @@
+services:
+  cursor-backend:
+    build: .
+    ports:
+      - "${CURSOR_PORT:-3001}:3001"
+    environment:
+      - PORT=3001
+      - HOST=0.0.0.0
+      - DATA_FILE=/app/data/recordings.json
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3001/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

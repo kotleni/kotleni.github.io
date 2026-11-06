@@ -1,5 +1,6 @@
 import {PageNavigationLink} from '@/components/page-nav-link';
 import {Link} from 'react-router-dom';
+import {CursorPresence} from '@/components/cursor-presence';
 import {Garland} from '@/components/garland';
 import {SiteFooter} from '@/components/site-footer';
 import {Snowfall} from '@/components/snowfall';
@@ -25,6 +26,7 @@ export function RootLayoutContent({
         <>
             <Snowfall />
             <Garland />
+            <CursorPresence />
             <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4 sm:px-6">
                 <Ticker />
                 <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">

@@ -1,0 +1,17 @@
+{
+    "name": "cursor-backend",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "WebSocket cursor presence backend",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "ws": "^8.18.0"
+    }
+}
