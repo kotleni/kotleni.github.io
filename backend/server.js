@@ -112,10 +112,6 @@ function broadcast(room, payload, exceptId) {
     }
 }
 
-function publicUser(user) {
-    return {id: user.id, color: user.color};
-}
-
 function positionedUser(user) {
     return {id: user.id, color: user.color, x: user.x, y: user.y};
 }
@@ -209,7 +205,7 @@ function joinRoom(ws, rawRoom) {
     return true;
 }
 
-function parseMove(msg, user) {
+function parseMove(msg) {
     const x = Number(msg.x);
     const y = Number(msg.y);
     if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
@@ -241,7 +237,7 @@ function parseMove(msg, user) {
 function handleMove(ws, msg) {
     const user = ws.user;
     if (!user) return;
-    const parsed = parseMove(msg, user);
+    const parsed = parseMove(msg);
     if (!parsed) return;
     if (user.lastPx !== null && user.lastPy !== null) {
         user.movedPx += Math.hypot(
