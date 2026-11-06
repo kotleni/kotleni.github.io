@@ -1,0 +1,10 @@
+node_modules/
+data/*
+!data/.gitkeep
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+coverage/
+dist/

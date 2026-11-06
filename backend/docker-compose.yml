@@ -1,0 +1,36 @@
+services:
+  cursor-backend:
+    build: .
+    container_name: cursor-backend
+    networks:
+      - proxy
+    environment:
+      - PORT=3001
+      - HOST=0.0.0.0
+      - DATA_FILE=/app/data/recordings.json
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cursor-backend.rule=Host(`amber.kotle.uk`)"
+      - "traefik.http.routers.cursor-backend.entrypoints=websecure"
+      - "traefik.http.routers.cursor-backend.tls.certresolver=myresolver"
+      - "traefik.http.services.cursor-backend.loadbalancer.server.port=3001"
+      - "traefik.docker.network=proxy"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3001/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  proxy:
+    external: true
