@@ -131,11 +131,17 @@
         border-color: var(--border);
     }
 
-    html,
-    body {
+    html {
         margin: 0;
         padding: 0;
         height: 100%;
+        width: 100%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
         width: 100%;
     }
 
@@ -146,6 +152,7 @@
             transparent 1px
         );
         background-size: 4px 4px;
+        background-attachment: fixed;
         color: var(--foreground);
         font-family: var(--font-mono);
         font-size: 0.9375rem;
