@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import {Panel} from '@/components/panel';
 import {posts} from '@/data/blog-posts';
 
 const dateFormatter = new Intl.DateTimeFormat('en', {
@@ -9,55 +10,62 @@ const dateFormatter = new Intl.DateTimeFormat('en', {
 
 export function BlogPage() {
     return (
-        <div className="flex w-full flex-col gap-12">
-            <header className="flex flex-col gap-4">
-                <span className="inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-primary">
-                    blog
-                </span>
-                <h1 className="max-w-[12ch] text-[clamp(2.2rem,8vw,4rem)] font-bold leading-[0.96] text-foreground">
+        <div className="flex flex-col gap-6">
+            <header className="flex flex-col gap-3">
+                <div className="flex flex-wrap items-center gap-x-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    <span className="text-accent">blog</span>
+                    <span aria-hidden="true">///</span>
+                    <span>
+                        {posts.filter(post => !post.isArchived).length} posts
+                    </span>
+                </div>
+                <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
                     Notes from the workbench.
                 </h1>
-                <p className="max-w-2xl text-[0.95rem] leading-7 text-muted-foreground">
+                <p className="max-w-prose text-muted-foreground">
                     Short writeups about web tooling, infrastructure, Linux, and
                     whatever else survives the draft folder.
                 </p>
             </header>
 
-            <section className="rounded-xl bg-card p-5 shadow-sm ring-1 ring-border sm:p-6">
-                <div className="flex flex-col divide-y divide-border">
+            <Panel title="index.html">
+                <ul className="flex flex-col divide-y divide-dashed divide-border">
                     {posts
                         .filter(post => !post.isArchived)
                         .map(post => (
-                            <Link
-                                key={post.url}
-                                to={`/blog/${post.url}`}
-                                className="group flex flex-col gap-2 py-4 text-inherit no-underline first:pt-0 last:pb-0 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
-                            >
-                                <span className="flex flex-col gap-2">
-                                    <span className="flex items-center gap-2 font-bold text-foreground transition-colors group-hover:text-primary">
-                                        {post.title}
-                                        {post.isNew && (
-                                            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[0.7rem] font-medium text-primary">
-                                                new
-                                            </span>
-                                        )}
-                                    </span>
-                                    <span className="text-sm leading-6 text-muted-foreground">
-                                        {post.description}
-                                    </span>
-                                </span>
-                                <time
-                                    dateTime={post.publishedAt}
-                                    className="whitespace-nowrap text-xs text-muted-foreground"
+                            <li key={post.url}>
+                                <Link
+                                    to={`/blog/${post.url}`}
+                                    className="group flex items-start justify-between gap-4 py-3.5 text-inherit no-underline first:pt-0 last:pb-0"
                                 >
-                                    {dateFormatter.format(
-                                        new Date(post.publishedAt),
-                                    )}
-                                </time>
-                            </Link>
+                                    <span className="flex flex-col gap-1">
+                                        <span className="flex flex-wrap items-baseline gap-x-2">
+                                            <span className="font-bold text-foreground group-hover:text-accent group-hover:underline">
+                                                {post.title}
+                                            </span>
+                                            {post.isNew && (
+                                                <span className="blink text-accent">
+                                                    *new
+                                                </span>
+                                            )}
+                                        </span>
+                                        <span className="text-sm text-muted-foreground">
+                                            {post.description}
+                                        </span>
+                                    </span>
+                                    <time
+                                        dateTime={post.publishedAt}
+                                        className="shrink-0 text-xs text-muted-foreground"
+                                    >
+                                        {dateFormatter.format(
+                                            new Date(post.publishedAt),
+                                        )}
+                                    </time>
+                                </Link>
+                            </li>
                         ))}
-                </div>
-            </section>
+                </ul>
+            </Panel>
         </div>
     );
 }

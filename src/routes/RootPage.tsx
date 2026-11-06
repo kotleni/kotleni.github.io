@@ -1,9 +1,10 @@
+import type {ReactNode} from 'react';
+import {DecimalAge} from '@/components/decimal-age';
 import {JourneyCard} from '@/components/journey-card';
-import {StyledLink} from '@/components/styled-link';
-import {badges} from '@/data/badges';
+import {Panel} from '@/components/panel';
 import {getKyivTimeZoneInfo} from '@/lib/utils';
 
-type DetailResolver = () => string;
+type DetailResolver = () => ReactNode;
 
 interface Detail {
     title: string;
@@ -83,8 +84,8 @@ const bio = new BioBuilder()
     )
     .detail('Location', () => 'Kremenchuk, Ukraine')
     .detail('Timezone', () => getKyivTimeZoneInfo().utcOffset ?? '?')
-    .detail('Age', () => '23')
-    .detail('Education', () => "Bachelor's Diploma \n(Machinery engineering)")
+    .detail('Age', () => <DecimalAge birthDate="2002-09-02" />)
+    // .detail('Education', () => "Bachelor's Diploma \n(Machinery engineering)")
     .detail('Devices', () => 'PC with AMD Ryzen 7 5700X, MacBook Air M1')
     .detail(
         'Smartphones',
@@ -101,68 +102,78 @@ const bio = new BioBuilder()
     .contact('X', 'https://x.com/kotleni_')
     .build();
 
+const links = [
+    ...bio.socials.map(social => ({
+        name: social.name.toLowerCase(),
+        url: social.url,
+        display: social.url.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+    })),
+    {
+        name: 'email',
+        url: `mailto:${bio.email}`,
+        display: bio.email,
+    },
+];
+
 export function RootPage() {
     return (
-        <div className="flex w-full flex-col gap-14">
-            <header className="flex flex-col gap-4">
-                <span className="inline-flex w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-primary">
-                    software engineer
-                </span>
-                <h1 className="max-w-[12ch] text-[clamp(2.2rem,8vw,4rem)] font-bold leading-[0.96] text-foreground">
+        <div className="flex flex-col gap-6">
+            <header className="flex flex-col gap-3">
+                <div className="flex flex-wrap items-center gap-x-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    <span className="text-accent">software engineer</span>
+                    <span aria-hidden="true">///</span>
+                    <span>@kotleni</span>
+                </div>
+                <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
                     {bio.fullName}
                 </h1>
-                <p className="max-w-2xl text-[0.95rem] leading-7 text-muted-foreground">
+                <p className="max-w-prose text-muted-foreground">
                     {bio.description}
                 </p>
             </header>
 
-            <section className="flex flex-col gap-4">
-                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
-                    verbose.
-                </h2>
-                <div className="rounded-xl bg-card p-5 shadow-sm ring-1 ring-border sm:p-6">
-                    <div className="flex flex-col divide-y divide-border">
-                        {bio.details.map(detail => (
-                            <div
-                                key={detail.title}
-                                className="flex flex-col gap-1 py-3.5 text-sm first:pt-0 last:pb-0 sm:flex-row sm:gap-4"
-                            >
-                                <span className="min-w-[8rem] shrink-0 font-medium text-foreground sm:w-1/4">
-                                    {detail.title}
-                                </span>
-                                <span className="whitespace-pre-wrap text-muted-foreground">
+            <Panel title="verbose.txt">
+                <dl className="flex flex-col gap-2">
+                    {bio.details.map(detail => (
+                        <div
+                            key={detail.title}
+                            className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-2"
+                        >
+                            <dt className="shrink-0 text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground sm:w-32">
+                                {detail.title}
+                            </dt>
+                            <dd className="flex min-w-0 flex-1 items-baseline gap-2">
+                                <span className="whitespace-pre-wrap">
                                     {detail.resolver()}
                                 </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                                <span className="leader" aria-hidden="true" />
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            </Panel>
 
-            <section className="flex flex-col gap-4">
-                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
-                    languages.
-                </h2>
+            <Panel title="languages.txt">
                 <div className="flex flex-wrap gap-2">
                     {bio.languages.map(language => (
                         <span
                             key={language.name}
-                            className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-3.5 py-1.5 text-sm text-secondary-foreground"
+                            className="win px-2 py-1 text-sm"
                         >
-                            <span className="font-medium">{language.name}</span>
+                            <span className="font-bold text-foreground">
+                                {language.name}
+                            </span>
                             <span className="text-muted-foreground">
+                                {' :: '}
                                 {language.levelName}
                             </span>
                         </span>
                     ))}
                 </div>
-            </section>
+            </Panel>
 
-            <section className="flex flex-col gap-4">
-                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
-                    journey.
-                </h2>
-                <div className="flex flex-col gap-4">
+            <Panel title="journey.log">
+                <div className="flex flex-col divide-y divide-dashed divide-border">
                     <JourneyCard
                         title="Android&iOS Developer"
                         companyTitle="AppLead Pro & VIPAPP & Gravity"
@@ -185,82 +196,35 @@ export function RootPage() {
                         description="Developing responsive web applications for various clients using React and Next.js. Focused mostly on front-end (mobile-first), integration with APIs, state management, and performance optimization."
                     />
                 </div>
-            </section>
+            </Panel>
 
-            <section className="flex flex-col gap-4">
-                <h2 className="text-sm font-medium uppercase tracking-[0.1em] text-muted-foreground">
-                    contact.
-                </h2>
-                <div className="rounded-xl bg-card p-5 shadow-sm ring-1 ring-border sm:p-6">
-                    <p className="text-[0.9rem] leading-7 text-muted-foreground">
-                        interested in a conversation? drop dm's over{' '}
-                        <span className="inline-flex flex-wrap gap-x-1.5 gap-y-1 items-center">
-                            {bio.socials.map((social, index) => (
-                                <span
-                                    key={social.url}
-                                    className="inline-flex items-center"
+            <Panel title="links.html">
+                <p className="text-muted-foreground">
+                    interested in a conversation? ask me anything about my work
+                    and projects.
+                </p>
+                <dl className="mt-3 flex flex-col gap-1.5">
+                    {links.map(link => (
+                        <div
+                            key={link.name}
+                            className="flex items-baseline gap-2"
+                        >
+                            <dt className="shrink-0 text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+                                {link.name}
+                            </dt>
+                            <span className="leader" aria-hidden="true" />
+                            <dd className="min-w-0 truncate">
+                                <a
+                                    href={link.url}
+                                    className="text-accent underline decoration-dotted underline-offset-2 hover:decoration-solid"
                                 >
-                                    <StyledLink href={social.url}>
-                                        {social.name.toLowerCase()}
-                                    </StyledLink>
-                                    {index < bio.socials.length - 1 && (
-                                        <span className="ml-1.5 text-muted-foreground/40">
-                                            /
-                                        </span>
-                                    )}
-                                </span>
-                            ))}
-                        </span>
-                        <br className="hidden sm:block" /> or email me at{' '}
-                        <span className="font-medium">
-                            <StyledLink href={'mailto:' + bio.email}>
-                                {bio.email}
-                            </StyledLink>
-                        </span>
-                        . ask me anything about my work, projects, or anything
-                        else.
-                    </p>
-                </div>
-            </section>
-
-            <footer className="flex flex-col items-center gap-4 border-t border-border pt-6 text-center text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
-                <div className="flex flex-wrap justify-center gap-1">
-                    {badges.map(badge => {
-                        const image = (
-                            <img
-                                className="h-[31px] w-[88px] [image-rendering:pixelated]"
-                                src={badge.imageUrl}
-                                alt={badge.label}
-                                width="88"
-                                height="31"
-                            />
-                        );
-
-                        if (!badge.targetUrl) {
-                            return (
-                                <span
-                                    key={badge.imageUrl}
-                                    className="inline-flex"
-                                >
-                                    {image}
-                                </span>
-                            );
-                        }
-
-                        return (
-                            <a
-                                key={badge.imageUrl}
-                                href={badge.targetUrl}
-                                aria-label={badge.label}
-                                className="inline-flex"
-                            >
-                                {image}
-                            </a>
-                        );
-                    })}
-                </div>
-                <p>version {PACKAGE_VERSION}</p>
-            </footer>
+                                    {link.display}
+                                </a>
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
+            </Panel>
         </div>
     );
 }

@@ -4,22 +4,43 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal website of Viktor Varenik (@kotleni) — software engineer writing about web tooling, infrastructure and Linux."
+    />
+    <meta name="theme-color" content="#d4d0c6" />
     <title>kotleni's web</title>
     <style>
-      :root {
-        color-scheme: light dark;
-
-        --background-light: oklch(0.975 0.008 80);
-        --foreground-light: oklch(0.22 0.02 50);
-        --background-dark: oklch(0.18 0.012 50);
-        --foreground-dark: oklch(0.92 0.008 75);
+      html {
+        background: #d4d0c6;
       }
 
-      body {
-        color: light-dark(var(--foreground-light), var(--foreground-dark));
-        background-color: light-dark(var(--background-light), var(--background-dark));
+      @media (prefers-color-scheme: dark) {
+        html {
+          background: #1a1a1a;
+        }
       }
     </style>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('kotleni:theme');
+          var isDark =
+            stored === 'dark' ||
+            (stored !== 'light' &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+          document.documentElement.classList.toggle('dark', isDark);
+          document.documentElement.style.colorScheme = isDark
+            ? 'dark'
+            : 'light';
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute('content', isDark ? '#1a1a1a' : '#d4d0c6');
+        } catch (error) {
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
