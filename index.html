@@ -8,35 +8,36 @@
       name="description"
       content="Personal website of Viktor Varenik (@kotleni) — software engineer writing about web tooling, infrastructure and Linux."
     />
-    <meta name="theme-color" content="#d4d0c6" />
+    <meta name="theme-color" content="#faf2ee" />
     <title>kotleni's web</title>
     <style>
       html {
-        background: #d4d0c6;
+        background: #faf2ee;
       }
 
       @media (prefers-color-scheme: dark) {
         html {
-          background: #1a1a1a;
+          background: #221c24;
         }
       }
     </style>
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('kotleni:theme');
-          var isDark =
-            stored === 'dark' ||
-            (stored !== 'light' &&
+          var stored = localStorage.getItem('y2k-theme');
+          var mode =
+            stored === 'light' || stored === 'dark' ? stored : 'auto';
+          var dark =
+            mode === 'dark' ||
+            (mode === 'auto' &&
               window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-          document.documentElement.classList.toggle('dark', isDark);
-          document.documentElement.style.colorScheme = isDark
+          document.documentElement.dataset.theme = mode;
+          document.documentElement.style.colorScheme = dark
             ? 'dark'
             : 'light';
           document
             .querySelector('meta[name="theme-color"]')
-            .setAttribute('content', isDark ? '#1a1a1a' : '#d4d0c6');
+            .setAttribute('content', dark ? '#221c24' : '#faf2ee');
         } catch (error) {
         }
       })();

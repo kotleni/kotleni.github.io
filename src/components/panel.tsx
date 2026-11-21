@@ -10,16 +10,11 @@ interface PanelProps {
 
 export function Panel({title, className, bodyClassName, children}: PanelProps) {
     return (
-        <section className={cn('win', className)}>
-            <h2 className="titlebar">
-                {title}
-                <span className="titlebar-buttons" aria-hidden="true">
-                    <span className="titlebar-button" />
-                    <span className="titlebar-button" />
-                    <span className="titlebar-button" />
-                </span>
-            </h2>
-            <div className={cn('p-4', bodyClassName)}>{children}</div>
+        <section className={cn('docs-section', className)}>
+            <h2 className="docs-section-title">{title}</h2>
+            <div className={cn('docs-section-body', bodyClassName)}>
+                {children}
+            </div>
         </section>
     );
 }

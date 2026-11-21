@@ -1,18 +1,8 @@
-import {PageNavigationLink} from '@/components/page-nav-link';
 import {Link} from 'react-router-dom';
+import {ScrollToTop} from '@/components/scroll-to-top';
+import {Sidebar} from '@/components/sidebar';
 import {SiteFooter} from '@/components/site-footer';
 import {ThemeToggle} from '@/components/theme-toggle';
-import {Ticker} from '@/components/ticker';
-
-interface NavLinkInfo {
-    title: string;
-    url: string;
-}
-
-const navLinks: NavLinkInfo[] = [
-    {title: 'about', url: '/'},
-    {title: 'blog', url: '/blog'},
-];
 
 export function RootLayoutContent({
     children,
@@ -20,35 +10,29 @@ export function RootLayoutContent({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4 sm:px-6">
-            <Ticker />
-            <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
-                <Link
-                    to="/"
-                    className="flex items-center gap-2 text-sm font-bold text-foreground no-underline"
-                >
-                    <span
-                        aria-hidden="true"
-                        className="win flex size-6 items-center justify-center text-[0.7rem]"
-                    >
-                        k
-                    </span>
-                    kotleni
-                </Link>
-                <div className="ml-auto flex items-center gap-1.5">
-                    <nav className="flex items-center gap-1">
-                        {navLinks.map(link => (
-                            <PageNavigationLink
-                                key={link.url}
-                                title={link.title}
-                                url={link.url}
-                            />
-                        ))}
-                    </nav>
+        <div className="docs-page">
+            <ScrollToTop />
+            <a href="#main-content" className="docs-skip-link">
+                skip to content
+            </a>
+            <header className="docs-topbar">
+                <div className="docs-topbar-inner">
+                    <Link to="/" className="docs-brand">
+                        kotleni
+                    </Link>
                     <ThemeToggle />
                 </div>
             </header>
-            <main className="flex-1 py-6">{children}</main>
+            <div className="docs-body">
+                <div className="docs-layout">
+                    <aside className="docs-side">
+                        <Sidebar />
+                    </aside>
+                    <main id="main-content" className="docs-main">
+                        {children}
+                    </main>
+                </div>
+            </div>
             <SiteFooter />
         </div>
     );

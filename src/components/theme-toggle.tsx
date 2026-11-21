@@ -1,35 +1,70 @@
-import {cn} from '@/lib/utils';
-import {themeLabels, themePreferences, useTheme} from '@/lib/theme';
+import {useEffect, useState} from 'react';
+
+type ThemeMode = 'light' | 'dark' | 'auto';
+
+const STORAGE_KEY = 'y2k-theme';
+
+const modes: ThemeMode[] = ['light', 'dark', 'auto'];
+
+function readMode(): ThemeMode {
+    try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'light' || stored === 'dark' || stored === 'auto') {
+            return stored;
+        }
+    } catch {
+        return 'auto';
+    }
+    return 'auto';
+}
+
+function applyMode(mode: ThemeMode) {
+    const dark =
+        mode === 'dark' ||
+        (mode === 'auto' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = mode;
+    document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+    document
+        .querySelector('meta[name="theme-color"]')
+        ?.setAttribute('content', dark ? '#221c24' : '#faf2ee');
+}
 
 export function ThemeToggle() {
-    const {preference, theme, setPreference} = useTheme();
+    const [mode, setMode] = useState<ThemeMode>(readMode);
+
+    useEffect(() => {
+        applyMode(mode);
+    }, [mode]);
+
+    const choose = (next: ThemeMode) => {
+        setMode(next);
+        try {
+            localStorage.setItem(STORAGE_KEY, next);
+        } catch {
+            return;
+        }
+    };
 
     return (
-        <div
-            className="win flex items-center p-0.5"
-            role="group"
-            aria-label="color theme"
-        >
-            {themePreferences.map(option => (
-                <button
-                    key={option}
-                    type="button"
-                    onClick={() => setPreference(option)}
-                    aria-pressed={preference === option}
-                    title={`${themeLabels[option]} theme`}
-                    className={cn(
-                        'px-1 py-0.5 text-[0.65rem] lowercase transition-colors',
-                        'text-muted-foreground hover:text-foreground',
-                        preference === option &&
-                            'bg-accent text-accent-foreground',
+        <span className="docs-theme-toggle">
+            <span>theme:</span>
+            {modes.map(item => (
+                <span key={item}>
+                    {item === mode ? (
+                        <b>{item}</b>
+                    ) : (
+                        <button
+                            type="button"
+                            className="docs-link-btn"
+                            aria-pressed={item === mode}
+                            onClick={() => choose(item)}
+                        >
+                            {item}
+                        </button>
                     )}
-                >
-                    {themeLabels[option]}
-                </button>
+                </span>
             ))}
-            <span className="sr-only" aria-live="polite">
-                {`${theme} theme applied`}
-            </span>
-        </div>
+        </span>
     );
 }
