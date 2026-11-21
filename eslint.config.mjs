@@ -8,7 +8,7 @@ import globals from 'globals';
 
 export default ts.config(
     {
-        ignores: ['**/dist/', '**/build/', 'backend/**'],
+        ignores: ['**/dist/', '**/build/'],
     },
     js.configs.recommended,
     ...ts.configs.recommended,

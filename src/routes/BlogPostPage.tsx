@@ -50,33 +50,30 @@ export function BlogPostPage() {
     const {slug} = useParams();
     const post = posts.find(item => item.url === slug);
     const [html, setHtml] = useState<string | undefined>(undefined);
-    const [loading, setLoading] = useState(true);
+    const [prevSlug, setPrevSlug] = useState(slug);
 
-    useEffect(() => {
+    if (slug !== prevSlug) {
+        setPrevSlug(slug);
         setHtml(undefined);
-        setLoading(true);
-
-        if (!slug) {
-            setLoading(false);
-            return;
-        }
-
-        const loader = postModules[`../markdown/${slug}.md`];
-        if (!loader) {
-            setLoading(false);
-            return;
-        }
-
-        loader()
-            .then(mod => setHtml(mod.default))
-            .finally(() => setLoading(false));
-    }, [slug]);
-
-    if (loading) {
-        return <div className="text-muted-foreground">loading...</div>;
     }
 
-    if (!post || !html) {
+    const loader = slug ? postModules[`../markdown/${slug}.md`] : undefined;
+
+    useEffect(() => {
+        if (!slug) return;
+        const current = postModules[`../markdown/${slug}.md`];
+        if (!current) return;
+
+        let cancelled = false;
+        current().then(mod => {
+            if (!cancelled) setHtml(mod.default);
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, [slug]);
+
+    if (!post || !loader) {
         return (
             <div className="flex flex-col gap-6">
                 <header className="flex flex-col gap-3">
@@ -98,6 +95,10 @@ export function BlogPostPage() {
                 </Link>
             </div>
         );
+    }
+
+    if (html === undefined) {
+        return <div className="text-muted-foreground">loading...</div>;
     }
 
     const position = posts.findIndex(item => item.url === post.url);
