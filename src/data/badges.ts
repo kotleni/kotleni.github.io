@@ -4,7 +4,6 @@ export interface Badge {
     targetUrl: string | null;
 }
 
-// https://cyber.dabamos.de/88x31/
 export const badges: Badge[] = [
     {label: 'HTML', imageUrl: '/badges/html.png', targetUrl: null},
     {
