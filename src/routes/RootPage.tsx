@@ -58,21 +58,14 @@ class BioBuilder {
 const bio = new BioBuilder()
     .base(
         'Viktor Varenik',
-        `I'm a software engineer focused on software efficiency, simplicity and freedom. I also enjoy recreational programming, reverse engineering and networking. Previously, I developed native mobile applications for Android and iOS.`,
+        `I like simple, efficient, open-source software, reverse engineering, and networking. Previously worked on native Android and iOS apps.`,
     )
-    .detail(
-        'Position',
-        () => 'Full Stack Software Engineer | Infrastructure & DevOps',
-    )
+    // .detail('Position', () => 'Open Source Contributor')
     .detail('Location', () => 'Kremenchuk, Ukraine')
     .detail('Timezone', () => getKyivTimeZoneInfo().utcOffset ?? '?')
     .detail('Age', () => <DecimalAge birthDate="2002-09-02" />)
     .detail('Devices', () => 'PC with AMD Ryzen 7 5700X, MacBook Air M1')
-    .detail(
-        'Smartphones',
-        () => 'iPhone 12, OnePlus Nord N10, Xiaomi S2 and Xiaomi Redmi Note 9',
-    )
-    .detail('OS', () => 'Arch Linux on PC and Laptop')
+    .detail('OS', () => 'Arch Linux on PC, Fedora Laptop and Servers')
     .language('English', 'Upper-Intermediate (B2)')
     .language('Ukrainian', 'Native')
     .language('Russian', 'Native')
